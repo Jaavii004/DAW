@@ -22,16 +22,13 @@ public class Ejercicio21 {
         //Variable tipo byte
         byte valor = 01;
         //Variables lógicas
-        Boolean primero = false;
+        boolean primero = false;
         boolean ultimo = true;
+        //Variable de tipo cadena de caracteres
+        String nombre = "Javier";
 
 
-
-
-
-        
-
-        //Mostrar variables enteras 
+        //Mostrar variables enteras
         System.out.println("Esto son variables enteras");
         System.out.println("p = "+p);
         System.out.println("q = "+q);
@@ -58,13 +55,12 @@ public class Ejercicio21 {
         //Mostrar Variable tipo byte
         System.out.println("Esto son variables tipo byte");
         System.out.println("valor = "+valor);
-        //Mostrar Variables double
-        System.out.println("Esto son variables double");
-        System.out.println("Raiz1 = "+raiz1);
-        System.out.println("Raiz2 = "+raiz2);
-
-
-
-
+        //Mostrar Variables logicas
+        System.out.println("Esto son variables logicas");
+        System.out.println("Primero = "+primero);
+        System.out.println("Ultimo = "+ultimo);
+        //Mostrar Variables de tipo de cadena de caracteres
+        System.out.println("Esto son variables de tipo de cadena de caracteres");
+        System.out.println("Nombre = "+nombre);
     }
 }
