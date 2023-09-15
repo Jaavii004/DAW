@@ -24,10 +24,5 @@ public class Ejercicio33 {
         System.out.println("3 * c2 = "+resultg);
         int resulth = '3' * c2; 
         System.out.println("'3' * c2 = "+resulth);
-        
-
-
-
-
     }
 }
