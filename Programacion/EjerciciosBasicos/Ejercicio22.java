@@ -15,7 +15,7 @@ public class Ejercicio22 {
         String matriculaCoche = "7585JVN";
         int contador = 25;
         boolean mayorDeEdad = true;
-        String tallaCamiseta = "12";
+        String tallaCamiseta = "XL";
 
         System.out.println("Edad = "+edad);
         System.out.println("Codigo postal = "+codigopostal);
