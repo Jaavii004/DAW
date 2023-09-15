@@ -3,16 +3,16 @@ public class Ejercicio21 {
         // Variables enteras
         int p = 100;
         int q = 200;
-        //Quiero que me explique el float
+        //Quiero que me explique el float 36
         //Variables float
         float x = 33.33f;
-        float y = 33.34F;
+        float y = 33.34f;
         float z = 33.35f;
         //Variables carácter
         char a = 'a';
         char b = 'b';
         char c = 'c';
-        //Variables double
+        //Variables double 64 bits
         double raiz1 = 1.1;
         double raiz2 = 2.2;
         //Variable entera larga
