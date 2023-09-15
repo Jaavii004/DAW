@@ -33,8 +33,5 @@ public class Ejercicio22 {
         System.out.println("Contador = "+contador);
         System.out.println("Mayor De Edad = "+mayorDeEdad);
         System.out.println("tallaCamiseta = "+tallaCamiseta);
-
-
-
     }
 }
