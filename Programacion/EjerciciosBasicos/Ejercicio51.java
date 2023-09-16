@@ -15,5 +15,5 @@ public class Ejercicio51 {
 		System.out.println("x > y && i > 0 || j < 5 =  "+(x > y && i > 0 || j < 5));
     }
 
-} 
+}
 
