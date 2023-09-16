@@ -6,13 +6,13 @@ public class Ejercicio51 {
 		float y = -0.01f;
 		char c = 'c';
 		char d = 'd';
-		System.out.println(!(c == 99));
-		System.out.println(!(x > 0));
-		System.out.println(c > d || c > 0);
-		System.out.println(i <= j && i < 5);
-		System.out.println(i > 0 && j < 5);
-		System.out.println(i > 0 || j < 5);
-		System.out.println(x > y && i > 0 || j < 5);
+		System.out.println("!(c == 99) =               "+(!(c == 99)));
+		System.out.println("!(x > 0) =                 "+(!(x > 0)));
+		System.out.println("c > d || c > 0 =           "+(c > d || c > 0));
+		System.out.println("i <= j && i < 5 =          "+(i <= j && i < 5));
+		System.out.println("i > 0 && j < 5 =           "+(i > 0 && j < 5));
+		System.out.println("i > 0 || j < 5 =           "+(i > 0 || j < 5));
+		System.out.println("x > y && i > 0 || j < 5 =  "+(x > y && i > 0 || j < 5));
     }
 
 } 
