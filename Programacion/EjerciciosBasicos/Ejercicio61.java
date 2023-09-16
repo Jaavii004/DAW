@@ -4,7 +4,7 @@ class Ejercicio61 {
         short s = 233;
         long ln = 2343434;
         int i  = 54;
-       	int j = 66 ;
+        int j = 66 ;
         float f = 54.4f;
         double d = 123.45;
         char c = 'c';
