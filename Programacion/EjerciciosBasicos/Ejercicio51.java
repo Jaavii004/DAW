@@ -1,6 +1,6 @@
 public class Ejercicio51 {
     public static void main(String[] args) {
-	        int i = 8;
+	    int i = 8;
 		int j = 5;
 		float x = 0.005f;
 		float y = -0.01f;
