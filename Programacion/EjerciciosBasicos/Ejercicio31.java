@@ -2,7 +2,7 @@ public class Ejercicio31 {
     public static void main(String[] args) {
         int a = 8;
         int b = 3;
-        int c = 5;
+        int c = -5;
         int resulta = a + b + c;
         System.out.println("a + b + c = "+resulta);
         int resultb = 2 * b + 3* (a - c); 
