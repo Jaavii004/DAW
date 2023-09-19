@@ -4,7 +4,6 @@ class Ejercicio05 {
         String nombre = nombrec[0];
         String primerape = nombrec[1];
         String segundoape = nombrec[2];
-
         System.out.println("Mi nombre es "+nombre+". Mi primer apellido es "+primerape+". Y mi segundo apellido es "+segundoape);
     }
 }
