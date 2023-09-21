@@ -14,8 +14,5 @@ class Ejercicio01 {
         indice = peso / elevado;
         indice =Math.rint(indice*1000)/1000;
         System.out.println("Su indice de masa corporal es "+indice);
-
-
-
     }
 }
