@@ -42,8 +42,5 @@ class Ejercicio04 {
         int numitotal = patasaracnidos + patasciempies + patascrustaceos + patasinsectos + patasmilpies ;
 
         System.out.println("Numero total de patas es de "+numitotal);
-
-
-
     }
 }
