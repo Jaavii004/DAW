@@ -15,6 +15,13 @@ class Ejercicio04 {
     
         System.out.println("En la cazuela caben "+numicazuela+" huevos.");
         System.out.println("Quieres cocer "+numihuevos+" huevos.");
-
+        boolean pasado = numicazuela <= numihuevos;
+        if ( pasado ) {
+            double cazuelas = numihuevos / numicazuela;
+            cazuelas = cazuelas * 10;
+            System.out.println("Tardaras en cocer todos los huevos "+cazuelas);
+        } else {
+            
+        }
     }
 }
