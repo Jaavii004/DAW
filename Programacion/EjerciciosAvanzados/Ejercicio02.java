@@ -12,7 +12,7 @@ class Ejercicio01 {
 
         double elevado = Math.pow(altura, 2);
         indice = peso / elevado;
-        indice =Math.rint(indice*1000)/1000;
+        indice = Math.rint(indice*1000)/1000;
         System.out.println("Su indice de masa corporal es "+indice);
     }
 }
