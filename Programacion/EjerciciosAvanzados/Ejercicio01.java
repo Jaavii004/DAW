@@ -5,7 +5,6 @@ class Ejercicio01 {
         int num;
         System.out.print("Tabla: ");
         num = sc.nextInt();
-        System.out.println(num+" * 1 = "+(num * 0));
         System.out.println(num+" * 1 = "+(num * 1));
         System.out.println(num+" * 2 = "+(num * 2));
         System.out.println(num+" * 3 = "+(num * 3));
