@@ -17,5 +17,4 @@ class Ejercicio01 {
         System.out.println(num+" * 9 = "+(num * 9));
         System.out.println(num+" * 10 = "+(num * 10));
     }
-
 }
