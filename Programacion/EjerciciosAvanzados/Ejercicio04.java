@@ -29,7 +29,8 @@ class Ejercicio04 {
         numiciempies = sc.nextInt();
         System.out.print("Numero de segmentos = ");
         numisegmentosciempies = sc.nextInt();
-        System.out.println("Los "+numiciempies+" ciempiés de "+numisegmentosciempies+" segmentos tienen  "+patascrustaceos+" patas.\n");
+        int patasciempies = (numiciempies * numisegmentosciempies * 2);
+        System.out.println("Los "+numiciempies+" ciempiés de "+numisegmentosciempies+" segmentos tienen  "+patasciempies+" patas.\n");
 
         System.out.print("Numero de milpies = ");
         numimilpies = sc.nextInt();
