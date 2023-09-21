@@ -22,7 +22,7 @@ class Ejercicio04 {
 
         System.out.print("Numero de crustáceos = ");
         numicrustaceos = sc.nextInt();
-        int patascrustaceos = (numicrustaceos * 8);
+        int patascrustaceos = (numicrustaceos * 10);
         System.out.println("Los "+numicrustaceos+" crustáceos tienen "+patascrustaceos+" patas.\n");
 
         System.out.print("Numero de ciempiés = ");
@@ -34,9 +34,14 @@ class Ejercicio04 {
 
         System.out.print("Numero de milpies = ");
         numimilpies = sc.nextInt();
+        System.out.print("Numero de segmentos = ");
         numisegmentosmilpies = sc.nextInt();
+        int patasmilpies = (numimilpies * numisegmentosmilpies * 4);
+        System.out.println("Los "+numimilpies+" ciempiés de "+numisegmentosmilpies+" segmentos tienen  "+patasmilpies+" patas.\n");
 
+        int numitotal = patasaracnidos + patasciempies + patascrustaceos + patasinsectos + patasmilpies ;
 
+        System.out.println(numitotal);
 
 
 
