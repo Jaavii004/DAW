@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Ejercicio01 {
+class Ejercicio02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         double altura;

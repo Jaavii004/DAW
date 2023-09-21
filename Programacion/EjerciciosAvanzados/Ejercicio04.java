@@ -1,5 +1,5 @@
 import java.util.*;
-class Ejercicio01 {
+class Ejercicio04 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
         double a;
