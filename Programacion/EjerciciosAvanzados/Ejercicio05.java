@@ -2,12 +2,17 @@ import java.util.*;
 class Ejercicio04 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
-        int numinsectos;
+        int numicazuela;
 
-        System.out.print("Numero de insectos = ");
-        numinsectos = sc.nextInt();
-        int patasinsectos = (numinsectos * 6);
-        System.out.println("Los "+numinsectos+" insectos tienen "+patasinsectos+" patas.\n");
+        System.out.print("Cuantos huevos caben en la cazuela? ");
+        numicazuela = sc.nextInt();
+
+        System.out.print("Cuantos huevos quieres cocer? ");
+        numicazuela = sc.nextInt();
+        
+
+    
+        System.out.println("En la cazuela caben "+numicazuela+" huevos");
 
     }
 }
