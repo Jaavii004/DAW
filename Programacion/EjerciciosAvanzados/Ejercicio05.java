@@ -10,18 +10,20 @@ class Ejercicio04 {
 
         System.out.print("Cuantos huevos quieres cocer? ");
         numihuevos = sc.nextInt();
-        
 
-    
         System.out.println("En la cazuela caben "+numicazuela+" huevos.");
         System.out.println("Quieres cocer "+numihuevos+" huevos.");
-        boolean pasado = numicazuela <= numihuevos;
-        if ( pasado ) {
-            double cazuelas = numihuevos / numicazuela;
+
+        int pasado = (numihuevos % numicazuela);
+        if ( pasado == 0 ) {
+            int cazuelas = numihuevos / numicazuela;
             cazuelas = cazuelas * 10;
-            System.out.println("Tardaras en cocer todos los huevos "+cazuelas);
+            System.out.println("Tardaras en cocer todos los huevos "+cazuelas+" minutos");
         } else {
-            
+            int cazuelas = numihuevos / numicazuela;
+            cazuelas = cazuelas + 1;
+            cazuelas = cazuelas * 10;
+            System.out.println("Tardaras en cocer todos los huevos "+cazuelas+" minutos");
         }
     }
 }
