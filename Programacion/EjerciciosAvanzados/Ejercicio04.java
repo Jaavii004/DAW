@@ -2,26 +2,42 @@ import java.util.*;
 class Ejercicio04 {
     public static void main(String[] args) {
         Scanner sc = new Scanner (System.in);
-        double a;
-        double b;
-        double c;
-        double x;
-        double x2;
-        double resul;
-        System.out.print("a = ");
-        a = sc.nextDouble();
-        System.out.print("b = ");
-        b = sc.nextDouble();
-        System.out.print("c = ");
-        c = sc.nextDouble();
-        resul = Math.pow(b, 2);
-        resul = resul - 4 * a * c;
-        resul = Math.sqrt(resul);
-        x = (-b + resul)/ (2 * a);
-        x2 = (-b - resul)/ (2 * a);
+        int numinsectos;
+        int numiaracnidos;
+        int numicrustaceos;
+        int numiciempies;
+        int numimilpies;
+        int numisegmentosciempies;
+        int numisegmentosmilpies;
 
-        System.out.println("x = "+x);
-        System.out.println("x2 = "+x2);
+        System.out.print("Numero de insectos = ");
+        numinsectos = sc.nextInt();
+        int patasinsectos = (numinsectos * 6);
+        System.out.println("Los "+numinsectos+" insectos tienen "+patasinsectos+" patas.\n");
+
+        System.out.print("Numero de arácnidos = ");
+        numiaracnidos = sc.nextInt();
+        int patasaracnidos = (numiaracnidos * 8);
+        System.out.println("Los "+numiaracnidos+" arácnidos tienen "+patasaracnidos+" patas.\n");
+
+        System.out.print("Numero de crustáceos = ");
+        numicrustaceos = sc.nextInt();
+        int patascrustaceos = (numicrustaceos * 8);
+        System.out.println("Los "+numicrustaceos+" crustáceos tienen "+patascrustaceos+" patas.\n");
+
+        System.out.print("Numero de ciempiés = ");
+        numiciempies = sc.nextInt();
+        System.out.print("Numero de segmentos = ");
+        numisegmentosciempies = sc.nextInt();
+        System.out.println("Los "+numiciempies+" ciempiés de "+numisegmentosciempies+" segmentos tienen  "+patascrustaceos+" patas.\n");
+
+        System.out.print("Numero de milpies = ");
+        numimilpies = sc.nextInt();
+        numisegmentosmilpies = sc.nextInt();
+
+
+
+
 
     }
 }
