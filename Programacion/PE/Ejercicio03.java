@@ -11,17 +11,16 @@ public class Ejercicio03 {
         System.out.print("Ingrese un número entero de hasta 6 dígitos: ");
         numero = sc.nextInt();
         numeroComoCadena = Integer.toString(numero);
-        
+
         for (char digito : numeroComoCadena.toCharArray()) {
             cantidadDigitos++;
         }
-        
+
         if (cantidadDigitos < 7){
             System.out.println("El número "+numero+" tiene "+cantidadDigitos+" dígitos.");
         }else{
             System.out.println("El número "+numero+" tiene un numero de digitos incorrecto");
         }
-        
 
     }
 }
