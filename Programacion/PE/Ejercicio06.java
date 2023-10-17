@@ -1,22 +1,31 @@
 import java.util.Scanner;
 
-public class Ejercicio05 {
+public class Ejercicio06 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int primdia;
-        int primhora;
-        int segundia;
-        int segunhora;
+        int PrimDia;
+        int PrimHora;
+        int SegDia;
+        int SegHora;
+        int Diahora;
+        int Horas;
+        int total;
 
-        System.out.print("Dime un numero positivo: ");
-        numero = sc.nextInt();
+        System.out.print("Primer Dia: ");
+        PrimDia = sc.nextInt();
+        System.out.print("Primera Hora: ");
+        PrimHora = sc.nextInt();
 
-        for (i = 1; i <= numero; i++) {
-            for (j = i; j <= numero; j++) {
-                resul = i+j+i*j;
-                System.out.println(" Par ("+i+","+j+"): "+i+"+"+j+"+"+i+"*"+j+" vale "+resul);
-            }
-        }
+        System.out.print("Segundo Dia: ");
+        SegDia = sc.nextInt();
+        System.out.print("Segunda Hora: ");
+        SegHora = sc.nextInt();
+        Diahora = (SegDia - PrimDia)*24;
+        Horas = SegHora - PrimHora;
+
+        total = Diahora + Horas;
+
+        System.out.println("El total es "+total+" horas.");
 
     }
 }
