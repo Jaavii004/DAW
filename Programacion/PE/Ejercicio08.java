@@ -11,8 +11,10 @@ public class Ejercicio08 {
         System.out.println("3 - Tijeras");
         System.out.println("4 - Lagarto");
         System.out.println("5 - Spock");
-        System.out.print("Elige: ");
-        NumUsu = sc.nextInt();
+        do{
+            System.out.print("Elige: ");
+            NumUsu = sc.nextInt();
+        }while (NumUsu <= 0 || NumUsu > 5);
 
         NumPc = (int) (Math.random() * 5) + 1;
         System.out.println("Random salio: "+NumPc);

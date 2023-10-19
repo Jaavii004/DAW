@@ -9,8 +9,10 @@ public class Ejercicio07 {
         System.out.println("1 - Piedra");
         System.out.println("2 - Papel");
         System.out.println("3 - Tijeras");
-        System.out.print("Elige: ");
-        NumUsu = sc.nextInt();
+        do{
+            System.out.print("Elige: ");
+            NumUsu = sc.nextInt();
+        }while (NumUsu <= 0 || NumUsu > 3);
 
         NumPc = (int) (Math.random() * 3) + 1;
         System.out.println("Random salio: "+NumPc);
