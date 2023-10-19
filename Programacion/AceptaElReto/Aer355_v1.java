@@ -7,7 +7,7 @@ public class Aer355_v1 {
         Scanner sc = new Scanner(System.in);
         NumAlt = sc.nextInt();
         for (int i = 1; i <= NumAlt; i++) {
-            do{ 
+            do{
                 anio = sc.nextInt();
             }while (anio <= 1581 || anio > 100000);
             if ((anio % 4 == 0) && (anio % 100 != 0 || anio % 400 == 0)){
