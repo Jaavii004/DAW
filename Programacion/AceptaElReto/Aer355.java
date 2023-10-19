@@ -18,6 +18,6 @@ public class Aer355 {
                 muestreo += "\n";
             }
         }
-        System.out.print(muestreo); 
+        System.out.print(muestreo);
     }
 }
