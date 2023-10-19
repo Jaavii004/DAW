@@ -10,22 +10,31 @@ public class Ejercicio06 {
         int Diahora;
         int Horas;
         int total;
+        do{
+            System.out.print("Primer Dia: ");
+            PrimDia = sc.nextInt();
+        }while (PrimDia <= 0 || PrimDia > 7);
 
-        System.out.print("Primer Dia: ");
-        PrimDia = sc.nextInt();
-        System.out.print("Primera Hora: ");
-        PrimHora = sc.nextInt();
+        do{
+            System.out.print("Primera Hora: ");
+            PrimHora = sc.nextInt();
+        }while (PrimHora < 0 || PrimHora > 23);
 
-        System.out.print("Segundo Dia: ");
-        SegDia = sc.nextInt();
-        System.out.print("Segunda Hora: ");
-        SegHora = sc.nextInt();
+        do{
+            System.out.print("Segundo Dia: ");
+            SegDia = sc.nextInt();
+        }while (SegDia <= 0 || SegDia > 7);
+
+        do{
+            System.out.print("Segunda Hora: ");
+            SegHora = sc.nextInt();
+        }while (SegHora < 0 || SegHora > 23);
+
         Diahora = (SegDia - PrimDia)*24;
         Horas = SegHora - PrimHora;
 
         total = Diahora + Horas;
 
         System.out.println("El total es "+total+" horas.");
-
     }
 }
