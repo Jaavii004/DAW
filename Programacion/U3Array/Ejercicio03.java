@@ -5,54 +5,40 @@ public class Ejercicio03 {
     public static void main(String[] args) {
         int filas = 4;
         int columnas = 4;
-        int[][] matriz = new int[filas][columnas];
+        int[][] num = new int[filas][columnas];
+        boolean simetrica = true;
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // Ingresar elementos de la matriz
         System.out.println("Ingresa los elementos de la matriz (4x4):");
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 System.out.print("Elemento en la posición [" + i + "][" + j + "]: ");
-                matriz[i][j] = scanner.nextInt();
+                num[i][j] = sc.nextInt();
             }
         }
-
-        // Verificar si la matriz es simétrica
-        boolean esSimetrica = true;
+  
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                if (matriz[i][j] != matriz[j][i]) {
-                    esSimetrica = false;
+                if (num[i][j] != num[j][i]) {
+                    simetrica = false;
                     break;
                 }
             }
-            if (!esSimetrica) {
-                break;
-            }
         }
-
-        // Mostrar la matriz
-        System.out.println("La matriz ingresada es:");
-        mostrarMatriz(matriz);
-
-        // Mostrar si es simétrica o no
-        if (esSimetrica) {
-            System.out.println("La matriz es simétrica.");
+        if (simetrica) {
+            System.out.println("La matriz es simétrica");
         } else {
-            System.out.println("La matriz no es simétrica.");
+            System.out.println("La matriz no es simétrica");
         }
-    }
-
-    public static void mostrarMatriz(int[][] matriz) {
-        int filas = matriz.length;
-        int columnas = matriz[0].length;
-
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                System.out.print(matriz[i][j] + " ");
+        System.out.print("\n");
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(num[i][j] + " ");
             }
-            System.out.println();
+            System.out.print("\n");
         }
+        
     }
 }
