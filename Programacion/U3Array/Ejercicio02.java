@@ -38,12 +38,12 @@ public class Ejercicio02 {
             System.out.println("Jugador (1):");
             while (ComprobarUsu) {
                 do {
-                    System.out.print("Introduce una fila: (0-2)");
+                    System.out.print("Introduce una fila(0-2): ");
                     fila = sc.nextInt();
                 } while (fila < 0 || fila > 2);
 
                 do {
-                    System.out.print("Introduce una columna: (0-2)");
+                    System.out.print("Introduce una columna(0-2): ");
                     columna = sc.nextInt();
                 } while (columna < 0 || columna > 2);
                 if (raya[fila][columna] == 0) {
