@@ -38,12 +38,12 @@ public class Ejercicio02 {
             System.out.println("Jugador (1):");
             while (ComprobarUsu) {
                 do {
-                    System.out.println("Introduce una fila: (0-2)");
+                    System.out.print("Introduce una fila: (0-2)");
                     fila = sc.nextInt();
                 } while (fila < 0 || fila > 2);
 
                 do {
-                    System.out.println("Introduce una columna: (0-2)");
+                    System.out.print("Introduce una columna: (0-2)");
                     columna = sc.nextInt();
                 } while (columna < 0 || columna > 2);
                 if (raya[fila][columna] == 0) {
@@ -95,14 +95,14 @@ public class Ejercicio02 {
             }
 
             // Gana maquina en diagonal
-            if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][1] == 1) {
+            if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][2] == 1) {
                 System.out.println("GANA JUGADOR");
                 posivilidades = 100;
                 ganador = true;
                 break;
             }
 
-            if (raya[0][2] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
+            if (raya[2][0] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
                 System.out.println("GANA JUGADOR");
                 posivilidades = 100;
                 ganador = true;
@@ -130,14 +130,14 @@ public class Ejercicio02 {
             }
 
             // Gana maquina en diagonal
-            if (raya[0][0] == 2 && raya[1][1] == 2 && raya[2][1] == 2) {
+            if (raya[0][0] == 2 && raya[1][1] == 2 && raya[2][2] == 2) {
                 System.out.println("GANA MAQUINA");
                 posivilidades = 100;
                 ganador = true;
                 break;
             }
 
-            if (raya[0][2] == 2 && raya[1][1] == 2 && raya[0][2] == 2) {
+            if (raya[2][0] == 2 && raya[1][1] == 2 && raya[0][2] == 2) {
                 System.out.println("GANA MAQUINA");
                 posivilidades = 100;
                 ganador = true;
