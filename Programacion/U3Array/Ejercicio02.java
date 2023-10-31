@@ -117,7 +117,7 @@ public class Ejercicio02 {
                         ganador = true;
                     }
                 }
-
+ 
                 // Gana Maquina en linia horizontal
                 for (int i = 0; i < 3; i++) {
                     if (raya[0][i] == 2 && raya[1][i] == 2 && raya[2][i] == 2) {
