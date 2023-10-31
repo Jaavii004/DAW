@@ -1,4 +1,3 @@
-package Programacion.U3Array;
 import java.util.Scanner;
 
 public class Ejercicio08 {
