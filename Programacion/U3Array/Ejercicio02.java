@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Ejercicio02 {
     public static void main(String[] args) {
@@ -64,66 +63,69 @@ public class Ejercicio02 {
 
             posibiliddades = posibiliddades + 2;
 
-            // Gana usuario en linia vertical
-            for (int i = 0; i < 3; i++) {
-                if (raya[i][0] == 1 && raya[i][1] == 1 && raya[i][2] == 1) {
+            if (!ganador) {            
+                // Gana usuario en linia vertical
+                for (int i = 0; i < 3; i++) {
+                    if (raya[i][0] == 1 && raya[i][1] == 1 && raya[i][2] == 1) {
+                        System.out.println("GANA JUGADOR");
+                        posibiliddades = 100;
+                        ganador = true;
+                    }
+                }
+                // Gana usuario en linia horizontal
+                for (int i = 0; i < 3; i++) {
+                    if (raya[0][i] == 1 && raya[1][i] == 1 && raya[2][i] == 1) {
+                        System.out.println("GANA JUGADOR");
+                        posibiliddades = 100;
+                        ganador = true;
+                    }
+                }
+                // Gana maquina en diagonal
+                if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][2] == 1) {
                     System.out.println("GANA JUGADOR");
-                    posibiliddades =  100;
+                    posibiliddades = 100;
                     ganador = true;
                 }
-            }
 
-            // Gana usuario en linia horizontal
-            for (int i = 0; i < 3; i++) {
-                if (raya[0][i] == 1 && raya[1][i] == 1 && raya[2][i] == 1) {
+                if (raya[2][0] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
                     System.out.println("GANA JUGADOR");
-                    posibiliddades =  100;
+                    posibiliddades = 100;
                     ganador = true;
                 }
+
             }
 
-            // Gana maquina en diagonal
-            if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][2] == 1) {
-                System.out.println("GANA JUGADOR");
-                posibiliddades =  100;
-                ganador = true;
-            }
-
-            if (raya[2][0] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
-                System.out.println("GANA JUGADOR");
-                posibiliddades =  100;
-                ganador = true;
-            }
-
-            // Gana Maquina en linia vertical
-            for (int i = 0; i < 3; i++) {
-                if (raya[i][0] == 2 && raya[i][1] == 2 && raya[i][2] == 2) {
+            if (!ganador) {
+                // Gana maquina en diagonal
+                if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][2] == 1) {
                     System.out.println("GANA MAQUINA");
-                    posibiliddades =  100;
+                    posibiliddades = 100;
                     ganador = true;
                 }
-            }
 
-            // Gana Maquina en linia horizontal
-            for (int i = 0; i < 3; i++) {
-                if (raya[0][i] == 2 && raya[1][i] == 2 && raya[2][i] == 2) {
+                if (raya[2][0] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
                     System.out.println("GANA MAQUINA");
-                    posibiliddades =  100;
+                    posibiliddades = 100;
                     ganador = true;
                 }
-            }
 
-            // Gana maquina en diagonal
-            if (raya[0][0] == 2 && raya[1][1] == 2 && raya[2][2] == 2) {
-                System.out.println("GANA MAQUINA");
-                posibiliddades =  100;
-                ganador = true;
-            }
+                // Gana Maquina en linia vertical
+                for (int i = 0; i < 3; i++) {
+                    if (raya[i][0] == 2 && raya[i][1] == 2 && raya[i][2] == 2) {
+                        System.out.println("GANA MAQUINA");
+                        posibiliddades = 100;
+                        ganador = true;
+                    }
+                }
 
-            if (raya[2][0] == 2 && raya[1][1] == 2 && raya[0][2] == 2) {
-                System.out.println("GANA MAQUINA");
-                posibiliddades =  100;
-                ganador = true;
+                // Gana Maquina en linia horizontal
+                for (int i = 0; i < 3; i++) {
+                    if (raya[0][i] == 2 && raya[1][i] == 2 && raya[2][i] == 2) {
+                        System.out.println("GANA MAQUINA");
+                        posibiliddades = 100;
+                        ganador = true;
+                    }
+                }
             }
         }
         if (!ganador) {
