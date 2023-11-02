@@ -56,6 +56,8 @@ public class Ejercicio02 {
             }
             raya[fila][columna] = 1;
             // Vamos a combrobar ganador usuario
+            // Limpiar la pantalla
+            System.out.print("\033[H\033[2J");
             if (!ganador) {            
                 // Gana usuario en linia vertical
                 for (int i = 0; i < 3; i++) {
@@ -77,7 +79,8 @@ public class Ejercicio02 {
                 if (raya[0][0] == 1 && raya[1][1] == 1 && raya[2][2] == 1) {
                     System.out.println("GANA JUGADOR");
                     posibiliddades = 100;
-                    ganador = true;
+                    ganador = 
+                    true;
                 }
 
                 if (raya[2][0] == 1 && raya[1][1] == 1 && raya[0][2] == 1) {
