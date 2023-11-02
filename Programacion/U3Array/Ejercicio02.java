@@ -18,18 +18,23 @@ public class Ejercicio02 {
             ComprobarMaq = true;
             System.out.println("Persona = 1");
             System.out.println("Maquina = 2");
+            System.out.println("\u250c\u2500\u252C\u2500\u252C\u2500\u2510");
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
+                    if (j == 0){
+                        System.out.print("\u2502");
+                    }
                     System.out.print(raya[i][j]);
                     if (j < 2) {
-                        System.out.print(" | ");
+                        System.out.print("\u2502");
                     }
                 }
-                System.out.println();
+                System.out.println("\u2502");
                 if (i < 2) {
-                    System.out.println("---------");
+                    System.out.println("\u251C\u2500\u253C\u2500\u253C\u2500\u2524");
                 }
             }
+            System.out.println("\u2514\u2500\u2534\u2500\u2534\u2500\u2518");
             // Turno del jugador
             System.out.println("Jugador (1):");
             while (ComprobarUsu) {
@@ -62,6 +67,8 @@ public class Ejercicio02 {
             raya[fila][columna] = 2;
 
             posibiliddades = posibiliddades + 2;
+            // Limpiar la pantalla
+            System.out.print("\033[H\033[2J");
 
             if (!ganador) {            
                 // Gana usuario en linia vertical
@@ -128,8 +135,28 @@ public class Ejercicio02 {
                 }
             }
         }
+        
         if (!ganador) {
             System.out.println("No hay ganador");
+        }else{
+            
+            System.out.println("\u250c\u2500\u252C\u2500\u252C\u2500\u2510");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (j == 0){
+                        System.out.print("\u2502");
+                    }
+                    System.out.print(raya[i][j]);
+                    if (j < 2) {
+                        System.out.print("\u2502");
+                    }
+                }
+                System.out.println("\u2502");
+                if (i < 2) {
+                    System.out.println("\u251C\u2500\u253C\u2500\u253C\u2500\u2524");
+                }
+            }
+            System.out.println("\u2514\u2500\u2534\u2500\u2534\u2500\u2518");
         }
     }
 }
