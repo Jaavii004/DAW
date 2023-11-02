@@ -91,8 +91,6 @@ public class Ejercicio02 {
 
             }
             // Acabamos de comprobar
-
-
             if (!ganador) {
                 // Turno de la maq
                 while (ComprobarMaq) {
