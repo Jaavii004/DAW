@@ -55,21 +55,7 @@ public class Ejercicio02 {
 
             }
             raya[fila][columna] = 1;
-
-            // Turno de la maq
-            while (ComprobarMaq) {
-                fila = (int) (Math.random() * 3);
-                columna = (int) (Math.random() * 3);
-                if (raya[fila][columna] == 0) {
-                    ComprobarMaq = false;
-                }
-            }
-            raya[fila][columna] = 2;
-
-            posibiliddades = posibiliddades + 2;
-            // Limpiar la pantalla
-            System.out.print("\033[H\033[2J");
-
+            // Vamos a combrobar ganador usuario
             if (!ganador) {            
                 // Gana usuario en linia vertical
                 for (int i = 0; i < 3; i++) {
@@ -101,6 +87,22 @@ public class Ejercicio02 {
                 }
 
             }
+            // Acabamos de comprobar
+
+
+            if (!ganador) {
+                // Turno de la maq
+                while (ComprobarMaq) {
+                    fila = (int) (Math.random() * 3);
+                    columna = (int) (Math.random() * 3);
+                    if (raya[fila][columna] == 0) {
+                        ComprobarMaq = false;
+                    }
+                }
+                raya[fila][columna] = 2;
+            }
+
+            posibiliddades = posibiliddades + 2;
 
             if (!ganador) {
                 // Gana maquina en diagonal
