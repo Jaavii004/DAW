@@ -4,31 +4,27 @@ public class CalculadoraRPN {
 
     public static void main(String[] args) {
         double[] registros = new double[4];
+	char[] letras = {'D', 'C', 'B' ,'A'};
         int registroActual = 0;
         Scanner scanner = new Scanner(System.in);
-        boolean salir = false;
+        boolean salir = true;
 
-        while (!salir) {
-            System.out.print("Pila (D C B A): ");
+        while (salir) {
+	    
             for (int i = 3; i >= 0; i--) {
-                System.out.print(registros[i] + " ");
+		System.out.print(letras[i] + " ");
+                System.out.println(registros[i] + " ");
             }
-            System.out.println();
 
-            System.out.print("Ingrese número o operador (Q para salir): ");
+            System.out.print("Pon numero (Q para salir): ");
             String input = scanner.next();
 
             if (input.equalsIgnoreCase("Q")) {
-                salir = true;
-            } else if (input.matches("-?\\d+(\\.\\d+)?")) {
-                double numero = Double.parseDouble(input);
-                registros[registroActual] = numero;
-                registroActual = (registroActual + 1) % 4;
+                salir = false;
             } else {
-                if (registroActual < 2) {
-                    System.out.println("Error: Se requieren al menos 2 números en la pila.");
-                    continue;
-                }
+		double numero = Double.parseDouble(input);
+		registros[registroActual] = numero;
+                registroActual = (registroActual + 1) % 4;
 
                 double b = registros[(registroActual - 1 + 4) % 4];
                 double a = registros[(registroActual - 2 + 4) % 4];
@@ -46,12 +42,8 @@ public class CalculadoraRPN {
                         break;
                     case "/":
                         if (b == 0) {
-                            System.out.println("Error: División por cero.");
-                            registros[registroActual] = a;
-                            registroActual = (registroActual + 1) % 4;
-                            registros[registroActual] = b;
-                            registroActual = (registroActual + 1) % 4;
-                            continue;
+                            System.out.println("Error: No se dividir.");
+                            
                         } else {
                             resultado = a / b;
                         }
