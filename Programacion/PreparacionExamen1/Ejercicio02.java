@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejercicio01 {
+public class Ejercicio02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // Creo el array de 15 elementos
