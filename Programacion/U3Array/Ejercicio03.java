@@ -6,9 +6,7 @@ public class Ejercicio03 {
         int columnas = 4;
         int[][] num = new int[filas][columnas];
         boolean simetrica = true;
-
         Scanner sc = new Scanner(System.in);
-
         // Ingresar elementos de la matriz
         System.out.println("Ingresa los elementos de la matriz (4x4):");
         for (int i = 0; i < filas; i++) {
@@ -17,7 +15,6 @@ public class Ejercicio03 {
                 num[i][j] = sc.nextInt();
             }
         }
-  
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 if (num[i][j] != num[j][i]) {
@@ -38,6 +35,5 @@ public class Ejercicio03 {
             }
             System.out.print("\n");
         }
-        
     }
 }
