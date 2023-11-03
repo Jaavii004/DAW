@@ -4,7 +4,7 @@ public class Ejercicio02 {
     public static void main(String[] args) {
         int[][] raya = new int[3][3];
         Scanner sc = new Scanner(System.in);
-        int posibiliddades = 1;
+        int posibiliddades = 0;
         int fila = 0;
         int columna = 0;
         boolean ganador = false;
