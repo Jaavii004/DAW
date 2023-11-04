@@ -6,7 +6,7 @@ public class Aer149 {
         int numAltera;
         int numToros;
         int numAntVel;
-        int velToros  = 0;
+        int velToros;
         int masVel = 0;
         String muestreo = "";
         System.out.print("Numero de lineas: ");
@@ -21,14 +21,17 @@ public class Aer149 {
                 numAntVel = velToros;
                 System.out.print("Velocidad de los toros: ");
                 velToros = sc.nextInt();
-                if (numAntVel < velToros) {
+                if (numAntVel <= velToros) {
                     masVel = velToros;
+                    System.out.println(masVel);
                 }
             }
             muestreo += masVel;
             muestreo += "\n";
         }
+        // Limpiar la pantalla
+        System.out.print("\033[H\033[2J");
+        System.out.println("Salida:");
         System.out.print(muestreo);
-        
     }
 }
