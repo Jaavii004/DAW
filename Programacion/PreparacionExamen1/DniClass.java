@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DNIClass {
+public class DniClass {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int Dni;

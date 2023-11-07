@@ -1,4 +1,4 @@
-public class ChuletaJava {
+public class chuleta {
     public static void main(String[] args) {
         // Estructura básica de un programa Java
         System.out.println("Hola, mundo!");
