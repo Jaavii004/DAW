@@ -4,7 +4,6 @@ public class Ejercicio03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int numero;
-        int numeroAbsoluto;
         int cantidadDigitos = 0;
         String numeroComoCadena;
 

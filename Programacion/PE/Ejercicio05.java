@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Ejercicio05 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int primdia;
-        int primhora;
-        int segundia;
-        int segunhora;
+        int numero;
+        int i;
+        int j;
+        int resul;
 
         System.out.print("Dime un numero positivo: ");
         numero = sc.nextInt();
@@ -17,6 +17,5 @@ public class Ejercicio05 {
                 System.out.println(" Par ("+i+","+j+"): "+i+"+"+j+"+"+i+"*"+j+" vale "+resul);
             }
         }
-
     }
 }
