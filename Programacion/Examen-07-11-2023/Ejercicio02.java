@@ -17,7 +17,6 @@ public class Ejercicio02 {
                 boolean igual = true;
                 do {
                     numale = (int) (Math.random() * 50) + 1;
-                    
                     for (int k = 0; k < 5; k++) {
                         if (numfila[k] != numale){
                             igual = false;
@@ -34,7 +33,6 @@ public class Ejercicio02 {
                     System.out.print(numfila[j] + " ");
                 }
             }
-            
             System.out.print("+ ");
             numale = 0;
             for (int j = 0; j < 2 ; j++) {
