@@ -1,41 +1,30 @@
 import java.util.Scanner;
 public class Ejer02 {
     public static void main(String[] args) {
-        int numrepe;
-        int numale;
-        String nummale;
-        int sumamale;
-        int carritos;
-        Scanner sc = new Scanner(System.in);
-
-        numrepe = sc.nextInt();
-
-        for (int i = 1; i <= numrepe; i++) {
-            sumamale = 0;
-            carritos = 0;
-            numale = sc.nextInt();
-            sc.nextLine();
-            nummale = sc.nextLine();
-            String numsepa[] = nummale.split(" ");
-            for (int j = 0; j < numale; j++) {
-                String altern = numsepa[j];
-                int number = Integer.parseInt(altern);
-                sumamale += number;
-                if (sumamale == 10) {
-                    carritos += 1;
-                    sumamale = 0;
-                }
-                if (sumamale > 10){
-                    carritos += 1;
-                    sumamale = number;
-                }
-                if (j == numale-1){
-                    if (sumamale != 0){
-                        carritos += 1;
-                    }
-                }
+	Scanner sc = new Scanner(System.in);
+	int p;
+	int h;
+	String numPh;
+	String numhabita;
+	
+	numPh = sc.nextLine();
+	String numsepa[] = numPh.split(" ");
+	p = Integer.parseInt(numsepa[0]);
+	h = Integer.parseInt(numsepa[1]);
+	int [][] habitaciones = new int[p][h];
+	    
+	 for (int i = 0; i < p; i++) {
+	    System.out.println("Planta"+i);
+	    numhabita = sc.nextLine();
+	    String sepahabita[] = numhabita.split(" ");
+            for (int j = 0; j < h; j++) {
+		String recorre = sepahabita[j];
+		int number = Integer.parseInt(recorre);
+                //System.out.println("habi"+h);
+		habitaciones[i][j] = number;
             }
-            System.out.println(carritos);
         }
+
+        
     }
 }
