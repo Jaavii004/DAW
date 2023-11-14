@@ -8,7 +8,7 @@ public class Ejer02 {
 		String numPh;
 		String numhabita;
 		int numhabitacompro;
-		String habita;
+		int habita;
 		numPh = sc.nextLine();
 		String numsepa[] = numPh.split(" ");
 		p = Integer.parseInt(numsepa[0]);
@@ -30,11 +30,11 @@ public class Ejer02 {
 		// Habitaciones que comprobaremos
 		numhabitacompro  = sc.nextInt();
 		for (int o = 0; o < numhabitacompro; o++) {
-			habita = sc.nextLine();
-			//char primero = habita.charAt(1);
-			//String segundo = habita.substring(1);
-			//int numberseg = Integer.parseInt(segundo);
-			//System.out.println(numberseg);
+			habita = sc.nextInt();
+			int planta = habita/100;
+
+			System.out.println(planta);
+			
 		}
 		sc.close();
 	}
