@@ -37,5 +37,6 @@ public class Ejer02 {
 
 			//System.out.println(numberseg);
 		}
+		sc.close();
 	}
 }
