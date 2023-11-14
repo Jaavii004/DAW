@@ -26,7 +26,6 @@ public class Ejer02 {
 				habitaciones[i][j] = number;
 			}
 		}
-		//System.out.println("habitaciones que comprobaremos ");
 		// Habitaciones que comprobaremos
 		numhabitacompro  = sc.nextInt();
 		for (int o = 0; o < numhabitacompro; o++) {
