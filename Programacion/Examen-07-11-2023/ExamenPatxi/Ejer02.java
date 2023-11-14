@@ -34,7 +34,6 @@ public class Ejer02 {
 			//char primero = habita.charAt(1);
 			//String segundo = habita.substring(1);
 			//int numberseg = Integer.parseInt(segundo);
-
 			//System.out.println(numberseg);
 		}
 		sc.close();
