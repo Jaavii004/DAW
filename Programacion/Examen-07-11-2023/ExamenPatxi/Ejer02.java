@@ -26,15 +26,22 @@ public class Ejer02 {
 				habitaciones[i][j] = number;
 			}
 		}
-		System.out.println("habitaciones que comprobaremos ");
+		//System.out.println("habitaciones que comprobaremos ");
 		// Habitaciones que comprobaremos
 		numhabitacompro  = sc.nextInt();
 		for (int o = 0; o < numhabitacompro; o++) {
 			habita = sc.nextInt();
 			int planta = habita/100;
-
-			System.out.println(planta);
-			
+			int habitacion = habita%100;
+			if (habitaciones[planta-1][habitacion-1] == 0){
+				System.err.println(habita+" LIBRE");
+			}
+			if (habitaciones[planta-1][habitacion-1] == 1){
+				System.err.println(habita+" RESERVADA");
+			}
+			if (habitaciones[planta-1][habitacion-1] == 2){
+				System.err.println(habita+" OCUPADA");
+			}
 		}
 		sc.close();
 	}
