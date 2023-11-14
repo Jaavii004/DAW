@@ -7,7 +7,6 @@ public class Eer01 {
         int sumamale;
         int carritos;
         Scanner sc = new Scanner(System.in);
-
         numrepe = sc.nextInt();
 
         for (int i = 1; i <= numrepe; i++) {
