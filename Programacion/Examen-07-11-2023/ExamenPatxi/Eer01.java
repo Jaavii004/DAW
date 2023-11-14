@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Eer01 {
     public static void main(String[] args) {
         int numrepe;
