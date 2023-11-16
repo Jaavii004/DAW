@@ -18,14 +18,13 @@ public class FNumDAW {
         return cant;
     }
     public static int voltea(int numero) {
-        int resto;
-        int ivert = 0;
-        while (numero > 0) {
-            resto = numero % 10;
-            ivert = ivert * 10 + resto;
+        int voltear = 0;
+        while (numero != 0) {
+            int digito = numero % 10;
+            voltear = voltear * 10 + digito;
             numero /= 10;
         }
-        return ivert;
+        return voltear;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -34,8 +33,8 @@ public class FNumDAW {
         int potencia;
         int numero;
         int rescad;
-        int voltea;
-        int resvolt;
+        int voltear;
+        int Volteado;
 
         // Ejer1 calcular potencia
         System.out.print("Dime la base: ");
@@ -46,14 +45,16 @@ public class FNumDAW {
         System.out.println("El resultado de la "+potencia);
 
         // Ejer2 contar numeros introducidos
+        System.out.print("Numero y cuento cuantos hay: ");
         numero = sc.nextInt();
         rescad = cuentaDigitos(numero);
         System.out.println("Numero de digitos es "+rescad+" del numero "+numero);
 
-        // Ejer2 contar numeros introducidos
-        voltea = sc.nextInt();
-        resvolt = cuentaDigitos(voltea);
-        System.out.println("Numero volteado "+resvolt);
+        // Ejer3 numero volteado
+        System.out.print("Numero y lo volteo: ");
+        voltear = sc.nextInt();
+        Volteado = voltea(voltear);
+        System.out.println("Número volteado: " + Volteado);
 
 
         sc.close();
