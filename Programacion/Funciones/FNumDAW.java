@@ -17,21 +17,45 @@ public class FNumDAW {
         cant = numeroComoCadena.length();
         return cant;
     }
+    public static int voltea(int numero) {
+        int resto;
+        int ivert = 0;
+        while (numero > 0) {
+            resto = numero % 10;
+            ivert = ivert * 10 + resto;
+            numero /= 10;
+        }
+        return ivert;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int Base;
+        int exp;
+        int potencia;
+        int numero;
+        int rescad;
+        int voltea;
+        int resvolt;
 
         // Ejer1 calcular potencia
         System.out.print("Dime la base: ");
-        int Base = sc.nextInt();
+        Base = sc.nextInt();
         System.out.print("Dime el exp: ");
-        int exp = sc.nextInt();
-        int potencia = potencia(Base, exp);
+        exp = sc.nextInt();
+        potencia = potencia(Base, exp);
         System.out.println("El resultado de la "+potencia);
 
         // Ejer2 contar numeros introducidos
-        int numero = sc.nextInt();
-        int rescad = cuentaDigitos(numero);
+        numero = sc.nextInt();
+        rescad = cuentaDigitos(numero);
         System.out.println("Numero de digitos es "+rescad+" del numero "+numero);
+
+        // Ejer2 contar numeros introducidos
+        voltea = sc.nextInt();
+        resvolt = cuentaDigitos(voltea);
+        System.out.println("Numero volteado "+resvolt);
+
+
         sc.close();
     }
 }
