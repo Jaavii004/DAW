@@ -1,5 +1,6 @@
 package Programacion.Funciones;
 
+import java.lang.invoke.StringConcatFactory;
 import java.util.Scanner;
 
 public class FNumDAW {
@@ -25,6 +26,22 @@ public class FNumDAW {
             numero /= 10;
         }
         return voltear;
+    }
+    public static String esCapicua(int numero) {
+        int comp = numero;
+        int voltear = 0;
+        String resultado;
+        while (numero != 0) {
+            int digito = numero % 10;
+            voltear = voltear * 10 + digito;
+            numero /= 10;
+        }
+        if (comp == voltear){
+            resultado = "es capicua";
+        }else{
+            resultado = "no es capicua";
+        }
+        return resultado;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -55,6 +72,14 @@ public class FNumDAW {
         voltear = sc.nextInt();
         Volteado = voltea(voltear);
         System.out.println("Número volteado: " + Volteado);
+
+        int NumCapicua;
+        String EsCapicua;
+        // Ejer4 Escapicua
+        System.out.print("Numero y te digo si es capicua o no: ");
+        NumCapicua = sc.nextInt();
+        EsCapicua = esCapicua(voltear);
+        System.out.println("Número "+NumCapicua+" "+EsCapicua);
 
 
         sc.close();
