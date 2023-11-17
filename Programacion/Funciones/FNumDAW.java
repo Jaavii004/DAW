@@ -10,7 +10,7 @@ public class FNumDAW {
         }
         return resultado;
     }
-    
+
     public static int cuentaDigitos(int numero) {
         String numeroComoCadena;
         int cant = 0;
@@ -18,7 +18,7 @@ public class FNumDAW {
         cant = numeroComoCadena.length();
         return cant;
     }
-    
+
     public static int voltea(int numero) {
         int voltear = 0;
         while (numero != 0) {
@@ -28,7 +28,7 @@ public class FNumDAW {
         }
         return voltear;
     }
-    
+
     public static Boolean esCapicua(int numero) {
         int comp = numero;
         int voltear = 0;
@@ -45,7 +45,7 @@ public class FNumDAW {
         }
         return resultado;
     }
-    
+
     public static boolean esPrimo(int numero) {
         boolean resultado;
         int numprim = 0;
@@ -67,9 +67,11 @@ public class FNumDAW {
         }
         return resultado;
     }
+
     public static int siguientePrimo(int numero) {
         int siguiente = numero + 1;
         while (!esPrimo(siguiente)) {
+            System.out.println(siguiente);
             siguiente++;
         }
         return siguiente;
