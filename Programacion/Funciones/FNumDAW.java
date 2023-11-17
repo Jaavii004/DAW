@@ -50,19 +50,16 @@ public class FNumDAW {
         boolean resultado;
         int numprim = 0;
         int divi = 1;
-
         if (numero % 1 != 0) {
             divi = numero+1;
             resultado = false;
         }
-
         while (divi <= numero) {
            if (numero % divi == 0) {
                 numprim++;
             }
             divi++;
         }
-
         if (numprim == 2) {
             resultado = true;
         }else{
