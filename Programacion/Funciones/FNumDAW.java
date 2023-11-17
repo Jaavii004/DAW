@@ -71,8 +71,9 @@ public class FNumDAW {
     public static int siguientePrimo(int numero) {
         int siguiente = numero + 1;
         while (!esPrimo(siguiente)) {
-            System.out.println(siguiente);
-            siguiente++;
+            if (!esPrimo(siguiente)){
+                siguiente++;
+            }
         }
         return siguiente;
     }
