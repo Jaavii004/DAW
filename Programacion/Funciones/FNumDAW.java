@@ -69,13 +69,16 @@ public class FNumDAW {
     }
 
     public static int siguientePrimo(int numero) {
-        int siguiente = numero + 1;
-        while (!esPrimo(siguiente)) {
-            if (!esPrimo(siguiente)){
-                siguiente++;
-            }
-        }
-        return siguiente;
+        do{
+            numero++;
+        }while (!esPrimo(numero));
+        return numero;
+    }
+    public static int anteriorPrimo(int numero) {
+        do{
+            numero--;
+        }while (!esPrimo(numero));
+        return numero;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -92,6 +95,8 @@ public class FNumDAW {
         boolean EsPrimo;
         int NumSiguientePrimo;
         int SiguientePrimo;
+        int NumAnteriorPrimo;
+        int AnteriorPrimo;
 
         // Ejercicio 1 calcular potencia
         System.out.print("Dime la base: ");
@@ -127,11 +132,22 @@ public class FNumDAW {
         System.out.println("Número "+NumPrimo+" "+(EsPrimo?"es primo":"no es primo"));
 
         
-        // Ejercicio 5 siguientePrimo
+        // Ejercicio 6 siguientePrimo
         System.out.print("Numero y te digo el siguiente primo: ");
         NumSiguientePrimo = sc.nextInt();
-        SiguientePrimo = siguientePrimo(NumPrimo);
+        SiguientePrimo = siguientePrimo(NumSiguientePrimo);
         System.out.println("Número "+NumSiguientePrimo+" el siguiente primo es "+SiguientePrimo);
+
+        // Ejercicio 6 anteriorPrimo
+        System.out.print("Numero y te digo el siguiente primo: ");
+        NumAnteriorPrimo = sc.nextInt();
+        AnteriorPrimo = anteriorPrimo(NumPrimo);
+        System.out.println("Número "+NumAnteriorPrimo+" el anterior primo es "+AnteriorPrimo);
+
+
+
+
+
 
         sc.close();
     }
