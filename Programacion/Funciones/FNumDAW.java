@@ -164,8 +164,6 @@ public class FNumDAW {
         Diginum =sc.nextInt();
         digiton = digitoN(NumDigiton , Diginum);
         System.out.println(digiton);
-        
-
 
         sc.close();
     }
