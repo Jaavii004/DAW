@@ -52,6 +52,8 @@ public class FNumDAW {
         int rescad;
         int voltear;
         int Volteado;
+        int NumCapicua;
+        String EsCapicua;
 
         // Ejer1 calcular potencia
         System.out.print("Dime la base: ");
@@ -73,14 +75,15 @@ public class FNumDAW {
         Volteado = voltea(voltear);
         System.out.println("Número volteado: " + Volteado);
 
-        int NumCapicua;
-        String EsCapicua;
         // Ejer4 Escapicua
         System.out.print("Numero y te digo si es capicua o no: ");
         NumCapicua = sc.nextInt();
         EsCapicua = esCapicua(voltear);
         System.out.println("Número "+NumCapicua+" "+EsCapicua);
 
+
+
+        
 
         sc.close();
     }
