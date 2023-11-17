@@ -1,6 +1,5 @@
 package Programacion.Funciones;
 
-import java.lang.invoke.StringConcatFactory;
 import java.util.Scanner;
 
 public class FNumDAW {
@@ -11,6 +10,7 @@ public class FNumDAW {
         }
         return resultado;
     }
+    
     public static int cuentaDigitos(int numero) {
         String numeroComoCadena;
         int cant = 0;
@@ -18,6 +18,7 @@ public class FNumDAW {
         cant = numeroComoCadena.length();
         return cant;
     }
+    
     public static int voltea(int numero) {
         int voltear = 0;
         while (numero != 0) {
@@ -27,19 +28,45 @@ public class FNumDAW {
         }
         return voltear;
     }
-    public static String esCapicua(int numero) {
+    
+    public static Boolean esCapicua(int numero) {
         int comp = numero;
         int voltear = 0;
-        String resultado;
+        boolean resultado;
         while (numero != 0) {
             int digito = numero % 10;
             voltear = voltear * 10 + digito;
             numero /= 10;
         }
         if (comp == voltear){
-            resultado = "es capicua";
+            resultado = true;
         }else{
-            resultado = "no es capicua";
+            resultado = false;
+        }
+        return resultado;
+    }
+    
+    public static boolean esPrimo(int numero) {
+        boolean resultado;
+        int numprim = 0;
+        int divi = 1;
+
+        if (numero % 1 != 0) {
+            divi = numero+1;
+            resultado = false;
+        }
+
+        while (divi <= numero) {
+           if (numero % divi == 0) {
+                numprim++;
+            }
+            divi++;
+        }
+
+        if (numprim == 2) {
+            resultado = true;
+        }else{
+            resultado = false;
         }
         return resultado;
     }
@@ -53,9 +80,11 @@ public class FNumDAW {
         int voltear;
         int Volteado;
         int NumCapicua;
-        String EsCapicua;
+        boolean EsCapicua;
+        int NumPrimo;
+        boolean EsPrimo;
 
-        // Ejer1 calcular potencia
+        // Ejercicio 1 calcular potencia
         System.out.print("Dime la base: ");
         Base = sc.nextInt();
         System.out.print("Dime el exp: ");
@@ -63,27 +92,31 @@ public class FNumDAW {
         potencia = potencia(Base, exp);
         System.out.println("El resultado de la "+potencia);
 
-        // Ejer2 contar numeros introducidos
+        // Ejercicio 2 contar numeros introducidos
         System.out.print("Numero y cuento cuantos hay: ");
         numero = sc.nextInt();
         rescad = cuentaDigitos(numero);
         System.out.println("Numero de digitos es "+rescad+" del numero "+numero);
 
-        // Ejer3 numero volteado
+        // Ejercicio 3 numero volteado
         System.out.print("Numero y lo volteo: ");
         voltear = sc.nextInt();
         Volteado = voltea(voltear);
         System.out.println("Número volteado: " + Volteado);
 
-        // Ejer4 Escapicua
+        // Ejercicio 4 Escapicua
         System.out.print("Numero y te digo si es capicua o no: ");
         NumCapicua = sc.nextInt();
-        EsCapicua = esCapicua(voltear);
-        System.out.println("Número "+NumCapicua+" "+EsCapicua);
-
-
+        EsCapicua = esCapicua(NumCapicua);
+        System.out.println("Número "+NumCapicua+" "+(EsCapicua?"es capicua":"no es capicua"));
 
         
+        // Ejercicio 5 esPrimo
+        System.out.print("Numero y te digo si es capicua o no: ");
+        NumPrimo = sc.nextInt();
+        EsPrimo = esPrimo(NumPrimo);
+        System.out.println("Número "+NumPrimo+" "+(EsPrimo?"es primo":"no es primo"));
+
 
         sc.close();
     }
