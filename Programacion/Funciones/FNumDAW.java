@@ -67,6 +67,13 @@ public class FNumDAW {
         }
         return resultado;
     }
+    public static int siguientePrimo(int numero) {
+        int siguiente = numero + 1;
+        while (!esPrimo(siguiente)) {
+            siguiente++;
+        }
+        return siguiente;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int Base;
@@ -80,6 +87,8 @@ public class FNumDAW {
         boolean EsCapicua;
         int NumPrimo;
         boolean EsPrimo;
+        int NumSiguientePrimo;
+        int SiguientePrimo;
 
         // Ejercicio 1 calcular potencia
         System.out.print("Dime la base: ");
@@ -109,11 +118,17 @@ public class FNumDAW {
 
         
         // Ejercicio 5 esPrimo
-        System.out.print("Numero y te digo si es capicua o no: ");
+        System.out.print("Numero y te digo si es primo o no: ");
         NumPrimo = sc.nextInt();
         EsPrimo = esPrimo(NumPrimo);
         System.out.println("Número "+NumPrimo+" "+(EsPrimo?"es primo":"no es primo"));
 
+        
+        // Ejercicio 5 siguientePrimo
+        System.out.print("Numero y te digo el siguiente primo: ");
+        NumSiguientePrimo = sc.nextInt();
+        SiguientePrimo = siguientePrimo(NumPrimo);
+        System.out.println("Número "+NumSiguientePrimo+" el siguiente primo es "+SiguientePrimo);
 
         sc.close();
     }
