@@ -74,11 +74,21 @@ public class FNumDAW {
         }while (!esPrimo(numero));
         return numero;
     }
+
     public static int anteriorPrimo(int numero) {
         do{
             numero--;
         }while (!esPrimo(numero));
         return numero;
+    }
+
+    public static int digitoN(int numero, int n) {
+        int digito;
+        String numeroStr = String.valueOf(numero);
+        char digitoenChar = numeroStr.charAt(n);
+        digito = Character.getNumericValue(digitoenChar);
+        return digito;
+        
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -138,15 +148,22 @@ public class FNumDAW {
         SiguientePrimo = siguientePrimo(NumSiguientePrimo);
         System.out.println("Número "+NumSiguientePrimo+" el siguiente primo es "+SiguientePrimo);
 
-        // Ejercicio 6 anteriorPrimo
-        System.out.print("Numero y te digo el siguiente primo: ");
+        // Ejercicio 7 anteriorPrimo
+        System.out.print("Numero y te digo el anterior primo: ");
         NumAnteriorPrimo = sc.nextInt();
-        AnteriorPrimo = anteriorPrimo(NumPrimo);
+        AnteriorPrimo = anteriorPrimo(NumAnteriorPrimo);
         System.out.println("Número "+NumAnteriorPrimo+" el anterior primo es "+AnteriorPrimo);
-
-
-
-
+        
+        int NumDigiton;
+        int digiton;
+        int Diginum;
+        // Ejercicio 8 digitoN
+        System.out.print("Numero: ");
+        NumDigiton = sc.nextInt();
+        System.out.print("n: ");
+        Diginum =sc.nextInt();
+        digiton = digitoN(NumDigiton , Diginum);
+        System.out.println(digiton);
 
 
         sc.close();
