@@ -151,39 +151,37 @@ public class FNumDAW {
         exp = sc.nextInt();
         potencia = potencia(Base, exp);
         System.out.println("El resultado de la "+potencia);
-
+        
         // Ejercicio 2 contar numeros introducidos
         System.out.print("Numero y cuento cuantos hay: ");
         numero = sc.nextInt();
         rescad = cuentaDigitos(numero);
         System.out.println("Numero de digitos es "+rescad+" del numero "+numero);
-
+        
         // Ejercicio 3 numero volteado
         System.out.print("Numero y lo volteo: ");
         voltear = sc.nextInt();
         Volteado = voltea(voltear);
         System.out.println("Número volteado: " + Volteado);
-
+        
         // Ejercicio 4 Escapicua
         System.out.print("Numero y te digo si es capicua o no: ");
         NumCapicua = sc.nextInt();
         EsCapicua = esCapicua(NumCapicua);
         System.out.println("Número "+NumCapicua+" "+(EsCapicua?"es capicua":"no es capicua"));
-
         
         // Ejercicio 5 esPrimo
         System.out.print("Numero y te digo si es primo o no: ");
         NumPrimo = sc.nextInt();
         EsPrimo = esPrimo(NumPrimo);
         System.out.println("Número "+NumPrimo+" "+(EsPrimo?"es primo":"no es primo"));
-
-        
+       
         // Ejercicio 6 siguientePrimo
         System.out.print("Numero y te digo el siguiente primo: ");
         NumSiguientePrimo = sc.nextInt();
         SiguientePrimo = siguientePrimo(NumSiguientePrimo);
         System.out.println("Número "+NumSiguientePrimo+" el siguiente primo es "+SiguientePrimo);
-
+        
         // Ejercicio 7 anteriorPrimo
         System.out.print("Numero y te digo el anterior primo: ");
         NumAnteriorPrimo = sc.nextInt();
@@ -199,17 +197,13 @@ public class FNumDAW {
         System.out.println(digiton);
 
         // Ejercicio 9 posicionDeDigito
-        int result1 = posicionDeDigito(12345, 3);
+        int result1 = posicionDeDigito(120453, 2);
         System.out.println(result1); // Output: 2
 
-
         // Ejercicio 10 parteNumero
+        int resultado = parteNumero(15425, 1, 4);
+        System.out.println("La parte del número en la posición  es: " + resultado);
 
-        // Test case for parteNumero
-
-int resultado = parteNumero(15425, 1, 4);
-System.out.println("La parte del número en la posición  es: " + resultado);
-// Expected output: La parte del número en la posición 3 es: 4
 
 
 
