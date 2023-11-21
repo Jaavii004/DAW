@@ -130,6 +130,9 @@ public class FNumDAW {
         int SiguientePrimo;
         int NumAnteriorPrimo;
         int AnteriorPrimo;
+        int NumDigiton;
+        int digiton;
+        int Diginum;
 
         // Ejercicio 1 calcular potencia
         System.out.print("Dime la base: ");
@@ -177,9 +180,6 @@ public class FNumDAW {
         AnteriorPrimo = anteriorPrimo(NumAnteriorPrimo);
         System.out.println("Número "+NumAnteriorPrimo+" el anterior primo es "+AnteriorPrimo);
         
-        int NumDigiton;
-        int digiton;
-        int Diginum;
         // Ejercicio 8 digitoN
         System.out.print("Numero: ");
         NumDigiton = sc.nextInt();
@@ -187,6 +187,8 @@ public class FNumDAW {
         Diginum =sc.nextInt();
         digiton = digitoN(NumDigiton , Diginum);
         System.out.println(digiton);
+
+
 
         sc.close();
     }
