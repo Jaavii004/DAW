@@ -1,7 +1,5 @@
 package Programacion.Funciones;
 
-import java.util.Scanner;
-
 public class FNumDAW {
     // Función potencia: Calcula la potencia de un número dado una base y un exponente.
     public static int potencia(int Base, int exp) {
@@ -159,103 +157,5 @@ public class FNumDAW {
             }
         }
         return resultado;
-    }
-
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int Base;
-        int exp;
-        int potencia;
-        int numero;
-        int rescad;
-        int voltear;
-        int Volteado;
-        int NumCapicua;
-        boolean EsCapicua;
-        int NumPrimo;
-        boolean EsPrimo;
-        int NumSiguientePrimo;
-        int SiguientePrimo;
-        int NumAnteriorPrimo;
-        int AnteriorPrimo;
-        int NumDigiton;
-        int digiton;
-        int Diginum;
-
-        // Ejercicio 1 calcular potencia
-        System.out.print("Dime la base: ");
-        Base = sc.nextInt();
-        System.out.print("Dime el exp: ");
-        exp = sc.nextInt();
-        potencia = potencia(Base, exp);
-        System.out.println("El resultado de la "+potencia);
-        
-        // Ejercicio 2 contar numeros introducidos
-        System.out.print("Numero y cuento cuantos hay: ");
-        numero = sc.nextInt();
-        rescad = cuentaDigitos(numero);
-        System.out.println("Numero de digitos es "+rescad+" del numero "+numero);
-        
-        // Ejercicio 3 numero volteado
-        System.out.print("Numero y lo volteo: ");
-        voltear = sc.nextInt();
-        Volteado = voltea(voltear);
-        System.out.println("Número volteado: " + Volteado);
-        
-        // Ejercicio 4 Escapicua
-        System.out.print("Numero y te digo si es capicua o no: ");
-        NumCapicua = sc.nextInt();
-        EsCapicua = esCapicua(NumCapicua);
-        System.out.println("Número "+NumCapicua+" "+(EsCapicua?"es capicua":"no es capicua"));
-        
-        // Ejercicio 5 esPrimo
-        System.out.print("Numero y te digo si es primo o no: ");
-        NumPrimo = sc.nextInt();
-        EsPrimo = esPrimo(NumPrimo);
-        System.out.println("Número "+NumPrimo+" "+(EsPrimo?"es primo":"no es primo"));
-       
-        // Ejercicio 6 siguientePrimo
-        System.out.print("Numero y te digo el siguiente primo: ");
-        NumSiguientePrimo = sc.nextInt();
-        SiguientePrimo = siguientePrimo(NumSiguientePrimo);
-        System.out.println("Número "+NumSiguientePrimo+" el siguiente primo es "+SiguientePrimo);
-        
-        // Ejercicio 7 anteriorPrimo
-        System.out.print("Numero y te digo el anterior primo: ");
-        NumAnteriorPrimo = sc.nextInt();
-        AnteriorPrimo = anteriorPrimo(NumAnteriorPrimo);
-        System.out.println("Número "+NumAnteriorPrimo+" el anterior primo es "+AnteriorPrimo);
-        
-        // Ejercicio 8 digitoN
-        System.out.print("Numero: ");
-        NumDigiton = sc.nextInt();
-        System.out.print("n: ");
-        Diginum =sc.nextInt();
-        digiton = digitoN(NumDigiton , Diginum);
-        System.out.println(digiton);
-
-        // Ejercicio 9 posicionDeDigito
-        int result1 = posicionDeDigito(120453, 2);
-        System.out.println(result1); // Output: 2
-
-        // Ejercicio 10 parteNumero
-        int resultado = parteNumero(15425, 1, 4);
-        System.out.println("La parte del número en la posición  es: " + resultado);
-
-        int result = pegaNumeros(123, 456);
-        System.out.println("pegados : " + result);
-
-        // Ejercicio 11 esKaprekar
-        System.out.print("Número y te digo si es un número de Kaprekar: ");
-        int numKaprekar = sc.nextInt();
-        boolean esKaprekar = esKaprekar(numKaprekar);
-        System.out.println("El número " + numKaprekar + " " + (esKaprekar ? "es" : "no es") + " un número de Kaprekar");
-
-
-
-
-
-        sc.close();
     }
 }
