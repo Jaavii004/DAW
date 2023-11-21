@@ -1,4 +1,5 @@
-package Programacion.Funciones;
+package funciones;
+
 
 public class FNumDAW {
     // Función potencia: Calcula la potencia de un número dado una base y un exponente.
