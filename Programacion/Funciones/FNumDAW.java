@@ -122,6 +122,45 @@ public class FNumDAW {
         return parteNumero;
     }
 
+    // Función pegaNumeros: Pega dos números para formar uno.
+    public static int pegaNumeros(int numero1, int numero2) {
+        String numero1Str;
+        String numero2Str;
+        String resultadoStr;
+        int resultado;
+        numero1Str = String.valueOf(numero1);
+        numero2Str = String.valueOf(numero2);
+        resultadoStr = numero1Str + numero2Str;
+        resultado = Integer.parseInt(resultadoStr);
+        return resultado;
+    }
+
+    // Función esKaprekar: Verifica si un número es de Kaprekar.
+    public static boolean esKaprekar(int numero) {
+        int cuadrado;
+        String parte1Str;
+        String cuadradoStr;
+        String parte2Str;
+        int parteuna;
+        int longitud;
+        int partedos;
+        boolean resultado = false;
+        cuadrado = numero * numero;
+        cuadradoStr = String.valueOf(cuadrado);
+        longitud = cuadradoStr.length();
+        for (int i = 1; i < longitud; i++) {
+            parte1Str = cuadradoStr.substring(0, i);
+            parte2Str = cuadradoStr.substring(i);
+            parteuna = Integer.parseInt(parte1Str);
+            partedos = Integer.parseInt(parte2Str);
+            
+            if (parteuna + partedos == numero) {
+                resultado = true;
+            }
+        }
+        return resultado;
+    }
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -203,6 +242,16 @@ public class FNumDAW {
         // Ejercicio 10 parteNumero
         int resultado = parteNumero(15425, 1, 4);
         System.out.println("La parte del número en la posición  es: " + resultado);
+
+        int result = pegaNumeros(123, 456);
+        System.out.println("pegados : " + result);
+
+        // Ejercicio 11 esKaprekar
+        System.out.print("Número y te digo si es un número de Kaprekar: ");
+        int numKaprekar = sc.nextInt();
+        boolean esKaprekar = esKaprekar(numKaprekar);
+        System.out.println("El número " + numKaprekar + " " + (esKaprekar ? "es" : "no es") + " un número de Kaprekar");
+
 
 
 
