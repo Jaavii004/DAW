@@ -92,18 +92,22 @@ public class FNumDAW {
     // Función digitoN: Obtiene el dígito en la posición n de un número dado.
     public static int digitoN(int numero, int n) {
         int digito;
-        String numeroStr = String.valueOf(numero);
-        char digitoenChar = numeroStr.charAt(n);
+        String numeroStr;
+        char digitoenChar;
+        numeroStr = String.valueOf(numero);
+        digitoenChar = numeroStr.charAt(n);
         digito = Character.getNumericValue(digitoenChar);
         return digito;
     }
 
-    // Función posicionDeDigito: 
+    // Función posicionDeDigito: vamos a devolver el digito que pida del numero
     public static int posicionDeDigito(int numero, int digito) {
         String numeroStr;
+        String digitoStr;
+        int posicion;
         numeroStr = String.valueOf(numero);
-        String digitoStr = String.valueOf(digito);
-        int posicion = numeroStr.indexOf(digitoStr);
+        digitoStr = String.valueOf(digito);
+        posicion = numeroStr.indexOf(digitoStr);
         return posicion;
     }
 
