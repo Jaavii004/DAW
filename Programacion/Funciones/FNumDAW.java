@@ -100,7 +100,7 @@ public class FNumDAW {
         return digito;
     }
 
-    // Función posicionDeDigito: vamos a devolver el digito que pida del numero
+    // Función posicionDeDigito: Da la posición de la primera ocurrencia de un dígito dentro de un número entero. Si no se encuentra, devuelve -1.
     public static int posicionDeDigito(int numero, int digito) {
         String numeroStr;
         String digitoStr;
@@ -111,6 +111,16 @@ public class FNumDAW {
         return posicion;
     }
 
+    // Función parteNumero: Toma como parámetros las posiciones inicial y final dentro de un número y devuelve el ‘trozo’ correspondiente.
+    public static int parteNumero(int numero, int inicio, int fin) {
+        String numeroStr;
+        String parteStr;
+        int parteNumero;
+        numeroStr = String.valueOf(numero);
+        parteStr = numeroStr.substring(inicio, fin + 1);
+        parteNumero = Integer.parseInt(parteStr);
+        return parteNumero;
+    }
 
 
     public static void main(String[] args) {
@@ -187,6 +197,19 @@ public class FNumDAW {
         Diginum =sc.nextInt();
         digiton = digitoN(NumDigiton , Diginum);
         System.out.println(digiton);
+
+        // Ejercicio 9 posicionDeDigito
+        int result1 = posicionDeDigito(12345, 3);
+        System.out.println(result1); // Output: 2
+
+
+        // Ejercicio 10 parteNumero
+
+        // Test case for parteNumero
+
+int resultado = parteNumero(15425, 1, 4);
+System.out.println("La parte del número en la posición  es: " + resultado);
+// Expected output: La parte del número en la posición 3 es: 4
 
 
 
