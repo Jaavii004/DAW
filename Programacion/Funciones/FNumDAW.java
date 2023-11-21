@@ -3,6 +3,7 @@ package Programacion.Funciones;
 import java.util.Scanner;
 
 public class FNumDAW {
+    // Función potencia: Calcula la potencia de un número dado una base y un exponente.
     public static int potencia(int Base, int exp) {
         int resultado = 1;
         for (int i = 0; i < exp; i++) {
@@ -11,6 +12,7 @@ public class FNumDAW {
         return resultado;
     }
 
+    // Función cuentaDigitos: Cuenta la cantidad de dígitos de un número dado.
     public static int cuentaDigitos(int numero) {
         String numeroComoCadena;
         int cant = 0;
@@ -19,6 +21,7 @@ public class FNumDAW {
         return cant;
     }
 
+    // Función voltea: Invierte el orden de los dígitos de un número dado.
     public static int voltea(int numero) {
         int voltear = 0;
         while (numero != 0) {
@@ -29,6 +32,7 @@ public class FNumDAW {
         return voltear;
     }
 
+    // Función esCapicua: Verifica si un número es capicúa, es decir, si se lee igual de izquierda a derecha y de derecha a izquierda.
     public static Boolean esCapicua(int numero) {
         int comp = numero;
         int voltear = 0;
@@ -46,6 +50,7 @@ public class FNumDAW {
         return resultado;
     }
 
+    // Función esPrimo: Verifica si un número es primo, es decir, si solo es divisible por 1 y por sí mismo.
     public static boolean esPrimo(int numero) {
         boolean resultado;
         int numprim = 0;
@@ -68,6 +73,7 @@ public class FNumDAW {
         return resultado;
     }
 
+    // Función siguientePrimo: Encuentra el siguiente número primo mayor al número dado.
     public static int siguientePrimo(int numero) {
         do{
             numero++;
@@ -75,6 +81,7 @@ public class FNumDAW {
         return numero;
     }
 
+    // Función anteriorPrimo: Encuentra el número primo anterior al número dado.
     public static int anteriorPrimo(int numero) {
         do{
             numero--;
@@ -82,14 +89,31 @@ public class FNumDAW {
         return numero;
     }
 
+    // Función digitoN: Obtiene el dígito en la posición n de un número dado.
     public static int digitoN(int numero, int n) {
         int digito;
         String numeroStr = String.valueOf(numero);
         char digitoenChar = numeroStr.charAt(n);
         digito = Character.getNumericValue(digitoenChar);
         return digito;
-        
     }
+
+    // Función posicionDeDigito: 
+    public static int posicionDeDigito(int numero, int digito) {
+        String numeroStr;
+        numeroStr = String.valueOf(numero);
+        String digitoStr = String.valueOf(digito);
+        int posicion = numeroStr.indexOf(digitoStr);
+        return posicion;
+    }
+
+
+
+
+
+
+
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int Base;
