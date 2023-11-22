@@ -5,11 +5,10 @@ public class Ejercicio01 {
         int contador = 0;
         for (int i = 1; i <= 1000; i++){
             if (FNumDAW.esPrimo(i)) {
-                System.out.println(i);
+                System.out.println(i+" es primo.");
                 contador++;
             }
         }
-        System.out.println(contador);
+        System.out.println("El numero total de numeros primos es: " + contador);
     }
-    
 }
