@@ -9,13 +9,16 @@ public class Ejercicio04er100 {
         int numdesc;
         int numasc;
         int numi;
+        int numinteraciones;
         int[] digitos = new int[4];
         num = sc.nextInt();
         do {
             numi  = sc.nextInt();
             numero = numi;
+            numinteraciones = 0;
             while (numi != 6174) {
-
+                numinteraciones++;
+                numero = numi;
                 for (int j = 0; j < 4; j++) {
                     digitos[j] = numero % 10;
                     numero /= 10;
@@ -23,7 +26,7 @@ public class Ejercicio04er100 {
                 // Ordenar en orden ascendente
                 Arrays.sort(digitos);
                 numasc = digitos[0] * 1000 + digitos[1] * 100 + digitos[2] * 10 + digitos[3];
-                System.out.println("numasc "+ numasc);
+                //System.out.println("numasc "+ numasc);
                 
                 // Ordenar en orden descendente
                 for (int i = 0; i < 4; i++) {
@@ -36,8 +39,10 @@ public class Ejercicio04er100 {
                     }
                 }
                 numdesc = digitos[0] * 1000 + digitos[1] * 100 + digitos[2] * 10 + digitos[3];
-                System.out.println("numdes "+numdesc);
+                numi = numdesc-numasc;
+                //System.out.println(numdesc+" - "+numasc+" = "+numi);
             }
+            System.out.println(numinteraciones);
             contador++;
         } while (contador < num);
         sc.close();
