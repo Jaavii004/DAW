@@ -1,17 +1,20 @@
 @echo off
 
+
 :menu
+title calculadora
 cls
-echo Menú de la calculadora
+echo Menu de la calculadora
+color 9
 echo.
 echo 1. Suma
 echo 2. Resta
-echo 3. Multiplicación
-echo 4. División
+echo 3. Multiplicacion
+echo 4. Division
 echo 5. Salir
 echo.
 
-set /p opcion=Seleccione una opción: 
+set /p opcion=Pon un numero: 
 
 if "%opcion%"=="1" goto suma
 if "%opcion%"=="2" goto resta
@@ -19,57 +22,62 @@ if "%opcion%"=="3" goto multiplicacion
 if "%opcion%"=="4" goto division
 if "%opcion%"=="5" goto salir
 
-echo Opción inválida. Por favor, seleccione una opción válida.
-pause
+echo error pon un numero.
+pause > null
 goto menu
 
 :suma
 REM BEGIN: Suma
 echo.
-set /p num1=Ingrese el primer número: 
-set /p num2=Ingrese el segundo número: 
+set /p num1=primer numero: 
+set /p num2=segundo numero: 
 
 set /a resultado=%num1% + %num2%
+cls
 echo El resultado de la suma es: %resultado%
 pause
 goto menu
-REM END: Suma
 
 :resta
 REM BEGIN: Resta
 echo.
-set /p num1=Ingrese el primer número: 
-set /p num2=Ingrese el segundo número: 
+set /p num1=primer numero: 
+set /p num2=segundo numero:
 
 set /a resultado=%num1% - %num2%
+cls
 echo El resultado de la resta es: %resultado%
 pause
 goto menu
-REM END: Resta
 
 :multiplicacion
 REM BEGIN: Multiplicación
 echo.
-set /p num1=Ingrese el primer número: 
-set /p num2=Ingrese el segundo número: 
+set /p num1=primer numero: 
+set /p num2=segundo numero:
 
 set /a resultado=%num1% * %num2%
+cls
 echo El resultado de la multiplicación es: %resultado%
 pause
 goto menu
-REM END: Multiplicación
 
 :division
 REM BEGIN: División
 echo.
-set /p num1=Ingrese el primer número: 
-set /p num2=Ingrese el segundo número: 
+set /p num1=primer numero: 
+set /p num2=segundo numero: 
+if "%num2%"=="0" ( 
+    echo numero no valido
+) else (
 
-set /a resultado=%num1% / %num2%
-echo El resultado de la división es: %resultado%
+
+    set /a resultado=%num1% / %num2%
+    cls
+    echo El resultado de la división es: %resultado%
+)
 pause
 goto menu
-REM END: División
 
 :salir
 exit
