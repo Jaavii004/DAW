@@ -1,25 +1,27 @@
 import java.util.Scanner;
+import java.util.Arrays;
 import funciones.FNumDAW;
 
 public class Ejercicio04er100 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num;
-        char letra;
-        String palabra;
         int contador = 0;
-        int suma;
+        int numero;
+        int num;
+        int numdesc;
+        int numasc;
         num = sc.nextInt();
         do {
-            palabra = sc.next();
-            suma = 0;
-            // Recorrer todas las letras de la palabra y sumarlas
-            for (int i = 0; i < palabra.length(); i++) {
-                letra = palabra.charAt(i);
-                suma += letra;
-            }
-            int antprim = FNumDAW.anteriorPrimo(suma);
-            System.out.println(antprim);
+            numero = sc.nextInt();
+            numdesc = numero;
+
+            // Ordenar en orden ascendente
+            Arrays.sort(numero);
+            
+            // Ordenar en orden descendente
+            //Arrays.sort(numero);
+            //Collections.reverse(Arrays.asList(numero));
+            
             contador++;
         } while (contador < num);
         sc.close();
