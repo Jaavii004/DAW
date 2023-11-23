@@ -6,5 +6,3 @@ echo Nombre de usuario: %USERNAME%
 echo Nombre del ordenador: %COMPUTERNAME%
 echo Hora del sistema: %TIME%
 echo Fecha del sistema: %DATE%
-
-pause
