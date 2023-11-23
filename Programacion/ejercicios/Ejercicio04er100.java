@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import funciones.FNumDAW;
 
-public class Ejercicio03 {
+public class Ejercicio04er100 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num;
@@ -24,4 +24,5 @@ public class Ejercicio03 {
         } while (contador < num);
         sc.close();
     }
+    
 }
