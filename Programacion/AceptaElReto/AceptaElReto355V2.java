@@ -22,5 +22,6 @@ public class AceptaElReto355V2 {
             }
         }
         System.out.print(muestreo);
+        sc.close();
     }
 }

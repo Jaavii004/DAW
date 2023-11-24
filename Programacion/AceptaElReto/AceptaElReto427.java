@@ -19,5 +19,6 @@ public class AceptaElReto427 {
             }
         }
         System.out.print(muestreo);
+        sc.close();
     }
 }
