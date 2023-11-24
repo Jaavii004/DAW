@@ -33,5 +33,6 @@ public class AceptaElReto149 {
         System.out.print("\033[H\033[2J");
         System.out.println("Salida:");
         System.out.print(muestreo);
+        sc.close();
     }
 }
