@@ -17,9 +17,14 @@ public class AceptaElReto100 {
         do {
             numi  = sc.nextInt();
             numero = numi;
+
             numinteraciones = 0;
             while (numi != 6174) {
                 numinteraciones++;
+                if (numinteraciones >= 8){
+                    numinteraciones = 8;
+                    numi = 6174;
+                }
                 numero = numi;
                 for (int j = 0; j < 4; j++) {
                     digitos[j] = numero % 10;
