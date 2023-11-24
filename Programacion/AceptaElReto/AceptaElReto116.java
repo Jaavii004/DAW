@@ -17,5 +17,6 @@ public class AceptaElReto116 {
                 i++;
             }
         }
+        sc.close();
     }
 }

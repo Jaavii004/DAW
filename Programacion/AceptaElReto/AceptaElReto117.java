@@ -15,5 +15,6 @@ public class AceptaElReto117 {
             muestreo += "Hola, "+nombresolo+".\n";
         }
         System.out.print(muestreo);
+        sc.close();
     }
 }
