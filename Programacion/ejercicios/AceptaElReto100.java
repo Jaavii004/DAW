@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import funciones.FNumDAW;
 
 public class AceptaElReto100 {
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class AceptaElReto100 {
                 //System.out.println("numasc "+ numasc);
                 
                 // Ordenar en orden descendente
+                numdesc = FNumDAW.voltea(numero);
                 for (int i = 0; i < 4; i++) {
                     for (int j = i + 1; j < 4; j++) {
                         if (digitos[i] < digitos[j]) {
