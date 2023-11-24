@@ -12,3 +12,4 @@ public class Ejercicio01 {
         System.out.println("El numero total de numeros primos es: " + contador);
     }
 }
+    
