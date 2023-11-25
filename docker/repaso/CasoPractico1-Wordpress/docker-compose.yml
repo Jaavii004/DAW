@@ -1,5 +1,5 @@
 #Version del fichero docker-compose 3.9. No obligatorio desde la version de docker-compose 1.27.0
-version: "3.9"
+version: "3.3"
 
 #Indicamos los servicios a lanzar
 services:
