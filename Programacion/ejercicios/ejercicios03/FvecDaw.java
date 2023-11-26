@@ -70,6 +70,19 @@ public class FvecDaw {
         return encontrado;
     }
 
+    // Función volteaArray:
+    public static int[] volteaArray(int[] array) {
+        int[] numVolteado = new int[array.length];
+        int i = 0;
+        for (int o = array.length; o <= 0; o++) {
+            numVolteado[i] = array[o];
+            i++;
+        }
+
+        return numVolteado;
+    }
+
+
     public static void main(String[] args) {
         int[] contador = generarArrayInt(10, 9, 20);
         for (int i = 0; i < 10; i++){
@@ -91,6 +104,11 @@ public class FvecDaw {
 
         int posicion = posicionEnArray(contador, 12);
         System.out.println(posicion);
+
+        int[] volteado = volteaArray(contador);
+        for (int i = 0; i < contador.length; i++){
+            System.out.println(volteado[i]);
+        }
 
     }
 }
