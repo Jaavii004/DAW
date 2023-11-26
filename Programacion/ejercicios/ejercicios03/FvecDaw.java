@@ -58,6 +58,18 @@ public class FvecDaw {
         return esta;
     }
 
+    // Función posicionEnArray:
+    public static int posicionEnArray(int[] array, int n) {
+        int encontrado = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (n == array[i]) {
+                encontrado = i;
+                i = (array.length+1);
+            }
+        }
+        return encontrado;
+    }
+
     public static void main(String[] args) {
         int[] contador = generarArrayInt(10, 9, 20);
         for (int i = 0; i < 10; i++){
@@ -76,6 +88,10 @@ public class FvecDaw {
 
         boolean esta = estaEnArrayInt(contador,99);
         System.out.println(esta);
+
+        int posicion = posicionEnArray(contador, 12);
+        System.out.println(posicion);
+
     }
 }
 
