@@ -1,4 +1,4 @@
-package funciones;
+package ejercicios03;
 
 public class FvecDaw {
     // Función GenerarArray:
