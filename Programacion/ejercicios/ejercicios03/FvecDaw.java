@@ -12,7 +12,7 @@ public class FvecDaw {
         return arrayale;
     }
 
-    // Función GenerarArray:
+    // Función minimoArrayInt:
     public static int minimoArrayInt(int[] array) {
         int min;
         min = array[0];
@@ -24,14 +24,58 @@ public class FvecDaw {
         return min;
     }
 
+    // Función maximoArrayInt:
+    public static int maximoArrayInt(int[] array) {
+        int max;
+        max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (max < array[i]) {
+                max =  array[i];
+            }
+        }
+        return max;
+    }
+
+    // Función mediaArrayInt:
+    public static int mediaArrayInt(int[] array) {
+        int suma = 0;
+        int media = 0;
+        for (int i = 0; i < array.length; i++) {
+            suma += array[i];
+        }
+        media = suma/array.length;
+        return media;
+    }
+
+    // Función estaEnArrayInt:
+    public static boolean estaEnArrayInt(int[] array, int n) {
+        boolean esta = false;
+        for (int i = 0; i < array.length; i++) {
+            if (n == array[i]) {
+                esta = true;
+            }
+        }
+        return esta;
+    }
+
     public static void main(String[] args) {
         int[] contador = generarArrayInt(10, 9, 20);
         for (int i = 0; i < 10; i++){
             System.out.print(" " + contador[i]);
         }
+        System.out.println();
 
-        int compu = minimoArrayInt(contador);
-        System.out.println("/n " + compu);
+        int min = minimoArrayInt(contador);
+        System.out.println(min);
+
+        int max = maximoArrayInt(contador);
+        System.out.println(max);
+
+        int media = mediaArrayInt(contador);
+        System.out.println(media);
+
+        boolean esta = estaEnArrayInt(contador,99);
+        System.out.println(esta);
     }
 }
 
