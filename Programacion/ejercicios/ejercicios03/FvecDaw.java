@@ -80,8 +80,6 @@ public class FvecDaw {
         }
         return numVolteado;
     }
-
-
     public static void main(String[] args) {
         int[] array = generarArrayInt(10, 9, 40);
         System.out.print("generarArrayInt: ");
