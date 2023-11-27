@@ -1,3 +1,4 @@
+# Imagen base que descargamos
 FROM ubuntu:20.04
 
 #Ejecuta comandos dentro del contenedor
