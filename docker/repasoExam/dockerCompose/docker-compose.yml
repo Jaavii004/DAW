@@ -5,8 +5,8 @@ services:
     restart: always
     volumes:
       - ./:/app
-      - provisioning/etc/apache/sites-enabled/vhost.conf:/etc/apache/sites-enabled/
-      - provisioning/var/www/html/index.html:/var/www/html/
+      - ./provisioning/etc/apache/sites-enabled/vhost.conf:/etc/apache/sites-enabled/
+      - ./provisioning/var/www/html/index.html:/var/www/html/
     depends_on:
       - mysql
     ports:
@@ -14,7 +14,7 @@ services:
     networks:
       - mired_shared
   mysql:
-    image: mariadb
+    image: mariadb:latest
     restart: always
     volumes:
       - dbdata:/var/lib/mysql
@@ -35,3 +35,6 @@ volumes:
 networks:
   mired_shared:
     external: true
+
+#docker-compose up --build 
+#docker network create mired_shared
