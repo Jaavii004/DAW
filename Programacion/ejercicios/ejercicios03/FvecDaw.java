@@ -1,7 +1,7 @@
 package ejercicios03;
 
 public class FvecDaw {
-    // Función GenerarArray:
+    // Función GenerarArray: Genera un array de tamaño n con números aleatorios cuyo intervalo (mínimo y máximo) se indica como parámetro.
     public static int[] generarArrayInt(int n, int numMax, int numMin) {
         int[] arrayale = new int[n];
         int random;
@@ -12,7 +12,7 @@ public class FvecDaw {
         return arrayale;
     }
 
-    // Función minimoArrayInt:
+    // Función minimoArrayInt: Devuelve el mínimo del array que se pasa como parámetro.
     public static int minimoArrayInt(int[] array) {
         int min;
         min = array[0];
@@ -24,7 +24,7 @@ public class FvecDaw {
         return min;
     }
 
-    // Función maximoArrayInt:
+    // Función maximoArrayInt: Devuelve el máximo del array que se pasa como parámetro.
     public static int maximoArrayInt(int[] array) {
         int max;
         max = array[0];
@@ -36,7 +36,7 @@ public class FvecDaw {
         return max;
     }
 
-    // Función mediaArrayInt:
+    // Función mediaArrayInt: Devuelve la media del array que se pasa como parámetro.
     public static int mediaArrayInt(int[] array) {
         int suma = 0;
         int media = 0;
@@ -47,7 +47,7 @@ public class FvecDaw {
         return media;
     }
 
-    // Función estaEnArrayInt:
+    // Función estaEnArrayInt: Dice si un número está o no dentro de un array.
     public static boolean estaEnArrayInt(int[] array, int n) {
         boolean esta = false;
         for (int i = 0; i < array.length; i++) {
@@ -58,7 +58,7 @@ public class FvecDaw {
         return esta;
     }
 
-    // Función posicionEnArray:
+    // Función posicionEnArray: Busca un número en un array y devuelve la posición (el índice) en la que se encuentra.
     public static int posicionEnArray(int[] array, int n) {
         int encontrado = -1;
         for (int i = 0; i < array.length; i++) {
@@ -70,7 +70,7 @@ public class FvecDaw {
         return encontrado;
     }
 
-    // Función volteaArray:
+    // Función volteaArray: Le da la vuelta a un array.
     public static int[] volteaArray(int[] array) {
         int[] numVolteado = new int[array.length];
         int i = 0;
