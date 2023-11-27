@@ -1,7 +1,7 @@
 @echo off
 chcp 65001 > null
 
-title 
+title adivina
 
 set /p "min=mín: "
 set /p "max=max: "
