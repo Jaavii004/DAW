@@ -36,6 +36,3 @@
 536  docker-compose up --build ./
 537  docker-compose up --build 
 538  docker-compose up --build 
-539  cd ..
-540  ls
-541  history >> history.txt
