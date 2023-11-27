@@ -106,8 +106,11 @@ public class FvecDaw {
         System.out.print("volteaArray: ");
         int[] volteado = volteaArray(array);
         for (int i = 0; i < volteado.length; i++){
-            System.out.print(volteado[i]+" ");
+            if (i == volteado.length){
+                System.out.println(volteado[i]);
+            }else{
+                System.out.print(volteado[i]+" ");
+            }
         }
-        System.out.println();
     }
 }
