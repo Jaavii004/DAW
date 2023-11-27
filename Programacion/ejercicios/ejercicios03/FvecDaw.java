@@ -74,42 +74,42 @@ public class FvecDaw {
     public static int[] volteaArray(int[] array) {
         int[] numVolteado = new int[array.length];
         int i = 0;
-        for (int o = array.length; o <= 0; o++) {
+        for (int o = array.length-1; o >= 0; o--) {
             numVolteado[i] = array[o];
             i++;
         }
-
         return numVolteado;
     }
 
 
     public static void main(String[] args) {
-        int[] contador = generarArrayInt(10, 9, 20);
+        int[] array = generarArrayInt(10, 9, 40);
+        System.out.print("generarArrayInt: ");
         for (int i = 0; i < 10; i++){
-            System.out.print(" " + contador[i]);
+            System.out.print(array[i]+ " ");
         }
         System.out.println();
 
-        int min = minimoArrayInt(contador);
-        System.out.println(min);
+        int min = minimoArrayInt(array);
+        System.out.println("minimoArrayInt: "+min);
 
-        int max = maximoArrayInt(contador);
-        System.out.println(max);
+        int max = maximoArrayInt(array);
+        System.out.println("maximoArrayInt: "+max);
 
-        int media = mediaArrayInt(contador);
-        System.out.println(media);
+        int media = mediaArrayInt(array);
+        System.out.println("mediaArrayInt: "+media);
 
-        boolean esta = estaEnArrayInt(contador,99);
-        System.out.println(esta);
+        boolean esta = estaEnArrayInt(array,25);
+        System.out.println("estaEnArrayInt: "+esta);
 
-        int posicion = posicionEnArray(contador, 12);
-        System.out.println(posicion);
+        int posicion = posicionEnArray(array, 12);
+        System.out.println("posicionEnArray: "+posicion);
 
-        int[] volteado = volteaArray(contador);
-        for (int i = 0; i < contador.length; i++){
-            System.out.println(volteado[i]);
+        System.out.print("volteaArray: ");
+        int[] volteado = volteaArray(array);
+        for (int i = 0; i < volteado.length; i++){
+            System.out.print(volteado[i]+" ");
         }
-
+        System.out.println();
     }
 }
-
