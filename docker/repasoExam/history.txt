@@ -1,38 +1,38 @@
-501  cd docker/repasoExam/
-502  ls
-503  docker up ./
-504  docker 
-505  docker build -t .
-506  docker build -t repasoimage
-507  docker build -t repasoimage
-508  ls
-509  docker build -t repasoimage
-510  docker build -t repasoimage
-511  docker build -t repasoimage
-512  docker build -t repasoimage
-513  docker build -t repasoimage
-514  docker build -t repasoimage
-515  docker build -t repasoimage .
-516  docker build -t repasoimage .
-517  docker build -t repasoimage .
-518  docker 
-519  docker network repanet
-520  docker network repanet create
-521  docker network create  repanet
-522  docker network connerct repanet repasodocker
-523  docker network connect repanet repasodocker
-524  docker network inspect repanet
-525  ls
-526  ls
-527  cd dockerCompose/
-528  ls
-529  docker-compose up --build
-530  docker-compose up --build ./
-531  docker-compose up --build ./
-532  docker-compose up --build ./
-533  ls
-534  docker-compose up --build ./
-535  docker network create mired_shared
-536  docker-compose up --build ./
-537  docker-compose up --build 
-538  docker-compose up --build 
+cd docker/repasoExam/
+ls
+docker up ./
+docker 
+docker build -t .
+docker build -t repasoimage
+docker build -t repasoimage
+ls
+docker build -t repasoimage
+docker build -t repasoimage
+docker build -t repasoimage
+docker build -t repasoimage
+docker build -t repasoimage
+docker build -t repasoimage
+docker build -t repasoimage .
+docker build -t repasoimage .
+docker build -t repasoimage .
+docker 
+docker network repanet
+docker network repanet create
+docker network create  repanet
+docker network connerct repanet repasodocker
+docker network connect repanet repasodocker
+docker network inspect repanet
+ls
+ls
+cd dockerCompose/
+ls
+docker-compose up --build
+docker-compose up --build ./
+docker-compose up --build ./
+docker-compose up --build ./
+ls
+docker-compose up --build ./
+docker network create mired_shared
+docker-compose up --build ./
+docker-compose up --build 
+docker-compose up --build 
