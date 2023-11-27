@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 #Ejecuta comandos dentro del contenedor
-RUN apt update; apt install -y tmux, vim, zip, libxrender.
+RUN apt update; apt install -y tmux vim zip
 
 #Direcctorio de trabajo 
 WORKDIR /repo
@@ -16,3 +16,7 @@ ADD repaso.zip /root/repaso
 
 #Ejecutaq comandos fuera del contenedor pero contra el contenedor
 CMD [ "/bin/bash" ]
+
+
+# para crear la imagen  $ docker build -t repasoimage . 
+# para crear el contenedor $ docker run -it --name repasocont repasoimage
