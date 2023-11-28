@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 ECHO Informaciones que nos suministran las variables de entorno
 echo.
 echo S.O actual                         %OS% 
