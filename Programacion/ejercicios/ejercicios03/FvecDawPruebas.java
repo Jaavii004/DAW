@@ -1,6 +1,6 @@
 package ejercicios03;
 
-public class FvecDaw {
+public class FvecDawPruebas {
     // Función GenerarArray: Genera un array de tamaño n con números aleatorios cuyo intervalo (mínimo y máximo) se indica como parámetro.
     public static int[] generarArrayInt(int n, int numMax, int numMin) {
         int[] arrayale = new int[n];
@@ -79,5 +79,38 @@ public class FvecDaw {
             i++;
         }
         return numVolteado;
+    }
+    public static void main(String[] args) {
+        int[] array = generarArrayInt(10, 9, 40);
+        System.out.print("generarArrayInt: ");
+        for (int i = 0; i < 10; i++){
+            System.out.print(array[i]+ " ");
+        }
+        System.out.println();
+
+        int min = minimoArrayInt(array);
+        System.out.println("minimoArrayInt: "+min);
+
+        int max = maximoArrayInt(array);
+        System.out.println("maximoArrayInt: "+max);
+
+        int media = mediaArrayInt(array);
+        System.out.println("mediaArrayInt: "+media);
+
+        boolean esta = estaEnArrayInt(array,25);
+        System.out.println("estaEnArrayInt: "+esta);
+
+        int posicion = posicionEnArray(array, 12);
+        System.out.println("posicionEnArray: "+posicion);
+
+        System.out.print("volteaArray: ");
+        int[] volteado = volteaArray(array);
+        for (int i = 0; i < volteado.length; i++){
+            if (i == volteado.length){
+                System.out.println(volteado[i]);
+            }else{
+                System.out.print(volteado[i]+" ");
+            }
+        }
     }
 }
