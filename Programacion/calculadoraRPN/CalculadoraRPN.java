@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
+// calculadora RPN (Notación Polaca Inversa).
 public class CalculadoraRPN {
-    // Función Mostrarstak: Va a mostrar los numeros
+    // Muestra los números almacenados en el array en orden inverso.
     public static void Mostrarstak(double[] array) {
         for (int i = array.length-1; i >= 0; i--) {
             String numerocon0 = String.format("%02d", (i+1));
@@ -23,6 +24,7 @@ public class CalculadoraRPN {
     }
     */
 
+    // Guarda un número en el array, desplazando los demás números hacia la derecha.
     public static double[] guardar(double[] array,double numGuardar) {
         /*if (contRelleno(array)==array.length){
             System.out.println("ESTOY LLENO NO ME CABE MAS");
@@ -37,6 +39,7 @@ public class CalculadoraRPN {
         return arrayvolteado;
     }
 
+    // Guarda el resultado de una operación en el array, desplazando los demás números hacia la izquierda.
     public static double[] guardarResultados(double[] array,double numGuardar) {
         double[] arrayvolteado = new double[array.length];
         for (int i = 1; i < array.length-1; i++) {
