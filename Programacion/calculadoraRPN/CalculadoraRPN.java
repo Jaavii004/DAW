@@ -55,9 +55,12 @@ public class CalculadoraRPN {
         String entrada = "";
         double resultado = 0;
         boolean valid;
+        
+        do {
+            System.out.print("Numero entre 4 y 20: ");
+            num = sc.nextInt(); 
+        } while (num < 4 || num > 20);
 
-        System.out.print("Numero entre 4 y 20: ");
-        num = sc.nextInt();
         double[] array = new double[num];
 
         salir = false;
