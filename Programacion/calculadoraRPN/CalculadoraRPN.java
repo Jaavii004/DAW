@@ -60,7 +60,6 @@ public class CalculadoraRPN {
             System.out.print("Numero entre 4 y 20: ");
             num = sc.nextInt(); 
         } while (num < 4 || num > 20);
-
         double[] array = new double[num];
 
         salir = false;
