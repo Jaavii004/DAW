@@ -12,7 +12,7 @@ public class CalculadoraRPN {
     }
 
     /*
-    // Calcula el número de elementos no nulos en un array de tipo double.
+    // Calcula el número de elementos vacios de un array .
     public static int contRelleno(double[] array) {
         int relleno = 0;
         for (int i = 0; i < array.length; i++) {
