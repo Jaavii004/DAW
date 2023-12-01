@@ -43,7 +43,7 @@ public class CalculadoraRPN {
     public static double[] guardarResultados(double[] array,double numGuardar) {
         double[] arrayvolteado = new double[array.length];
         for (int i = 1; i < array.length-1; i++) {
-            arrayvolteado[i-1] = array[i+1];
+            arrayvolteado[i-1] = array[i];
         }
         arrayvolteado[0] = numGuardar;
         return arrayvolteado;
