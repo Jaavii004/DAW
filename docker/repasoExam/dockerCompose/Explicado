@@ -1,0 +1,52 @@
+# Especifica la versión de Docker Compose que se utilizará
+version: '2'
+
+# Define los servicios que se despliegan en el entorno
+services:
+  # Servicio web utilizando la imagen httpd en su versión más reciente
+  web:
+    image: httpd:latest
+    restart: always
+    # Mapea los directorios locales al contenedor para la aplicación y la configuración del servidor Apache
+    volumes:
+      - ./:/app
+      - ./provisioning/etc/apache/sites-enabled/vhost.conf:/etc/apache/sites-enabled/
+      - ./provisioning/var/www/html/index.html:/var/www/html/
+    # Dependencia del servicio web hacia el servicio MySQL
+    depends_on:
+      - mysql
+    # Mapea el puerto 8006 local al puerto 80 del contenedor
+    ports:
+      - 8006:80
+    # Define la red compartida llamada "mired_shared"
+    networks:
+      - mired_shared
+
+  # Servicio MySQL utilizando la imagen mariadb en su versión más reciente
+  mysql:
+    image: mariadb:latest
+    restart: always
+    # Mapea un volumen para almacenar datos persistentes de la base de datos
+    volumes:
+      - dbdata:/var/lib/mysql
+    # Configuración de variables de entorno para la base de datos MySQL
+    environment:
+      - MYSQL_ROOT_PASSWORD=dbrootpass
+      - MYSQL_DATABASE=mydb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=dbpass
+    # Mapea el puerto 33006 local al puerto 3306 del contenedor
+    ports:
+      - 33006:3306
+    # Define la red compartida llamada "mired_shared"
+    networks:
+      - mired_shared
+
+# Define un volumen llamado "dbdata" para almacenar datos de la base de datos
+volumes:
+  dbdata:
+
+# Define la red compartida llamada "mired_shared" como externa
+networks:
+  mired_shared:
+    external: tru
