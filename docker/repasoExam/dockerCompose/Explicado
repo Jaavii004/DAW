@@ -49,4 +49,4 @@ volumes:
 # Define la red compartida llamada "mired_shared" como externa
 networks:
   mired_shared:
-    external: tru
+    external: true
