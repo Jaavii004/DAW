@@ -19,5 +19,5 @@ ADD repaso.zip /root/repaso
 CMD [ "/bin/bash" ]
 
 
-# para crear la imagen  $ docker build -t repasoimage . 
+# para crear la imagen  $ docker build -t repasoimage .
 # para crear el contenedor $ docker run -it --name repasocont repasoimage
