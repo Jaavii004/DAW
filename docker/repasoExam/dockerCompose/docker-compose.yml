@@ -36,5 +36,5 @@ networks:
   mired_shared:
     external: true
 
-#docker-compose up --build 
-#docker network create mired_shared
+# docker-compose up --build 
+# docker network create mired_shared
