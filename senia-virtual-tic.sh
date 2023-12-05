@@ -1,5 +1,18 @@
 #!/bin/bash
 
+id=$(id -u)
+
+if [ "$id" -ne 0 ]; then
+    PASSWORD=$(zenity --password --title="Contraseña ROOT: " --timeout=20)
+    if [ $? -eq 1 ]; then
+        zenity --info --text "Operación cancelada." --timeout=20
+        exit 1
+    fi
+
+    echo "$PASSWORD" | sudo -S "$0"
+    exit $?
+fi
+
 PATH_TO_POLKIT="/var/lib/polkit-1/localauthority/90-mandatory.d"
 PATH_TO_RSRC="/usr/share/senia-virtual-tic/rsrc/" 
 
