@@ -1,0 +1,47 @@
+version: '2'
+services:
+  web:
+    container_name: starwars
+    image: httpd:latest
+    volumes:
+      - .:/usr/local/apache2/htdocs
+      - ./provisioning/etc/apache2/sites-enabled/vhost.conf:/usr/local/apache2/hosts
+    ports:
+      - "8010:80"
+    restart: always
+    networks:
+      - tatooine_network
+  db:
+    container_name: starwars_db
+    image: postgres:alpine3.17
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - dbs_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - tatooine_network
+  cache:
+    container_name: starwars_cache
+    image: redis:latest
+    volumes:
+      - cache:/data
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVm
+    restart: always
+    networks:
+      - tatooine_network
+
+
+networks:
+  tatooine_network:
+    external: true
+
+volumes:
+  dbs_data:
+  cache:
+
