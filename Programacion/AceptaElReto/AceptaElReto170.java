@@ -3,36 +3,21 @@ import java.util.Scanner;
 public class AceptaElReto170 {
     public static void main(String[] arg) {
         Scanner sc = new Scanner(System.in);
-        int piedras;
-        int sacadas = 0;
-        piedras = sc.nextInt();
-        int j = 0;
-        int sobran = 0;
-        while (sacadas < piedras) {
-            j = j+1;
-            for (int i = 0; i <= j;i++) {
-                if (sacadas >= piedras ) {
-
-                    i=j+1;
-                }else {
-                   System.out.print("*");
-
-                    sacadas++;
+        int piedras;        
+        int veces;
+        do {
+            piedras = sc.nextInt();
+            if (piedras != 0) {
+                veces = 1;
+                while (piedras >= veces) {
+                    piedras -= veces;
+                    veces++;
                 }
+                veces--;
+                System.out.println(veces+" "+piedras);
+                piedras=1;
             }
-            if (sacadas >= piedras ) {
-//                j--;
-  //              sobran--;
-                    sobran=sacadas-piedras;
-
-                System.out.println("Sobran "+sobran);
-                System.out.println("J "+j);
-
-            }
-
-            System.out.println("");
-            
-        }
+        } while (piedras != 0);
         sc.close();
     }
 }
