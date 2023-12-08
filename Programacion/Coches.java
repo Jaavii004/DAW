@@ -60,7 +60,9 @@ public class Coches {
                 System.out.println(" ");
             //    piedras=1;
             //}
-            if (cocheprim[0] == 0) {
+                ganador = true;
+
+            if (cocheprim[0] == 1) {
                 ganador = true;
                 System.out.print("A ");
             }
