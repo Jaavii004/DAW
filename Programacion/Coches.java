@@ -65,7 +65,7 @@ public class Coches {
             //    piedras=1;
             //}
             if (cocheprim[0] == 0) {
-                ganador = true
+                ganador = true;
                 System.out.print("A ");
             }
         } while (!ganador);
