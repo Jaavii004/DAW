@@ -41,7 +41,6 @@ public class Coches {
             }
         }
         System.out.println(" ");
-
         int posicocheprim = 19;
 
         do {
