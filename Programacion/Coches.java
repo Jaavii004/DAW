@@ -56,10 +56,10 @@ public class Coches {
             //        veces++;
             //    }
             //    veces--;
-                System.out.println(" ");
+            System.out.println(" ");
             //    piedras=1;
             //}
-                ganador = true;
+            ganador = true;
 
             if (cocheprim[0] == 1) {
                 ganador = true;
