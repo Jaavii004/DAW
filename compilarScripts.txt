@@ -1,0 +1,37 @@
+Si deseas ofuscar un script Bash, puedes utilizar `shc`, que es una herramienta de compilación de shell. Aunque `shc` no proporciona una protección completa, puede dificultar la lectura casual del código. Aquí tienes un ejemplo paso a paso:
+
+1. **Instalar `shc`:**
+   Asegúrate de que `shc` esté instalado. Puedes instalarlo usando el gestor de paquetes de tu distribución. En Ubuntu, por ejemplo, puedes usar:
+
+   ```bash
+   sudo apt-get install shc
+   ```
+
+2. **Escribir tu script Bash:**
+   Crea tu script Bash normalmente. Por ejemplo, crea un archivo llamado `mi_comando.sh` con el siguiente contenido:
+
+   ```bash
+   #!/bin/bash
+
+   echo "Hola, este es mi comando personalizado"
+   ```
+
+3. **Compilar el script con `shc`:**
+   Usa `shc` para compilar tu script:
+
+   ```bash
+   shc -f mi_comando.sh
+   ```
+
+   Esto creará un ejecutable cifrado llamado `mi_comando.sh.x`.
+
+4. **Ejecutar el script cifrado:**
+   Puedes ejecutar el script cifrado como cualquier otro ejecutable:
+
+   ```bash
+   ./mi_comando.sh.x
+   ```
+
+`shc` creará un ejecutable que contiene el script original cifrado. Ten en cuenta que esta no es una protección completa y que personas con habilidades avanzadas aún pueden revertir el proceso para ver el código original. Sin embargo, proporciona cierta obfuscación básica.
+
+Recuerda que el objetivo principal de la seguridad debe ser la gestión adecuada de los permisos y el acceso, en lugar de simplemente ocultar el código fuente. La ofuscación es más útil para evitar la lectura casual que para proporcionar seguridad real.
