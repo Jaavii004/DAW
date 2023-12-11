@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print-not-found(){
-    ping -w 2 -c 1 8.8.8.81 > /dev/null
+    ping -w 2 -c 1 8.8.8.8 > /dev/null
     if [ $? -eq 0 ]; then
         echo "Tienes internet"
     else
