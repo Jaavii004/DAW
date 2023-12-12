@@ -50,6 +50,7 @@ public class Coches {
             cocheprim[cocheprimnum] = 1;
             
             System.out.println(" ");
+
             ganador = true;
 
             if (cocheprim[0] == 1) {
