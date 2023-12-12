@@ -1,7 +1,7 @@
 public class Coches {
     public static void main(String[] arg) {
-        int[] cocheprim = new int[20];
-        int[] cocheseg = new int[20];
+        char[] cocheprim = new char[20];
+        char[] cocheseg = new char[20];
         boolean ganador = false;
         int NumCochePrim;
         int NumCocheSeg;
@@ -11,23 +11,23 @@ public class Coches {
         // 0 va a ser arbol
 
         for (int i = 0; i < cocheprim.length-1; i++) {
-            cocheprim[i] = 2;
+            cocheprim[i] = 'V';
         }
         for (int i = 0; i < cocheseg.length; i++) {
-            cocheprim[i] = 2;
+            cocheprim[i] = 'V';
         }
 
         for (int i = 0; i < 5; i++) {
             int arbolprim = (int) (Math.random() * 17)+1;
-            while (cocheprim[arbolprim] == 0) {
+            while (cocheprim[arbolprim] == 'V') {
                 arbolprim = (int) (Math.random() * 17)+1;
-                cocheprim[arbolprim] = 0;
+                cocheprim[arbolprim] = 'A';
             }
-            cocheprim[arbolprim] = 0;
+            cocheprim[arbolprim] = 'A';
 
         }
-        cocheprim[19] = 1;
-        cocheseg[19] = 1;
+        cocheprim[19] = 'C';
+        cocheseg[19] = 'C';
 
         for (int i = 0; i < cocheprim.length; i++) {
             if (cocheprim[i] == 0) {
