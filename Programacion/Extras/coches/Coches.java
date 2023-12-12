@@ -48,17 +48,8 @@ public class Coches {
             NumCocheSeg = (int) (Math.random() * 4);
             int cocheprimnum = posicocheprim - NumCochePrim;
             cocheprim[cocheprimnum] = 1;
-
-            //*****if (piedras != 0) {
-            //    veces = 1;
-            //    while (piedras >= veces) {
-            //        piedras -= veces;
-            //        veces++;
-            //    }
-            //    veces--;
+            
             System.out.println(" ");
-            //    piedras=1;
-            //}
             ganador = true;
 
             if (cocheprim[0] == 1) {
