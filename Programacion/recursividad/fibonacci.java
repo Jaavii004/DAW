@@ -12,7 +12,6 @@ public class fibonacci{
         }
         return res;
     }
-
     public static void main (String[] args) {
         System.out.println(fibonaccii(Integer.valueOf(args[0])));
     }
