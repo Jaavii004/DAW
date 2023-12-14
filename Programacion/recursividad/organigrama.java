@@ -72,7 +72,7 @@ public class organigrama {
             {"1986","Carmen","3","1066"},
             {"1997","Oscar","3","1861"}
         };
-        String salida = escalado(orgs,1106,1);
+        String salida = escalado(orgs,1106,2);
         System.out.println(salida);
     }
 }
