@@ -5,6 +5,11 @@ public class Coches {
         boolean ganador = false;
         int NumCochePrim;
         int NumCocheSeg;
+        // ICONO del coche
+        System.out.print("\uD83D\uDE97 ");
+        System.out.print("🚗 ");
+        // ICONO del Arbol
+        System.out.print("🌳 ");
 
         // V va a ser vacio
         // C va a ser un coche
