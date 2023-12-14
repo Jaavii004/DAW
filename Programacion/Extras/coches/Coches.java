@@ -6,9 +6,9 @@ public class Coches {
         int NumCochePrim;
         int NumCocheSeg;
 
-        // 2 va a ser vacio
-        // 1 va a ser un coche
-        // 0 va a ser arbol
+        // V va a ser vacio
+        // C va a ser un coche
+        // A va a ser arbol
 
         for (int i = 0; i < cocheprim.length-1; i++) {
             cocheprim[i] = 'V';
