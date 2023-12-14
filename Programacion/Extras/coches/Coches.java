@@ -6,10 +6,10 @@ public class Coches {
         int NumCochePrim;
         int NumCocheSeg;
         // ICONO del coche
-        System.out.print("\uD83D\uDE97 ");
-        System.out.print("🚗 ");
+        //System.out.print("\uD83D\uDE97 ");
+        //System.out.print("🚗 ");
         // ICONO del Arbol
-        System.out.print("🌳 ");
+        //System.out.print("🌳 ");
 
         // V va a ser vacio
         // C va a ser un coche
@@ -35,13 +35,16 @@ public class Coches {
         cocheseg[19] = 'C';
 
         for (int i = 0; i < cocheprim.length; i++) {
-            if (cocheprim[i] == 0) {
-                System.out.print("A ");
+            //System.out.println("05");
+            if (cocheprim[i] == 'A') {
+                //System.out.print("A ");
+                System.out.print("🌳");
             }
-            if (cocheprim[i] == 1) {
-                System.out.print("C ");
+            if (cocheprim[i] == 'C') {
+                //System.out.print("C ");
+                System.out.print("🚗");
             }
-            if (cocheprim[i] == 2) {
+            if (cocheprim[i] == 'V') {
                 System.out.print("_ ");
             }
         }
@@ -54,7 +57,7 @@ public class Coches {
             int cocheprimnum = posicocheprim - NumCochePrim;
             cocheprim[cocheprimnum] = 1;
             
-            System.out.println(" ");
+            System.out.println("1 ");
 
             ganador = true;
 
