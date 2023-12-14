@@ -26,7 +26,7 @@ public class Coches {
             int arbolprim = (int) (Math.random() * 17)+1;
             while (cocheprim[arbolprim] == 'V') {
                 arbolprim = (int) (Math.random() * 17)+1;
-                cocheprim[arbolprim] = 'A';
+                
             }
             cocheprim[arbolprim] = 'A';
 
