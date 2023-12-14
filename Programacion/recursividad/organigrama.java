@@ -10,7 +10,6 @@ public class organigrama {
             if (num == empleado) {
                 nivjefe = Integer.parseInt(array[i][2]);
                 jefe = Integer.parseInt(array[i][3]);
-                //System.out.println(array[i][2]);
             }
         }
         if (nivjefe == niveljefe) {
@@ -18,7 +17,6 @@ public class organigrama {
         } else {
             ent = escalado(array, jefe, niveljefe);
         }
-        //System.out.println(ent);
         return ent;
     }
     public static void main(String[] args) {
@@ -74,7 +72,7 @@ public class organigrama {
             {"1986","Carmen","3","1066"},
             {"1997","Oscar","3","1861"}
         };
-        String salida = escalado(orgs,1066,1);
+        String salida = escalado(orgs,1106,1);
         System.out.println(salida);
     }
 }
