@@ -1,9 +1,9 @@
 package recursividad;
 
 public class organigrama2 {
-    public static String escalado(String[][] array, int empleado, int niveljefe) {
+    public static int escalado(String[][] array, int empleado, int niveljefe) {
         int nivjefe = 0;
-        String ent = "";
+        int ent = 0;
         int jefe = 0;
         for (int i = 0; i < array.length; i++) {
             int num = Integer.parseInt(array[i][0]);
@@ -13,9 +13,29 @@ public class organigrama2 {
             }
         }
         if (nivjefe == niveljefe) {
-            ent = String.valueOf(empleado);
+            ent = empleado;
         } else {
             ent = escalado(array, jefe, niveljefe);
+        }
+        return ent;
+    }
+    public static String NombreJefe(String[][] array, int numjefe) {
+        String ent = "";
+        for (int i = 0; i < array.length; i++) {
+            int num = Integer.parseInt(array[i][0]);
+            if (num == numjefe) {
+                ent = array[i][1];
+            }
+        }
+        return ent;
+    }
+    public static String NombreEmple(String[][] array, int numjefe) {
+        String ent = "";
+        for (int i = 0; i < array.length; i++) {
+            int num = Integer.parseInt(array[i][0]);
+            if (num == numjefe) {
+                ent = array[i][1];
+            }
         }
         return ent;
     }
@@ -72,7 +92,10 @@ public class organigrama2 {
             {"1986","Carmen","3","1066"},
             {"1997","Oscar","3","1861"}
         };
-        String salida = escalado(orgs,1106,1);
-        System.out.println(salida);
+        int jefe = escalado(orgs,1066,0);
+        System.out.print(NombreEmple(orgs, 1066)+" ");
+        System.out.print(jefe+" ");
+        System.out.println(NombreJefe(orgs, jefe));
+
     }
 }

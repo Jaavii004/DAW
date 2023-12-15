@@ -1,24 +1,6 @@
-package recursividad;
+import lib.orglib;
 
 public class organigrama {
-    public static String escalado(String[][] array, int empleado, int niveljefe) {
-        int nivjefe = 0;
-        String ent = "";
-        int jefe = 0;
-        for (int i = 0; i < array.length; i++) {
-            int num = Integer.parseInt(array[i][0]);
-            if (num == empleado) {
-                nivjefe = Integer.parseInt(array[i][2]);
-                jefe = Integer.parseInt(array[i][3]);
-            }
-        }
-        if (nivjefe == niveljefe) {
-            ent = String.valueOf(empleado);
-        } else {
-            ent = escalado(array, jefe, niveljefe);
-        }
-        return ent;
-    }
     public static void main(String[] args) {
         String[][] orgs = {
             {"1025","Angel","0","0"},
@@ -72,7 +54,7 @@ public class organigrama {
             {"1986","Carmen","3","1066"},
             {"1997","Oscar","3","1861"}
         };
-        String salida = escalado(orgs,1106,1);
+        int salida = orglib.escalado(orgs,1066,1);
         System.out.println(salida);
     }
 }
