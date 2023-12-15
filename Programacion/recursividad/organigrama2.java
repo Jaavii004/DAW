@@ -1,6 +1,6 @@
 package recursividad;
 
-public class organigrama {
+public class organigrama2 {
     public static String escalado(String[][] array, int empleado, int niveljefe) {
         int nivjefe = 0;
         String ent = "";
