@@ -1,5 +1,3 @@
-package recursividad;
-
 public class organigrama2 {
     public static int escalado(String[][] array, int empleado, int niveljefe) {
         int nivjefe = 0;
@@ -10,6 +8,7 @@ public class organigrama2 {
             if (num == empleado) {
                 nivjefe = Integer.parseInt(array[i][2]);
                 jefe = Integer.parseInt(array[i][3]);
+                i = array.length;
             }
         }
         if (nivjefe == niveljefe) {
@@ -25,6 +24,7 @@ public class organigrama2 {
             int num = Integer.parseInt(array[i][0]);
             if (num == numjefe) {
                 ent = array[i][1];
+                i = array.length;
             }
         }
         return ent;
@@ -35,6 +35,7 @@ public class organigrama2 {
             int num = Integer.parseInt(array[i][0]);
             if (num == numjefe) {
                 ent = array[i][1];
+                i = array.length;
             }
         }
         return ent;
