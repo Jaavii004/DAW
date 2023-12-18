@@ -97,6 +97,5 @@ public class organigrama2 {
         System.out.print(NombreEmple(orgs, 1066)+" ");
         System.out.print(jefe+" ");
         System.out.println(NombreJefe(orgs, jefe));
-
     }
 }
