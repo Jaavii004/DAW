@@ -9,15 +9,14 @@ public class Ejercicio01 {
         char primero;
         int numant;
         int vecesrepe;
-        // Vamos a repitir tantas veces como nos ponga de repeticiones
+        int rest = 0;
         for (int i = 1; i <= repe; i++) {
+            rest = 0;
             entrada=sc.next();
             primero = entrada.charAt(0);
             numant = primero;
             vecesrepe = 1;
-            // vamos a mostrar el primer numero tal y como nos lo indicas
             System.out.print(primero+" ");
-            // Vamos a entrar tantas veces como numeros nos pongan por si se te olvida alguno
             for (int j = 1; j < entrada.length(); j++) {
                 //System.out.println("numant "+numant);
                 // Vamos a comprobar si el numero a actual esd igual al anterior
@@ -30,7 +29,9 @@ public class Ejercicio01 {
                     System.out.print(vecesrepe+" ");
                     vecesrepe = 1;
                 }
+                rest++;
             }
+            repe += rest;
             // Ponemos la ultima aparicion con salto de linea
             System.out.println(vecesrepe);
         }
