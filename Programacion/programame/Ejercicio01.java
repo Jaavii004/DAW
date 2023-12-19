@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Ejercicio01 {
     public static void main(String[] args) {
@@ -11,9 +12,27 @@ public class Ejercicio01 {
             veces = sc.nextInt();
             for (int i = 0; i < veces; i++) {
                 entrada += sc.next();
+                entrada += " ";
             }
             System.out.println(entrada);
             System.err.println();
+            // Ordenar la variable entrada
+            String[] palabras = entrada.split(" ");
+            Arrays.sort(palabras);
+
+            // Contar la frecuencia de cada palabra
+            int vecesrepe = 1;
+            for (int i = 1; i < palabras.length; i++) {
+                if (palabras[i].equals(palabras[i - 1])) {
+                    vecesrepe++;
+                } else {
+                    System.out.println(palabras[i - 1] + ": " + vecesrepe);
+                    vecesrepe = 1;
+                }
+            }
+            System.out.println(palabras[palabras.length - 1] + ": " + vecesrepe);
+
+
                 
             //veces = sc.nextInt();
             //palabras = new String[veces];
