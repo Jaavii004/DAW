@@ -13,8 +13,6 @@ public class Ejercicio01 {
                 entrada += sc.next();
                 entrada += " ";
             }
-            //System.out.println(entrada);
-            //System.err.println();
             // Ordenar la variable entrada
             String[] palabras = entrada.split(" ");
             Arrays.sort(palabras);
@@ -27,7 +25,6 @@ public class Ejercicio01 {
                 if (palabras[i].equals(palabras[i - 1])) {
                     vecesrepe++;
                 } else {
-                    //System.out.println(palabras[i - 1] + ": " + vecesrepe);
                     vecesrepe = 1;
                 }
                 if (vecesrepe >= vecesant) {
@@ -39,10 +36,12 @@ public class Ejercicio01 {
                     }
                 }
             }
-            System.out.println(salida);
+            
+            if (!salida.isEmpty()) {
+                System.out.println(salida);
+            }
             veces--;
-                
-        }while (veces >= 0);
+        }while (veces > 1);
         sc.close();
     }
 }
