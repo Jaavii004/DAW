@@ -7,15 +7,14 @@ public class Ejercicio01 {
         boolean EsNum = true;
         String entrada = "";
         do {
+            entrada = "";
             veces = sc.nextInt();
-            sc.nextLine();
-            do {
-                entrada += sc.nextLine();
-                if (!entrada.matches("-?\\d+")) {
-                    EsNum = false;
-                    break;
-                }
-            } while (EsNum);
+            for (int i = 0; i < veces; i++) {
+                entrada += sc.next();
+            }
+            System.out.println(entrada);
+            System.err.println();
+                
             //veces = sc.nextInt();
             //palabras = new String[veces];
             //combinedArray = new String[veces];
@@ -39,8 +38,9 @@ public class Ejercicio01 {
             //for (int i = 0; i < arrayPalabras.length; i++) {
             //    System.out.print(arrayPalabras[i]+"65");
             //}
+            veces--;
                 
-        }while (veces == 0);
+        }while (veces >= 0);
         sc.close();
     }
 }
