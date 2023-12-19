@@ -1,14 +1,16 @@
-for ($i = 0; $i -lt 4; $i++) {
-    for ($j = 0; $j -lt $i; $j++) {
+Write-Host "Primero: "
+for ($i = 1; $i -le 4; $i++) {
+    for ($j = 1; $j -le $i; $j++) {
         $asteri += "* "
     }
     Write-Host $asteri
     $asteri = ""
 }
-
+Write-Host "Segundo: "
 for ($i = 4; $i -ge 0; $i--) {
     for ($j = 0; $j -lt $i; $j++) {
-        $asteri = "* "
+        $asteri += "* "
     }
     Write-Host $asteri
+    $asteri = ""
 }
