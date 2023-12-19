@@ -9,9 +9,9 @@ public class Ejercicio01 {
         char primero;
         int numant;
         int vecesrepe;
-        int rest = 0;
+        
         for (int i = 1; i <= repe; i++) {
-            rest = 0;
+            
             entrada=sc.next();
             primero = entrada.charAt(0);
             numant = primero;
