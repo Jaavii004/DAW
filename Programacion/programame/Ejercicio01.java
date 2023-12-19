@@ -1,39 +1,44 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio01 {
     public static void main(String[] args) {
         int veces;
         Scanner sc = new Scanner(System.in);
-        String[] palabras;
-        String[] palabrasOrdenadas;
+        boolean EsNum = true;
+        String entrada = "";
         do {
             veces = sc.nextInt();
-            palabras = new String[veces];
-            combinedArray = new String[veces];
-
-            for (int i = 0; i <= veces; i++) {
-                int rest = 0;
-                sc.nextLine();
-                String entrada = sc.nextLine();
-                for (int j = 0; j <= entrada.length()-1; j++) {
-                    
-                    palabras[j] = entrada;
-                    rest++;
+            sc.nextLine();
+            do {
+                entrada += sc.nextLine();
+                if (!entrada.matches("-?\\d+")) {
+                    EsNum = false;
+                    break;
                 }
-                i+=rest;
-
-                
-            }
-            // Ordenar el array palabras
+            } while (EsNum);
+            //veces = sc.nextInt();
+            //palabras = new String[veces];
+            //combinedArray = new String[veces];
+            //for (int i = 0; i <= veces; i++) {
+            //    int rest = 0;
+            //    sc.nextLine();
+            //    String entrada = sc.nextLine();
+            //    for (int j = 0; j <= entrada.length()-1; j++) {
+            //        
+            //        palabras[j] = entrada;
+            //        rest++;
+            //    }
+            //    i+=rest;
+            //    
+            //}
+            //// Ordenar el array palabras
             //String[] palabrasOrdenadas =  Arrays.sort(palabras);
 
             // Guardar el array ordenado en otro array llamado palabrasOrdenadas
-            //palabrasOrdenadas = Arrays.copyOf(palabras, palabras.length-1);
-            for (int i = 0; i < arrayPalabras.length; i++) {
-                System.out.print(arrayPalabras[i]+"65");
-            }
+            ////palabrasOrdenadas = Arrays.copyOf(palabras, palabras.length-1);
+            //for (int i = 0; i < arrayPalabras.length; i++) {
+            //    System.out.print(arrayPalabras[i]+"65");
+            //}
                 
         }while (veces == 0);
         sc.close();

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class organigrama2 {
     public static int escalado(String[][] array, int empleado, int niveljefe) {
         int nivjefe = 0;
@@ -93,9 +95,13 @@ public class organigrama2 {
             {"1986","Carmen","3","1066"},
             {"1997","Oscar","3","1861"}
         };
-        int jefe = escalado(orgs,1066,0);
-        System.out.print(NombreEmple(orgs, 1066)+" ");
+        Scanner sc = new Scanner(System.in);
+        int empleado = sc.nextInt();
+        int niveljefe = sc.nextInt();
+        int jefe = escalado(orgs,empleado,niveljefe);
+        System.out.print(NombreEmple(orgs, empleado)+" ");
         System.out.print(jefe+" ");
         System.out.println(NombreJefe(orgs, jefe));
+        sc.close();
     }
 }
