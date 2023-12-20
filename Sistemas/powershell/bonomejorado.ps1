@@ -20,8 +20,16 @@ for ($i = 0; $i -lt 6; $i++) {
 #    }
 #}
 
-# Generar 2 reintegros
-$reintegros = Get-Random -Minimum 1 -Maximum 10
+$reintegros = @()
+
+# Generar 6 números principales
+for ($i = 0; $i -lt 2; $i++) {
+    $numero = Get-Random -Minimum 1 -Maximum 10
+    while ($reintegros -contains $numero) {
+        $numero = Get-Random -Minimum 1 -Maximum 10
+    }
+    $reintegros += $numero
+}
 
 # Mostrar los resultados
 Write-Host "Combinación de la Bonoloto: $combinacion"
