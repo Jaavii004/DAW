@@ -61,13 +61,3 @@ a {
     color: white;
 }
 
-int vecesrepe = 1;
-            for (int i = 1; i < palabras.length; i++) {
-                if (palabras[i].equals(palabras[i - 1])) {
-                    vecesrepe++;
-                } else {
-                    System.out.println(palabras[i - 1] + ": " + vecesrepe);
-                    vecesrepe = 1;
-                }
-            }
-            System.out.println(palabras[palabras.length - 1] + ": " + vecesrepe);

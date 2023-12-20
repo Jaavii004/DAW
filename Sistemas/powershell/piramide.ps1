@@ -3,7 +3,7 @@ $altura = 5
 
 # Bucle para cada nivel de la pirámide
 for ($i = 1; $i -le $altura; $i++) {
-    # Calcular la cantidad de espacios en blanco y asteriscos en cada nivel
+    # Calcular la cantidad de espacios en blanco y asteriscos en cada nivel 
     $espacios = $altura - $i
     $asteriscos = $i * 2 - 1
 
