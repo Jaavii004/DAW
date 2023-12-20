@@ -2,7 +2,7 @@
 $combinacion = @()
 
 # Generar 6 números principales
-1..6 | ForEach-Object {
+for ($i = 0; $i -lt 6; $i++) {
     $numero = Get-Random -Minimum 1 -Maximum 49
     while ($combinacion -contains $numero) {
         $numero = Get-Random -Minimum 1 -Maximum 49
@@ -17,5 +17,5 @@ $combinacion = $combinacion | Sort-Object
 $reintegros = Get-Random -Minimum 1 -Maximum 10
 
 # Mostrar los resultados
-Write-Host "Combinación de la Bonoloto: $($combinacion -join ', ')"
+Write-Host "Combinación de la Bonoloto: $combinacion"
 Write-Host "Reintegros: $reintegros"
