@@ -16,7 +16,6 @@ public class Ejercicio01 {
             // Ordenar la variable entrada
             String[] palabras = entrada.split(" ");
             Arrays.sort(palabras);
-
             // Contar la frecuencia de cada palabra
             int vecesrepe = 1;
             int vecesant = 0;
@@ -36,7 +35,6 @@ public class Ejercicio01 {
                     }
                 }
             }
-            
             if (!salida.isEmpty()) {
                 System.out.println(salida);
             }
