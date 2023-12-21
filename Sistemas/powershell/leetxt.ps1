@@ -1,14 +1,17 @@
-# Obtener la ruta del directorio raíz (puedes cambiarla según tus necesidades)
-$rutaRaiz = "C:\" 
+# Obtener todas las unidades del sistema
+$unidades = Get-PSDrive -PSProvider FileSystem | Where-Object { $_.Free -ne $null }
 
-# Obtener todos los archivos .txt en el directorio y subdirectorios
-$archivosTxt = Get-ChildItem -Path $rutaRaiz -Filter *.txt -Recurse
+# Recorrer cada unidad y buscar archivos .txt
+foreach ($unidad in $unidades) {
+    $rutaUnidad = $unidad.Root
+    $archivosTxt = Get-ChildItem -Path $rutaUnidad -Filter *.txt -Recurse -ErrorAction SilentlyContinue
 
-# Recorrer cada archivo y mostrar su contenido
-foreach ($archivo in $archivosTxt) {
-    Write-Host "Contenido de $($archivo.FullName):"
-    Get-Content $archivo.FullName
-    Write-Host "`n-------------------`n"
+    # Mostrar la información de cada archivo .txt encontrado
+    foreach ($archivo in $archivosTxt) {
+        Write-Host "Ruta del archivo: $($archivo.FullName)"
+        Write-Host "Última modificación: $($archivo.LastWriteTime)"
+        Write-Host "-------------------"
+    }
 }
 
 Write-Host "Proceso completado."
