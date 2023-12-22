@@ -21,7 +21,6 @@ public class Coches {
         for (int i = 0; i < cocheseg.length; i++) {
             cocheprim[i] = 'V';
         }
-
         for (int i = 0; i < 5; i++) {
             int arbolprim = (int) (Math.random() * 17)+1;
             while (cocheprim[arbolprim] == 'V') {
