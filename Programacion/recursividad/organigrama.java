@@ -1,5 +1,4 @@
 import lib.orglib;
-
 public class organigrama {
     public static void main(String[] args) {
         String[][] orgs = {
