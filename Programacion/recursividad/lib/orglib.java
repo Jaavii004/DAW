@@ -1,5 +1,4 @@
 package lib;
-
 public class orglib {
     public static int escalado(String[][] array, int empleado, int niveljefe) {
         int nivjefe = 0;
