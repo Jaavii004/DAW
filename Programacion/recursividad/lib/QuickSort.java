@@ -1,9 +1,7 @@
 package lib;
 public class QuickSort {
     public static int[] quickSort(int[] array) {
-        // Todo explicaco muy bien en el video de youtube
-        // https://www.youtube.com/watch?v=WprjBK0p6rw
-        // Salgo si es 1 o menos en el array
+        // Cuando el array es de 1 o 0 elementos no hay que ordenar nada salgo
         if (array.length <= 1) {
             return array;
         }
@@ -26,10 +24,11 @@ public class QuickSort {
         array[pv] = array[naranja + 1];
         array[naranja + 1] = temp;
 
-        // ordenar la lista antes y despues del pv
+        // Crear dos arrays para antes y despues del pv para poder ir ordenando
         int[] antes = new int[naranja + 1];
         int[] despues = new int[array.length - naranja - 2];
 
+        // Llenar los arrays antes y despues del pv para ejecutar recursivamente
         for (int i = 0; i <= naranja; i++) {
             antes[i] = array[i];
         }
@@ -38,11 +37,12 @@ public class QuickSort {
             despues[j] = array[temp2];
             temp2++;
         }
-        // recursivamente ordenar
+
+        // recursivamente ordenar la lista antes y despues del pv
         antes = quickSort(antes);
         despues = quickSort(despues);
 
-        // Juntarlas en array para mostrarlas
+        // Juntarlos en array para mostrarlas
         for (int i = 0; i < antes.length; i++) {
             array[i] = antes[i];
         }
