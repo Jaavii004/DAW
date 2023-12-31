@@ -1,6 +1,8 @@
 package lib;
 public class QuickSort {
     public static int[] quickSort(int[] array) {
+        // Todo explicaco muy bien en el video de youtube
+        // https://www.youtube.com/watch?v=WprjBK0p6rw
         // Salgo si es 1 o menos en el array
         if (array.length <= 1) {
             return array;
