@@ -1,4 +1,5 @@
 package lib;
+
 public class QuickSort {
     public static int[] quickSort(int[] array) {
         // Cuando el array es de 1 o 0 elementos no hay que ordenar nada salgo
