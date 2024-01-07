@@ -35,3 +35,4 @@ Si deseas ofuscar un script Bash, puedes utilizar `shc`, que es una herramienta 
 `shc` creará un ejecutable que contiene el script original cifrado. Ten en cuenta que esta no es una protección completa y que personas con habilidades avanzadas aún pueden revertir el proceso para ver el código original. Sin embargo, proporciona cierta obfuscación básica.
 
 Recuerda que el objetivo principal de la seguridad debe ser la gestión adecuada de los permisos y el acceso, en lugar de simplemente ocultar el código fuente. La ofuscación es más útil para evitar la lectura casual que para proporcionar seguridad real.
+
