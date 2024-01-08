@@ -21,5 +21,4 @@ public class OrdenaVector {
         System.out.println(Arrays.toString(list));
 
     }
-
 }
