@@ -7,7 +7,6 @@ import java.util.Scanner;
 class Evento {
     long tiempo;
     String descripcion;
-
     public Evento(long tiempo, String descripcion) {
         this.tiempo = tiempo;
         this.descripcion = descripcion;
