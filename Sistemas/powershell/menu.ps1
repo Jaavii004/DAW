@@ -1,3 +1,4 @@
+Clear-Host
 while ($true) {
     Write-Host ""
     Write-Host "MENÚ"
