@@ -19,6 +19,5 @@ public class OrdenaVector {
 
         System.out.println("Ordenado:");
         System.out.println(Arrays.toString(list));
-
     }
 }
