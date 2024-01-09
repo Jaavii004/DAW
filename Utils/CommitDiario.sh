@@ -3,7 +3,6 @@
 # Ruta al repositorio
 repositorio="/home/daw/DAW/"
 
-
 # Tu token de acceso al repositorio
 # Tu nombre de usuario y contraseña
 usuario="jaavii004"
