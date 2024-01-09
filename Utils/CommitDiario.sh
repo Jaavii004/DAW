@@ -7,7 +7,7 @@ repositorio="/home/daw/DAW/"
 # Tu nombre de usuario y contraseña
 usuario="jaavii004"
 contrasena="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"
-tu_repositorio_url="DAW"
+tu_repositorio_url=""
 # Cambia al directorio del repositorio
 cd "$repositorio" || exit
 
