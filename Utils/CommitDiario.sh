@@ -13,7 +13,7 @@ cd "$repositorio" || exit
 
 # Hacer commit
 git add .
-git commit -m "Commit diario $(date +'%Y-%m-%d %H:%M:%S')"
+git commit -m "Commit diario $(date +'%d-%m-%Y %H:%M')"
 
 # Push con el token
  
