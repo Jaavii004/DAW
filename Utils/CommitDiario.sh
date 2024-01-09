@@ -16,7 +16,7 @@ git add .
 git commit -m "Commit diario $(date +'%d-%m-%Y %H:%M')"
 
 # Push con el token
-git push origin main -u "$token"
+git push origin main -u "jaavii004"
 
 echo "Commit y push diario completados"
 
