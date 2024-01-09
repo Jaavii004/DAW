@@ -17,6 +17,6 @@ git commit -m "Commit diario $(date +'%d-%m-%Y %H:%M')"
 
 # Push con el token
  
-git push --all "https://$usuario:$contrasena@$tu_repositorio_url"
+git push  "https://$usuario:$contrasena@$tu_repositorio_url"
 
 echo "Commit y push diario completados"
