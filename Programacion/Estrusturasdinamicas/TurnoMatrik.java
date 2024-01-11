@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class TurnoMatrik {
     public static void MostrarMenu() {
+        System.out.println();
         System.out.println("1. Nuevo cliente ha entrado");
         System.out.println("2. Atender al siguiente cliente");
         System.out.println("3. Mostrar cola actual");
@@ -24,7 +25,7 @@ public class TurnoMatrik {
             switch (opcion) {
                 case 1:
                     sc.nextLine();
-                    System.out.println("Nombre cliente nuevo");
+                    System.out.print("Nombre cliente nuevo: ");
                     client = sc.nextLine();
                     delante = clientes.size();
                     System.out.println("Hay "+delante+" clientes delante");
@@ -34,7 +35,22 @@ public class TurnoMatrik {
                     if (clientes.size() == 0) {
                         System.out.println("No tenemos clientes");
                     }else{
-                        System.out.println("Vamos a atender a "+clientes.poll());
+                        System.out.println();
+                        System.out.println("Vamos a atender a \""+clientes.poll()+"\".");
+                        System.out.println("Quedan "+clientes.size()+" clientes.");
+                    }
+                    break;
+                case 3:
+                    if (clientes.size() == 0) {
+                        System.out.println("No tenemos clientes");
+                    }else{
+                        System.out.println();
+                        System.out.println("Clientes: ");
+                        int cliInt = 1;
+                        for (String clie : clientes) {
+                            System.out.println(cliInt+" de "+clie);
+                            cliInt++;
+                        }
                     }
                     break;
                 case 0:
