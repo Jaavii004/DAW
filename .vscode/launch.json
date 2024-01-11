@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EDQueue",
+            "request": "launch",
+            "mainClass": "Programacion.dinamicas.ejemplo.EDQueue",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "OrdenaVector",
             "request": "launch",
             "mainClass": "OrdenaVector",
