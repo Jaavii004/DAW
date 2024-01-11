@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class CalculadoraRPN {
-    // Muestra los números almacenados en el array en orden inverso.
     public static void Mostrarstak(Stack<Double> pila) {
         int tam = pila.size();
         for (Double d : pila) {
@@ -12,7 +11,7 @@ public class CalculadoraRPN {
         }
         System.out.println("Pulsa q para salir");
     }
-    public static void main(String[] args) {
+    
         // Crear una pila
         Stack<Double> pila = new Stack<>();
 
