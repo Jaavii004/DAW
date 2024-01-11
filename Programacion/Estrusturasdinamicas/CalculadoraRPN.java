@@ -74,4 +74,3 @@ public class CalculadoraRPN {
         sc.close();
     }
 }
-
