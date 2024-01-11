@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CalculadoraRPN",
+            "request": "launch",
+            "mainClass": "Programacion.Estrusturasdinamicas.CalculadoraRPN",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "EDQueue",
             "request": "launch",
             "mainClass": "Programacion.dinamicas.ejemplo.EDQueue",

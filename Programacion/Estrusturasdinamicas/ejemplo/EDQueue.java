@@ -1,3 +1,4 @@
+package Programacion.Estrusturasdinamicas.ejemplo;
 import java.util.Queue;
 import java.util.LinkedList;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public class EDQueue {
         numero = numeros.peek();
         System.out.printf("El primer día de la semana es el %s\n", dia);
         System.out.printf("El primer número de la cola es el %s\n", numero);
-        
+
         // Desencolamos los elementos uno a uno hasta dejar la cola vacía
         System.out.println("Desencolamos los elementos");
         while (dia!=null) {
