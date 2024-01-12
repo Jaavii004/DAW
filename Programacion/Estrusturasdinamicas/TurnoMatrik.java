@@ -18,6 +18,7 @@ public class TurnoMatrik {
         int opcion = 6;
         String client = "";
         int delante = 0;
+        int cliInt;
         while (opcion != 0) {
             MostrarMenu();
             System.out.print(": ");
@@ -46,9 +47,9 @@ public class TurnoMatrik {
                     }else{
                         System.out.println();
                         System.out.println("Clientes: ");
-                        int cliInt = 1;
+                        cliInt = 1;
                         for (String clie : clientes) {
-                            System.out.println(cliInt+" de "+clie);
+                            System.out.println(cliInt+":    "+clie);
                             cliInt++;
                         }
                     }
