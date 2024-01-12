@@ -1,3 +1,5 @@
+package Programacion.Estrusturasdinamicas;
+
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -11,22 +13,19 @@ public class CalculadoraRPN {
         }
         System.out.println("Pulsa q para salir");
     }
-    
+    public static void main(String[] args) {
         // Crear una pila
         Stack<Double> pila = new Stack<>();
 
         Scanner sc = new Scanner(System.in);
-        int num;
         boolean salir;
         String entrada = "";
         double resultado = 0;
-        boolean valid;
         double num1;
         double num2;
         
         salir = false;
         while (!salir) {
-            valid = false;
             Mostrarstak(pila);
             System.out.print(": ");
             entrada = sc.nextLine();
