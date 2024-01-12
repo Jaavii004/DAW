@@ -3,14 +3,12 @@ body {
     background: url("./background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
-
 .header {
     text-align: center;
     border: 2px solid hsl(200, 70%, 50%);
     padding: 10px;
     margin: 10px;
 }
-
 h1,
 h3,
 h4 {
@@ -20,31 +18,25 @@ h4 {
     padding: 10px;
     color: white;
 }
-
 img {
     border: 2px solid hsl(200, 70%, 50%);
     display: block;
     margin: 0 auto;
 }
-
 p {
     color: hsl(230, 70%, 30%);
     text-align: left;
 }
-
 pre {
     color: hsl(0, 70%, 30%);
     text-align: center;
 }
-
 i {
     color: hsl(300, 70%, 50%);
 }
-
 strong {
     color: hsl(240, 70%, 50%);
 }
-
 table {
     border-collapse: collapse; 
     border: 1px solid black;
@@ -52,7 +44,6 @@ table {
 td {
     border: 1px solid black;    
 }
-
 table {
     margin-left: auto;
     margin-right: auto;
