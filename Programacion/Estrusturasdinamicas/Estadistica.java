@@ -16,6 +16,9 @@ public class Estadistica {
         return resultado;
     }
     public static double desviacionTipica(Stack<Double> numeros) {
+        if (numeros.isEmpty()) {
+            return 0;
+        }
         double media = Media(numeros);
         double resultado = 0;
         double sumares= 0;
