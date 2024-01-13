@@ -13,6 +13,7 @@ public class Estadistica {
         if (numeros.size() != 0) {
             resultado = suma / numeros.size();
         }
+
         return resultado;
     }
     public static double desviacionTipica(Stack<Double> numeros) {
