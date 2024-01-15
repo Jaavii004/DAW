@@ -1,4 +1,5 @@
 public class QuickSort {
+    
     public static int[] ordenar(int[] array) {
         // Salgo si es 1 o menos en el array
         if (array.length <= 1) {
