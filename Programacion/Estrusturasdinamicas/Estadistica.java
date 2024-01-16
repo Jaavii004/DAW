@@ -23,7 +23,7 @@ public class Estadistica {
         double media = Media(numeros);
         double resultado = 0;
         double sumares= 0;
-        double resSum = 0;
+        double resSum= 0;
         double resultadofinal;
 
         for (double num : numeros) {

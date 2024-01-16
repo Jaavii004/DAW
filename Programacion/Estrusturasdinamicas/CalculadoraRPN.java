@@ -74,7 +74,6 @@ public class CalculadoraRPN {
                             pila.push(num1);
                             pila.push(num2);
                         }
-
                 }
             }
         }
