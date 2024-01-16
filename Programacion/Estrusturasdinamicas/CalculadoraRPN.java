@@ -33,6 +33,7 @@ public class CalculadoraRPN {
                 double numeroDouble = Double.parseDouble(entrada);
                 pila.push(numeroDouble);
             } else {
+                int sizepila = pila.size();
                 if (pila.size() == 0) {
                     num1 = 0;
                     num2 = 0;
@@ -65,7 +66,15 @@ public class CalculadoraRPN {
                         pila.push(resultado);
                         break;
                     default:
-                        System.out.println("Opción no válida");
+                        if (sizepila == 0) {
+                            sizepila = 0;
+                        }else if (sizepila <= 1) {
+                            pila.push(num2);
+                        } else {
+                            pila.push(num1);
+                            pila.push(num2);
+                        }
+
                 }
             }
         }
