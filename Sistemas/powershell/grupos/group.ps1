@@ -1,57 +1,67 @@
+Clear-Host
+
 # Crear grupos si no existen
-$iesGroup = "IES"
-$dawGroup = "DAW"
-$damGroup = "DAM"
-
-if (-not (Get-LocalGroup -Name $iesGroup -ErrorAction SilentlyContinue)) {
-    New-LocalGroup -Name $iesGroup
+foreach ($group in "IES", "DAW", "DAM") {
+    if (-not (Get-LocalGroup -Name $group -ErrorAction SilentlyContinue)) {
+        New-LocalGroup -Name $group
+        Write-Host "Grupo $group : Creado"
+        Enable-LocalUser -Name $user
+    }else{
+        Write-Host "Grupo $group : Ya existe"
+        
+    }
 }
-
-if (-not (Get-LocalGroup -Name $dawGroup -ErrorAction SilentlyContinue)) {
-    New-LocalGroup -Name $dawGroup
-}
-
-if (-not (Get-LocalGroup -Name $damGroup -ErrorAction SilentlyContinue)) {
-    New-LocalGroup -Name $damGroup
-}
+Write-Host
 
 # Crear usuarios si no existen
-$jaimeUser = "Jaime"
-$belenUser = "Belén"
-$martaUser = "Marta"
-$luisUser = "Luis"
-$carlosUser = "Carlos"
-$juanUser = "Juan"
-
-foreach ($user in $jaimeUser, $belenUser, $martaUser, $luisUser, $carlosUser, $juanUser) {
+foreach ($user in "Jaime", "Belen", "Marta", "Luis", "Carlos", "Juan") {
     if (-not (Get-LocalUser -Name $user -ErrorAction SilentlyContinue)) {
         New-LocalUser -Name $user
+        Write-Host "Usuario $user : Creado"
+    }else{
+        Write-Host "Usuario $user : Ya existe"
     }
 }
 
 # Crear carpetas si no existen
+Write-Host
+foreach ($path in "C:\SENIA", "C:\SENIA\APUNTES", "C:\SENIA\APUNTES\DAW", "C:\SENIA\APUNTES\DAM") {
+    if (-not (Test-Path $path)) {
+        New-Item -Path $path -ItemType Directory
+        Write-Host "Ruta $path : Creada"
+    }else{
+        Write-Host "Ruta $path : Ya existe"
+    }
+}
+
+
 $seniaPath = "C:\SENIA"
 $apuntesPath = "C:\SENIA\APUNTES"
 $dawPath = "C:\SENIA\APUNTES\DAW"
 $damPath = "C:\SENIA\APUNTES\DAM"
 
-foreach ($path in $seniaPath, $apuntesPath, $dawPath, $damPath) {
-    if (-not (Test-Path $path)) {
-        New-Item -Path $path -ItemType Directory
-    }
-}
-
-# Establecer permisos
+# Establecer permisos con ACLs
 # C:\SENIA
-icacls $seniaPath /grant $iesGroup:"(R)"
+$iesAcl = Get-Acl "C:\SENIA"
+$iesRule = New-Object System.Security.AccessControl.FileSystemAccessRule("C:\SENIA", "Read", "Allow")
+$iesAcl.AddAccessRule($iesRule)
+Set-Acl $seniaPath $iesAcl
 
 # C:\SENIA\APUNTES
-icacls $apuntesPath /grant $juanUser:"(F)"
+$juanAcl = Get-Acl $apuntesPath
+$juanRule = New-Object System.Security.AccessControl.FileSystemAccessRule($juanUser, "FullControl", "Allow")
+$juanAcl.AddAccessRule($juanRule)
+Set-Acl $apuntesPath $juanAcl
 
 # C:\SENIA\APUNTES\DAW
-icacls $dawPath /grant $dawGroup:"(M)"
-icacls $dawPath /inheritance:r /grant $damGroup:"(N)"
+$dawAcl = Get-Acl $dawPath
+$damAcl = Get-Acl $damPath
 
-# C:\SENIA\APUNTES\DAM
-icacls $damPath /grant $damGroup:"(M)"
-icacls $damPath /inheritance:r /grant $dawGroup:"(N)"
+$dawRule = New-Object System.Security.AccessControl.FileSystemAccessRule($dawGroup, "Read, Write, Execute", "Allow")
+$damRule = New-Object System.Security.AccessControl.FileSystemAccessRule($damGroup, "Read", "Allow")
+
+$dawAcl.AddAccessRule($dawRule)
+$damAcl.AddAccessRule($damRule)
+
+Set-Acl $dawPath $dawAcl
+Set-Acl $damPath $damAcl
