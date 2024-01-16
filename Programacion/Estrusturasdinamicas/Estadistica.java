@@ -6,7 +6,7 @@ import java.util.Stack;
 public class Estadistica {
     public static double Media(Stack<Double> numeros) {
         double suma = 0;
-        double resultado = 0;
+        double resultado= 0;
         for (Double d : numeros) {
             suma += d;
         }
