@@ -35,13 +35,13 @@ public class AceptaElReto238 {
                         veces++;
                         //int pers = veces%numPerso;
                         if (veces%numPerso == i) {
-                            salida += Integer.toString(tt);
                             salida += " ";
+                            salida += Integer.toString(tt);
                             billetes.remove(veces);
                             sumatotal += tt;
                         }
                     }
-                    salidaStrings[i] = sumatotal + ": " + salida;
+                    salidaStrings[i] = sumatotal + ":" + salida;
                 }
                 for (int i = numPerso-1; i >= 0; i--) {
                     System.out.println(salidaStrings[i]);
