@@ -12,44 +12,40 @@ public class AceptaElReto238 {
         int numBilletes = 0;
         int numPerso = 0;
         int veces = 0;
-
+        int sumatotal = 0;
+        String salida = "";
         while (!salir) {
             numBilletes = sc.nextInt();
             numPerso = sc.nextInt();
-
+            String[] salidaStrings = new String[numPerso];
             if (numBilletes == 0 | numPerso == 0) {
-                salir = true;    
-                System.out.println("salir");
+                salir = true;
             }else{
-                System.out.println("seguir");
                 sc.nextLine();
                 for (int i = 1; i <= numBilletes; i++) {
                     billetes.add(sc.nextInt());
                     //System.out.println("persona "+i%numPerso);
                 }
-                //for (int i = 1; i <= numPerso; i++) {
-                //    veces = 1;
-                //    for (Integer tt : billetes) {
-                //        if (i%numPerso == i-1) {
-                //            System.out.println(i+" "+tt);
-                //        }
-                //        veces++;
-                //    }
-                //}
                 veces = 0;
                 for (int i = 0; i < numPerso; i++) {
+                    veces = 0;
+                    sumatotal = 0;
+                    salida = "";
                     for (Integer tt : billetes) {
                         veces++;
-                        int pers = veces%numPerso;
-                        if (pers == i) {
-                            System.out.print(tt+" ");
-                            //System.out.println("salida "+tt+" pers"+i);
+                        //int pers = veces%numPerso;
+                        if (veces%numPerso == i) {
+                            salida += Integer.toString(tt);
+                            salida += " ";
+                            billetes.remove(veces);
+                            sumatotal += tt;
                         }
-                        //System.out.println("tt "+tt+" Persona ");
                     }
-                    System.out.println();
+                    salidaStrings[i] = sumatotal + ": " + salida;
                 }
-
+                for (int i = numPerso-1; i >= 0; i--) {
+                    System.out.println(salidaStrings[i]);
+                }
                 System.out.println("---");
                 billetes.clear();
             }
