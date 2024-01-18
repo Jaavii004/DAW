@@ -26,7 +26,6 @@ public class AceptaElReto238 {
                     billetes.add(sc.nextInt());
                     //System.out.println("persona "+i%numPerso);
                 }
-                veces = 0;
                 for (int i = 0; i < numPerso; i++) {
                     veces = 0;
                     sumatotal = 0;
