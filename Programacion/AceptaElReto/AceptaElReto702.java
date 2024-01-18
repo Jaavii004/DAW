@@ -7,7 +7,6 @@ public class AceptaElReto702 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TreeMap<String, String> mesCant = new TreeMap<String, String>();
-
         int dineroTotal = 0;
         String mes = "";
         String meses = "";
@@ -50,7 +49,7 @@ public class AceptaElReto702 {
             }
         }
         System.out.println(dineroTotal);
-        
+
         sc.close();
     }
 }
