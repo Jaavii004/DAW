@@ -1,7 +1,8 @@
+package Programacion.AceptaElReto;
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Ejercicio01 {
+public class AceptaElReto709dop {
     public static void main(String[] args) {
         int veces;
         Scanner sc = new Scanner(System.in);
