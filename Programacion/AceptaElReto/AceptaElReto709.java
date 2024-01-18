@@ -7,33 +7,42 @@ import java.util.Scanner;
 public class AceptaElReto709 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int maxVotos=0;
+        Map<String, Integer> votos = new HashMap<>();
+        int numVotos=0;
+        boolean salir = false;
+        String ganador = "EMPATE";
+        String pais="";
+        int votosconseguidos = 0;
 
-        while (true) {
-            int numVotos = scanner.nextInt();
-            if (numVotos == 0) {
-                break;
-            }
+        while (!salir) {
+            numVotos = scanner.nextInt();
+            if (numVotos != 0) {
+                maxVotos = 0;
+                ganador = "EMPATE";
 
-            Map<String, Integer> votos = new HashMap<>();
-            int maxVotos = 0;
-            String ganador = "EMPATE";
+                for (int i = 0; i < numVotos; i++) {
+                    pais = scanner.next();
+                    if (votos.containsKey(pais)) {
+                        votosconseguidos = votos.get(pais)+1;
+                    }else {
+                        votosconseguidos = 1;
+                    }
+                    votos.put(pais, votosconseguidos);
 
-            for (int i = 0; i < numVotos; i++) {
-                String candidatura = scanner.next();
-                votos.put(candidatura, votos.getOrDefault(candidatura, 0) + 1);
-
-                int votosActuales = votos.get(candidatura);
-                if (votosActuales > maxVotos) {
-                    maxVotos = votosActuales;
-                    ganador = candidatura;
-                } else if (votosActuales == maxVotos) {
-                    ganador = "EMPATE";
+                    if (votosconseguidos > maxVotos) {
+                        maxVotos = votosconseguidos;
+                        ganador = pais;
+                    } else if (votosconseguidos == maxVotos) {
+                        ganador = "EMPATE";
+                    }
                 }
+                System.out.println(ganador);
+                votos.clear();
+            }else{
+                salir=true;
             }
-
-            System.out.println(ganador);
         }
-        
         scanner.close();
     }
 }
