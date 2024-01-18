@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class AceptaElReto709 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int maxVotos=0;
         Map<String, Integer> votos = new HashMap<>();
         int numVotos=0;
@@ -16,13 +16,13 @@ public class AceptaElReto709 {
         int votosconseguidos = 0;
 
         while (!salir) {
-            numVotos = scanner.nextInt();
+            numVotos = sc.nextInt();
             if (numVotos != 0) {
                 maxVotos = 0;
                 ganador = "EMPATE";
 
                 for (int i = 0; i < numVotos; i++) {
-                    pais = scanner.next();
+                    pais = sc.next();
                     if (votos.containsKey(pais)) {
                         votosconseguidos = votos.get(pais)+1;
                     }else {
@@ -43,6 +43,6 @@ public class AceptaElReto709 {
                 salir=true;
             }
         }
-        scanner.close();
+        sc.close();
     }
 }
