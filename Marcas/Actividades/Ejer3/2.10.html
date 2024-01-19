@@ -7,17 +7,21 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" href="Real_Madrid.ico" type="image/x-icon"> <!-- Enlace al favicon -->
     <style>
-            table {
-                border-spacing: 30px;
-            }     
+        table.cab{
+            border-spacing: 30px;
+            border: 1px solid black;
+            color: black;
             th, td {
-                padding: 15px;
+                border: 1px solid black;
+                padding: 25px;
+                color: black;
             }
+        }
     </style>
 </head>
 
 <body>
-    <table class="cab">
+    <table class="cab" style="padding: 10px; border-spacing: 10px;">
         <tr>
             <td><a href="2.10.html">Noticia Principal</a></td>
             <td><a href="2.10.1.html">Matemáticas</a></td>
@@ -69,14 +73,12 @@
         </tr>
         
         <tr style="height:50px">
-            <td>1</td> <!-- Número de fila -->
-            <td>Juan Pérez</td>
+            <td rowspan="2">1</td> <!-- Número de fila -->
+            <td rowspan="2">Juan Pérez</td>
             <td>El Quijote</td>
             <td>20€</td>
         </tr>
         <tr style="height:50px">
-            <td>2</td> <!-- Número de fila -->
-            <td>Maria López</td>
             <td>Don Juan Tenorio</td>
             <td>15€</td>
         </tr>

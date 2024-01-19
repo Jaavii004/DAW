@@ -37,17 +37,8 @@ i {
 strong {
     color: hsl(240, 70%, 50%);
 }
-table {
-    border-collapse: collapse; 
-    border: 1px solid black;
-}
-td {
-    border: 1px solid black;    
-}
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
+
+
 a {
-    color: white;
+    color: black;
 }
