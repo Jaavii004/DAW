@@ -20,6 +20,7 @@ public class organigrama2 {
         }
         return ent;
     }
+
     public static String NombreJefe(String[][] array, int numjefe) {
         String ent = "";
         for (int i = 0; i < array.length; i++) {
