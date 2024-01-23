@@ -37,11 +37,15 @@ public class CalculadoraRPN {
                 if (pila.size() == 0) {
                     num1 = 0;
                     num2 = 0;
-                    entrada = "";
+                    if (!entrada.equals("q")){
+                        entrada = "";
+                    }
                 }else if (pila.size() == 1) {               
                     num2 = pila.pop();
                     num1 = 0;
-                    entrada = "";
+                    if (!entrada.equals("q")){
+                        entrada = "";
+                    }
                 } else {
                     num2 = pila.pop();
                     num1 = pila.pop();
