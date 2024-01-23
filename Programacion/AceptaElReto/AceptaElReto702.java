@@ -29,7 +29,7 @@ public class AceptaElReto702 {
             mesCant.put(ord, dinero);
         }
         int MesParaComprobar = 1;
-        int primermes = Integer.parseInt(mesCant.firstKey().split("-")[0]);
+        int primermes = 1;
         for (String mesesString : mesCant.keySet()) {
             String din = mesCant.get(mesesString);
             numeroInt = Integer.parseInt(din);
@@ -47,6 +47,9 @@ public class AceptaElReto702 {
                 }
                 dineroTotal = dineroTotal+numeroInt;
             }
+        }
+        for (int i = MesParaComprobar; i < 12; i++) {
+            System.out.print(dineroTotal+" ");
         }
         System.out.println(dineroTotal);
 
