@@ -1,11 +1,18 @@
 #!/bin/bash
 
 # Configurar el módulo ngx_http_stub_status_module en Nginx
-echo "location /nginx_status {
-    stub_status on;
-    allow 127.0.0.1;
-    deny all;
-}" | sudo tee /etc/nginx/sites-available/nginx_status
+sudo tee /etc/nginx/sites-available/nginx_status <<EOF
+server {
+    listen 80;
+    server_name localhost;
+
+    location /nginx_status {
+        stub_status on;
+        allow 127.0.0.1;
+        deny all;
+    }
+}
+EOF
 
 sudo ln -s /etc/nginx/sites-available/nginx_status /etc/nginx/sites-enabled/
 
