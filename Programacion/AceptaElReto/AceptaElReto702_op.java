@@ -26,7 +26,7 @@ public class AceptaElReto702_op {
             meses.put(mes, meses.get(mes) + Dineromes); 
         }
 
-        // 
+        // Vamos a recorrer todos los meses y voy mostrando el resultado
         for (String mesesString : meses.keySet()) {
             int dinDelMes = meses.get(mesesString);
             total += dinDelMes;
