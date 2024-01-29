@@ -32,5 +32,4 @@ public class Cafetera {
             this.cantidadActual -= nivtaza;
         }
     }
-
 }
