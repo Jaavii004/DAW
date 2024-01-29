@@ -43,11 +43,23 @@ public class Cafetera {
     public void llenarcafetera() {
         this.cantidadActual = this.capacidadMaxima;
     }
+
     public void servirTaza(int nivtaza) {
         if (nivtaza > this.cantidadActual) {
             this.cantidadActual = 0;
         }else{
             this.cantidadActual -= nivtaza;
+        }
+    }
+    public void vaciarCafetera (){
+        this.cantidadActual = 0;
+    }
+    public void agregarCafe (int agcafe) {
+        int cantActualtmp = this.cantidadActual + agcafe;
+        if (this.cantidadActual > cantActualtmp) {
+            this.cantidadActual = cantActualtmp;
+        }else{
+            this.cantidadActual = this.capacidadMaxima;
         }
     }
 }
