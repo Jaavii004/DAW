@@ -31,7 +31,7 @@ public class Pruebacafetera {
 
         // Agregar 150 ml de café a cafetera1 y mostrar la cantidad actual
         cafetera1.agregarCafe(150);
-        System.out.println("Cantidad maxima cafetera 1"+cafetera1.getCapacidadMaxima());
+        System.out.println("Cantidad maxima cafetera 1 "+cafetera1.getCapacidadMaxima());
         System.out.println("Después de agregar café a cafetera1, cantidad actual: " + cafetera1.getCantidadActual());
     }
 }
