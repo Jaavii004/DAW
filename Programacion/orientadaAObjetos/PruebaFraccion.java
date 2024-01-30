@@ -4,6 +4,7 @@ public class PruebaFraccion {
     public static void main(String[] args) {
         // Crear una fracción con valores iniciales
         Fraccion fraccion = new Fraccion();
+        Fraccion otraFraccion = new Fraccion(2, 5);
         System.out.println("Fracción original: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
         
         // Crear una fracción con ortos datos
@@ -12,17 +13,15 @@ public class PruebaFraccion {
         System.out.println("Fracción modificada: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
 
         // Simplificar la fracción
-        //fraccion.Simplificar();
+        fraccion.Simplificar();
         System.out.println("Fracción simplificada: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
 
         // Multiplicar la fracción por 2
-        //fraccion.Multiplicar(2, 2);
+        fraccion.Multiplicar(otraFraccion);
         System.out.println("Fracción multiplicada por 2: " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
 
         // Dividir la fracción por 3
         fraccion.Dividir(11,4);
         System.out.println("Fracción dividida : " + fraccion.getNumerador() + "/" + fraccion.getDenominador());
-
-        
     }
 }
