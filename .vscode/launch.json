@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PruebaFraccion",
+            "request": "launch",
+            "mainClass": "PruebaFraccion",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "CalculadoraRPN",
             "request": "launch",
             "mainClass": "Programacion.Estrusturasdinamicas.CalculadoraRPN",
