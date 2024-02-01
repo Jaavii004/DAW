@@ -1,8 +1,6 @@
 import java.util.Random;
 
 import lib.Tiempo;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PruebaTiempo {
     public static void main(String[] args) {
