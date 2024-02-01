@@ -12,5 +12,8 @@ public class PedidosPizza {
         p2.sirve();
         System.out.println("pedidas: " + Pizza.getTotalPedidas());
         System.out.println("servidas: " + Pizza.getTotalServidas());
+        Pizza p4 = new Pizza();
+        // Te saco un sabor y tamaño aleatorio por no especificarlo
+        System.out.println(p4);
     }
 }

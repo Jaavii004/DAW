@@ -7,13 +7,14 @@ public class Pizza {
     private String estado;
     public static int TotalPedidas = 0;
     public static int TotalServidas = 0;
-    private static String[] SABORES = {"margarita", "cuatro quesos", "funghi"};
-    private static String[] SABORES = {"margarita", "cuatro quesos"};
+    private String[] SABORES = {"margarita", "cuatro quesos", "funghi"};
+    private String[] TAMAÑO = {"mediana", "familiar"};
+
+    // Te saco un sabor y tamaño aleatorio por no especificarlo
+    // Constructor aleatorio
     public Pizza () {
-        // tamaño mediana o familiar
-        // tipo  margarita, cuatro quesos o funghi
         Random random = new Random();
-        this.tamaño = "";
+        this.tamaño = TAMAÑO[random.nextInt(2)];
         this.tipo = SABORES[random.nextInt(3)];
         this.estado = "pedida";
         TotalPedidas += 1;
