@@ -168,21 +168,22 @@ public class Tiempo {
     }
 
     private static void ordenarTiempo(Tiempo[] tiempos, int inicio, int fin) {
-        if (inicio < fin) {
+        if (inicio <= fin) {
             Tiempo pivote = tiempos[fin];
             int indiceMenor = inicio - 1;
 
-            for (int indiceActual = inicio; indiceActual < fin; indiceActual++) {
+            for (int i = inicio; i < fin; i++) {
                 // Compara los tiempos y realiza el intercambio si es necesario
-                if (tiempos[indiceActual].compareTo(pivote) < 0) {
+                if (tiempos[i].compareTo(pivote) < 0) {
                     indiceMenor++;
 
                     Tiempo temp = tiempos[indiceMenor];
-                    tiempos[indiceMenor] = tiempos[indiceActual];
-                    tiempos[indiceActual] = temp;
+                    tiempos[indiceMenor] = tiempos[i];
+                    tiempos[i] = temp;
                 }
             }
 
+            // Para cambiar el ultimo pivote
             Tiempo temp = tiempos[indiceMenor + 1];
             tiempos[indiceMenor + 1] = tiempos[fin];
             tiempos[fin] = temp;
@@ -194,10 +195,6 @@ public class Tiempo {
     }
 
     public int compareTo(Tiempo otro) {
-        // Comparación basada en la cantidad total de segundos
-        int totalSegundosThis = this.horas * 3600 + this.minutos * 60 + this.segundos;
-        int totalSegundosOtro = otro.horas * 3600 + otro.minutos * 60 + otro.segundos;
-
-        return Integer.compare(totalSegundosThis, totalSegundosOtro);
+        return Integer.compare(this.horas * 3600 + this.minutos * 60 + this.segundos, otro.horas * 3600 + otro.minutos * 60 + otro.segundos);
     }
 }
