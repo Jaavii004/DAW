@@ -32,18 +32,18 @@ public class PruebaTiempo {
         System.out.println("Tiempo3 después de resta: " + tiempo3);// "0h 44m 45s"
 
         System.out.println();
-        List<Tiempo> diezTiempos = new ArrayList<>();
+        Tiempo[] diezTiempos = new Tiempo[10];
         Random random = new Random();
 
         for (int i = 0; i < 10; i++) {
-            diezTiempos.add(new Tiempo(random.nextInt(24), random.nextInt(60), random.nextInt(60)));
+            diezTiempos[i] = new Tiempo(random.nextInt(24), random.nextInt(60), random.nextInt(60));
         }
 
-        Tiempo.quickSortTiempo(diezTiempos.toArray(new Tiempo[0]), 0, diezTiempos.size() - 1);
+        Tiempo.quickSortTiempo(diezTiempos, 0, diezTiempos.length - 1);
 
         System.out.println("Tiempos aleatorios ordenados:");
-        for (int i = 0; i < diezTiempos.size(); i++) {
-            System.out.println("Tiempo " + (i + 1) + ": " + diezTiempos.get(i));
+        for (int i = 0; i < diezTiempos.length; i++) {
+            System.out.println("Tiempo " + (i + 1) + ": " + diezTiempos[i]);
         }
     }
 }
