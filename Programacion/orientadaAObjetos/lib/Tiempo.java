@@ -6,17 +6,17 @@ public class Tiempo {
     private int segundos;
 
     public String toString() {
-        return (horas+"h "+ minutos + "m " + segundos + "s");
+        return (horas + "h " + minutos + "m " + segundos + "s");
     }
 
     // Constructores
-    public Tiempo () {
+    public Tiempo() {
         this.horas = 0;
         this.minutos = 0;
         this.segundos = 0;
     }
 
-    public Tiempo (int horas, int minutos,int segundos) {
+    public Tiempo(int horas, int minutos, int segundos) {
         this.horas = horas;
         this.minutos = minutos;
         this.segundos = segundos;
@@ -32,7 +32,7 @@ public class Tiempo {
         }
     }
 
-    public void suma (int horas, int minutos,int segundos) {
+    public void suma(int horas, int minutos, int segundos) {
         this.horas += horas;
         this.minutos += minutos;
         this.segundos += segundos;
@@ -49,7 +49,7 @@ public class Tiempo {
     }
 
     // con Tiempo
-    public void suma (Tiempo nuevoTiempo) {
+    public void suma(Tiempo nuevoTiempo) {
         this.horas += nuevoTiempo.getHoras();
         this.minutos += nuevoTiempo.getMinutos();
         this.segundos += nuevoTiempo.getSegundos();
@@ -65,13 +65,13 @@ public class Tiempo {
         }
     }
 
-    public void resta (int horas, int minutos,int segundos) {
-        if (this.horas < horas) {
-           this.horas = 0; 
+    public void resta(int horas, int minutos, int segundos) {
+        if (this.horas < horas){
+            this.horas = 0;
         }else{
             this.horas -= horas;
         }
-        if (this.minutos < minutos) {
+        if (this.minutos < minutos){
             if (this.horas > 0) {
                 this.horas -= 1;
                 this.minutos += 60;
@@ -83,7 +83,7 @@ public class Tiempo {
             this.minutos -= minutos;
         }
 
-        if (this.segundos < segundos) {
+        if (this.segundos < segundos){
             if (this.minutos > 0) {
                 this.minutos -= 1;
                 this.segundos += 60;
@@ -93,7 +93,7 @@ public class Tiempo {
                     this.horas -= 1;
                     this.minutos += 60;
                     this.segundos -= segundos;
-                }else {
+                }else{
                     this.segundos = 0;
                 }
             }
@@ -103,9 +103,9 @@ public class Tiempo {
         // si tengo 1m 30s y me restan 31 me tiene que quedar 0m y 59s
     }
 
-    public void resta (Tiempo tiemporesta) {
-        if (this.horas < tiemporesta.getHoras()) {
-           this.horas = 0; 
+    public void resta(Tiempo tiemporesta){
+        if(this.horas < tiemporesta.getHoras()){
+            this.horas = 0;
         }else{
             this.horas -= tiemporesta.getHoras();
         }
@@ -117,7 +117,7 @@ public class Tiempo {
             }else{
                 this.minutos = 0;
             }
-        }else{
+        } else {
             this.minutos -= tiemporesta.getMinutos();
         }
 
@@ -131,11 +131,11 @@ public class Tiempo {
                     this.horas -= 1;
                     this.minutos += 60;
                     this.segundos -= tiemporesta.getSegundos();
-                }else {
+                } else {
                     this.segundos = 0;
                 }
             }
-        }else{
+        } else {
             this.segundos -= tiemporesta.getSegundos();
         }
         // si tengo 1m 30s y me restan 31 me tiene que quedar 0m y 59s
@@ -162,46 +162,42 @@ public class Tiempo {
     public void setSegundos(int segundos) {
         this.segundos = segundos;
     }
-        // Método para ordenar un array de Tiempo usando quicksort
-        public static void quickSortTiempo(Tiempo[] tiempos, int low, int high) {
-            if (low < high) {
-                int pi = partition(tiempos, low, high);
-    
-                // Recursivamente ordenar los elementos antes y después de la partición
-                quickSortTiempo(tiempos, low, pi - 1);
-                quickSortTiempo(tiempos, pi + 1, high);
-            }
-        }
-    
-        // Método auxiliar para realizar la partición del array
-        private static int partition(Tiempo[] tiempos, int low, int high) {
-            Tiempo pivot = tiempos[high];
-            int i = (low - 1);
-    
-            for (int j = low; j < high; j++) {
+
+    public static void ordenarTiempo(Tiempo[] tiempos) {
+        ordenarTiempo(tiempos, 0, tiempos.length - 1);
+    }
+
+    private static void ordenarTiempo(Tiempo[] tiempos, int inicio, int fin) {
+        if (inicio < fin) {
+            Tiempo pivote = tiempos[fin];
+            int indiceMenor = inicio - 1;
+
+            for (int indiceActual = inicio; indiceActual < fin; indiceActual++) {
                 // Compara los tiempos y realiza el intercambio si es necesario
-                if (tiempos[j].compareTo(pivot) < 0) {
-                    i++;
-    
-                    Tiempo temp = tiempos[i];
-                    tiempos[i] = tiempos[j];
-                    tiempos[j] = temp;
+                if (tiempos[indiceActual].compareTo(pivote) < 0) {
+                    indiceMenor++;
+
+                    Tiempo temp = tiempos[indiceMenor];
+                    tiempos[indiceMenor] = tiempos[indiceActual];
+                    tiempos[indiceActual] = temp;
                 }
             }
-    
-            Tiempo temp = tiempos[i + 1];
-            tiempos[i + 1] = tiempos[high];
-            tiempos[high] = temp;
-    
-            return i + 1;
-        }
-    
-        public int compareTo(Tiempo other) {
-            // Comparación basada en la cantidad total de segundos
-            int totalSecondsThis = this.horas * 3600 + this.minutos * 60 + this.segundos;
-            int totalSecondsOther = other.horas * 3600 + other.minutos * 60 + other.segundos;
-    
-            return Integer.compare(totalSecondsThis, totalSecondsOther);
-        }
 
+            Tiempo temp = tiempos[indiceMenor + 1];
+            tiempos[indiceMenor + 1] = tiempos[fin];
+            tiempos[fin] = temp;
+
+            // Llamada recursiva
+            ordenarTiempo(tiempos, inicio, indiceMenor);
+            ordenarTiempo(tiempos, indiceMenor + 2, fin);
+        }
+    }
+
+    public int compareTo(Tiempo otro) {
+        // Comparación basada en la cantidad total de segundos
+        int totalSegundosThis = this.horas * 3600 + this.minutos * 60 + this.segundos;
+        int totalSegundosOtro = otro.horas * 3600 + otro.minutos * 60 + otro.segundos;
+
+        return Integer.compare(totalSegundosThis, totalSegundosOtro);
+    }
 }

@@ -39,7 +39,7 @@ public class PruebaTiempo {
             diezTiempos[i] = new Tiempo(random.nextInt(24), random.nextInt(60), random.nextInt(60));
         }
 
-        Tiempo.quickSortTiempo(diezTiempos, 0, diezTiempos.length - 1);
+        Tiempo.ordenarTiempo(diezTiempos);
 
         System.out.println("Tiempos aleatorios ordenados:");
         for (int i = 0; i < diezTiempos.length; i++) {
