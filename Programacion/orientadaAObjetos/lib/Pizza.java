@@ -1,4 +1,5 @@
 package lib;
+import java.util.Random;
 
 public class Pizza {
     private String tamaño;
@@ -6,11 +7,14 @@ public class Pizza {
     private String estado;
     public static int TotalPedidas = 0;
     public static int TotalServidas = 0;
-
-
+    private static String[] SABORES = {"margarita", "cuatro quesos", "funghi"};
+    private static String[] SABORES = {"margarita", "cuatro quesos"};
     public Pizza () {
+        // tamaño mediana o familiar
+        // tipo  margarita, cuatro quesos o funghi
+        Random random = new Random();
         this.tamaño = "";
-        this.tipo = "";
+        this.tipo = SABORES[random.nextInt(3)];
         this.estado = "pedida";
         TotalPedidas += 1;
     }
