@@ -162,5 +162,46 @@ public class Tiempo {
     public void setSegundos(int segundos) {
         this.segundos = segundos;
     }
+        // Método para ordenar un array de Tiempo usando quicksort
+        public static void quickSortTiempo(Tiempo[] tiempos, int low, int high) {
+            if (low < high) {
+                int pi = partition(tiempos, low, high);
+    
+                // Recursivamente ordenar los elementos antes y después de la partición
+                quickSortTiempo(tiempos, low, pi - 1);
+                quickSortTiempo(tiempos, pi + 1, high);
+            }
+        }
+    
+        // Método auxiliar para realizar la partición del array
+        private static int partition(Tiempo[] tiempos, int low, int high) {
+            Tiempo pivot = tiempos[high];
+            int i = (low - 1);
+    
+            for (int j = low; j < high; j++) {
+                // Compara los tiempos y realiza el intercambio si es necesario
+                if (tiempos[j].compareTo(pivot) < 0) {
+                    i++;
+    
+                    Tiempo temp = tiempos[i];
+                    tiempos[i] = tiempos[j];
+                    tiempos[j] = temp;
+                }
+            }
+    
+            Tiempo temp = tiempos[i + 1];
+            tiempos[i + 1] = tiempos[high];
+            tiempos[high] = temp;
+    
+            return i + 1;
+        }
+    
+        public int compareTo(Tiempo other) {
+            // Comparación basada en la cantidad total de segundos
+            int totalSecondsThis = this.horas * 3600 + this.minutos * 60 + this.segundos;
+            int totalSecondsOther = other.horas * 3600 + other.minutos * 60 + other.segundos;
+    
+            return Integer.compare(totalSecondsThis, totalSecondsOther);
+        }
 
 }
