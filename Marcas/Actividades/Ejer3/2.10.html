@@ -9,20 +9,20 @@
     <style>
         table.cab{
             border-spacing: 30px;
-            border: 1px solid black;
             color: black;
             th, td {
-                border: 1px solid black;
                 padding: 25px;
                 color: black;
             }
         }
-        table.libros td:nth-child(even) {
-            background-color: #f5a6a6;
+        table {
+            border-collapse: collapse;
         }
-        table.libros tr:hover {
-            background-color: rgb(255, 0, 0);
+        tr {
+            
+            border-bottom: 2px solid #000000;
         }
+
     </style>
 </head>
 
@@ -65,7 +65,7 @@
     <a href="./enlaces.html"><img src="./flecha-atras.gif" alt="flecha atras"></a>
 
     <h2>Nueva Noticia</h2>
-    <table style="width:80%" class="libros">
+    <table style="width:80%">
         <caption>Libros</caption>
         <tr>
             <td colspan="2">Identificador</td>
