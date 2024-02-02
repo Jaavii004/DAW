@@ -168,33 +168,42 @@ public class Tiempo {
     }
 
     private static void ordenarTiempo(Tiempo[] tiempos, int inicio, int fin) {
+        Tiempo pivote;
+        int indiceMenor;
+        Tiempo tmp;
+        int tmpganador;
         if (inicio <= fin) {
-            Tiempo pivote = tiempos[fin];
-            int indiceMenor = inicio - 1;
-
-            for (int i = inicio; i < fin; i++) {
-                // Compara los tiempos y realiza el intercambio si es necesario
-                if (tiempos[i].compareTo(pivote) < 0) {
+            pivote = tiempos[fin];
+            indiceMenor = inicio - 1;
+            for (int i = inicio+1; i <= fin; i++) {
+                tmpganador = pivote.compareTo(tiempos[i]);
+                if (tmpganador > 0) {
                     indiceMenor++;
-
-                    Tiempo temp = tiempos[indiceMenor];
+                    tmp = tiempos[indiceMenor];
                     tiempos[indiceMenor] = tiempos[i];
-                    tiempos[i] = temp;
+                    tiempos[i] = tmp;
                 }
             }
-
             // Para cambiar el ultimo pivote
-            Tiempo temp = tiempos[indiceMenor + 1];
+            tmp = tiempos[indiceMenor + 1];
             tiempos[indiceMenor + 1] = tiempos[fin];
-            tiempos[fin] = temp;
+            tiempos[fin] = tmp;
 
-            // Llamada recursiva
             ordenarTiempo(tiempos, inicio, indiceMenor);
+            // Para no coger ni el pivote ni los que ordena la otra parte
             ordenarTiempo(tiempos, indiceMenor + 2, fin);
         }
     }
 
-    public int compareTo(Tiempo otro) {
-        return Integer.compare(this.horas * 3600 + this.minutos * 60 + this.segundos, otro.horas * 3600 + otro.minutos * 60 + otro.segundos);
+    public int compareTo(Tiempo segundoTiempo) {
+        int a = this.horas * 3600 + this.minutos * 60 + this.segundos;
+        int b = segundoTiempo.horas * 3600 + segundoTiempo.minutos * 60 + segundoTiempo.segundos;
+        int vuelta = 0;
+        if (a<b) {
+            vuelta = -1;
+        }if (a>b) {
+            vuelta = 1;
+        }
+        return vuelta;
     }
 }
