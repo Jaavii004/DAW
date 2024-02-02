@@ -168,26 +168,27 @@ public class Tiempo {
     }
 
     private static void ordenarTiempo(Tiempo[] tiempos, int inicio, int fin) {
-        if (inicio < fin) {
-            Tiempo pivote = tiempos[fin];
-            int indiceMenor = inicio - 1;
-    
-            for (int i = inicio; i <= fin; i++) {
-                int tmpGanador = pivote.compareTo(tiempos[i]);
-                
-                if (tmpGanador > 0) {
+        Tiempo pivote;
+        int indiceMenor;
+        Tiempo tmp;
+        int tmpganador;
+        if (inicio <= fin) {
+            pivote = tiempos[fin];
+            indiceMenor = inicio - 1;
+            for (int i = inicio+1; i <= fin; i++) {
+                tmpganador = pivote.compareTo(tiempos[i]);
+                if (tmpganador > 0) {
                     indiceMenor++;
-                    Tiempo tmp = tiempos[indiceMenor];
+                    tmp = tiempos[indiceMenor];
                     tiempos[indiceMenor] = tiempos[i];
                     tiempos[i] = tmp;
                 }
             }
-    
-            // Para cambiar el último pivote
-            Tiempo tmp = tiempos[indiceMenor + 1];
+            // Para cambiar el ultimo pivote
+            tmp = tiempos[indiceMenor + 1];
             tiempos[indiceMenor + 1] = tiempos[fin];
             tiempos[fin] = tmp;
-    
+
             ordenarTiempo(tiempos, inicio, indiceMenor);
             // Para no coger ni el pivote ni los que ordena la otra parte
             ordenarTiempo(tiempos, indiceMenor + 2, fin);
