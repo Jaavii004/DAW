@@ -80,6 +80,3 @@ select * from instagram_low_cost.fotos f1
 where   YEAR(f1.fechaCreacion) = 2024  
     AND MONTH(f1.fechacreacion) = 01
     AND f1.idUsuario=33;
-
-
-
