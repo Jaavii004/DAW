@@ -82,4 +82,15 @@ where   YEAR(f1.fechaCreacion) = 2024
     AND f1.idUsuario=33;
 
 
+# Buscar URL y Nombre del usuario 33
+select url,nombre
+FROM instagram_low_cost.fotos,instagram_low_cost.usuarios
+where instagram_low_cost.fotos.idUsuario = instagram_low_cost.usuarios.idUsuario
+	AND year(instagram_low_cost.fotos.fechaCreacion) = 2024
+    AND month(instagram_low_cost.fotos.fechaCreacion) = 01
+    AND instagram_low_cost.fotos.idUsuario = 36;
+    
+
+
+
 
