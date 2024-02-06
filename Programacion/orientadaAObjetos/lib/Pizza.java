@@ -5,8 +5,8 @@ public class Pizza {
     private String tamaño;
     private String tipo;
     private String estado;
-    public static int TotalPedidas = 0;
-    public static int TotalServidas = 0;
+    private static int TotalPedidas = 0;
+    private static int TotalServidas = 0;
     private String[] SABORES = {"margarita", "cuatro quesos", "funghi"};
     private String[] TAMAÑO = {"mediana", "familiar"};
 
