@@ -35,9 +35,6 @@ public class PruebaTiempo {
 
         for (int i = 0; i < 10; i++) {
             diezTiempos[i] = new Tiempo(random.nextInt(24), random.nextInt(60), random.nextInt(60));
-        }
-
-        for (int i = 0; i < diezTiempos.length; i++) {
             System.out.println("Tiempo " + (i + 1) + ": " + diezTiempos[i]);
         }
 
