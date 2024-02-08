@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Centro</title>
     <style>
-        /* Estilos CSS para la página */
-        /* Puedes personalizar estos estilos según tus preferencias */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
-
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -23,11 +19,9 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         h1 {
             text-align: center;
         }
-
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -36,12 +30,10 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
-
         ul {
             list-style-type: none;
             padding: 0;
         }
-
         li {
             padding: 10px;
             margin-bottom: 5px;
@@ -54,36 +46,20 @@
 
 <body>
     <div class="container">
-        <h1>Acceder anydesk</h1>
+        <h1>Oliplus</h1>
+        <h1>Acceder AnyDesk</h1>
         <input type="text" id="searchInput" placeholder="Buscar centro por nombre...">
         <ul id="results"></ul>
     </div>
 
     <script>
-        // Datos de los centros
+        // Todos nuestros centros
         const centros = [
-            { nombre: "IES La Senia", AnyDesk: 1 },
-            { nombre: "IES Andreu Alfaro", AnyDesk: 2 },
-            { nombre: "IES Pepe", AnyDesk: 3 },
-            { nombre: "Colegio San José", AnyDesk: 4 },
-            { nombre: "Colegio San Antonio", AnyDesk: 5 },
-            { nombre: "Colegio San Vicente", AnyDesk: 6 },
-            { nombre: "IES La moreria", AnyDesk: 7 },
-            { nombre: "IES Vicent Andrés Estellés", AnyDesk: 8 },
-            { nombre: "IES Blasco Ibáñez", AnyDesk: 9 },
-            { nombre: "IES Ramon Llull", AnyDesk: 10 },
-            { nombre: "IES Jaume I", AnyDesk: 11 },
-            { nombre: "IES Miguel Hernández", AnyDesk: 12 },
-            { nombre: "Colegio Santa María", AnyDesk: 13 },
-            { nombre: "Colegio Sagrado Corazón", AnyDesk: 14 },
-            { nombre: "Colegio San Miguel", AnyDesk: 15 },
-            { nombre: "IES Bernat de Sarrià", AnyDesk: 16 },
-            { nombre: "IES La Malladeta", AnyDesk: 17 },
-            { nombre: "IES L'Estació", AnyDesk: 18 },
-            { nombre: "Colegio La Presentación", AnyDesk: 19 },
-            { nombre: "Colegio Cristo Rey", AnyDesk: 20 }
+            { nombre: "IES La Senia", AnyDesk: 658984 },
+            { nombre: "IES Andreu Alfaro", AnyDesk: 898598 },
+            { nombre: "IES La Garrigosa Meliana", AnyDesk: 587545 },
+            { nombre: "IES Districte Maritim", AnyDesk: 246876 }
         ];
-
 
         // Función para buscar el centro por nombre
         function searchCentro() {
@@ -94,8 +70,8 @@
             centros.forEach(centro => {
                 if (centro.nombre.toLowerCase().includes(searchTerm)) {
                     const listItem = document.createElement("li");
-                    listItem.textContent = `${centro.nombre} -  AnyDesk: ${centro.AnyDesk}`;
-                    listItem.setAttribute("data-centro", centro.numero); // Agrega un atributo "data-centro" con el número del centro
+                    listItem.textContent = `${centro.nombre} - AnyDesk: ${centro.AnyDesk}`;
+                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el número del centro
                     listItem.addEventListener("click", openAnyDesk); // Agrega un evento de click para abrir AnyDesk
                     resultsContainer.appendChild(listItem);
                 }
