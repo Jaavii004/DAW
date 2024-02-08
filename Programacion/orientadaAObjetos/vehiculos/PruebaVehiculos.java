@@ -9,6 +9,7 @@ public class PruebaVehiculos {
         System.out.flush();
         int opcion = 8;
         do {
+            System.out.println();
             System.out.println("VEHÍCULOS");
             System.out.println("=========");
             System.out.println("1. Anda en bicicleta");
@@ -21,6 +22,8 @@ public class PruebaVehiculos {
             System.out.print("Elige una opción (1-7): ");
             opcion = sc.nextInt();
 
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             switch (opcion) {
                 case 1:
                     bicicleta.andar(50);
