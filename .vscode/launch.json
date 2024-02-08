@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PruebaVehiculos",
+            "request": "launch",
+            "mainClass": "vehiculos.PruebaVehiculos",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "PruebaTiempo",
             "request": "launch",
             "mainClass": "PruebaTiempo",
