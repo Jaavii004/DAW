@@ -17,28 +17,42 @@
                 color: black;
             }
         }
-
         table {
             border-collapse: collapse;
         }
-
         tr {
-
             border-bottom: 2px solid #000000;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+        li a:hover {
+            background-color: #111111;
         }
     </style>
 </head>
 
 <body>
-    <table class="cab" style="padding: 10px; border-spacing: 10px;">
-        <tr>
-            <td><a href="2.10.html">Noticia Principal</a></td>
-            <td><a href="2.10.1.html">Matemáticas</a></td>
-            <td><a href="2.10.2.html">Quijote</a></td>
-            <td><a href="2.10.3.html">Poemas</a></td>
-        </tr>
-    </table>
-
+    <ul class="botonera" style="list-style-type: none;">
+        <li><a href="2.10.html">Noticia Principal</a></li>
+        <li><a href="2.10.1.html">Matemáticas</a></li>
+        <li><a href="2.10.2.html">Quijote</a></li>
+        <li><a href="2.10.3.html">Poemas</a></li>
+    </ul>
+    <br><br>
     <div class="header">
         <h1>El Madrid bate otro récord</h1>
         <h3>La entidad blanca supera los 500 millones de seguidores en redes sociales y se
@@ -117,4 +131,29 @@
             <td>17€</td>
         </tr>
     </table>
+    <h2>Autores</h2>
+    <ol>
+        <li>Miguel de Cervantes</ul>
+            <ul>
+                <li>El Quijote</li>
+                <li>Don Juan Tenorio</li>
+                <li>Novelas Ejemplares</li>
+            </ul>
+        </li>
+        <li>Carlos Ruiz Zafón
+            <ul>
+                <li>La sombra del viento</li>
+            </ul>
+        </li>
+        <li>Gabriel García Márquez
+            <ul>
+                <li>El amor en los tiempos del cólera</li>
+            </ul>
+        </li>
+        <li>Ildefonso Falcones
+            <ul>
+                <li>La catedral del mar</li>
+            </ul>
+        </li>
+    </ol>
 </body>
