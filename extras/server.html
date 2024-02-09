@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -19,9 +21,11 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
         }
+
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -30,10 +34,12 @@
             border: 1px solid #ccc;
             box-sizing: border-box;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             padding: 10px;
             margin-bottom: 5px;
@@ -47,20 +53,36 @@
 <body>
     <div class="container">
         <h1>Acceder AnyDesk</h1>
-        <input type="text" id="searchInput" placeholder="Buscar centro por nombre...">
+        <input type="text" id="searchInput" placeholder="Nombre del centro">
         <ul id="results"></ul>
     </div>
 
     <script>
         // Todos nuestros centros
         const centros = [
-            { nombre: "IES La Senia", AnyDesk: 658984 },
-            { nombre: "IES Andreu Alfaro", AnyDesk: 898598 },
-            { nombre: "IES La Garrigosa Meliana", AnyDesk: 587545 },
-            { nombre: "IES Districte Maritim", AnyDesk: 246876 }
+            // senia  andreu y garrigosa son inventados
+            /*{ nombre: "IES La Senia", AnyDesk: 1 },
+            { nombre: "IES Andreu Alfaro", AnyDesk: 2 },
+            { nombre: "IES La Garrigosa Meliana", AnyDesk: 3 },*/
+            { nombre: "IES Districte Maritim", AnyDesk: 246876 },
+            { nombre: "IES Luis Vives Valencia", AnyDesk: 838960 },
+            { nombre: "CEIP Ausias March - ALBALAT ", AnyDesk: 368345 },
+            { nombre: "CEIP Cervantes - Alboraya", AnyDesk: 375916 },
+            { nombre: "CEIP Eliseo Vidal", AnyDesk: 328755 },
+            { nombre: "CEIP Vicente Blasco Ibañez", AnyDesk: 401900 },
+            { nombre: "CRA El Pinar", AnyDesk: 993152 },
+            { nombre: "IES Ricardo Marin - Cheste", AnyDesk: 331825 },
+            { nombre: "CEIP Rodriguez Fornos", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 },
+            { nombre: "N", AnyDesk: 0 }
         ];
 
-        // Función para buscar el centro por nombre
+        // Para buscar el centro por nombre
         function searchCentro() {
             const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
             const resultsContainer = document.getElementById("results");
@@ -70,20 +92,20 @@
                 if (centro.nombre.toLowerCase().includes(searchTerm)) {
                     const listItem = document.createElement("li");
                     listItem.textContent = `${centro.nombre} - AnyDesk: ${centro.AnyDesk}`;
-                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el número del centro
+                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el Anydesk del centro
                     listItem.addEventListener("click", openAnyDesk); // Agrega un evento de click para abrir AnyDesk
                     resultsContainer.appendChild(listItem);
                 }
             });
         }
 
-        // Función para abrir AnyDesk con el número del centro
+        // Para abrir AnyDesk con el Anydesk del centro
         function openAnyDesk(event) {
-            const numeroCentro = event.target.getAttribute("data-centro");
-            window.open(`anydesk:${numeroCentro}`);
+            const Centro = event.target.getAttribute("data-centro");
+            window.open(`anydesk:${Centro}`);
         }
 
-        // Evento de escucha para la búsqueda
+        // Buscar todo el rato
         document.getElementById("searchInput").addEventListener("input", searchCentro);
     </script>
 </body>

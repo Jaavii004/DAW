@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PruebaUniversidad$Main",
+            "request": "launch",
+            "mainClass": "universidad.PruebaUniversidad$Main",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "PruebaVehiculos",
             "request": "launch",
             "mainClass": "vehiculos.PruebaVehiculos",
