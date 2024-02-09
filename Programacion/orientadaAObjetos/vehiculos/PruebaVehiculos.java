@@ -27,18 +27,20 @@ public class PruebaVehiculos {
             switch (opcion) {
                 case 1:
                     bicicleta.andar(50);
+                    System.out.println("Andar en bici");
                     break;
                 case 2:
                     coche.andar(500);
+                    System.out.println("Andar en coche");
                     break;
                 case 3:
-                    System.out.println("Kilometraje de la bicicleta: " + bicicleta.getKmrecorre());
+                    System.out.println("Kilometros de la bicicleta: " + bicicleta.getKmrecorre());
                     break;
                 case 4:
-                    System.out.println("Kilometraje del coche: " + coche.getKmrecorre());
+                    System.out.println("Kilometros del coche: " + coche.getKmrecorre());
                     break;
                 case 5:
-                    System.out.println("Kilometraje total: " + Vehiculos.getKilometrosTotales());
+                    System.out.println("Kilometros total: " + Vehiculos.getKilometrosTotales());
                     break;
                 case 6:
                     System.out.println("Vehículos totales: " + Vehiculos.getVehiculosCreados());
@@ -47,12 +49,10 @@ public class PruebaVehiculos {
                     System.out.println("Salir");
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, elige una opción válida.");
+                    System.out.println("Opción inválida.");
                     break;
             }
-
         } while (opcion != 7);
-
         sc.close();
     }
 }
