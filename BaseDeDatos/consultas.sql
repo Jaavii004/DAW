@@ -89,8 +89,4 @@ where instagram_low_cost.fotos.idUsuario = instagram_low_cost.usuarios.idUsuario
 	AND year(instagram_low_cost.fotos.fechaCreacion) = 2024
     AND month(instagram_low_cost.fotos.fechaCreacion) = 01
     AND instagram_low_cost.fotos.idUsuario = 36;
-    
-
-
-
 
