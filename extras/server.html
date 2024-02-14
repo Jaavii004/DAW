@@ -51,7 +51,7 @@
             cursor: pointer;
         }
         li:hover {
-            background-color: #333;
+            background-color: #777575;
             color: #fff;
         }
     </style>
@@ -106,14 +106,14 @@
                 if (centro.nombre.toLowerCase().includes(searchTerm)) {
                     const listItem = document.createElement("li");
                     listItem.innerHTML = `<span>${centro.nombre}</span> <span class="anydesk">${centro.AnyDesk}</span>`;
-                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el Anydesk del centro
-                    listItem.addEventListener('click', copyAnyDeskToClipboard);
+                    listItem.setAttribute("data-centro", centro.AnyDesk);
+                    listItem.addEventListener('click', cpAnyDesk);
                     resultsContainer.appendChild(listItem);
                 }
             });
         }
 
-        function copyAnyDeskToClipboard(event) {
+        function cpAnyDesk(event) {
             const anyDesk = event.currentTarget.querySelector('.anydesk').textContent;
             navigator.clipboard.writeText(anyDesk)
                 .catch(err => {
@@ -122,7 +122,6 @@
                 });
         }
 
-        // Buscar todo el rato
         document.getElementById("searchInput").addEventListener("input", searchCentro);
     </script>
 </body>
