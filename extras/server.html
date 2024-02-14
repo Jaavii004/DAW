@@ -40,7 +40,6 @@
             list-style-type: none;
             padding: 0;
         }
-
         li {
             display: flex;
             justify-content: space-between;
@@ -50,6 +49,10 @@
             background-color: #f9f9f9;
             border-radius: 5px;
             cursor: pointer;
+        }
+        li:hover {
+            background-color: #333;
+            color: #fff;
         }
     </style>
 </head>
@@ -94,7 +97,6 @@
             { nombre: "N", AnyDesk: 0 }
         ];
 
-        // Para buscar el centro por nombre
         function searchCentro() {
             const searchTerm = document.getElementById("searchInput").value.trim().toLowerCase();
             const resultsContainer = document.getElementById("results");
@@ -103,18 +105,21 @@
             centros.forEach(centro => {
                 if (centro.nombre.toLowerCase().includes(searchTerm)) {
                     const listItem = document.createElement("li");
-                    listItem.innerHTML = `<span>${centro.nombre}</span> <span> ${centro.AnyDesk}</span>`;
-                    listItem.setAttribute("data-centro", centro.AnyDesk);
-                    listItem.addEventListener("click", openAnyDesk);
+                    listItem.innerHTML = `<span>${centro.nombre}</span> <span class="anydesk">${centro.AnyDesk}</span>`;
+                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el Anydesk del centro
+                    listItem.addEventListener('click', copyAnyDeskToClipboard);
                     resultsContainer.appendChild(listItem);
                 }
             });
         }
 
-        // Para abrir AnyDesk con el Anydesk del centro
-        function openAnyDesk(event) {
-            const Centro = event.target.getAttribute("data-centro");
-            window.open(`anydesk:${Centro}`);
+        function copyAnyDeskToClipboard(event) {
+            const anyDesk = event.currentTarget.querySelector('.anydesk').textContent;
+            navigator.clipboard.writeText(anyDesk)
+                .catch(err => {
+                    console.error('Error al copiar: ', err);
+                    alert('No pudimos copiar el numero');
+                });
         }
 
         // Buscar todo el rato

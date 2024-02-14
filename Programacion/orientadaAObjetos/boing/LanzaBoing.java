@@ -22,10 +22,7 @@ public class LanzaBoing {
         objs.add(new Triangulo(new Posicion(10, 10), -1, -1));
 
         Boing.boing(camp, objs);
-        Triangulo.getColisiones();
 
     }
 
 }
-3 a
-2 mod
