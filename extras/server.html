@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oliplus AnyDesk</title>
+    <title>AnyDesk Oliplus</title>
+    <link rel="icon" href="https://www.oliplus.es/wp-content/uploads/2018/08/cropped-logo-parte-2-192x192.png" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,6 +42,9 @@
         }
 
         li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
             margin-bottom: 5px;
             background-color: #f9f9f9;
@@ -58,12 +62,7 @@
     </div>
 
     <script>
-        // Todos nuestros centros
         const centros = [
-            // senia  andreu y garrigosa son inventados
-            /*{ nombre: "IES La Senia", AnyDesk: 1 },
-            { nombre: "IES Andreu Alfaro", AnyDesk: 2 },
-            { nombre: "IES La Garrigosa Meliana", AnyDesk: 3 },*/
             { nombre: "IES Districte Maritim", AnyDesk: 246876 },
             { nombre: "IES Luis Vives Valencia", AnyDesk: 838960 },
             { nombre: "CEIP Ausias March - ALBALAT ", AnyDesk: 368345 },
@@ -72,8 +71,21 @@
             { nombre: "CEIP Vicente Blasco Ibañez", AnyDesk: 401900 },
             { nombre: "CRA El Pinar", AnyDesk: 993152 },
             { nombre: "IES Ricardo Marin - Cheste", AnyDesk: 331825 },
-            { nombre: "CEIP Rodriguez Fornos", AnyDesk: 0 },
-            { nombre: "N", AnyDesk: 0 },
+            { nombre: "CEIP Rodriguez Fornos", AnyDesk: 214231 },
+            { nombre: "IES Berenguer Dalmau - Catarroja", AnyDesk: 239873 },
+            { nombre: "CEIP Vila de Alaquas", AnyDesk: 219504 },
+            { nombre: "CEIP Luis Vives - Massanassa", AnyDesk: 574261 },
+            { nombre: "IES Baleares", AnyDesk: 620253 },
+            { nombre: "CEIP Nº2 La Sabina", AnyDesk: 401547 },
+            { nombre: "La Senia - Paiporta", AnyDesk: 650211 },
+            { nombre: "IES Serpis", AnyDesk: 772080 },
+            { nombre: "IES Gonzalo Anaya - Xirivella", AnyDesk: 331825 },
+            { nombre: "IES Tirant lo Blanc - Torrente *No conecta*", AnyDesk: 169213 },
+            { nombre: "CEIP Santo Ángel de la guarda", AnyDesk: 835022 },
+            { nombre: "CIPFP Misericordia", AnyDesk: 668823 },
+            { nombre: "IES Salvador Gadea", AnyDesk: 565532 },
+            { nombre: "IES 26", AnyDesk: 528343 },
+            { nombre: "CEIP Ausias March - Mislata", AnyDesk: 836203 },
             { nombre: "N", AnyDesk: 0 },
             { nombre: "N", AnyDesk: 0 },
             { nombre: "N", AnyDesk: 0 },
@@ -91,9 +103,9 @@
             centros.forEach(centro => {
                 if (centro.nombre.toLowerCase().includes(searchTerm)) {
                     const listItem = document.createElement("li");
-                    listItem.textContent = `${centro.nombre} - AnyDesk: ${centro.AnyDesk}`;
-                    listItem.setAttribute("data-centro", centro.AnyDesk); // Agrega un atributo "data-centro" con el Anydesk del centro
-                    listItem.addEventListener("click", openAnyDesk); // Agrega un evento de click para abrir AnyDesk
+                    listItem.innerHTML = `<span>${centro.nombre}</span> <span> ${centro.AnyDesk}</span>`;
+                    listItem.setAttribute("data-centro", centro.AnyDesk);
+                    listItem.addEventListener("click", openAnyDesk);
                     resultsContainer.appendChild(listItem);
                 }
             });
