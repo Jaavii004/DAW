@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Triangulo extends Objeto {
 
-    private int contcoli;
+    //private int contcoli;
 
     public Triangulo(Posicion pos, int dirx, int diry) {
         super(pos, dirx, diry);
@@ -27,11 +27,13 @@ public class Triangulo extends Objeto {
         return forma;
 
     }
+    /*
     private colision(Objeto obj) {
         boolean coli = super.colision(obj);
         if (coli) {
             this.contcoli+=1;
         }
     }
+     */
 
 }
