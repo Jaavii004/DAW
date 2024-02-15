@@ -5,6 +5,7 @@ import java.util.TreeSet;
 
 public class Boing {
 
+    private static int score = 0;
     private static ArrayList<Objeto> objs = new ArrayList<Objeto>();
     private static TreeSet<Posicion> campo = new TreeSet<Posicion>();
 
@@ -44,11 +45,12 @@ public class Boing {
 
         }
         System.out.println();
+        System.out.println("score " + score);
     }
     ////////////////////////////////////
     //Método principal (Hay que pasarle un Objeto Campo y un ArrayList de Objetos que se muevan)
     ///////////////////////////////////
-    public static void boing(Campo camp, ArrayList<Objeto> objetos) {
+    public static void boing(Campo camp, ArrayList<Objeto> objetos, Triangulo tria) {
 
         objs.add(camp);
 
@@ -75,7 +77,9 @@ public class Boing {
                 camp.colision(objs.get(i));
                 //Colisión con los objetos
                 for (int j = 1 + i; j < objs.size(); j++) {
-                    objs.get(i).colision(objs.get(j));
+                    if(objs.get(i).colision(tria) || camp.colision(tria)) {
+                        score++;
+                    }
                 }
             }
 

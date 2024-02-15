@@ -21,7 +21,8 @@ public class LanzaBoing {
         objs.add(new Rectangulo(new Posicion(5, 10), 1, -1));
         objs.add(new Triangulo(new Posicion(10, 10), -1, -1));
 
-        Boing.boing(camp, objs);
+        Triangulo miTriangulo = (Triangulo) objs.get(objs.size() - 1);
+        Boing.boing(camp, objs, miTriangulo);
 
     }
 
