@@ -10,7 +10,7 @@ public class LanzaBoing {
 
         ArrayList<Objeto> objs = new ArrayList<Objeto>();
 
-        Campo camp = new Campo(50, 30);
+        Campo camp = new Campo(100, 40);
 
         objs.add(new Cuadrado(new Posicion(5, 5), 1, 1));
         objs.add(new Cuadrado(new Posicion(20, 20), 1, -1));

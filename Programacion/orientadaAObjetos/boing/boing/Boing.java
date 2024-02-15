@@ -41,11 +41,11 @@ public class Boing {
                 System.out.print(" ");
             }
             x = pos.getX();
-            System.out.print("*");
+            System.out.print("\u2588");
 
         }
         System.out.println();
-        System.out.println("score " + score);
+        System.out.println("Colisiones: " + score);
     }
     ////////////////////////////////////
     //Método principal (Hay que pasarle un Objeto Campo y un ArrayList de Objetos que se muevan)
