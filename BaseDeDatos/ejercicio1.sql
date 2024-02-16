@@ -84,11 +84,15 @@
      AND instagram_low_cost.reaccionesFotos.idTipoReaccion > 2;
 
 6. -- Número de "Me divierte" de la foto número 12 del usuario 45:
-   SELECT COUNT(*)
+   SELECT count(*)
    FROM instagram_low_cost.reaccionesFotos
    WHERE idFoto = 12
      AND idUsuario = 45
      AND idTipoReaccion = 3;
+
+   # Añado los para ver que me llegue una 
+   insert into reaccionesFotos (idUsuario, idFoto , idTipoReaccion)
+   values (45,12, 3);
 
 7. -- Número de fotos tomadas en la playa (en base al título):
    SELECT *
