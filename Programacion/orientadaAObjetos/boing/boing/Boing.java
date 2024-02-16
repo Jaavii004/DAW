@@ -59,7 +59,8 @@ public class Boing {
         while (true) {
 
             pintaCampo();
-
+            // Y obtengo solo las del triangulo que me pasen
+            //System.out.println(tria.getColisiones()); 
             // Pausa
             try {
                 Thread.sleep(100);
