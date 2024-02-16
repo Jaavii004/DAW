@@ -41,3 +41,10 @@ table {
 a {
     color: white;
 }
+.section{
+    background-color: #f7a5a5;
+}
+.titulo {
+    color: #ff0000;
+    font-size: 30px;
+}
