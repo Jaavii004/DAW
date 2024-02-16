@@ -76,12 +76,15 @@
      AND instagram_low_cost.reaccionesFotos.idTipoReaccion = 4;
 
 5. -- Administradores que han dado más de 2 "Me gusta":
-   SELECT instagram_low_cost.fotos.*
+   SELECT *
    FROM instagram_low_cost.usuarios, instagram_low_cost.reaccionesFotos
    WHERE instagram_low_cost.usuarios.idUsuario = instagram_low_cost.reaccionesFotos.idUsuario
      AND instagram_low_cost.usuarios.idRol = 3
      AND instagram_low_cost.reaccionesFotos.idTipoReaccion = 1
-     AND instagram_low_cost.reaccionesFotos.idTipoReaccion > 2;
+     AND instagram_low_cost.reaccionesFotos.idTipoReaccion <= 2;
+
+     insert into reaccionesFotos (idFoto, idUsuario, idTipoReaccion)
+values (16, 15, 1),(16,15,1);
 
 6. -- Número de "Me divierte" de la foto número 12 del usuario 45:
    SELECT count(*)
