@@ -1,4 +1,4 @@
-package Programacion.Excepciones;
+package Programacion.excepciones;
 
 public class PrimeraExcepcion {
     public static void rango(int num) throws ExcepcionRango {
