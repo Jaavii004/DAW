@@ -45,9 +45,8 @@ public class InOk {
     }
 
     public static void LeeDou(){
-
         try {
-            System.out.print("LeeDou(): ");
+            
             num = sc.nextInt();
         } catch (Exception e) {
             System.out.println("Error no es un numero real");
@@ -56,16 +55,14 @@ public class InOk {
     }
 
     public static void LeeDouRango(){
-
-
         try {
-            System.out.print("LeeDou(): ");
+            System.out.print("LeeDouRango(): ");
             LeeDou();
             if ((num > 100) || (num < 0)) {
                 throw new Exception();
             }
         } catch (Exception e) {
-            System.out.println("Error no es un un número real en un rango determinado");
+            System.out.println("Número fuera del rango [0,100]");
             sc.nextLine();
         }
     }
@@ -73,8 +70,8 @@ public class InOk {
         LeeInt();
         LeeIntPos();
         LeeIntRango();
+        System.out.print("LeeDou(): ");
         LeeDou();
-
-
+        LeeDouRango();
     }
 }
