@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Real Madrid</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="Real_Madrid.ico" type="image/x-icon"> <!-- Enlace al favicon -->
+    <style>
+        table.cab {
+            border-spacing: 30px;
+            color: black;
+
+            th,
+            td {
+                padding: 25px;
+                color: black;
+            }
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border-bottom: 2px solid #000000;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="realMadrid">
+        <ul class="botonera" style="list-style-type: none;">
+            <li><a href="2.10.html">Noticia Principal</a></li>
+            <li><a href="2.10.1.html">Matemáticas</a></li>
+            <li><a href="2.10.2.html">Quijote</a></li>
+            <li><a href="2.10.3.html">Poemas</a></li>
+        </ul>
+        <br><br>
+        <div class="header section">
+            <h1 class="titulo">El Madrid bate otro récord</h1>
+            <h3>La entidad blanca supera los 500 millones de seguidores en redes sociales y se
+                convierte en la primera organización deportiva en alcanzar dicha cifra</h3>
+            <!-- ESTO ES UNA IMAGEN -->
+            <picture>
+                <source media="(min-width: 750px)"
+                    srcset="https://phantom-marca.unidadeditorial.es/4e7355e11d013e6eb6e46dcfcaea2598/resize/660/f/webp/assets/multimedia/imagenes/2023/09/22/16953836293600.jpg">
+                <source media="(min-width: 465px)"
+                    srcset="https://phantom-marca.unidadeditorial.es/5ba8de29afdd90b81a469b368b7c07e7/resize/660/f/webp/assets/multimedia/imagenes/2023/11/26/17010271011203.jpg">
+                <img width="300px"
+                    src="https://phantom-marca.unidadeditorial.es/5ba8de29afdd90b81a469b368b7c07e7/resize/660/f/webp/assets/multimedia/imagenes/2023/11/26/17010271011203.jpg">
+            </picture>
+
+        </div>
+        <p>El Real Madrid es un club universal, que llega a todos los rincones del planeta,
+            entre otras cosas, gracias a sus redes sociales. A través de las plataformas digitales, los
+            aficionados madridistas de todas las partes del mundo se sienten conectados con el club de
+            su corazón.</p>
+        <h4>Un club en todas las redes</h4>
+        <p>
+            El cuadro blanco cuenta con 37 usuarios oficiales entre todas sus secciones y
+            distintos idiomas en las diferentes redes sociales: Facebook, Instagram, WhatsApp, X
+            (Twitter), Tiktok, YouTube, Line, Snapchat, Twitch, LinkedIn, Weibo, Wechat, Toutiao,
+            Douyin y BiliBili.
+        </p>
+        <a href="./enlaces.html"><img src="./flecha-atras.gif" alt="flecha atras"></a>
+
+        <h2>Nueva Noticia</h2>
+        <table style="width:80%">
+            <caption>Libros</caption>
+            <colgroup>
+                <col style="background-color: rgb(233, 115, 106);">
+            </colgroup>
+            <tr>
+                <td colspan="2">Identificador</td>
+                <td colspan="2">Obra</td>
+            </tr>
+            <tr>
+                <td></td> <!-- Columna de encabezado vacía -->
+                <td style="width:40%">Autor</td>
+                <td style="width:40%">Título del Libro</td>
+                <td style="width:20%">Precio</td>
+            </tr>
+
+            <tr style="height:50px">
+                <td rowspan="3">1</td> <!-- Número de fila -->
+                <td rowspan="3">Juan Pérez</td>
+                <td>El Quijote</td>
+                <td>20€</td>
+            </tr>
+            <tr style="height:50px">
+                <td>Don Juan Tenorio</td>
+                <td>15€</td>
+            </tr>
+            <tr style="height:50px">
+                <td>Novelas Ejemplares</td>
+                <td>18€</td>
+            </tr>
+            <tr style="height:50px">
+                <td>2</td> <!-- Número de fila -->
+                <td>Ana Martínez</td>
+                <td>La sombra del viento</td>
+                <td>22€</td>
+            </tr>
+            <tr style="height:50px">
+                <td>3</td> <!-- Número de fila -->
+                <td>Pablo Rodríguez</td>
+                <td>El amor en los tiempos del cólera</td>
+                <td>25€</td>
+            </tr>
+            <tr style="height:50px">
+                <td>4</td> <!-- Número de fila -->
+                <td>Sofía Fernández</td>
+                <td>La catedral del mar</td>
+                <td>17€</td>
+            </tr>
+        </table>
+        <h2 class="section">Autores</h2>
+        <ol>
+            <li>Miguel de Cervantes</ul>
+                <ul>
+                    <li>El Quijote</li>
+                    <li>Don Juan Tenorio</li>
+                    <li>Novelas Ejemplares</li>
+                </ul>
+            </li>
+            <li>Carlos Ruiz Zafón
+                <ul>
+                    <li>La sombra del viento</li>
+                </ul>
+            </li>
+            <li>Gabriel García Márquez
+                <ul>
+                    <li>El amor en los tiempos del cólera</li>
+                </ul>
+            </li>
+            <li>Ildefonso Falcones
+                <ul>
+                    <li>La catedral del mar</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</body>
