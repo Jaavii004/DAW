@@ -66,6 +66,7 @@ public class InOk {
             sc.nextLine();
         }
     }
+
     public static void main(String[] args) {
         LeeInt();
         LeeIntPos();
@@ -73,5 +74,11 @@ public class InOk {
         System.out.print("LeeDou(): ");
         LeeDou();
         LeeDouRango();
+        try {
+            int index = LeeString();
+            System.out.println("Elemento encontrado en la posición: " + index);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
