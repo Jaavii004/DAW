@@ -1,10 +1,10 @@
-package Programacion.excepciones.ejercicioExcepcion;
-
 import java.util.Scanner;
 
 public class InOk {
     private static Scanner sc = new Scanner(System.in);
+    public static final String[] COMPOSITORES = {"Bach", "Haydn", "Mozart", "Beethoven", "Brahms", "Mahler", "Bartok"};
     private static int num;
+    private static double numdouble;
 
     public static void LeeInt(){
         try {
@@ -46,8 +46,7 @@ public class InOk {
 
     public static void LeeDou(){
         try {
-            
-            num = sc.nextInt();
+            numdouble = sc.nextDouble();
         } catch (Exception e) {
             System.out.println("Error no es un numero real");
             sc.nextLine();
@@ -58,8 +57,8 @@ public class InOk {
         try {
             System.out.print("LeeDouRango(): ");
             LeeDou();
-            if ((num > 100) || (num < 0)) {
-                throw new Exception();
+            if (numdouble < 0 || numdouble > 100) {
+                throw new Exception("Número fuera del rango (0, 100)");
             }
         } catch (Exception e) {
             System.out.println("Número fuera del rango [0,100]");
@@ -67,6 +66,28 @@ public class InOk {
         }
     }
 
+    public static void LeeElementosString(){
+        String compositor = "";
+        int cont = 0;
+        int encontrado = -1;
+        try {
+            System.out.print("LeeElementosString(): ");
+            compositor = sc.next();
+            for (String compositoFor : COMPOSITORES) {
+                if (compositor.equals(compositoFor)) {
+                    encontrado = cont;
+                }
+                cont++;
+            }
+            if (encontrado == -1) {
+                throw new ElementoNoExiste("El compositor no esta en la lista");
+            }
+            System.out.println("Me encuentas en la posicion "+encontrado);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            sc.nextLine();
+        }
+    }
     public static void main(String[] args) {
         LeeInt();
         LeeIntPos();
@@ -74,11 +95,6 @@ public class InOk {
         System.out.print("LeeDou(): ");
         LeeDou();
         LeeDouRango();
-        try {
-            int index = LeeString();
-            System.out.println("Elemento encontrado en la posición: " + index);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        LeeElementosString();
     }
 }
