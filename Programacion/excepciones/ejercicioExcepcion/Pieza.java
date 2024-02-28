@@ -15,8 +15,7 @@ public class Pieza {
                 this.area() == p.area();
     }
 
-    public double area(Object o) {
-        Pieza p = (Pieza) o;
+    public double area() {
         return 5;
     }
 
