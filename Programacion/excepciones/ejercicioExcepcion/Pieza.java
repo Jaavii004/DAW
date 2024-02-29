@@ -1,7 +1,6 @@
 public class Pieza {
     private String nombre;
     private String color;
-    
 
     public Pieza(String nombre, String color) {
         this.nombre = nombre;
