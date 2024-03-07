@@ -19,7 +19,7 @@ public class Calculos {
         unidades = ((double)metroscubicos * 1000000000)/((alto*ancho*largo));
         pretotal = unidades * precio;
         if (metroscubicos <= 0) {
-            throw new Exception("No puedes dividir por 0");
+            throw new Exception("No puedes poner m3 de 0 o menos");
         }
         preciom = pretotal/metroscubicos;
 
