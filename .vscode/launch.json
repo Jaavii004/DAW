@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Fichero",
+            "request": "launch",
+            "mainClass": "Fichero",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "PruebaUniversidad$Main",
             "request": "launch",
             "mainClass": "universidad.PruebaUniversidad$Main",
