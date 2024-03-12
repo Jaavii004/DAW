@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Función para verificar si el texto es un nombre válido
+es_nombre_valido() {
+    if [[ "$1" =~ ^[a-zA-Z0-9_]+$ ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Pedir al usuario que ingrese el nombre de la carpeta original y verificar si es válido
+while true; do
+    echo "Introduce tu nombre completo con el formato ApellidosNommbre: "
+    read nombre_alumno
+
+    if es_nombre_valido "$nombre_alumno"; then
+        break
+    else
+        echo "Nombre no válido. Debe contener solo letras, números y guiones bajos."
+    fi
+done
+
+directorio=$(basename "$(pwd)")
+ts=$(date +%s)
+
+cd ..
+mkdir "db-$nombre_alumno-$ts"
+mv "$directorio" "db-$nombre_alumno-$ts"
+cd "db-$nombre_alumno-$ts/$directorio"
+
+mv .pre-commit .git/hooks/pre-commit
+
+git checkout dev > /dev/null 2>&1
+git checkout -b "db-$nombre_alumno-$ts" > /dev/null 2>&1
+
+mkdir "$nombre_alumno"
+
+for i in {1..10}; do
+    touch "$nombre_alumno/query$i.sql"
+done
+
+# Configura nombre del alumno
+git config user.name "$nombre_alumno"
+
+# Hacer un commit
+git add . > /dev/null 2>&1
+git commit -m "Clonado por $nombre_alumno" > /dev/null 2>&1
+
+code .

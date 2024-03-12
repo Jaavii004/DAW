@@ -1,0 +1,3 @@
+SELECT Nom
+FROM videoclub.PRESTEC
+JOIN videoclub.CLIENT C on C.DNI = PRESTEC.DNI;

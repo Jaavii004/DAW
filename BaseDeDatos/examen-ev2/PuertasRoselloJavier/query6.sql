@@ -1,0 +1,4 @@
+SELECT  *
+FROM videoclub.FACTURA
+WHERE MONTH(FACTURA.Data) = 03
+ORDER BY Import DESC;
