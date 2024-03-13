@@ -157,3 +157,5 @@ FROM videoclub.PELICULA
 JOIN videoclub.ACTOR
 ON PELICULA.CodiActor = ACTOR.CodiActor;
 ```
+Nota examen:     7.98
+Nota Avaluacion: 9
