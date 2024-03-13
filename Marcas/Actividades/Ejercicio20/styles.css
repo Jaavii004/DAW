@@ -1,6 +1,5 @@
 body {
     font-family: arial;
-    background: url("./background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 .header {
@@ -86,4 +85,5 @@ div.sticky {
     left: 0;
     z-index: -1;
     opacity: 0.5;
+    background-image: url(./borrador-2.png) no-repeat;
 }
