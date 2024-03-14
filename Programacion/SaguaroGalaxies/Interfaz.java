@@ -3,24 +3,26 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Interfaz {
     public static void main(String[] args) {
         HashMap<String, Galaxy> galaxy = new HashMap<>();
+        ArrayList<Galaxy> galaxyList = new ArrayList<>(galaxy.values());
         Scanner sc = new Scanner(System.in);
         File f = new File("SAC.bin");
         // DESERIALIZAMOS OBJETOS
         try {
             FileInputStream fis = new FileInputStream(f);
             ObjectInputStream ois = new ObjectInputStream(fis);
-
             boolean acabar = true;
             while (acabar) {
                 try {
                     Galaxy gal = (Galaxy) ois.readObject();
-                    System.out.println(gal.OBJECT);
+                    System.out.println(gal.CON);
+                    galaxyList.add(gal);
                     galaxy.put(gal.OBJECT, gal);
                 } catch (EOFException e) {
                     acabar = false;
@@ -37,6 +39,7 @@ public class Interfaz {
         String opcion = "";
         String obj;
         Galaxy gala;
+        String constelacion;
         while (!salir) {
             System.out.println("Menu:");
             System.out.println("N. Nombre del objeto");
@@ -45,6 +48,8 @@ public class Interfaz {
             System.out.println("S. Salir");
             System.out.print("Opcion: ");
             opcion = sc.nextLine();
+            boolean constNoEnc = false;
+            double limimag;
             switch (opcion) {
                 case "N":
                     try {
@@ -60,12 +65,48 @@ public class Interfaz {
                         System.out.println("** El objeto no existe** ");
                     }
                     break;
-            
+                case "C":
+                    System.out.print("Dime la constelación: ");
+                    constelacion = sc.nextLine();
+                    System.out.println("---------------------------");
+                    for (Galaxy gali : galaxyList) {
+                        if (gali.CON.equals(constelacion)) {
+                            constNoEnc = true;
+                            System.out.println("- OBJECT: " + gali.OBJECT);
+                            System.out.println("- CON: " + gali.CON);
+                            System.out.println("- RA: " + gali.RA);
+                            System.out.println("- DEC: " + gali.DEC);
+                            System.out.println("- MAG: " + gali.MAG);
+                            System.out.println("---------------------------");
+                        }
+                    }
+                    if (!constNoEnc) {
+                        System.out.println("** No existe esa constelación **");
+                    }
+                    break;
+                case "M":
+                    System.out.print("Dime la magnitud límite: ");
+                    limimag = sc.nextDouble();
+                    System.out.println("---------------------------");
+                    for (Galaxy gali : galaxyList) {
+                        if (Double.parseDouble(gali.MAG) >= limimag) {
+                            System.out.println("- OBJECT: " + gali.OBJECT);
+                            System.out.println("- CON: " + gali.CON);
+                            System.out.println("- RA: " + gali.RA);
+                            System.out.println("- DEC: " + gali.DEC);
+                            System.out.println("- MAG: " + gali.MAG);
+                            System.out.println("---------------------------");
+                        }
+                    }
+                    sc.nextLine();
+                    break;
+                case "S":
+                    salir = true;
+                    break;
                 default:
                     System.out.println("Opcion no valida.");
                     break;
             }
-
         }
         sc.close();
     }
