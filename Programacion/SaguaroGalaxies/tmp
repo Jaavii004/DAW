@@ -1,0 +1,11 @@
+boolean acabar = true;
+while (acabar) {
+                try {
+                    Galaxy gal = (Galaxy) ois.readObject();
+                    galaxy.put(gal.OBJECT, gal);
+                    System.out.println(gal.OBJECT);
+                } catch (Exception e) {
+                    System.out.println("Excepción: ");
+                    acabar = false;
+                }
+            }
