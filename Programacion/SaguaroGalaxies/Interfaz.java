@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Interfaz {
@@ -21,7 +22,6 @@ public class Interfaz {
             while (acabar) {
                 try {
                     Galaxy gal = (Galaxy) ois.readObject();
-                    System.out.println(gal.CON);
                     galaxyList.add(gal);
                     galaxy.put(gal.OBJECT, gal);
                 } catch (EOFException e) {
@@ -40,6 +40,7 @@ public class Interfaz {
         String obj;
         Galaxy gala;
         String constelacion;
+        System.out.print("\033[H\033[2J");
         while (!salir) {
             System.out.println("Menu:");
             System.out.println("N. Nombre del objeto");
@@ -56,13 +57,15 @@ public class Interfaz {
                         System.out.print("Dime el objeto: ");
                         obj = sc.nextLine();
                         gala = galaxy.get(obj);
-                        System.out.println("- OBJECT: "+gala.OBJECT);
-                        System.out.println("- CON: "+gala.CON);
-                        System.out.println("- RA: "+gala.RA);
-                        System.out.println("- DEC: "+gala.DEC);
-                        System.out.println("- MAG: "+gala.MAG);
+                        System.out.println();
+                        System.out.println("- OBJECT: " + gala.OBJECT);
+                        System.out.println("- CON: " + gala.CON);
+                        System.out.println("- RA: " + gala.RA);
+                        System.out.println("- DEC: " + gala.DEC);
+                        System.out.println("- MAG: " + gala.MAG);
+                        System.out.println();
                     } catch (NullPointerException e) {
-                        System.out.println("** El objeto no existe** ");
+                        System.out.println("** El objeto no existe ** ");
                     }
                     break;
                 case "C":
@@ -86,17 +89,22 @@ public class Interfaz {
                     break;
                 case "M":
                     System.out.print("Dime la magnitud límite: ");
-                    limimag = sc.nextDouble();
-                    System.out.println("---------------------------");
-                    for (Galaxy gali : galaxyList) {
-                        if (Double.parseDouble(gali.MAG) >= limimag) {
-                            System.out.println("- OBJECT: " + gali.OBJECT);
-                            System.out.println("- CON: " + gali.CON);
-                            System.out.println("- RA: " + gali.RA);
-                            System.out.println("- DEC: " + gali.DEC);
-                            System.out.println("- MAG: " + gali.MAG);
-                            System.out.println("---------------------------");
+                    try {
+                        limimag = sc.nextDouble();
+                        // InputMismatchException
+                        System.out.println("---------------------------");
+                        for (Galaxy gali : galaxyList) {
+                            if (Double.parseDouble(gali.MAG) <= limimag) {
+                                System.out.println("- OBJECT: " + gali.OBJECT);
+                                System.out.println("- CON: " + gali.CON);
+                                System.out.println("- RA: " + gali.RA);
+                                System.out.println("- DEC: " + gali.DEC);
+                                System.out.println("- MAG: " + gali.MAG);
+                                System.out.println("---------------------------");
+                            }
                         }
+                    } catch (InputMismatchException e) {
+                        System.out.println("** El numero debe ser con \",\"**");
                     }
                     sc.nextLine();
                     break;
