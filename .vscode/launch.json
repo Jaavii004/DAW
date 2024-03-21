@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BasedeDatos",
+            "request": "launch",
+            "mainClass": "BasedeDatos",
+            "projectName": "DAW_6417a004"
+        },
+        {
+            "type": "java",
             "name": "Fichero",
             "request": "launch",
             "mainClass": "Fichero",
