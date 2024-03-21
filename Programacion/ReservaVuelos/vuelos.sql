@@ -3,7 +3,7 @@ CREATE DATABASE reservaVuelos;
 USE reservaVuelos;
 
 CREATE TABLE Vuelos (
-    id_vuelo INT PRIMARY KEY,
+    id_vuelo INT AUTO_INCREMENT PRIMARY KEY,
     numero_vuelo VARCHAR(10) NOT NULL,
     origen VARCHAR(50) NOT NULL,
     destino VARCHAR(50) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE Vuelos (
 );
 
 CREATE TABLE Pasajeros (
-    id_pasajero INT PRIMARY KEY,
+    id_pasajero INT AUTO_INCREMENT PRIMARY KEY,
     numero_pasaporte VARCHAR(10) NOT NULL,
     nombre_pasajero VARCHAR(50) NOT NULL
 );

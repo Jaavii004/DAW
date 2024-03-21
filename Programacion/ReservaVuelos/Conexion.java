@@ -9,10 +9,10 @@ public class Conexion {
     
     private static Connection connection = null;
 
-    public static Connection getConnection() {
+    public static Connection getConnection(String Base) {
         try {
             if (connection == null || connection.isClosed()) {
-                connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+                connection = DriverManager.getConnection(DB_URL+Base, USER, PASSWORD);
             }
         } catch (SQLException e) {
             e.printStackTrace();
