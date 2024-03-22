@@ -1,23 +1,53 @@
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
 public class Interfaz {
+    public static Scanner sc = new Scanner(System.in);
+
+    public static void altaVuelo(Statement st) {
+        // Para vuelos
+        String Numero_vuelo = "";
+        String origen = "";
+        String destino = "";
+        String Fecha = "";
+        String hora = "";
+        int capacidad = 0;
+        String insertVuelo = "";
+        try {
+            System.out.print("Numero vuelo: ");
+            Numero_vuelo = sc.nextLine();
+            System.out.print("origen: ");
+            origen = sc.nextLine();
+            System.out.print("destino: ");
+            destino = sc.nextLine();
+            System.out.print("Fecha (Con formato: 2024-03-23): ");
+            Fecha = sc.nextLine();
+            System.out.print("Hora (con formato 12:00): ");
+            hora = sc.next();
+            System.out.print("capacidad: ");
+            capacidad = sc.nextInt();
+            sc.nextLine();
+            insertVuelo = "INSERT INTO Vuelos (Numero_vuelo, origen, destino, Fecha, capacidad)"+
+            " VALUES ( '"+Numero_vuelo+"' ,'" +origen+"' ,'"+destino +"' ,'"+Fecha+" "+hora+"' ,'"+capacidad+"');";
+            st.executeUpdate(insertVuelo);
+            System.out.println("Vuelo "+Numero_vuelo+" añadido correctamente.");
+        } catch (SQLException e) {
+            System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
+        }
+       
+    }
     public static void main(String[] args) {
         // javac -cp :mysql-connector-j-8.3.0.jar *.java
         // java -cp :mysql-connector-j-8.3.0.jar Interfaz
         String NombreBaseDatos = "reservaVuelos";
-        Scanner sc = new Scanner(System.in);
         int opcion;
-        // Para vuelos
-        String Numero_vuelo;
-        String origen;
-        String destino;
-        String Fecha;
-        int capacidad;
+
+        // Para Pasajero
+        String numero_pasaporte;
+        String nombre_pasajero;
+        String insertPasajero;
         try {
             Connection con = Conexion.getConnection(NombreBaseDatos);
             // Creamos un objeto para enviar sentencias SQL a la BD
@@ -36,25 +66,17 @@ public class Interfaz {
 
                 switch (opcion) {
                     case 1:
-                        System.out.print("Numero_vuelo: ");
-                        Numero_vuelo = sc.nextLine();
-                        System.out.print("origen: ");
-                        origen = sc.nextLine();
-                        System.out.print("destino: ");
-                        destino = sc.nextLine();
-                        System.out.print("Fecha: ");
-                        Fecha = sc.nextLine();
-                        System.out.print("capacidad: ");
-                        capacidad = sc.nextInt();
-                        sc.nextLine();
-                        String insertVuelo = "INSERT INTO Vuelos (Numero_vuelo, origen, destino, Fecha, capacidad) VALUES ("+Numero_vuelo+ " ," +origen+ " ,"+ destino +" ,"+ Fecha +" ,"+capacidad +")";
-                        System.err.println(insertVuelo);
-                        
-                        ResultSet rs = st.executeQuery(insertVuelo);
-                        rs.close();
+                        altaVuelo(st);
                         break;
                     case 2:
-                        // Lógica para el alta de pasajero
+                        System.out.print("numero_pasaporte: ");
+                        numero_pasaporte = sc.nextLine();
+                        System.out.print("nombre_pasajero: ");
+                        nombre_pasajero = sc.nextLine();
+                        insertPasajero = "INSERT INTO Pasajeros (numero_pasaporte, nombre_pasajero)"+
+                        " VALUES ( '"+numero_pasaporte+"' ,'"+nombre_pasajero+"');";
+                        st.executeUpdate(insertPasajero);
+                        System.out.println("Pasajero "+nombre_pasajero+" insertado con numero de pasaporte "+numero_pasaporte+".");
                         break;
                     case 3:
                         // Lógica para la reserva de vuelo
@@ -86,6 +108,8 @@ public class Interfaz {
             Conexion.closeConnection();
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

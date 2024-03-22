@@ -9,6 +9,17 @@ public class Conexion {
     
     private static Connection connection = null;
 
+    public static Connection getConnection() {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return connection;
+    }
+
     public static Connection getConnection(String Base) {
         try {
             if (connection == null || connection.isClosed()) {
