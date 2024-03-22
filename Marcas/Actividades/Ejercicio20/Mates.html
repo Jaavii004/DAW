@@ -7,11 +7,6 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" href="Real_Madrid.ico" type="image/x-icon"> <!-- Enlace al favicon -->
     <style>
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
         .scroll {
             overflow: scroll;
             width: 300px;
@@ -21,19 +16,22 @@
         }
         .noticia {
             float: left;
-            width: 45%;
-            margin-right: 10px;
+            width: 400px;
+            height: 200px;
+            margin-right: 1px;
             overflow-y: scroll;
             background-color: blueviolet;
         }
         .traduccion {
             float: right;
-            width: 45%;
-            margin-left: 10px;
-            overflow-x: scroll;
+            width: 400px;
+            height: 200px;
+            overflow-y: scroll;
             background-color: aquamarine;
         }
-
+        .clearfix {
+            overflow: auto;
+        }
         
     </style>
 </head>
@@ -58,12 +56,16 @@
         </div>
     </center>
         <div class="noticia">
-            <h3>Noticia:</h3>
-            <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                Esta historia empieza con un disparo en la madrugada. Y termina con una máquina dotada de creatividad real
-            para jugar contra el campeón mundial de Go y ganarle. Resulta inquietante imaginar cómo una serie de
-            autómatas van traspasando el umbral del proceso evolutivo, reproduciéndose y mutando siguiendo las leyes de
-            selección natural.</p>
+            <div class="clearfix">
+                
+                <h3>Noticia:</h3>
+                <p>Esta historia empieza con un disparo en la madrugada. Y termina con una máquina dotada de creatividad real
+                para jugar contra el campeón mundial de Go y ganarle. Resulta inquietante imaginar cómo una serie de
+                autómatas van traspasando el umbral del proceso evolutivo, reproduciéndose y mutando siguiendo las leyes de
+                selección natural.</p>
+                <img src="./imagen1.png" alt="" style="width: 100px; height: auto;">
+
+            </div>
         </div>
         <div class="traduccion">
             <h3>Translation:</h3>
