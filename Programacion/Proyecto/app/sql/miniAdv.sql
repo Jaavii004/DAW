@@ -53,7 +53,7 @@ CREATE TABLE Usuarios (
     apellido VARCHAR(100) NOT NULL,
     email VARCHAR(100),
     telefono VARCHAR(20),
-    contraseña VARCHAR(100) ,
+    contraseña VARCHAR(100) NOT NULL,
     id_rol INT DEFAULT 3 NOT NULL,
     FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
 );
@@ -74,12 +74,12 @@ INSERT INTO Roles (nombre) VALUES
 CREATE TABLE Incidencias (
     id_incidencia INT AUTO_INCREMENT PRIMARY KEY,
     id_impresora INT,
-    id_usuario INT,
+    id_cliente INT, -- Cambiado a id_cliente
     descripcion TEXT,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado VARCHAR(50),
     FOREIGN KEY (id_impresora) REFERENCES Impresoras(id_impresora),
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) -- Cambiado a id_cliente
 );
 
 -- Tabla Intervenciones
