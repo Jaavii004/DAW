@@ -2,7 +2,6 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,8 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LicenseServer {
-
-    private static final int SERVER_PORT = 8000;
+    private static final int SERVER_PORT = 8080;
     private static final String DB_URL = "jdbc:sqlite:licenses.db";
 
     public static void main(String[] args) throws IOException {
@@ -20,7 +18,7 @@ public class LicenseServer {
         server.createContext("/verificarLicencia", new LicenseHandler());
         server.setExecutor(null); // Usaremos el hilo predeterminado
         server.start();
-        System.out.println("Servidor HTTP iniciado en el puerto " + SERVER_PORT);
+        System.out.println("Servidor HTTP iniciado en el puerto " + SERVER_PORT);        
     }
 
     static class LicenseHandler implements HttpHandler {
@@ -49,8 +47,9 @@ public class LicenseServer {
 
         private boolean checkLicenseValidity(String clave) {
             String sql = "SELECT valida FROM licenses WHERE clave = ?";
-            try (Connection conn = DriverManager.getConnection(DB_URL);
-                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            try (
+                Connection conn = DriverManager.getConnection(DB_URL);
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, clave);
                 ResultSet rs = pstmt.executeQuery();
                 if (rs.next()) {
@@ -63,3 +62,4 @@ public class LicenseServer {
         }
     }
 }
+ 

@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -8,7 +9,8 @@ public class VerificadorLicencia {
 
     // Método para obtener la clave de licencia desde un archivo
     private String obtenerClaveLicencia() {
-        try (BufferedReader br = new BufferedReader(new FileReader("license.txt"))) {
+        try (
+            BufferedReader br = new BufferedReader(new FileReader("license.txt"))) {
             return br.readLine(); // Devuelve la primera línea del archivo (la clave de licencia)
         } catch (IOException e) {
             e.printStackTrace();
@@ -26,7 +28,7 @@ public class VerificadorLicencia {
 
         try {
             // URL del servidor que verifica la licencia
-            String urlServidor = "https://tu-servidor.com/verificarLicencia?clave=" + clave;
+            String urlServidor = "https://localhost:8080/verificarLicencia?clave=" + clave;
             
             // Realizar la solicitud HTTP GET al servidor
             URL url = new URL(urlServidor);
