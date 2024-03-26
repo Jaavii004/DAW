@@ -29,7 +29,7 @@ CREATE TABLE `Pasajeros` (
   `numero_pasaporte` varchar(10) NOT NULL,
   `nombre_pasajero` varchar(50) NOT NULL,
   PRIMARY KEY (`id_pasajero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `Pasajeros` (
 
 LOCK TABLES `Pasajeros` WRITE;
 /*!40000 ALTER TABLE `Pasajeros` DISABLE KEYS */;
+INSERT INTO `Pasajeros` VALUES (1,'123e','javier');
 /*!40000 ALTER TABLE `Pasajeros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,14 +78,16 @@ DROP TABLE IF EXISTS `Vuelos_Pasajeros`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Vuelos_Pasajeros` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `id_vuelo` int NOT NULL,
   `id_pasajero` int NOT NULL,
   `n_asiento` int DEFAULT NULL,
-  PRIMARY KEY (`id_vuelo`,`id_pasajero`),
-  KEY `id_pasajero` (`id_pasajero`),
+  PRIMARY KEY (`id`),
+  KEY `Vuelos_Pasajeros_ibfk_1` (`id_vuelo`),
+  KEY `Vuelos_Pasajeros_ibfk_2` (`id_pasajero`),
   CONSTRAINT `Vuelos_Pasajeros_ibfk_1` FOREIGN KEY (`id_vuelo`) REFERENCES `Vuelos` (`id_vuelo`),
   CONSTRAINT `Vuelos_Pasajeros_ibfk_2` FOREIGN KEY (`id_pasajero`) REFERENCES `Pasajeros` (`id_pasajero`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-22 16:34:19
+-- Dump completed on 2024-03-26 20:32:37
