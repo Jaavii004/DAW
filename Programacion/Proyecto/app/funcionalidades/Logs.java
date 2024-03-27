@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Logs {
-    private static String rutalog = "registros/";
+    private static String rutalog = "log/";
     private static String Fecha = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
     public static void log(String mensaje) {
