@@ -11,8 +11,8 @@ public class Logs {
     public static void log(String mensaje) {
         String nombreArchivo = rutalog + "miniAdv - " + Fecha + ".log";
         try (
-            PrintWriter escritor = new PrintWriter(new FileWriter(nombreArchivo, true))) {
-            escritor.println(Fecha + " - \n " + mensaje);
+            PrintWriter fw = new PrintWriter(new FileWriter(nombreArchivo, true))) {
+            fw.println(Fecha + " - \n " + mensaje);
         } catch (IOException e) {
             e.printStackTrace();
         }
