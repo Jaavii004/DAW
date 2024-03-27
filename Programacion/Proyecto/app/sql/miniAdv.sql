@@ -69,16 +69,20 @@ INSERT INTO Roles (nombre) VALUES
     ('admin'),
     ('usuario');
 
--- Tabla Incidencias
+-- Tabla Intervenciones
 CREATE TABLE Incidencias (
     id_incidencia INT AUTO_INCREMENT PRIMARY KEY,
     id_impresora INT,
     id_cliente INT, -- Cambiado a id_cliente
+    id_usuario INT,
     descripcion TEXT,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    estado VARCHAR(50),
+    estado BOOLEAN,
+    contacto VARCHAR(100),
+    impreso BOOLEAN DEFAULT FALSE, -- Nuevo campo booleano para indicar si se ha impreso
     FOREIGN KEY (id_impresora) REFERENCES Impresoras(id_impresora),
-    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) -- Cambiado a id_cliente
+    FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente), -- Cambiado a id_cliente
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
 
 -- Tabla Intervenciones
@@ -86,12 +90,14 @@ CREATE TABLE Intervenciones (
     id_intervencion INT AUTO_INCREMENT PRIMARY KEY,
     id_incidencia INT,
     id_tecnico INT,
+    id_usuario INT, -- Nuevo campo para almacenar el ID del usuario responsable de la intervención
     descripcion TEXT,
     fecha_intervencion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     copias_color INT,
     copias_bn INT,
     FOREIGN KEY (id_incidencia) REFERENCES Incidencias(id_incidencia),
-    FOREIGN KEY (id_tecnico) REFERENCES Tecnicos(id_tecnico)
+    FOREIGN KEY (id_tecnico) REFERENCES Tecnicos(id_tecnico),
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario) -- Relaciona el ID del usuario responsable de la intervención
 );
 
 -- Tabla Consumibles
@@ -105,6 +111,7 @@ CREATE TABLE Consumibles (
 
 -- Tabla Intervencion_Consumible
 CREATE TABLE Intervencion_Consumible (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_intervencion INT,
     id_consumible INT,
     FOREIGN KEY (id_intervencion) REFERENCES Intervenciones(id_intervencion),
