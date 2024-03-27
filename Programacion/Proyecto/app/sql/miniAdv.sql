@@ -54,6 +54,7 @@ CREATE TABLE Usuarios (
     telefono VARCHAR(20),
     contraseña VARCHAR(100) NOT NULL,
     id_rol INT DEFAULT 3 NOT NULL,
+    ultimo_InicioSesion DATE DEFAULT CURRENT_DATE,
     FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
 );
 
