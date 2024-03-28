@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Interfaz {
     public static Scanner sc = new Scanner(System.in);
@@ -154,7 +155,7 @@ public class Interfaz {
     }
 
     public static int mostrarReservas(Statement st) {
-        int id_pasajero = 0;
+        int id = 0;
         try {
             // Ejecutamos la consulta SQL y obtenemos el resultado en ResultSet
             ResultSet rs = st.executeQuery("SELECT * FROM Vuelos_Pasajeros");
@@ -162,46 +163,130 @@ public class Interfaz {
             // Recorremos los resultados obtenidos y mostramos sus campos
             System.out.println("\nVuelos_Pasajeros: ");
             while (rs.next()) {
-                id_pasajero = rs.getInt("id_pasajero");
-                String numero_pasaporte = rs.getString("numero_pasaporte");
-                String nombre_pasajero = rs.getString("nombre_pasajero");
+                id = rs.getInt("id");
+                int id_vuelo = rs.getInt("id_vuelo");
+                int id_pasajero = rs.getInt("id_pasajero");
+                int n_asiento = rs.getInt("n_asiento");
 
-                System.out.println("id_pasajero: " + id_pasajero + ", numero_pasaporte: " + numero_pasaporte
-                        + ", nombre_pasajero: " + nombre_pasajero);
+                System.out.println("id: " + id + ", id_vuelo: " + id_vuelo + ", id_pasajero: " + id_pasajero
+                        + ", n_asiento: " + n_asiento);
 
-                Vuelos_Pasajeros.put(id_pasajero, numero_pasaporte);
+                Vuelos_Pasajeros.put(id, ""+n_asiento);
             }
 
             boolean esta = false;
             while (!esta) {
-                System.out.print("que pasajero quieres (id_pasajero)  : ");
-                id_pasajero = sc.nextInt();
+                System.out.print("Que reservas quieres modificar (id)  : ");
+                id = sc.nextInt();
                 sc.nextLine();
-                if (Vuelos_Pasajeros.containsKey(id_pasajero)) {
+                if (Vuelos_Pasajeros.containsKey(id)) {
                     esta = true;
                 } else {
-                    System.out.println("El id pasajero no es valido.");
+                    System.out.println("El id de la reserva no es valido.");
                 }
             }
 
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
         }
-        return id_pasajero;
+        return id;
+    }
+
+    public static void mostrarReserva(Statement st, int id) {
+        try {
+            ResultSet rs = st.executeQuery("SELECT * FROM Vuelos_Pasajeros WHERE id = " + id);
+            if (rs.next()) {
+                int id_vuelo = rs.getInt("id_vuelo");
+                int id_pasajero = rs.getInt("id_pasajero");
+                int n_asiento = rs.getInt("n_asiento");
+
+                System.out.println("id: " + id + ", id_vuelo: " + id_vuelo + ", id_pasajero: " + id_pasajero
+                        + ", n_asiento: " + n_asiento);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
+        }
     }
 
     public static void modificarReserva(Statement st) {
         try {
-            int id_vuelo = vuelos(st);
-            int id_pasajero = pasajeros(st);
-            String insertreservaVuelo;
-            System.out.print("n_vuelos: ");
-            int n_asiento = sc.nextInt();
-            insertreservaVuelo = "INSERT INTO Vuelos_Pasajeros (id_vuelo, id_pasajero, n_asiento)" +
-                    " VALUES ( '" + id_vuelo + "' ,'" + id_pasajero + "', '" + n_asiento + "');";
-            st.executeUpdate(insertreservaVuelo);
-            System.out.println("Pasajero " + id_pasajero + " añadido al vuelo id " + id_vuelo + " con numero de asiento"
-                    + n_asiento + " .");
+            int id = mostrarReservas(st);
+            String updateReserva = "";
+            boolean opcvalid = false;
+            int id_vuelo;
+            int id_pasajero;
+            int n_asiento;
+
+            while (!opcvalid) {
+                System.out.println("1 : id_vuelo");
+                System.out.println("2 : id_pasajero");
+                System.out.println("3 : n_asiento");
+                System.out.println("4 : todas");
+                System.out.print("que quieres modificar: ");
+                int opcion;
+                try {
+                    opcion = sc.nextInt();
+                    sc.nextLine();
+                    switch (opcion) {
+                        case 1:
+                            System.out.print("id_vuelo que quieres: ");
+                            id_vuelo = sc.nextInt();
+                            sc.nextLine();
+                            opcvalid = true;
+                            updateReserva = "UPDATE Vuelos_Pasajeros SET id_vuelo = " + id_vuelo + " WHERE id = " + id;
+                            break;
+                        case 2:
+                            System.out.print("id_pasajero que quieres: ");
+                            id_pasajero = sc.nextInt();
+                            sc.nextLine();
+                            opcvalid = true;
+                            updateReserva = "UPDATE Vuelos_Pasajeros SET id_pasajero = " + id_pasajero + " WHERE id = " + id;
+                            break;
+                        case 3:
+                            System.out.print("n_asiento que quieres: ");
+                            n_asiento = sc.nextInt();
+                            sc.nextLine();
+                            updateReserva = "UPDATE Vuelos_Pasajeros SET n_asiento = " + n_asiento + " WHERE id = " + id;
+                            opcvalid = true;
+                            break;
+                        case 4:
+                            System.out.print("id_vuelo que quieres: ");
+                            id_vuelo = sc.nextInt();
+                            System.out.print("id_pasajero que quieres: ");
+                            id_pasajero = sc.nextInt();
+                            System.out.print("n_asiento que quieres: ");
+                            n_asiento = sc.nextInt();
+                            sc.nextLine();
+                            updateReserva = "UPDATE Vuelos_Pasajeros SET id_vuelo = " + id_vuelo + ", id_pasajero = " + id_pasajero + ", n_asiento = " + n_asiento + " WHERE id = " + id;
+                            opcvalid = true;
+                            break;
+                        default:
+                            System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                            break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Debes insertar un numero.");
+                    sc.nextLine();
+                }
+            }
+
+            st.executeUpdate(updateReserva);
+            System.out.println("Reserva modificada queda asi.");
+            mostrarReserva(st, id);
+
+        } catch (SQLException e) {
+            System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
+        }
+    }
+
+    public static void eliminarReserva(Statement st) {
+        try {
+            int id = mostrarReservas(st);
+            String eliminarReserva = "";
+            eliminarReserva = "DELETE FROM Vuelos_Pasajeros WHERE id = " + id;
+            st.executeUpdate(eliminarReserva);
+            System.out.println("Reserva con id ("+id+") eliminada.");
+
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
         }
@@ -240,10 +325,10 @@ public class Interfaz {
                         reservaVuelo(st);
                         break;
                     case 4:
-                        // modificar reserva
+                        modificarReserva(st);
                         break;
                     case 5:
-                        // baja de reserva
+                        eliminarReserva(st);
                         break;
                     case 6:
                         System.out.println("Salir");
@@ -254,14 +339,6 @@ public class Interfaz {
                 }
             } while (opcion != 6);
 
-            // Ejecutamos la consulta SQL y obtenemos el resultado en ResultSet
-            // ResultSet rs = st.executeQuery("SELECT * FROM Vuelos");
-            //// Recorremos los resultados obtenidos y mostramos sus campos
-            // while (rs.next()) {
-            // String nombre = rs.getString("NOM");
-            // int edad = rs.getInt("CLIENT_COD");
-            // System.out.println(nombre + ": " + edad);
-            // }
             sc.close();
             Conexion.closeConnection();
         } catch (SQLException e) {
