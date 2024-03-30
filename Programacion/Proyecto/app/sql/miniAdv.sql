@@ -127,3 +127,20 @@ CREATE TABLE Tecnicos (
     telefono VARCHAR(20),
     dni VARCHAR(20)
 );
+
+
+
+
+-- Insertar superusuario
+INSERT INTO Usuarios (nombre_usuario, nombre, apellido, email, telefono, contraseña, id_rol)
+VALUES ('superuser', 'Super', 'Usuario', 'superuser@javier.com', '123456789', MD5('root'), 1);
+
+-- Insertar administrador
+INSERT INTO Usuarios (nombre_usuario, nombre, apellido, email, telefono, contraseña, id_rol)
+VALUES ('root', 'Admin', 'Root', 'root@javier.com', '123456789', MD5('root'), 2);
+
+
+-- SELECT Usuarios.nombre_usuario , Usuarios.nombre, Roles.nombre
+-- FROM Usuarios
+-- JOIN miniAdv.Roles
+--     on Usuarios.id_rol = Roles.id_rol;
