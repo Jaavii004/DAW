@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .encabezado {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .pie {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .barra-lateral {
+            position: fixed;
+            top: 40px;
+            left: 0;
+            width: 200px;
+            height: 80%;
+            background-color: #f4f4f4;
+            overflow-y: auto;
+        }
+
+        .contenido {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .noticias {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            
+            padding: 10px;
+        }
+
+        .noticia {
+            margin-bottom: 20px;
+            height: 100px;
+            overflow-y: scroll;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">Noticias</div>
+
+    <div class="barra-lateral">
+        <ul>
+            <li><a href="#">Real Madrid</a></li>
+            <li><a href="#">Matematicas</a></li>
+            <li><a href="#">Poemas</a></li>
+            <li><a href="#">Quijote</a></li>
+        </ul>
+    </div>
+
+    <div class="contenido">
+        <div class="noticias">
+            <div class="noticia">
+                <h2>Descubrimiento científico revoluciona el campo de la medicina</h2>
+                <p>Un equipo internacional de científicos ha anunciado el descubrimiento de una nueva molécula con potencial para tratar enfermedades neurodegenerativas como el Alzheimer. Este avance podría marcar un hito en la lucha contra estas enfermedades que afectan a millones de personas en todo el mundo.</p>
+            </div>
+            
+            <div class="noticia">
+                <h2>Nueva tecnología promete revolucionar la industria automotriz</h2>
+                <p>Una empresa emergente ha desarrollado una tecnología innovadora que podría cambiar por completo la forma en que interactuamos con los vehículos. Se trata de un sistema de conducción autónoma avanzado que promete aumentar la seguridad en las carreteras y reducir el impacto ambiental de los automóviles.</p>
+            </div>
+            
+            <div class="noticia">
+                <h2>Importante conferencia internacional aborda el cambio climático</h2>
+                <p>Líderes mundiales y expertos en medio ambiente se han reunido en una conferencia de alto nivel para discutir estrategias para combatir el cambio climático. Entre los temas principales se encuentran la reducción de emisiones de carbono, la transición hacia energías renovables y la protección de ecosistemas vulnerables.</p>
+            </div>
+            
+            <div class="noticia">
+                <h2>Éxito rotundo para la misión espacial más reciente</h2>
+                <p>La agencia espacial anunció que la misión a Marte ha sido un éxito sin precedentes. El rover enviado al planeta rojo ha enviado datos y fotografías de alta calidad que están ayudando a los científicos a comprender mejor la geología y la atmósfera marcianas.</p>
+            </div>
+            <div class="noticia">
+                <h2>Avances en la lucha contra el cáncer: nueva terapia muestra resultados prometedores</h2>
+                <p>Investigadores de un centro médico líder han anunciado resultados prometedores en un ensayo clínico de una nueva terapia contra el cáncer. Esta terapia, que utiliza una combinación de inmunoterapia y terapia genética, ha mostrado una tasa de respuesta del 80% en pacientes con cáncer avanzado.</p>
+                <p>La terapia, conocida como CAR-T, funciona modificando genéticamente las células inmunitarias del paciente para que reconozcan y ataquen específicamente las células cancerosas. En el ensayo clínico, los pacientes tratados con CAR-T experimentaron una reducción significativa en el tamaño del tumor y una mejora en la calidad de vida.</p>
+                <p>Los resultados del ensayo han sido recibidos con entusiasmo por la comunidad médica y se espera que esta terapia pueda convertirse en un tratamiento estándar para ciertos tipos de cáncer en un futuro cercano. Sin embargo, los investigadores advierten que se necesitan más estudios para confirmar la eficacia y seguridad a largo plazo de la terapia.</p>
+                <p>Este avance representa un paso importante en la lucha contra el cáncer y ofrece esperanza a millones de pacientes en todo el mundo que luchan contra esta enfermedad devastadora. Los investigadores continúan trabajando para mejorar y perfeccionar la terapia CAR-T, con el objetivo de hacerla accesible para un mayor número de pacientes en el futuro.</p>
+            </div>            
+        </div>
+    </div>
+
+    <div class="pie">Noticias Javier Puertas</div>
+</body>
+</html>
