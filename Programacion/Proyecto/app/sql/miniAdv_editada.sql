@@ -151,9 +151,9 @@ CREATE TABLE `Incidencias` (
   `id_usuario` int(11) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `estado` tinyint(1) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT 0,
   `contacto` varchar(100) DEFAULT NULL,
-  `impreso` tinyint(1) DEFAULT -1,
+  `impreso` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`id_incidencia`),
   KEY `id_impresora` (`id_impresora`),
   KEY `id_cliente` (`id_cliente`),
@@ -161,7 +161,7 @@ CREATE TABLE `Incidencias` (
   CONSTRAINT `Incidencias_ibfk_1` FOREIGN KEY (`id_impresora`) REFERENCES `Impresoras` (`id_impresora`),
   CONSTRAINT `Incidencias_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `Clientes` (`id_cliente`),
   CONSTRAINT `Incidencias_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,6 +170,7 @@ CREATE TABLE `Incidencias` (
 
 LOCK TABLES `Incidencias` WRITE;
 /*!40000 ALTER TABLE `Incidencias` DISABLE KEYS */;
+INSERT INTO `Incidencias` VALUES (6,1,1,1,'Problema de atasco de papel','2024-03-31 08:35:49',0,'Nombre de Contacto 1',-1),(7,2,2,3,'Fallo en la impresión de documentos','2024-03-31 08:35:49',-1,'Nombre de Contacto 2',0),(8,1,3,3,'Error de conexión con la impresora','2024-03-31 08:35:49',0,'Nombre de Contacto 3',-1),(9,3,2,1,'Mensaje de error en la pantalla','2024-03-31 08:35:49',-1,'Nombre de Contacto 4',0),(10,2,1,3,'Impresión borrosa','2024-03-31 08:35:49',0,'Nombre de Contacto 5',-1),(11,1,1,1,'Problema de atasco de papel','2024-03-31 08:57:52',0,'Nombre de Contacto 1',1),(12,1,1,1,'Problema de atasco de papel','2024-03-31 08:58:09',0,'Nombre de Contacto 12',0),(13,1,1,1,'Incidencia de prueba','2024-03-31 10:12:47',0,'Contacto de prueba',0),(14,1,1,1,'Incidencia de prueba','2024-03-31 10:13:58',0,'Contacto de prueba',0),(15,1,1,1,'Incidencia de prueba','2024-03-31 10:15:17',0,'Contacto de prueba',0),(17,1,1,1,'Incidencia de prueba','2024-03-31 10:23:53',0,'Contacto de prueba',0);
 /*!40000 ALTER TABLE `Incidencias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,9 +301,9 @@ CREATE TABLE `Usuarios` (
   `apellido` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
-  `contraseña` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `id_rol` int(11) NOT NULL DEFAULT 3,
-  `ultimo_InicioSesion` date DEFAULT curdate(),
+  `ultimo_InicioSesion` datetime DEFAULT curdate(),
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
   KEY `id_rol` (`id_rol`),
@@ -316,7 +317,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789','4c882dcb24bcb1bc225391a602feca7c',3,'2024-03-28'),(3,'superuser','Super','Usuario','superuser@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',1,'2024-03-28'),(6,'root','Admin','Root','root@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',2,'2024-03-30'),(7,'usu','usu','usu','usu','1234567','81dc9bdb52d04dc20036dbd8313ed055',2,'2024-03-29');
+INSERT INTO `Usuarios` VALUES (1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789','4c882dcb24bcb1bc225391a602feca7c',3,'2024-03-28 00:00:00'),(3,'superuser','Super','Usuario','superuser@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',1,'2024-03-28 00:00:00'),(6,'root','Admin','Root','root@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',2,'2024-03-31 16:56:48'),(7,'usu','usu','usu','usu','1234567','81dc9bdb52d04dc20036dbd8313ed055',2,'2024-03-29 00:00:00');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -329,4 +330,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-30 13:32:02
+-- Dump completed on 2024-03-31 17:00:24
