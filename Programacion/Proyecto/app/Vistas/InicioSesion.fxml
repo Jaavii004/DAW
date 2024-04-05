@@ -49,15 +49,15 @@
             <ToggleButtonGroup layoutX="123.0" layoutY="54.0" selectionType="SINGLE" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="245.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@image-removebg-preview.png" />
+                  <Image url="@../image-removebg-preview.png" />
                </image>
             </ImageView>
             <Text layoutX="90.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de Usuario:" />
             <Text layoutX="90.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
             <TextField id="nombre_usuario" layoutX="243.0" layoutY="178.0" />
             <PasswordField id="password" layoutX="244.0" layoutY="235.0" />
-            <Button layoutX="265.0" layoutY="288.0" mnemonicParsing="false" text="Inicio Sesion" />
-            <Button layoutX="216.0" layoutY="336.0" mnemonicParsing="false" text="¿Has olvidado la contraseña?" />
+            <Button id="iniciarSesion" layoutX="265.0" layoutY="288.0" mnemonicParsing="false" text="Inicio Sesion" />
+            <Button id="forgotPass" layoutX="216.0" layoutY="336.0" mnemonicParsing="false" text="¿Has olvidado la contraseña?" />
       </children>
     </AnchorPane>
   </children>
