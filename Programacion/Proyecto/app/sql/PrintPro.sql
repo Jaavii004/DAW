@@ -1,6 +1,25 @@
 CREATE DATABASE IF NOT EXISTS `PrintPro` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `PrintPro`;
 
+
+-- Table: Tecnicos
+DROP TABLE IF EXISTS `Tecnicos`;
+CREATE TABLE `Tecnicos` (
+  `id_tecnico` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  `apellido` varchar(100) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `dni` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_tecnico`)
+);
+
+INSERT INTO Tecnicos VALUES 
+(1,'Fran','Garcia','623987654','12345678A'), 
+(2,'Raul','Martinez','634789012','23456789B'), 
+(3,'Jorge','Lopez','645890123','34567890C'),
+(4,'Javier','Fernandez','656901234','45678901D'),
+(5,'Pedro','Gonzalez','667012345','56789012E');
+
 -- Table: Clientes
 DROP TABLE IF EXISTS `Clientes`;
 CREATE TABLE `Clientes` (
@@ -10,7 +29,7 @@ CREATE TABLE `Clientes` (
   `direccion` varchar(255) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `f_registro` date DEFAULT curdate(),
+  `f_registro` date DEFAULT current_timestamp(),
   `comentarios` text DEFAULT NULL,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `nombre` (`nombre`)
@@ -39,10 +58,11 @@ CREATE TABLE `Consumibles` (
   `id_consumible` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `f_añadido` date DEFAULT curdate(),
+  `f_añadido` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id_consumible`),
   UNIQUE KEY `Consumibles_pk` (`nombre`)
 );
+
 
 INSERT INTO `Consumibles` VALUES 
 (1,'CF410A','Cartucho de toner negro original HP CF410A.','2024-04-04'),
@@ -78,6 +98,45 @@ CREATE TABLE `Contactos` (
 );
 
 
+-- Table: Roles
+DROP TABLE IF EXISTS `Roles`;
+CREATE TABLE `Roles` (
+  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_rol`),
+  UNIQUE KEY `nombre` (`nombre`)
+);
+
+INSERT INTO `Roles` VALUES 
+(1,'superadmin'),
+(2,'admin'),
+(3,'tecnico');
+
+
+-- Table: Usuarios
+DROP TABLE IF EXISTS `Usuarios`;
+CREATE TABLE `Usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
+  `id_rol` int(11) NOT NULL DEFAULT 3,
+  `ultimo_InicioSesion` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
+  KEY `id_rol` (`id_rol`),
+  CONSTRAINT `Usuarios_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`)
+);
+
+INSERT INTO `Usuarios` VALUES 
+(1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789', MD5('root'),3,'2024-03-28 00:00:00'),
+(3,'superuser','Super','Usuario','superuser@javier.com','123456789', MD5('root'),1,'2024-04-02 19:30:15'),
+(6,'root','Admin','Root','root@javier.com','123456789', MD5('root'),2,'2024-04-02 18:49:13'),
+(7,'usu','usu','usu','usu','1234567',MD5('root'),2,'2024-03-29 00:00:00'),
+(8,'adminuser','adminuser','user','user@usuer-com','12345453', MD5('root'),1,'2024-04-01 00:00:00');
 
 
 -- Table: Impresoras
@@ -192,62 +251,3 @@ CREATE TABLE `Intervenciones` (
   CONSTRAINT `Intervenciones_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
 );
 
-
--- Table: Roles
-DROP TABLE IF EXISTS `Roles`;
-CREATE TABLE `Roles` (
-  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_rol`),
-  UNIQUE KEY `nombre` (`nombre`)
-);
-
-INSERT INTO `Roles` VALUES 
-(1,'superadmin'),
-(2,'admin'),
-(3,'tecnico');
-
-
--- Table: Tecnicos
-DROP TABLE IF EXISTS `Tecnicos`;
-CREATE TABLE `Tecnicos` (
-  `id_tecnico` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  `apellido` varchar(100) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `dni` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id_tecnico`)
-);
-
-INSERT INTO Tecnicos VALUES 
-(1,'Fran','Garcia','623987654','12345678A'), 
-(2,'Raul','Martinez','634789012','23456789B'), 
-(3,'Jorge','Lopez','645890123','34567890C'),
-(4,'Javier','Fernandez','656901234','45678901D'),
-(5,'Pedro','Gonzalez','667012345','56789012E');
-
-
--- Table: Usuarios
-DROP TABLE IF EXISTS `Usuarios`;
-CREATE TABLE `Usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_usuario` varchar(100) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `password` varchar(100) NOT NULL,
-  `id_rol` int(11) NOT NULL DEFAULT 3,
-  `ultimo_InicioSesion` datetime DEFAULT curdate(),
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
-  KEY `id_rol` (`id_rol`),
-  CONSTRAINT `Usuarios_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `Roles` (`id_rol`)
-);
-
-INSERT INTO `Usuarios` VALUES 
-(1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789', MD5(root),3,'2024-03-28 00:00:00'),
-(3,'superuser','Super','Usuario','superuser@javier.com','123456789', MD5(root),1,'2024-04-02 19:30:15'),
-(6,'root','Admin','Root','root@javier.com','123456789', MD5(root),2,'2024-04-02 18:49:13'),
-(7,'usu','usu','usu','usu','1234567',MD5(root),2,'2024-03-29 00:00:00'),
-(8,'adminuser','adminuser','user','user@usuer-com','12345453', MD5(root),1,'2024-04-01 00:00:00');
