@@ -9,6 +9,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailSender {
+    /*
+     * javac -cp .:javax.mail.jar:javax.activation.jar MailSender.java
+     * java -cp .:javax.mail.jar:javax.activation.jar MailSender 
+     */
 
     public static void main(String[] args) {
         // Configuración del servidor SMTP de Mailrelay
@@ -40,7 +44,7 @@ public class MailSender {
             Message mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress("")); // Reemplaza con tu dirección de correo electrónico
             mensaje.setRecipients(Message.RecipientType.TO, InternetAddress.parse("javierpuertas2004@gmail.com")); // Reemplaza con la dirección de correo del destinatario
-            mensaje.setSubject("Perro metete al discord");
+            mensaje.setSubject("Asunto");
             mensaje.setText("Esto es una pruba desde java");
 
             // Envío del mensaje
