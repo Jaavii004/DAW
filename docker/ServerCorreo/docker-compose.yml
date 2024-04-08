@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mailserver:
+    image: analogic/poste.io
+    environment:
+      - POSTEADMIN_PASSWORD=root
+      - MAIL_DOMAIN=protravel.com
+      - WEBMAIL_HOST=protravel.com
+      - DOVECOT_PASSWORD=root
+    ports:
+      - "80:80"
+      - "443:443"
+      - "25:25"
+      - "143:143"
+      - "587:587"
+      - "993:993"
