@@ -2,3 +2,5 @@
 *.class
 # ignore all .bin
 *.bin
+# ignore all .vscode
+.vscode/
