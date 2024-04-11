@@ -8,6 +8,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+// Token
+
 public class MailSender {
     /*
      * javac -cp .:javax.mail.jar:javax.activation.jar MailSender.java
@@ -16,10 +18,10 @@ public class MailSender {
 
     public static void main(String[] args) {
         // Configuración del servidor SMTP de Mailrelay
-        String host = ""; // Reemplaza con el servidor SMTP de Mailrelay
+        String host = "mailersend.net"; // Reemplaza con el servidor SMTP de Mailersend
         int puerto = 587; // Puerto para envío de correo (puede variar, consulta la documentación de Mailrelay)
-        final String usuario = ""; // Reemplaza con tu nombre de usuario de Mailrelay
-        final String contraseña = ""; // Reemplaza con tu contraseña de Mailrelay
+        final String usuario = "MS_Uyicbq@trial-3z0vklojzypg7qrx.mlsender.net"; // Reemplaza con tu nombre de usuario de Mailrelay
+        final String contraseña = "WrAJQk1vzyt7lvox"; // Reemplaza con tu contraseña de Mailrelay
 
         // Propiedades de conexión
         Properties props = new Properties();
@@ -42,7 +44,7 @@ public class MailSender {
         try {
             // Creación del mensaje
             Message mensaje = new MimeMessage(session);
-            mensaje.setFrom(new InternetAddress("")); // Reemplaza con tu dirección de correo electrónico
+            mensaje.setFrom(new InternetAddress("MS_Uyicbq@trial-3z0vklojzypg7qrx.mlsender.net ")); // Reemplaza con tu dirección de correo electrónico
             mensaje.setRecipients(Message.RecipientType.TO, InternetAddress.parse("javierpuertas2004@gmail.com")); // Reemplaza con la dirección de correo del destinatario
             mensaje.setSubject("Asunto");
             mensaje.setText("Esto es una pruba desde java");
