@@ -3,7 +3,7 @@
     include './config/config.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <title>Login <?php echo namePage; ?></title>
@@ -19,7 +19,7 @@
         <br>
         <div class="text-center mt-4 name"><?php echo namePage; ?></div>
         <br>
-        <form action="tuscript.php" method="post" class="p-3 mt-3">
+        <form action="./login/login.php" method="post" class="p-3 mt-3">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
                 <input type="text" name="userName" id="userName" placeholder="Nombre Usuario">
