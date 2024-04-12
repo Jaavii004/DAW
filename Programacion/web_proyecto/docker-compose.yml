@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile # Utiliza el Dockerfile personalizado
     ports:
-      - "8888:80"
+      - "80:80"
     volumes:
       - ./php:/var/www/html
     restart: always

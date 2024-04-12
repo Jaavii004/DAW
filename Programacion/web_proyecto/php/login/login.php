@@ -42,7 +42,11 @@ if ($rs->num_rows > 0) {
         echo "Error al actualizar la última sesión: " . $conn->error;
     }
 } else {
-    echo "Usuario o contraseña incorrectos";
+    session_start();
+    // Si las credenciales son incorrectas, mostrar un mensaje de error
+    $_SESSION['error'] = "Usuario o contraseña incorrectos.";
+    header("Location: ../index.php");
+    exit();
 }
 
 $conn->close();

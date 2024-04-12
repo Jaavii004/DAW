@@ -13,7 +13,7 @@
 <body>
     <h1>Bienvenido a   Inicio</h1>
     <p> 
-        <?php echo "<p> Bienvenido, " . $_SESSION['nombreUsuario'] . "</p>"; ?>
+        <?php echo "<p> Bienvenido, " . $_SESSION['nombreUsuario'] . " Con rol ".$_SESSION['idRol']."</p>"; ?>
     </p>
     <a href="./login/cerrar_sesion.php">LogOut</a>
 </body>

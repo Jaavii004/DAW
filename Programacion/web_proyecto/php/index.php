@@ -8,6 +8,7 @@
 <head>
     <title>Login <?php echo namePage; ?></title>
     <meta charset="UTF-8">
+    <?php echo rutaico; ?>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -32,7 +33,10 @@
         </form>
         <br>
         <div class="text-center fs-6">
-            <a href="#">Forget password?</a>
+        <?php
+            echo "<p class='error-message'>{hola}</p>";
+
+        ?>
         </div>
     </div>
 </body>
