@@ -87,3 +87,18 @@ div.sticky {
     opacity: 0.5;
     background-image: url(./borrador-2.png) no-repeat;
 }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+  }
+   .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+ 
