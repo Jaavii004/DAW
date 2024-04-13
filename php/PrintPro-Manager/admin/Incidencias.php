@@ -68,6 +68,11 @@ include '../login/usuariologin.php';
             <div class="horizontal-tabs">
                 <a href="IncidenciasAbiertas.php">Incidencias Abiertas</a>
                 <a href="Incidencias.php" class="active">Todas las incidencias</a>
+                <?php
+                    if ($_SESSION['idRol'] == 3) {
+                        echo '<a href="tecnico.php" >Incidencias Asignadas</a>';
+                    }
+                ?>
             </div>
         </div>
         <div class="responsive-wrapper">

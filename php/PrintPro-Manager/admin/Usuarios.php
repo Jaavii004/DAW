@@ -66,7 +66,7 @@ include '../login/usuariologin.php';
     <main class="main">
         <div class="responsive-wrapper">
             <div class="main-header">
-                <h1>Incidencias Abiertas</h1>
+                <h1>Usuarios</h1>
                 <article class="card derecha">
                     <div class="card-header">
                         <div>
@@ -79,51 +79,53 @@ include '../login/usuariologin.php';
                         </label>
                     </div>
                 </article>
-                <!--<div class="search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit">
-                        <i class="ph-magnifying-glass-bold"></i>
-                    </button>
-                </div>-->
             </div>
             <div class="container">
-                <?php
-                // Importar el archivo config.php
-                include '../config/config.php';
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Usuario</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Telefono</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
-                // Consulta para obtener la información de los usuarios
-                $consultaUsuarios = "SELECT * FROM PrintPro.Usuarios";
+                        require_once ('../config/config_bd.php');
 
-                // Realizar la consulta a la base de datos
-                $resultadoUsuarios = $conn->query($consultaUsuarios);
+                        // Consulta para obtener la información de los usuarios
+                        $consultaUsuarios = "SELECT Usuarios.id_usuario, Usuarios.nombre_usuario ,Usuarios.nombre AS nomusu, Usuarios.email, Usuarios.telefono , Roles.nombre
+                                    FROM Usuarios
+                                    JOIN Roles
+                                        on Usuarios.id_rol = Roles.id_rol;";
 
-                // Comprobar si hay algún usuario en la base de datos
-                if ($resultadoUsuarios->num_rows > 0) {
-                    // Mostrar una tabla con la información de los usuarios
-                    echo "<table>";
-                    echo "<thead>";
-                    echo "<tr>";
-                    echo "<th>ID</th>";
-                    echo "<th>Nombre</th>";
-                    echo "<th>Email</th>";
-                    echo "</tr>";
-                    echo "</thead>";
-                    echo "<tbody>";
-                    // Iterar sobre cada fila de resultados y mostrar los usuarios
-                    while ($fila = $resultadoUsuarios->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>" . $fila["id_usuario"] . "</td>";
-                        echo "<td>" . $fila["nombre"] . "</td>";
-                        echo "<td>" . $fila["email"] . "</td>";
-                        echo "</tr>";
-                    }
-                    echo "</tbody>";
-                    echo "</table>";
-                } else {
-                    // Si no hay usuarios en la base de datos, mostrar un mensaje
-                    echo "<p>No se encontraron usuarios.</p>";
-                }
-                ?>
+                        // Realizar la consulta a la base de datos
+                        $resultadoUsuarios = $conn->query($consultaUsuarios);
+
+                        // Comprobar si hay algún usuario en la base de datos
+                        if ($resultadoUsuarios->num_rows > 0) {
+                            // Iterar sobre cada fila de resultados y mostrar los usuarios
+                            while ($fila = $resultadoUsuarios->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $fila["id_usuario"] . "</td>";
+                                echo "<td>" . $fila["nombre_usuario"] . "</td>";
+                                echo "<td>" . $fila["nomusu"] . "</td>";
+                                echo "<td>" . $fila["email"] . "</td>";
+                                echo "<td>" . $fila["telefono"] . "</td>";
+                                echo "<td>" . $fila["nombre"] . "</td>";
+                                echo "</tr>";
+                            }
+                            echo "</tbody>";
+                            echo "</table>";
+                        } else {
+                            // Si no hay usuarios en la base de datos, mostrar un mensaje
+                            echo "<p>No se encontraron usuarios.</p>";
+                        }
+                        ?>
 
             </div>
 

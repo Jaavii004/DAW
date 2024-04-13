@@ -9,7 +9,7 @@ include '../login/usuariologin.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo namePage; ?></title>
+    <title>Perfil <?php echo namePage; ?></title>
     <?php echo rutaico; ?>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -50,7 +50,7 @@ include '../login/usuariologin.php';
                             <img src="../img/IconoInicioSesion.png" alt="" />
                         </a>
                         <div class="dropdown-content">
-                            <a href="PerfilUsu.php">Perfil</a>
+                            <a href="#">Perfil</a>
                             <a href="#">Configuración</a>
                             <a href="../login/cerrar_sesion.php">Cerrar sesión</a>
                         </div>
@@ -64,14 +64,49 @@ include '../login/usuariologin.php';
         </div>
     </header>
     <main class="main">
-        <div class="main-content responsive-wrapper">
-            <div class="welcome-section" style="background-color: #f2f2f2; text-align: center; padding: 50px;">
-                <div class="welcome-message">
-                    <h1>Bienvenido, <?php echo $_SESSION['nombreUsuario'] ?>!</h1>
-                    <p>Bienvenido al panel de administración de <?php echo namePage; ?></p>
-                </div>
+        <div class="responsive-wrapper">
+            <div class="main-header">
+                <h1>Perfil de <?php echo $_SESSION['nombreUsuario'] ?></h1>
             </div>
         </div>
+        <div class="responsive-wrapper">
+            <form action="actualizar_perfil.php" method="POST">
+                <div class="form-group">
+                    <label for="nombre_usuario">Nombre de Usuario:</label>
+                    <input type="text" id="nombre_usuario" name="nombre_usuario"
+                        value="<?php echo $_SESSION['nombreUsuario']; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomusu">Nombre:</label>
+                    <input type="text" id="nomusu" name="nomusu" required value="<?php echo $_SESSION['nombre']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="nomusu">Apellido:</label>
+                    <input type="text" id="apellido" name="nomusu" required
+                        value="<?php echo $_SESSION['apellido']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required value="<?php echo $_SESSION['email']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required
+                        value="<?php echo $_SESSION['telefono']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Contraseña:</label>
+                    <input type="password" id="telefono" name="telefono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Repite la Contraseña:</label>
+                    <input type="password" id="telefono" name="telefono" required>
+                </div>
+                <button type="submit">Actualizar Perfil</button>
+            </form>
+    </main>
+
     </main>
 </body>
 
