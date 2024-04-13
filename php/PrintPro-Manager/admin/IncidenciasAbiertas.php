@@ -1,6 +1,7 @@
 <?php
 // Importar el archivo config.php
 include '../config/config.php';
+include '../login/usuariologin.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,29 +20,38 @@ include '../config/config.php';
             <div class="header-logo">
                 <a href="#">
                     <div>
-                        <img src="https://assets.codepen.io/285131/untitled-ui-icon.svg" />
+                        <img src="../img/Logo.png" class="logo-img" />
                     </div>
                     <p></p>
                 </a>
             </div>
             <div class="header-navigation">
                 <nav class="header-navigation-links">
-                    <a href="#"> Home </a>
-                    <a href="#"> Dashboard </a>
-                    <!--<a href="#"> Projects </a>
-                    <a href="#"> Tasks </a>
-                    <a href="#"> Reporting </a>-->
-                    <a href="#"> Users </a>
+                    <a href="index.php"> Home </a>
+                    <a href="IncidenciasAbiertas.php"> Incidencias </a>
+                    <?php
+                    if ($_SESSION['idRol'] != 3) {
+                        echo '<a href="Usuarios.php"> Usuarios </a>';
+                    }
+                    ?>
+
                 </nav>
                 <div class="header-navigation-actions">
-                    <a href="#" class="button">
+                    <a class="button">
                         <i class="ph-lightning-bold"></i>
+                        <p>Bienvenido <?php echo $_SESSION['nombreUsuario'] ?></p>
                         <span></span>
                     </a>
-
-                    <a href="#" class="avatar">
-                        <img src="../img/IconoInicioSesion.png" alt="" />
-                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="avatar">
+                            <img src="../img/IconoInicioSesion.png" alt="" />
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#">Perfil</a>
+                            <a href="#">Configuración</a>
+                            <a href="../login/cerrar_sesion.php">Cerrar sesión</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <a href="#" class="button">
@@ -51,6 +61,12 @@ include '../config/config.php';
         </div>
     </header>
     <main class="main">
+        <div class="responsive-wrapper">
+            <div class="horizontal-tabs">
+                <a href="IncidenciasAbiertas.php" class="active">Incidencias Abiertas</a>
+                <a href="Incidencias.php">Todas las incidencias</a>
+            </div>
+        </div>
         <div class="responsive-wrapper">
             <div class="main-header">
                 <h1>Incidencias Abiertas</h1>

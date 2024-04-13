@@ -29,7 +29,7 @@ if ($rs->num_rows > 0) {
 
     $updateQuery = "UPDATE Usuarios SET ultimo_InicioSesion = CURRENT_TIMESTAMP() WHERE id_usuario = '".$idUsuario."'";
     if ($conn->query($updateQuery) === TRUE) {
-        header("location: ../bienvenida.php");
+        header("location: ../admin/index.php");
     } else {
         echo "Error al actualizar la última sesión: " . $conn->error;
     }

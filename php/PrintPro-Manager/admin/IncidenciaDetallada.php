@@ -1,6 +1,7 @@
 <?php
 // Importar el archivo config.php
 include '../config/config.php';
+include '../login/usuariologin.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,29 +20,38 @@ include '../config/config.php';
             <div class="header-logo">
                 <a href="#">
                     <div>
-                        <img src="https://assets.codepen.io/285131/untitled-ui-icon.svg" />
+                        <img src="../img/Logo.png" class="logo-img" />
                     </div>
                     <p></p>
                 </a>
             </div>
             <div class="header-navigation">
                 <nav class="header-navigation-links">
-                    <a href="#"> Home </a>
-                    <a href="#"> Dashboard </a>
-                    <!--<a href="#"> Projects </a>
-                    <a href="#"> Tasks </a>
-                    <a href="#"> Reporting </a>-->
-                    <a href="#"> Users </a>
+                    <a href="index.php"> Home </a>
+                    <a href="IncidenciasAbiertas.php"> Incidencias </a>
+                    <?php
+                    if ($_SESSION['idRol'] != 3) {
+                        echo '<a href="Usuarios.php"> Usuarios </a>';
+                    }
+                    ?>
+
                 </nav>
                 <div class="header-navigation-actions">
-                    <a href="#" class="button">
+                    <a class="button">
                         <i class="ph-lightning-bold"></i>
+                        <p>Bienvenido <?php echo $_SESSION['nombreUsuario'] ?></p>
                         <span></span>
                     </a>
-
-                    <a href="#" class="avatar">
-                        <img src="../img/IconoInicioSesion.png" alt="" />
-                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="avatar">
+                            <img src="../img/IconoInicioSesion.png" alt="" />
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#">Perfil</a>
+                            <a href="#">Configuración</a>
+                            <a href="../login/cerrar_sesion.php">Cerrar sesión</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <a href="#" class="button">
@@ -52,24 +62,24 @@ include '../config/config.php';
     </header>
     <main class="main">
         <div class="responsive-wrapper">
+            <div class="horizontal-tabs">
+                <a href="IncidenciasAbiertas.php">Incidencias Abiertas</a>
+                <a href="Incidencias.php">Todas las incidencias</a>
+            </div>
+        </div>
+        <div class="responsive-wrapper">
             <div class="main-header">
                 <h1>Incidencias Detallada <?php echo $_GET['id']; ?></h1>
-                <!--<div class="search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit">
-                        <i class="ph-magnifying-glass-bold"></i>
-                    </button>
-                </div>-->
             </div>
             <div class="container">
-                        <?php
-                        require_once ('../config/config_bd.php');
+                <?php
+                require_once ('../config/config_bd.php');
 
-                        // Obtener el ID de la incidencia de la U0RL
-                        $incidencia_id = $_GET['id'];
+                // Obtener el ID de la incidencia de la U0RL
+                $incidencia_id = $_GET['id'];
 
-                        // Consulta para obtener la información de la incidencia, la impresora y el cliente
-                        $consulta = "SELECT Incidencias.id_incidencia, Incidencias.descripcion, Incidencias.f_creacion, Incidencias.contacto, Incidencias.estado, 
+                // Consulta para obtener la información de la incidencia, la impresora y el cliente
+                $consulta = "SELECT Incidencias.id_incidencia, Incidencias.descripcion, Incidencias.f_creacion, Incidencias.contacto, Incidencias.estado, 
                                         Impresoras.id_impresora ,Impresoras.modelo, Impresoras.numero_serie, Impresoras.ubicacion, Impresoras.observaciones, Impresoras.color,
                                         Clientes.nombre , Clientes.poblacion, Clientes.direccion, Clientes.telefono, Clientes.email, Clientes.comentarios
                                         FROM Incidencias
@@ -77,100 +87,100 @@ include '../config/config.php';
                                         JOIN Impresoras ON Incidencias.id_impresora = Impresoras.id_impresora
                                         WHERE Incidencias.id_incidencia = $incidencia_id";
 
-                        $rs = $conn->query($consulta);
+                $rs = $conn->query($consulta);
 
-                        if ($rs->num_rows == 0) {
-                            echo "<p>No se pudo obtener información de esa incidencia.</p>";
-                        } else {
-                            $row = $rs->fetch_assoc();
-                            // Comprobar el estado de la incidencia
-                            $estado_incidencia = ($row["estado"] == 0) ? "Abierta" : "Cerrada";
-                            ?>
-                        
-                        <h2>Detalles de la incidencia</h2>
-                        <table>
-                            <tr>
-                                <th>ID de la incidencia</th>
-                                <td><?php echo $row["id_incidencia"]; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Descripción</th>
-                                <td><?php echo $row["descripcion"]; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Fecha de creación</th>
-                                <td><?php echo $row["f_creacion"]; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Contacto</th>
-                                <td><?php echo $row["contacto"]; ?></td>
-                            </tr>
-                            <tr>
-                                <th>Estado de la incidencia</th>
-                                <td><?php echo $estado_incidencia; ?></td>
-                            </tr>
-                        </table>
-                        
+                if ($rs->num_rows == 0) {
+                    echo "<p>No se pudo obtener información de esa incidencia.</p>";
+                } else {
+                    $row = $rs->fetch_assoc();
+                    // Comprobar el estado de la incidencia
+                    $estado_incidencia = ($row["estado"] == 0) ? "Abierta" : "Cerrada";
+                    ?>
 
-                            <h2>Detalles de la impresora</h2>
-                            <table>
-                                <tr>
-                                    <th>Id Impresora</th>
-                                    <td><?php echo $row["id_impresora"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Modelo</th>
-                                    <td><?php echo $row["modelo"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Número de serie</th>
-                                    <td><?php echo $row["numero_serie"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Ubicación</th>
-                                    <td><?php echo $row["ubicacion"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Color</th>
-                                    <td><?php echo ($row["color"] == 1) ? "Color" : "Blanco y negro"; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Observaciones</th>
-                                    <td><?php echo $row["observaciones"]; ?></td>
-                                </tr>
-                            </table>
+                    <h2>Detalles de la incidencia</h2>
+                    <table>
+                        <tr>
+                            <th>ID de la incidencia</th>
+                            <td><?php echo $row["id_incidencia"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Descripción</th>
+                            <td><?php echo $row["descripcion"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Fecha de creación</th>
+                            <td><?php echo $row["f_creacion"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Contacto</th>
+                            <td><?php echo $row["contacto"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Estado de la incidencia</th>
+                            <td><?php echo $estado_incidencia; ?></td>
+                        </tr>
+                    </table>
 
-                            <h2>Detalles del cliente</h2>
-                            <table>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <td><?php echo $row["nombre"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Población</th>
-                                    <td><?php echo $row["poblacion"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Dirección</th>
-                                    <td><?php echo $row["direccion"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Teléfono</th>
-                                    <td><?php echo $row["telefono"]; ?></td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td><?php echo $row["email"]; ?></td>
-                                </tr>
-                                
-                                <tr>
-                                    <th>comentarios</th>
-                                    <td><?php echo $row["comentarios"]; ?></td>
-                                </tr>
-                            </table>
-                            <?php
-                        }
-                        ?>
+
+                    <h2>Detalles de la impresora</h2>
+                    <table>
+                        <tr>
+                            <th>Id Impresora</th>
+                            <td><?php echo $row["id_impresora"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Modelo</th>
+                            <td><?php echo $row["modelo"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Número de serie</th>
+                            <td><?php echo $row["numero_serie"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Ubicación</th>
+                            <td><?php echo $row["ubicacion"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Color</th>
+                            <td><?php echo ($row["color"] == 1) ? "Color" : "Blanco y negro"; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Observaciones</th>
+                            <td><?php echo $row["observaciones"]; ?></td>
+                        </tr>
+                    </table>
+
+                    <h2>Detalles del cliente</h2>
+                    <table>
+                        <tr>
+                            <th>Nombre</th>
+                            <td><?php echo $row["nombre"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Población</th>
+                            <td><?php echo $row["poblacion"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Dirección</th>
+                            <td><?php echo $row["direccion"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Teléfono</th>
+                            <td><?php echo $row["telefono"]; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo $row["email"]; ?></td>
+                        </tr>
+
+                        <tr>
+                            <th>comentarios</th>
+                            <td><?php echo $row["comentarios"]; ?></td>
+                        </tr>
+                    </table>
+                    <?php
+                }
+                ?>
 
             </div>
         </div>
