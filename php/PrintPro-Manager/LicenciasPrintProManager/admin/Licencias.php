@@ -9,9 +9,9 @@ include '../login/usuariologin.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incidencias <?php echo namePage; ?></title>
+    <title><?php echo namePage; ?></title>
     <?php echo rutaico; ?>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -28,13 +28,7 @@ include '../login/usuariologin.php';
             <div class="header-navigation">
                 <nav class="header-navigation-links">
                     <a href="index.php"> Home </a>
-                    <a href="IncidenciasAbiertas.php"> Incidencias </a>
-                    <?php
-                    if ($_SESSION['idRol'] != 3) {
-                        echo '<a href="Usuarios.php"> Usuarios </a>';
-                    }
-                    ?>
-
+                    <a href="Licencias.php"> Licencias </a>
                 </nav>
                 <div class="header-navigation-actions">
                     <a class="button">
@@ -47,8 +41,6 @@ include '../login/usuariologin.php';
                             <img src="../img/IconoInicioSesion.png" alt="" />
                         </a>
                         <div class="dropdown-content">
-                            <a href="#">Perfil</a>
-                            <a href="#">Configuración</a>
                             <a href="../login/cerrar_sesion.php">Cerrar sesión</a>
                         </div>
                     </div>
@@ -63,18 +55,13 @@ include '../login/usuariologin.php';
     <main class="main">
         <div class="responsive-wrapper">
             <div class="horizontal-tabs">
-                <a href="IncidenciasAbiertas.php" class="active">Incidencias Abiertas</a>
-                <a href="Incidencias.php">Todas las incidencias</a>
-                <?php
-                    if ($_SESSION['idRol'] == 3) {
-                        echo '<a href="tecnico.php" >Incidencias Asignadas</a>';
-                    }
-                ?>
+                <a href="Licencias.php" class="active">Licencias</a>
+                <a href="CrearLicencias.php" >Crear Licencia</a>
             </div>
         </div>
         <div class="responsive-wrapper">
             <div class="main-header">
-                <h1>Incidencias Abiertas</h1>
+                <h1>Todas las Licencias</h1>
                 <article class="card derecha">
                     <div class="card-header">
                         <div>
@@ -87,48 +74,36 @@ include '../login/usuariologin.php';
                         </label>
                     </div>
                 </article>
-                <!--<div class="search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit">
-                        <i class="ph-magnifying-glass-bold"></i>
-                    </button>
-                </div>-->
             </div>
             <div class="container">
 
                 <table>
                     <thead>
                         <tr>
-                            <th>Id incidencia</th>
-                            <th>id y modelo Impresora</th>
-                            <th>Cliente</th>
-                            <th>Problema</th>
-                            <th>Fecha</th>
+                            <th>Id</th>
+                            <th>Token</th>
+                            <th>Descripcion</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         require_once ('../config/config_bd.php');
-                        $InicidenciasAbiertas = "SELECT Incidencias.id_incidencia, Incidencias.id_impresora, Impresoras.modelo, Clientes.nombre, Incidencias.descripcion, Incidencias.f_creacion, Incidencias.contacto
-                            FROM Incidencias
-                            JOIN Clientes ON Incidencias.id_cliente = Clientes.id_cliente
-                            JOIN Impresoras ON Incidencias.id_impresora = Impresoras.id_impresora
-                            WHERE Incidencias.estado = 0";
+                        $TodasLicencias = "SELECT id, token, descripcion, estado FROM licencias ORDER BY id DESC;;";
 
-                        $rs = $conn->query($InicidenciasAbiertas);
+                        $rs = $conn->query($TodasLicencias);
                         if ($rs->num_rows == 0) {
                             echo "<tr>";
-                            echo "<td colspan='5'> No hay incidencias abiertas </td>";
+                            echo "<td colspan='4'> No hay Licencias actualmente </td>";
                             echo "</tr>";
                         }
                         foreach ($rs as $row) {
                             echo "<tr>";
-                            echo "<td><a class='link-detalles' href='IncidenciaDetallada.php?id=" . $row["id_incidencia"] . "' target='_blank'>" . $row["id_incidencia"] . "</a></td>";
-
-                            echo "<td>" . $row["id_impresora"] . " - " . $row["modelo"] . "</td>";
-                            echo "<td>" . $row["nombre"] . "</td>";
+                            echo "<td>" . $row["id"] . "</td>";
+                            echo "<td>" . $row["token"] . "</td>";
                             echo "<td>" . $row["descripcion"] . "</td>";
-                            echo "<td>" . $row["f_creacion"] . "</td>";
+                            $estado_Licencia = ($row["estado"] == 0) ? "Desactivada" : "Activada";
+                            echo "<td>" . $estado_Licencia . "</td>";
                             echo "</tr>";
                         }
                         ?>
@@ -150,10 +125,9 @@ include '../login/usuariologin.php';
         
         document.getElementById('autoRefreshToggle').addEventListener('change', function () {
             if (this.checked) {
-                autoRefreshPage(); // Si está activado, inicia la actualización automática
+                autoRefreshPage(); 
             } else {
                 clearInterval(autoRefreshPage); 
-                
             }
         });
     </script>

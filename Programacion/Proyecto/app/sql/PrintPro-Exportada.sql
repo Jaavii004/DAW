@@ -62,7 +62,7 @@ CREATE TABLE `Consumibles` (
   `f_añadido` date DEFAULT current_timestamp(),
   PRIMARY KEY (`id_consumible`),
   UNIQUE KEY `Consumibles_pk` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ CREATE TABLE `Impresoras` (
 
 LOCK TABLES `Impresoras` WRITE;
 /*!40000 ALTER TABLE `Impresoras` DISABLE KEYS */;
-INSERT INTO `Impresoras` VALUES (1,1,'HP LaserJet Pro M402dn','LJ5M2948','2024-03-29','Pasillo',NULL,0,0,-1,'Exposicion'),(2,1,'Epson EcoTank L3150','EPL315021','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(3,1,'Canon imageCLASS MF644Cdw','CCMF644154','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),(4,1,'Brother HL-L2370DW','BHLL237026','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(5,1,'Samsung Xpress M2020W','SXMPR202003','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(6,1,'Lexmark B2236dw','LXBM223601','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(7,1,'Dell Color Multifunction Printer C1765nfw','DCMPC176501','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(8,1,'Ricoh SP C261SFNw','RCSPC261004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(9,1,'Xerox Phaser 6510','XRPH651002','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),(10,1,'Kyocera ECOSYS P5021cdw','KYECP502105','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(11,1,'Sharp MX-B450W','SHPMXB450008','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(12,1,'Panasonic KX-MB2061ML','PNKXMB206105','2024-03-30','Sala de Profesores',NULL,0,0,1,'Exposicion'),(13,1,'Olivetti d-Color MF3301','OLDCMF330106','2024-03-30','Conserjeria',NULL,0,0,0,'Exposicion'),(14,1,'Toshiba e-STUDIO181','TBES181004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(15,1,'Konica Minolta bizhub C3100P','KMC310005','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion');
+INSERT INTO `Impresoras` VALUES (1,1,'HP LaserJet Pro M402dn','LJ5M2948','2024-03-29','Pasillo',NULL,0,0,1,'Exposicion'),(2,1,'Epson EcoTank L3150','EPL315021','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(3,1,'Canon imageCLASS MF644Cdw','CCMF644154','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),(4,1,'Brother HL-L2370DW','BHLL237026','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(5,1,'Samsung Xpress M2020W','SXMPR202003','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(6,1,'Lexmark B2236dw','LXBM223601','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(7,1,'Dell Color Multifunction Printer C1765nfw','DCMPC176501','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(8,1,'Ricoh SP C261SFNw','RCSPC261004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(9,1,'Xerox Phaser 6510','XRPH651002','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),(10,1,'Kyocera ECOSYS P5021cdw','KYECP502105','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),(11,1,'Sharp MX-B450W','SHPMXB450008','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(12,1,'Panasonic KX-MB2061ML','PNKXMB206105','2024-03-30','Sala de Profesores',NULL,0,0,1,'Exposicion'),(13,1,'Olivetti d-Color MF3301','OLDCMF330106','2024-03-30','Conserjeria',NULL,0,0,0,'Exposicion'),(14,1,'Toshiba e-STUDIO181','TBES181004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),(15,1,'Konica Minolta bizhub C3100P','KMC310005','2024-03-30','Conserjeria',NULL,0,0,1,'Exposicion');
 /*!40000 ALTER TABLE `Impresoras` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,13 +157,16 @@ CREATE TABLE `Incidencias` (
   `estado` tinyint(1) DEFAULT 0,
   `contacto` varchar(100) DEFAULT NULL,
   `impreso` tinyint(1) DEFAULT 0,
+  `id_tecnico` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_incidencia`),
   KEY `id_impresora` (`id_impresora`),
   KEY `id_cliente` (`id_cliente`),
   KEY `id_usuario` (`id_usuario`),
+  KEY `Incidencias_ibfk_4` (`id_tecnico`),
   CONSTRAINT `Incidencias_ibfk_1` FOREIGN KEY (`id_impresora`) REFERENCES `Impresoras` (`id_impresora`),
   CONSTRAINT `Incidencias_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `Clientes` (`id_cliente`),
-  CONSTRAINT `Incidencias_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
+  CONSTRAINT `Incidencias_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`),
+  CONSTRAINT `Incidencias_ibfk_4` FOREIGN KEY (`id_tecnico`) REFERENCES `Tecnicos` (`id_tecnico`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,7 +176,7 @@ CREATE TABLE `Incidencias` (
 
 LOCK TABLES `Incidencias` WRITE;
 /*!40000 ALTER TABLE `Incidencias` DISABLE KEYS */;
-INSERT INTO `Incidencias` VALUES (6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:35:49',0,'Juan',0),(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 06:35:49',0,'Maria',0),(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 06:35:49',0,'Carlos',0),(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 06:35:49',0,'Laura',0),(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 06:35:49',0,'Ana',0),(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 06:57:52',0,'Juan',1),(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:58:09',0,'Manuel',0),(13,1,1,1,'Incidencia de prueba.','2024-03-31 08:12:47',0,'Antonio',0),(14,1,1,1,'Incidencia de prueba.','2024-03-31 08:13:58',0,'Antonio',0),(15,1,1,1,'Incidencia de prueba.','2024-03-31 08:15:17',0,'Antonio',0),(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 13:30:57',0,'Manuel',0),(20,1,1,1,'Incidencia de prueba.','2024-04-02 13:42:00',0,'Antonio',0),(21,1,1,1,'Juan se a caiddo','2024-04-02 14:50:31',0,'Juan',0),(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 15:02:31',0,'Pepita',1),(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 15:15:40',0,'Paquita',1),(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 15:19:02',0,'Ernesto',1),(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 15:30:54',0,'Pepito',1);
+INSERT INTO `Incidencias` VALUES (6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:35:49',1,'Juan',0,1),(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 06:35:49',0,'Maria',0,1),(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 06:35:49',0,'Carlos',0,1),(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 06:35:49',0,'Laura',0,1),(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 06:35:49',0,'Ana',0,1),(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 06:57:52',0,'Juan',1,1),(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:58:09',0,'Manuel',0,1),(13,1,1,1,'Incidencia de prueba.','2024-03-31 08:12:47',0,'Antonio',0,1),(14,1,1,1,'Incidencia de prueba.','2024-03-31 08:13:58',0,'Antonio',0,1),(15,1,1,1,'Incidencia de prueba.','2024-03-31 08:15:17',0,'Antonio',0,1),(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 13:30:57',0,'Manuel',0,1),(20,1,1,1,'Incidencia de prueba.','2024-04-02 13:42:00',0,'Antonio',0,1),(21,1,1,1,'Juan se a caiddo','2024-04-02 14:50:31',0,'Juan',0,1),(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 15:02:31',0,'Pepita',1,1),(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 15:15:40',0,'Paquita',1,1),(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 15:19:02',0,'Ernesto',1,1),(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 15:30:54',0,'Pepito',1,1);
 /*!40000 ALTER TABLE `Incidencias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +262,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789','63a9f0ea7bb98050796b649e85481845',3,'2024-03-28 00:00:00'),(3,'superuser','Super','Usuario','superuser@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',1,'2024-04-02 19:30:15'),(6,'root','Admin','Root','root@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',2,'2024-04-02 18:49:13'),(7,'usu','usu','usu','usu','1234567','63a9f0ea7bb98050796b649e85481845',2,'2024-03-29 00:00:00'),(8,'adminuser','adminuser','user','user@usuer-com','12345453','63a9f0ea7bb98050796b649e85481845',1,'2024-04-01 00:00:00');
+INSERT INTO `Usuarios` VALUES (1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789','63a9f0ea7bb98050796b649e85481845',3,'2024-04-13 20:14:52'),(3,'superuser','Super','Usuario','superuser@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',1,'2024-04-02 19:30:15'),(6,'root','Admin','Root','root@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',2,'2024-04-13 20:30:28'),(7,'usu','usu','usu','usu','1234567','63a9f0ea7bb98050796b649e85481845',2,'2024-04-13 20:27:00'),(8,'adminuser','adminuser','user','user@usuer-com','12345453','63a9f0ea7bb98050796b649e85481845',1,'2024-04-01 00:00:00');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -272,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-07 10:50:14
+-- Dump completed on 2024-04-14  8:52:24

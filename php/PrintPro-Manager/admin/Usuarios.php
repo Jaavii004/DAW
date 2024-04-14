@@ -133,20 +133,20 @@ include '../login/usuariologin.php';
 
     </main>
     <script>
-        // Función para recargar la página cada minuto
+       
         function autoRefreshPage() {
             setInterval(function () {
                 location.reload();
             }, 60000); // 60000 milisegundos = 1 minuto
         }
 
-        // Escucha el cambio en el interruptor
+        
         document.getElementById('autoRefreshToggle').addEventListener('change', function () {
             if (this.checked) {
                 autoRefreshPage(); // Si está activado, inicia la actualización automática
             } else {
-                clearInterval(autoRefreshPage); // Si está desactivado, detiene la actualización automática
-                alert('Actualización automática desactivada'); // Alerta de confirmación
+                clearInterval(autoRefreshPage); 
+                
             }
         });
     </script>
