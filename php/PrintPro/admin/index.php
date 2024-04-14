@@ -70,6 +70,35 @@ include '../login/usuariologin.php';
                     <p>Bienvenido al panel de administración de <?php echo namePage; ?></p>
                 </div>
             </div>
+            <div class="card-grid">
+                <!-- Tarjeta para incidencias abiertas -->
+                <article class="card">
+                    <div class="card-header">
+                        <h3>Incidencias Abiertas</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>552</p>
+                    </div>
+                </article>
+                <!-- Tarjeta para incidencias asignadas -->
+                <article class="card">
+                    <div class="card-header">
+                    <h3>Incidencias Asignadas</h3>
+
+                    </div>
+                    <div class="card-body">
+                        <p>105</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-header">
+                        <h3>Incidencias Totales</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>602</p>
+                    </div>
+                </article>
+            </div>
         </div>
     </main>
 </body>

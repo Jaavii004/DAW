@@ -90,12 +90,6 @@ include '../login/usuariologin.php';
                         </label>
                     </div>
                 </article>
-                <!--<div class="search">
-                    <input type="text" placeholder="Search" />
-                    <button type="submit">
-                        <i class="ph-magnifying-glass-bold"></i>
-                    </button>
-                </div>-->
             </div>
             <div class="container">
 
@@ -127,7 +121,6 @@ include '../login/usuariologin.php';
                         foreach ($rs as $row) {
                             echo "<tr>";
                             echo "<td><a class='link-detalles' href='IncidenciaDetallada.php?id=" . $row["id_incidencia"] . "' target='_blank'>" . $row["id_incidencia"] . "</a></td>";
-
                             echo "<td>" . $row["id_impresora"] . " - " . $row["modelo"] . "</td>";
                             echo "<td>" . $row["nombre"] . "</td>";
                             echo "<td>" . $row["descripcion"] . "</td>";

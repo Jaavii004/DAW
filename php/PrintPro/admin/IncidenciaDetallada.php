@@ -9,7 +9,7 @@ include '../login/usuariologin.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperAdmin <?php echo namePage; ?></title>
+    <title>Incidencia Detallada <?php echo namePage; ?></title>
     <?php echo rutaico; ?>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -178,7 +178,40 @@ include '../login/usuariologin.php';
                             <td><?php echo $row["comentarios"]; ?></td>
                         </tr>
                     </table>
+                    <div class="container">
+                        <h2>Intervenciones de la incidencia <?php echo $_GET['id']; ?></h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Intervención</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha de Intervención</th>
+                                    <th>Copias Color</th>
+                                    <th>Copias B/N</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $Intervencion = "SELECT * FROM Intervenciones WHERE id_incidencia = $incidencia_id";
+
+                                $rs = $conn->query($Intervencion);
+
+                                foreach ($rs as $row) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['id_intervencion'] . "</td>";
+                                    echo "<td>" . $row['descripcion'] . "</td>";
+                                    echo "<td>" . $row['f_intervencion'] . "</td>";
+                                    echo "<td>" . $row['copias_color'] . "</td>";
+                                    echo "<td>" . $row['copias_bn'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <?php
+
                 }
                 ?>
 

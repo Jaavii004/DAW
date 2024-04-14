@@ -176,8 +176,72 @@ CREATE TABLE `Incidencias` (
 
 LOCK TABLES `Incidencias` WRITE;
 /*!40000 ALTER TABLE `Incidencias` DISABLE KEYS */;
-INSERT INTO `Incidencias` VALUES (6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:35:49',1,'Juan',0,1),(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 06:35:49',0,'Maria',0,1),(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 06:35:49',0,'Carlos',0,1),(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 06:35:49',0,'Laura',0,1),(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 06:35:49',0,'Ana',0,1),(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 06:57:52',0,'Juan',1,1),(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:58:09',0,'Manuel',0,1),(13,1,1,1,'Incidencia de prueba.','2024-03-31 08:12:47',0,'Antonio',0,1),(14,1,1,1,'Incidencia de prueba.','2024-03-31 08:13:58',0,'Antonio',0,1),(15,1,1,1,'Incidencia de prueba.','2024-03-31 08:15:17',0,'Antonio',0,1),(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 13:30:57',0,'Manuel',0,1),(20,1,1,1,'Incidencia de prueba.','2024-04-02 13:42:00',0,'Antonio',0,1),(21,1,1,1,'Juan se a caiddo','2024-04-02 14:50:31',0,'Juan',0,1),(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 15:02:31',0,'Pepita',1,1),(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 15:15:40',0,'Paquita',1,1),(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 15:19:02',0,'Ernesto',1,1),(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 15:30:54',0,'Pepito',1,1);
+INSERT INTO `Incidencias` VALUES (6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-05-31 06:35:49',1,'Juan',0,1),(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 06:35:49',0,'Maria',0,1),(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 06:35:49',0,'Carlos',0,1),(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 06:35:49',0,'Laura',0,1),(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 06:35:49',0,'Ana',0,1),(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 06:57:52',0,'Juan',1,1),(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 06:58:09',0,'Manuel',0,1),(13,1,1,1,'Incidencia de prueba.','2024-03-31 08:12:47',0,'Antonio',0,1),(14,1,1,1,'Incidencia de prueba.','2024-03-31 08:13:58',0,'Antonio',0,1),(15,1,1,1,'Incidencia de prueba.','2024-03-31 08:15:17',0,'Antonio',0,1),(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 13:30:57',0,'Manuel',0,1),(20,1,1,1,'Incidencia de prueba.','2024-04-02 13:42:00',0,'Antonio',0,1),(21,1,1,1,'Juan se a caiddo','2024-04-02 14:50:31',0,'Juan',0,1),(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 15:02:31',0,'Pepita',1,1),(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 15:15:40',0,'Paquita',1,1),(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 15:19:02',0,'Ernesto',1,1),(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 15:30:54',0,'Pepito',1,1);
 /*!40000 ALTER TABLE `Incidencias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Intervencion_Consumible`
+--
+
+DROP TABLE IF EXISTS `Intervencion_Consumible`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Intervencion_Consumible` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_intervencion` int(11) DEFAULT NULL,
+  `id_consumible` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_intervencion` (`id_intervencion`),
+  KEY `id_consumible` (`id_consumible`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Intervencion_Consumible`
+--
+
+LOCK TABLES `Intervencion_Consumible` WRITE;
+/*!40000 ALTER TABLE `Intervencion_Consumible` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Intervencion_Consumible` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Intervenciones`
+--
+
+DROP TABLE IF EXISTS `Intervenciones`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Intervenciones` (
+  `id_intervencion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_incidencia` int(11) DEFAULT NULL,
+  `id_tecnico` int(11) DEFAULT NULL,
+  `id_usuario` int(11) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
+  `f_intervencion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `copias_color` int(11) DEFAULT NULL,
+  `copias_bn` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_intervencion`),
+  KEY `id_incidencia` (`id_incidencia`),
+  KEY `id_tecnico` (`id_tecnico`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `Intervenciones_ibfk_1` FOREIGN KEY (`id_incidencia`) REFERENCES `Incidencias` (`id_incidencia`),
+  CONSTRAINT `Intervenciones_ibfk_2` FOREIGN KEY (`id_tecnico`) REFERENCES `Tecnicos` (`id_tecnico`),
+  CONSTRAINT `Intervenciones_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Intervenciones`
+--
+
+LOCK TABLES `Intervenciones` WRITE;
+/*!40000 ALTER TABLE `Intervenciones` DISABLE KEYS */;
+INSERT INTO `Intervenciones` VALUES (11,9,1,1,'Reemplazo del cartucho de tinta','2024-04-14 14:11:07',0,20),(12,7,1,1,'Limpieza del cabezal de impresión','2024-04-14 14:11:07',5,0),(13,8,1,1,'Solución de atasco de papel','2024-04-14 14:11:07',0,0),(14,9,1,1,'Actualización del controlador de impresora','2024-04-14 14:11:07',0,0),(15,9,1,1,'Reparación de error de sistema','2024-04-14 14:11:07',0,0);
+/*!40000 ALTER TABLE `Intervenciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -265,6 +329,30 @@ LOCK TABLES `Usuarios` WRITE;
 INSERT INTO `Usuarios` VALUES (1,'usuario_prueba','NombrePrueba','ApellidoPrueba','correo@example.com','123456789','63a9f0ea7bb98050796b649e85481845',3,'2024-04-13 20:14:52'),(3,'superuser','Super','Usuario','superuser@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',1,'2024-04-02 19:30:15'),(6,'root','Admin','Root','root@javier.com','123456789','63a9f0ea7bb98050796b649e85481845',2,'2024-04-13 20:30:28'),(7,'usu','usu','usu','usu','1234567','63a9f0ea7bb98050796b649e85481845',2,'2024-04-13 20:27:00'),(8,'adminuser','adminuser','user','user@usuer-com','12345453','63a9f0ea7bb98050796b649e85481845',1,'2024-04-01 00:00:00');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `licencias`
+--
+
+DROP TABLE IF EXISTS `licencias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `licencias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `licencias`
+--
+
+LOCK TABLES `licencias` WRITE;
+/*!40000 ALTER TABLE `licencias` DISABLE KEYS */;
+INSERT INTO `licencias` VALUES (1,'AhFtweFY7HHXeyp4rAiASFevi282PW');
+/*!40000 ALTER TABLE `licencias` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -275,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-14  8:52:24
+-- Dump completed on 2024-04-14 17:33:42
