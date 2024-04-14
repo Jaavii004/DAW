@@ -1,6 +1,7 @@
 <?php
 // Importar el archivo config.php
 include '../config/config.php';
+include '../config/config_bd.php';
 include '../login/usuariologin.php';
 ?>
 <!DOCTYPE html>
@@ -16,8 +17,6 @@ include '../login/usuariologin.php';
 
 <body>
     <header class="header">
-
-
         <div class="header-content responsive-wrapper">
             <div class="header-logo">
                 <a href="#">
@@ -77,17 +76,28 @@ include '../login/usuariologin.php';
                         <h3>Incidencias Abiertas</h3>
                     </div>
                     <div class="card-body">
-                        <p>552</p>
+                        <?php
+                        $abierta = "SELECT COUNT(estado) AS num FROM Incidencias WHERE estado = 0";
+                        $rs = $conn->query($abierta);
+                        foreach ($rs as $row) {
+                            echo "<p>" . $row["num"] . "</p>";
+                        }
+                        ?>
                     </div>
                 </article>
                 <!-- Tarjeta para incidencias asignadas -->
                 <article class="card">
                     <div class="card-header">
-                    <h3>Incidencias Asignadas</h3>
-
+                        <h3>Incidencias Asignadas</h3>
                     </div>
                     <div class="card-body">
-                        <p>105</p>
+                        <?php
+                        $asignadas = "SELECT COUNT(id_tecnico) AS num FROM Incidencias WHERE id_tecnico IS NOT NULL";
+                        $rs = $conn->query($asignadas);
+                        foreach ($rs as $row) {
+                            echo "<p>" . $row["num"] . "</p>";
+                        }
+                        ?>
                     </div>
                 </article>
                 <article class="card">
@@ -95,7 +105,13 @@ include '../login/usuariologin.php';
                         <h3>Incidencias Totales</h3>
                     </div>
                     <div class="card-body">
-                        <p>602</p>
+                        <?php
+                        $total = "SELECT COUNT(id_incidencia) AS num FROM Incidencias ";
+                        $rs = $conn->query($total);
+                        foreach ($rs as $row) {
+                            echo "<p>" . $row["num"] . "</p>";
+                        }
+                        ?>
                     </div>
                 </article>
             </div>

@@ -97,7 +97,7 @@ include '../login/usuariologin.php';
                     <thead>
                         <tr>
                             <th>Id incidencia</th>
-                            <th>id y modelo Impresora</th>
+                            <th>id - modelo Impresora</th>
                             <th>Cliente</th>
                             <th>Problema</th>
                             <th>Fecha</th>
@@ -110,7 +110,8 @@ include '../login/usuariologin.php';
                         $InicidenciasAbiertas = "SELECT Incidencias.id_incidencia, Incidencias.id_impresora, Impresoras.modelo, Clientes.nombre, Incidencias.descripcion, Incidencias.f_creacion, Incidencias.contacto , Incidencias.estado
                             FROM Incidencias
                             JOIN Clientes ON Incidencias.id_cliente = Clientes.id_cliente
-                            JOIN Impresoras ON Incidencias.id_impresora = Impresoras.id_impresora";
+                            JOIN Impresoras ON Incidencias.id_impresora = Impresoras.id_impresora
+                            ORDER BY Incidencias.id_incidencia DESC;";
 
                         $rs = $conn->query($InicidenciasAbiertas);
                         if ($rs->num_rows == 0) {
@@ -121,7 +122,7 @@ include '../login/usuariologin.php';
                         foreach ($rs as $row) {
                             echo "<tr>";
                             echo "<td><a class='link-detalles' href='IncidenciaDetallada.php?id=" . $row["id_incidencia"] . "' target='_blank'>" . $row["id_incidencia"] . "</a></td>";
-                            echo "<td>" . $row["id_impresora"] . " - " . $row["modelo"] . "</td>";
+                            echo "<td>#" . $row["id_impresora"] . " - " . $row["modelo"] . "</td>";
                             echo "<td>" . $row["nombre"] . "</td>";
                             echo "<td>" . $row["descripcion"] . "</td>";
                             echo "<td>" . $row["f_creacion"] . "</td>";
