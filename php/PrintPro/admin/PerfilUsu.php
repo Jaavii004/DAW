@@ -73,8 +73,7 @@ include '../login/usuariologin.php';
             <form action="actualizar_perfil.php" method="POST">
                 <div class="form-group">
                     <label for="nombre_usuario">Nombre de Usuario:</label>
-                    <input type="text" id="nombre_usuario" name="nombre_usuario"
-                        value="<?php echo $_SESSION['nombreUsuario']; ?>" required>
+                    <input style="cursor: not-allowed;" type="text" id="nombre_usuario" name="nombre_usuario" value="<?php echo $_SESSION['nombreUsuario']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="nomusu">Nombre:</label>
@@ -82,8 +81,7 @@ include '../login/usuariologin.php';
                 </div>
                 <div class="form-group">
                     <label for="nomusu">Apellido:</label>
-                    <input type="text" id="apellido" name="nomusu" required
-                        value="<?php echo $_SESSION['apellido']; ?>">
+                    <input type="text" id="apellido" name="apellido" required value="<?php echo $_SESSION['apellido']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico:</label>
@@ -91,14 +89,12 @@ include '../login/usuariologin.php';
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" required
-                        value="<?php echo $_SESSION['telefono']; ?>">
+                    <input type="tel" id="telefono" name="telefono" required value="<?php echo $_SESSION['telefono']; ?>">
                 </div>
                 <div class="form-group">
                     <label for="contraseña1">Contraseña:</label>
                     <input type="password" id="contraseña1" name="contraseña1" required>
                 </div>
-
                 <div class="form-group">
                     <label for="contraseña2">Repite la Contraseña:</label>
                     <input type="password" id="contraseña2" name="contraseña2" oninput="validarContraseña()" required>
@@ -112,8 +108,9 @@ include '../login/usuariologin.php';
             var contraseña1 = document.getElementById("contraseña1").value;
             var contraseña2 = document.getElementById("contraseña2").value;
             var mensaje = document.getElementById("mensajeContraseña");
+            var boton = document.getElementById("botonActualizar");
 
-            if (contraseña1 != contraseña2) {
+            if (contraseña1 !== contraseña2) {
                 mensaje.innerHTML = "Las contraseñas no coinciden.";
                 mensaje.style.color = "red";
                 boton.disabled = true;
@@ -121,11 +118,13 @@ include '../login/usuariologin.php';
             } else {
                 mensaje.innerHTML = "Las contraseñas coinciden.";
                 mensaje.style.color = "green";
+                mensaje.style.cursor = "auto";
                 boton.disabled = false;
                 return true;
             }
         }
     </script>
+
 </body>
 
 </html>

@@ -777,3 +777,16 @@ button {
 	padding: 20px;
 	text-align: center;
 }
+
+.small-card {
+    max-width: 300px;
+}
+
+.license-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green; 
+    margin-right: 5px;
+}

@@ -49,7 +49,11 @@ include '../login/usuariologin.php';
                         </a>
                         <div class="dropdown-content">
                             <a href="PerfilUsu.php">Perfil</a>
-                            <a href="#">Configuración</a>
+                            <?php
+                            if ($_SESSION['idRol'] == 1) {
+                                echo '<a href="configuracion.php">Configuración</a>';
+                            }
+                            ?>
                             <a href="../login/cerrar_sesion.php">Cerrar sesión</a>
                         </div>
                     </div>
@@ -69,52 +73,55 @@ include '../login/usuariologin.php';
                     <p>Bienvenido al panel de administración de <?php echo namePage; ?></p>
                 </div>
             </div>
-            <div class="card-grid">
-                <!-- Tarjeta para incidencias abiertas -->
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Incidencias Abiertas</h3>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        $abierta = "SELECT COUNT(estado) AS num FROM Incidencias WHERE estado = 0";
-                        $rs = $conn->query($abierta);
-                        foreach ($rs as $row) {
-                            echo "<p>" . $row["num"] . "</p>";
-                        }
-                        ?>
-                    </div>
-                </article>
-                <!-- Tarjeta para incidencias asignadas -->
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Incidencias Asignadas</h3>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        $asignadas = "SELECT COUNT(id_tecnico) AS num FROM Incidencias WHERE id_tecnico IS NOT NULL";
-                        $rs = $conn->query($asignadas);
-                        foreach ($rs as $row) {
-                            echo "<p>" . $row["num"] . "</p>";
-                        }
-                        ?>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-header">
-                        <h3>Incidencias Totales</h3>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                        $total = "SELECT COUNT(id_incidencia) AS num FROM Incidencias ";
-                        $rs = $conn->query($total);
-                        foreach ($rs as $row) {
-                            echo "<p>" . $row["num"] . "</p>";
-                        }
-                        ?>
-                    </div>
-                </article>
-            </div>
+            <?php if ($_SESSION['idRol'] == 1) { ?>
+                <div class="main-header">
+                    <h1>Estadisticas</h1>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Incidencias Abiertas</h3>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            $abierta = "SELECT COUNT(estado) AS num FROM Incidencias WHERE estado = 0";
+                            $rs = $conn->query($abierta);
+                            foreach ($rs as $row) {
+                                echo "<p>" . $row["num"] . "</p>";
+                            }
+                            ?>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Incidencias Asignadas</h3>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            $asignadas = "SELECT COUNT(id_tecnico) AS num FROM Incidencias WHERE id_tecnico IS NOT NULL";
+                            $rs = $conn->query($asignadas);
+                            foreach ($rs as $row) {
+                                echo "<p>" . $row["num"] . "</p>";
+                            }
+                            ?>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-header">
+                            <h3>Incidencias Totales</h3>
+                        </div>
+                        <div class="card-body">
+                            <?php
+                            $total = "SELECT COUNT(id_incidencia) AS num FROM Incidencias ";
+                            $rs = $conn->query($total);
+                            foreach ($rs as $row) {
+                                echo "<p>" . $row["num"] . "</p>";
+                            }
+                            ?>
+                        </div>
+                    </article>
+                </div>
+            <?php } ?>
         </div>
     </main>
 </body>
