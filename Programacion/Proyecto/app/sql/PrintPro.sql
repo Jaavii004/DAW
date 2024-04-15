@@ -29,7 +29,7 @@ CREATE TABLE `Clientes` (
   `direccion` varchar(255) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `f_registro` date DEFAULT current_timestamp(),
+  `f_registro` datetime DEFAULT current_timestamp(),
   `comentarios` text DEFAULT NULL,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `nombre` (`nombre`)
@@ -58,7 +58,7 @@ CREATE TABLE `Consumibles` (
   `id_consumible` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `f_añadido` date DEFAULT current_timestamp(),
+  `f_añadido` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_consumible`),
   UNIQUE KEY `Consumibles_pk` (`nombre`)
 );
@@ -146,7 +146,7 @@ CREATE TABLE `Impresoras` (
   `id_cliente` int(11) DEFAULT 1,
   `modelo` varchar(100) DEFAULT NULL,
   `numero_serie` varchar(50) DEFAULT NULL,
-  `f_creacion` date DEFAULT current_timestamp(),
+  `f_creacion` datetime DEFAULT current_timestamp(),
   `ubicacion` varchar(255) DEFAULT NULL,
   `ult_mant` date DEFAULT NULL,
   `p_color` int(11) DEFAULT 0,
