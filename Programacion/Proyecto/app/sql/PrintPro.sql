@@ -5,7 +5,7 @@ USE `PrintPro`;
 -- Table: Tecnicos
 DROP TABLE IF EXISTS `Tecnicos`;
 CREATE TABLE `Tecnicos` (
-  `id_tecnico` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tecnico` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `apellido` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
@@ -23,7 +23,7 @@ INSERT INTO Tecnicos VALUES
 -- Table: Clientes
 DROP TABLE IF EXISTS `Clientes`;
 CREATE TABLE `Clientes` (
-  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `poblacion` varchar(100) DEFAULT NULL,
   `direccion` varchar(255) DEFAULT NULL,
@@ -55,7 +55,7 @@ INSERT INTO `Clientes` VALUES
 -- Table: Consumibles
 DROP TABLE IF EXISTS `Consumibles`;
 CREATE TABLE `Consumibles` (
-  `id_consumible` int(11) NOT NULL AUTO_INCREMENT,
+  `id_consumible` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_añadido` datetime DEFAULT current_timestamp(),
@@ -85,13 +85,13 @@ INSERT INTO `Consumibles` VALUES
 -- Table: Contactos
 DROP TABLE IF EXISTS `Contactos`;
 CREATE TABLE `Contactos` (
-  `id_contacto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_contacto` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `apellido` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `cargo` varchar(100) DEFAULT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
+  `id_cliente` Int DEFAULT NULL,
   PRIMARY KEY (`id_contacto`),
   KEY `id_cliente` (`id_cliente`),
   CONSTRAINT `Contactos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `Clientes` (`id_cliente`)
@@ -101,7 +101,7 @@ CREATE TABLE `Contactos` (
 -- Table: Roles
 DROP TABLE IF EXISTS `Roles`;
 CREATE TABLE `Roles` (
-  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
+  `id_rol` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id_rol`),
   UNIQUE KEY `nombre` (`nombre`)
@@ -116,14 +116,14 @@ INSERT INTO `Roles` VALUES
 -- Table: Usuarios
 DROP TABLE IF EXISTS `Usuarios`;
 CREATE TABLE `Usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` Int NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
-  `id_rol` int(11) NOT NULL DEFAULT 3,
+  `id_rol` Int NOT NULL DEFAULT 3,
   `ultimo_InicioSesion` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
@@ -142,15 +142,15 @@ INSERT INTO `Usuarios` VALUES
 -- Table: Impresoras
 DROP TABLE IF EXISTS `Impresoras`;
 CREATE TABLE `Impresoras` (
-  `id_impresora` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cliente` int(11) DEFAULT 1,
+  `id_impresora` Int NOT NULL AUTO_INCREMENT,
+  `id_cliente` Int DEFAULT 1,
   `modelo` varchar(100) DEFAULT NULL,
   `numero_serie` varchar(50) DEFAULT NULL,
   `f_creacion` datetime DEFAULT current_timestamp(),
   `ubicacion` varchar(255) DEFAULT NULL,
   `ult_mant` date DEFAULT NULL,
-  `p_color` int(11) DEFAULT 0,
-  `p_bn` int(11) DEFAULT 0,
+  `p_color` Int DEFAULT 0,
+  `p_bn` Int DEFAULT 0,
   `color` tinyint(1) DEFAULT NULL,
   `observaciones` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_impresora`),
@@ -179,10 +179,10 @@ INSERT INTO `Impresoras` VALUES
 -- Table: Incidencias
 DROP TABLE IF EXISTS `Incidencias`;
 CREATE TABLE `Incidencias` (
-  `id_incidencia` int(11) NOT NULL AUTO_INCREMENT,
-  `id_impresora` int(11) DEFAULT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
+  `id_incidencia` Int NOT NULL AUTO_INCREMENT,
+  `id_impresora` Int DEFAULT NULL,
+  `id_cliente` Int DEFAULT NULL,
+  `id_usuario` Int DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `estado` tinyint(1) DEFAULT 0,
@@ -221,9 +221,9 @@ INSERT INTO `Incidencias` VALUES
 -- Table: Intervencion_Consumible
 DROP TABLE IF EXISTS `Intervencion_Consumible`;
 CREATE TABLE `Intervencion_Consumible` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_intervencion` int(11) DEFAULT NULL,
-  `id_consumible` int(11) DEFAULT NULL,
+  `id` Int NOT NULL AUTO_INCREMENT,
+  `id_intervencion` Int DEFAULT NULL,
+  `id_consumible` Int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_intervencion` (`id_intervencion`),
   KEY `id_consumible` (`id_consumible`),
@@ -234,14 +234,14 @@ CREATE TABLE `Intervencion_Consumible` (
 -- Table: Intervenciones
 DROP TABLE IF EXISTS `Intervenciones`;
 CREATE TABLE `Intervenciones` (
-  `id_intervencion` int(11) NOT NULL AUTO_INCREMENT,
-  `id_incidencia` int(11) DEFAULT NULL,
-  `id_tecnico` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
+  `id_intervencion` Int NOT NULL AUTO_INCREMENT,
+  `id_incidencia` Int DEFAULT NULL,
+  `id_tecnico` Int DEFAULT NULL,
+  `id_usuario` Int DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_intervencion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `copias_color` int(11) DEFAULT NULL,
-  `copias_bn` int(11) DEFAULT NULL,
+  `copias_color` Int DEFAULT NULL,
+  `copias_bn` Int DEFAULT NULL,
   PRIMARY KEY (`id_intervencion`),
   KEY `id_incidencia` (`id_incidencia`),
   KEY `id_tecnico` (`id_tecnico`),
