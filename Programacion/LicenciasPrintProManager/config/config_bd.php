@@ -1,9 +1,9 @@
 <?php
-    $server = "javier";
+    $server = "192.168.5.8";
     $user = "root";
-    $password = "root";
+    $password = "dbrootpass";
     $bbdd = "LicenciasPrintPro";
-    $puerto = 3306;
+    $puerto = 33006;
 
     // Crear conexión
     $conn = new mysqli($server, $user, $password, $bbdd, $puerto);
