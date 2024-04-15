@@ -19,7 +19,7 @@ if ($rs->num_rows > 0) {
     $_SESSION['idRol'] = $row["id_rol"];
     require_once('../licencia/verificarlicencia.php');
     $_SESSION['ultimoInicioSesion'] = $row["ultimo_InicioSesion"];
-    $updateQuery = "UPDATE Usuarios SET ultimo_InicioSesion = CURRENT_TIMESTAMP() WHERE id_usuario = '".$idUsuario."'";
+    $updateQuery = "UPDATE Usuarios SET ultimo_InicioSesion = CURRENT_TIMESTAMP() WHERE id_usuario = '".$_SESSION['idUsuario']."'";
     if ($conn->query($updateQuery) === TRUE) {
         header("location: ../admin/index.php");
     } else {
