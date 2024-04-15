@@ -1,7 +1,14 @@
 <?php
-    $server = "192.168.5.8";
+    $server = "javier";
     $user = "root";
-    $password = "dbrootpass";
+    $password = "root";
     $bbdd = "PrintPro";
-    $puerto = 33006;
-?>
+    $puerto = 3306;
+
+    // Crear conexión
+    $conn = new mysqli($server, $user, $password, $bbdd, $puerto);
+
+    // Verificar la conexión
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }

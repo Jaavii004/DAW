@@ -10,3 +10,4 @@
         session_destroy();
         die();
     }
+?>
