@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `Clientes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Clientes` (
-  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `poblacion` varchar(100) DEFAULT NULL,
   `direccion` varchar(255) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `f_registro` date DEFAULT current_timestamp(),
+  `f_registro` datetime DEFAULT current_timestamp(),
   `comentarios` text DEFAULT NULL,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `nombre` (`nombre`)
@@ -56,10 +56,10 @@ DROP TABLE IF EXISTS `Consumibles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Consumibles` (
-  `id_consumible` int(11) NOT NULL AUTO_INCREMENT,
+  `id_consumible` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
-  `f_añadido` date DEFAULT current_timestamp(),
+  `f_añadido` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_consumible`),
   UNIQUE KEY `Consumibles_pk` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -83,13 +83,13 @@ DROP TABLE IF EXISTS `Contactos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Contactos` (
-  `id_contacto` int(11) NOT NULL AUTO_INCREMENT,
+  `id_contacto` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `apellido` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `cargo` varchar(100) DEFAULT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
+  `id_cliente` Int DEFAULT NULL,
   PRIMARY KEY (`id_contacto`),
   KEY `id_cliente` (`id_cliente`),
   CONSTRAINT `Contactos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `Clientes` (`id_cliente`)
@@ -113,15 +113,15 @@ DROP TABLE IF EXISTS `Impresoras`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Impresoras` (
-  `id_impresora` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cliente` int(11) DEFAULT 1,
+  `id_impresora` Int NOT NULL AUTO_INCREMENT,
+  `id_cliente` Int DEFAULT 1,
   `modelo` varchar(100) DEFAULT NULL,
   `numero_serie` varchar(50) DEFAULT NULL,
-  `f_creacion` date DEFAULT current_timestamp(),
+  `f_creacion` datetime DEFAULT current_timestamp(),
   `ubicacion` varchar(255) DEFAULT NULL,
-  `ult_mant` date DEFAULT NULL,
-  `p_color` int(11) DEFAULT 0,
-  `p_bn` int(11) DEFAULT 0,
+  `ult_mant` datetime DEFAULT NULL,
+  `p_color` Int DEFAULT 0,
+  `p_bn` Int DEFAULT 0,
   `color` tinyint(1) DEFAULT NULL,
   `observaciones` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_impresora`),
@@ -148,16 +148,16 @@ DROP TABLE IF EXISTS `Incidencias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Incidencias` (
-  `id_incidencia` int(11) NOT NULL AUTO_INCREMENT,
-  `id_impresora` int(11) DEFAULT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
+  `id_incidencia` Int NOT NULL AUTO_INCREMENT,
+  `id_impresora` Int DEFAULT NULL,
+  `id_cliente` Int DEFAULT NULL,
+  `id_usuario` Int DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `estado` tinyint(1) DEFAULT 0,
   `contacto` varchar(100) DEFAULT NULL,
   `impreso` tinyint(1) DEFAULT 0,
-  `id_tecnico` int(11) DEFAULT NULL,
+  `id_tecnico` Int DEFAULT NULL,
   PRIMARY KEY (`id_incidencia`),
   KEY `id_impresora` (`id_impresora`),
   KEY `id_cliente` (`id_cliente`),
@@ -181,34 +181,6 @@ INSERT INTO `Incidencias` VALUES (6,1,1,1,'Atasco de papel en la bandeja de entr
 UNLOCK TABLES;
 
 --
--- Table structure for table `Intervencion_Consumible`
---
-
-DROP TABLE IF EXISTS `Intervencion_Consumible`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Intervencion_Consumible` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_intervencion` int(11) DEFAULT NULL,
-  `id_consumible` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_intervencion` (`id_intervencion`),
-  KEY `id_consumible` (`id_consumible`),
-  CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
-  CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Intervencion_Consumible`
---
-
-LOCK TABLES `Intervencion_Consumible` WRITE;
-/*!40000 ALTER TABLE `Intervencion_Consumible` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Intervencion_Consumible` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Intervenciones`
 --
 
@@ -216,14 +188,14 @@ DROP TABLE IF EXISTS `Intervenciones`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Intervenciones` (
-  `id_intervencion` int(11) NOT NULL AUTO_INCREMENT,
-  `id_incidencia` int(11) DEFAULT NULL,
-  `id_tecnico` int(11) DEFAULT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
+  `id_intervencion` Int NOT NULL AUTO_INCREMENT,
+  `id_incidencia` Int DEFAULT NULL,
+  `id_tecnico` Int DEFAULT NULL,
+  `id_usuario` Int DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_intervencion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `copias_color` int(11) DEFAULT NULL,
-  `copias_bn` int(11) DEFAULT NULL,
+  `copias_color` Int DEFAULT NULL,
+  `copias_bn` Int DEFAULT NULL,
   PRIMARY KEY (`id_intervencion`),
   KEY `id_incidencia` (`id_incidencia`),
   KEY `id_tecnico` (`id_tecnico`),
@@ -252,7 +224,7 @@ DROP TABLE IF EXISTS `Roles`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Roles` (
-  `id_rol` int(11) NOT NULL AUTO_INCREMENT,
+  `id_rol` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`id_rol`),
   UNIQUE KEY `nombre` (`nombre`)
@@ -277,7 +249,7 @@ DROP TABLE IF EXISTS `Tecnicos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Tecnicos` (
-  `id_tecnico` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tecnico` Int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `apellido` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
@@ -304,14 +276,14 @@ DROP TABLE IF EXISTS `Usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` Int NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `password` varchar(100) NOT NULL,
-  `id_rol` int(11) NOT NULL DEFAULT 3,
+  `id_rol` Int NOT NULL DEFAULT 3,
   `ultimo_InicioSesion` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
@@ -338,7 +310,7 @@ DROP TABLE IF EXISTS `licencias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `licencias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` Int NOT NULL AUTO_INCREMENT,
   `token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -354,6 +326,35 @@ INSERT INTO `licencias` VALUES (1,'AhFtweFY7HHXeyp4rAiASFevi282PW');
 /*!40000 ALTER TABLE `licencias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+--
+-- Table structure for table `Intervencion_Consumible`
+--
+
+DROP TABLE IF EXISTS `Intervencion_Consumible`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Intervencion_Consumible` (
+  `id` Int NOT NULL AUTO_INCREMENT,
+  `id_intervencion` Int DEFAULT NULL,
+  `id_consumible` Int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_intervencion` (`id_intervencion`),
+  KEY `id_consumible` (`id_consumible`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Intervencion_Consumible`
+--
+
+LOCK TABLES `Intervencion_Consumible` WRITE;
+/*!40000 ALTER TABLE `Intervencion_Consumible` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Intervencion_Consumible` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
