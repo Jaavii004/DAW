@@ -16,7 +16,7 @@ if ($token === null) {
             window.location = "../licencia/añadirlicencia.php";
             </script>
         ';
-        exit; // Detiene la ejecución del script después de la redirección
+        exit;
     } else {
         echo '
             <script>
@@ -24,12 +24,12 @@ if ($token === null) {
             window.location = "../";
             </script>
         ';
-        exit; // Detiene la ejecución del script después de la redirección
+        exit;
     }
 }
 
 
-$url = "http://localhost/php/LicenciasPrintProManager/VerficarLicencia.php?token=" . $token;
+$url = "http://192.168.5.8:8787/VerficarLicencia.php?token=" . $token;
 
 $curl = curl_init();
 
