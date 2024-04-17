@@ -13,12 +13,12 @@ public class PA {
             for (int j = 0; j < n-1; j++) {
                 act = sc.nextInt();
                 if (Math.abs(act) < Math.abs(prv)) {
-                    if (act*prv < 0) {
+                    if (prv*act < 0) {
                         coor = false;
                         break;
                     }
                 } else {
-                    if (act*prv > 0) {
+                    if (prv*act > 0) {
                         coor = false;
                         break;
                     }
@@ -32,5 +32,6 @@ public class PA {
                 System.out.println("INCORRECTA");
             }
         }
+        sc.close();
     }
 }
