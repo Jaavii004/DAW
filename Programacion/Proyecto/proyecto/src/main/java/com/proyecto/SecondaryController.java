@@ -1,4 +1,4 @@
-package tutorial;
+package com.proyecto;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

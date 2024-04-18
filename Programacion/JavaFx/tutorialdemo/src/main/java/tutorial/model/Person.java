@@ -1,6 +1,4 @@
-package tutorial;
-
-import java.time.LocalDate;
+package tutorial.model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -8,6 +6,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import java.time.LocalDate;
 
 /**
  * Model class for a Person.
@@ -29,7 +28,7 @@ public class Person {
 	public Person() {
 		this(null, null);
 	}
-	
+
 	/**
 	 * Constructor with some initial data.
 	 * 
@@ -39,14 +38,14 @@ public class Person {
 	public Person(String firstName, String lastName) {
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
-		
+
 		// Some initial dummy data, just for convenient testing.
 		this.street = new SimpleStringProperty("some street");
 		this.postalCode = new SimpleIntegerProperty(1234);
 		this.city = new SimpleStringProperty("some city");
 		this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
 	}
-	
+
 	public String getFirstName() {
 		return firstName.get();
 	}
@@ -54,7 +53,7 @@ public class Person {
 	public void setFirstName(String firstName) {
 		this.firstName.set(firstName);
 	}
-	
+
 	public StringProperty firstNameProperty() {
 		return firstName;
 	}
@@ -66,7 +65,7 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName.set(lastName);
 	}
-	
+
 	public StringProperty lastNameProperty() {
 		return lastName;
 	}
@@ -78,7 +77,7 @@ public class Person {
 	public void setStreet(String street) {
 		this.street.set(street);
 	}
-	
+
 	public StringProperty streetProperty() {
 		return street;
 	}
@@ -90,7 +89,7 @@ public class Person {
 	public void setPostalCode(int postalCode) {
 		this.postalCode.set(postalCode);
 	}
-	
+
 	public IntegerProperty postalCodeProperty() {
 		return postalCode;
 	}
@@ -102,7 +101,7 @@ public class Person {
 	public void setCity(String city) {
 		this.city.set(city);
 	}
-	
+
 	public StringProperty cityProperty() {
 		return city;
 	}
@@ -114,7 +113,7 @@ public class Person {
 	public void setBirthday(LocalDate birthday) {
 		this.birthday.set(birthday);
 	}
-	
+
 	public ObjectProperty<LocalDate> birthdayProperty() {
 		return birthday;
 	}
