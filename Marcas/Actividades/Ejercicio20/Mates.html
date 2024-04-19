@@ -14,12 +14,14 @@
             background-color: blue;
 
         }
-        div{
+
+        div {
             border-radius: 25px;
             border: 2px solid #008cff;
-            padding: 20px; 
-            background-image: linear-gradient(to left, rgb(170, 148, 148) , rgb(219, 113, 51));
+            padding: 20px;
+            background-image: linear-gradient(to left, rgb(170, 148, 148), rgb(219, 113, 51));
         }
+
         .noticia {
             float: left;
             width: 400px;
@@ -27,8 +29,10 @@
             margin-right: 1px;
             overflow-y: scroll;
             background-color: blueviolet;
-            font-family: Arial, sans-serif; /* Backup font for the news text */
+            font-family: Arial, sans-serif;
+            /* Backup font for the news text */
         }
+
         .traduccion {
             float: right;
             width: 400px;
@@ -36,68 +40,75 @@
             overflow-y: scroll;
             background-color: aquamarine;
         }
+
         .clearfix {
             overflow: auto;
         }
 
         .titulmates {
-            text-shadow: 2px 2px 4px ;
-            font-family: "Times New Roman", Times, serif; /* Backup font for the news title */
+            text-shadow: 2px 2px 4px;
+            font-family: "Times New Roman", Times, serif;
+            /* Backup font for the news title */
         }
 
-        h2,h3 {
-            text-shadow: 2px 2px 4px ;
+        h2,
+        h3 {
+            text-shadow: 2px 2px 4px;
         }
-        
+
+        .tituefecto {
+            font-family: Roboto;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css?family=Sofia&effect=fire" rel="stylesheet">
 </head>
 
 <body>
+    <h1 class="font-effect-fire"> Texto con fuego</h1>
     <div class="mates">
         <h1 class="titulmates">Mates</h1>
         <!-- ESTO ES ITALICA -->
-    <center>
-        <h2>Notica mates</h2>
-        <div class="scroll">
-            Esta historia empieza con un disparo en la madrugada. Y termina con una máquina dotada de creatividad real
-            para jugar contra el campeón mundial de Go y ganarle. Resulta inquietante imaginar cómo una serie de
-            autómatas van traspasando el umbral del proceso evolutivo, reproduciéndose y mutando siguiendo las leyes de
-            selección natural.
-
-            Todo esto es lo que propone la lectura de MANIAC (Anagrama), un libro repleto de claves científicas. Su
-            título se debe a las siglas de Mathematical Analyzer, Numerical Integrator and Computer, nombre de la
-            computadora basada en la arquitectura que desarrolló en 1945 el matemático John von Neumann, un hombre de
-            alto cociente intelectual y personaje central de este libro escrito en estado de gracia por el chileno
-            Benjamín Labatut.
-        </div>
-    </center>
+        <center>
+            <h2>Notica mates</h2>
+            <div class="site-buttons">
+                <iframe src="https://elpais.com" name="iframe_a" title="Iframe Example"></iframe>
+                <p><a href="https://elpais.com" target="iframe_a">El País</a></p>
+                <p><a href="https://elmundo.es" target="iframe_a">El Mundo</a></p>
+                <p><a href="https://www.marca.com" target="iframe_a">Marca</a></p>
+            </div>
+        </center>
+        </center>
         <div class="noticia">
             <div class="clearfix">
-                
                 <h3>Noticia:</h3>
-                autómatas van traspasando el umbral del proceso evolutivo, reproduciéndose y mutando siguiendo las leyes de
-                selección natural.</p>
+                <p>autómatas van traspasando el umbral del proceso evolutivo, reproduciéndose y mutando siguiendo las
+                    leyes de
+                    selección natural.</p>
                 <img src="./imagen1.png" alt="" style="width: 100px; height: auto;">
-
             </div>
         </div>
-        <div class="traduccion">
-            <h3>Translation:</h3>
-            <p>This story begins with a shot in the early morning. And ends with a machine endowed with real creativity
+        <div class="traduccion"></div>
+        <h3>Translation:</h3>
+        <p>This story begins with a shot in the early morning. And ends with a machine endowed with real creativity
             to play against the world champion of Go and beat him. It is disturbing to imagine how a series of
             automatons go beyond the threshold of the evolutionary process, reproducing and mutating following the laws
             of natural selection.</p>
-        </div>
-
-        
+    </div>
     </div>
     <!--Boton de atras (va al indice)-->
-    <div class="tooltip"> 
+    <div class="tooltip">
+        <a href="./Mates.html"></a>
+    </div>
+    <!--Boton de atras (va al indice)-->
+    <div class="tooltip">
         <a href="./Mates.html">
             <img src="./arrow_img.gif" alt="Indice" style="width:42px;height:42px;">
             <span class="tooltiptext">salir</span>
         </a>
     </div>
+
+    <iframe src="https://www.marca.com" width="100%" height="600px"></iframe>
+
 </body>
 
 </html>
