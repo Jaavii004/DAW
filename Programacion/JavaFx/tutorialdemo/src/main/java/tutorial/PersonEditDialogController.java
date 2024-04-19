@@ -1,4 +1,4 @@
-package tutorial.view;
+package tutorial;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

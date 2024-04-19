@@ -3,8 +3,6 @@ package tutorial;
 import java.io.IOException;
 
 import tutorial.model.Person;
-import tutorial.view.PersonEditDialogController;
-import tutorial.view.PersonOverviewController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +12,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import tutorial.view.PersonOverviewController;
 
 public class MainApp extends Application {
 
