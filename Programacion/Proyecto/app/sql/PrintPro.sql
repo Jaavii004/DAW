@@ -1,6 +1,19 @@
-CREATE DATABASE IF NOT EXISTS `PrintPro` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+CREATE DATABASE IF NOT EXISTS `PrintPro`;
 USE `PrintPro`;
 
+CREATE TABLE Estado (
+	id_estado INT PRIMARY KEY,
+  nombre_estado VARCHAR(50)
+);
+
+INSERT INTO Estado (id_estado, nombre_estado) VALUES
+(1, 'Abierta'),
+(2, 'Asignada'),
+(3, 'En Proceso'),
+(4, 'Pendiente Respuesta'),
+(5, 'Programada Visita'),
+(6, 'Derivado a Fabricante'),
+(7, 'Cerrada');
 
 -- Table: Tecnicos
 DROP TABLE IF EXISTS `Tecnicos`;
@@ -136,7 +149,8 @@ INSERT INTO `Usuarios` VALUES
 (3,'superuser','Super','Usuario','superuser@javier.com','123456789', MD5('root'),1,'2024-04-02 19:30:15'),
 (6,'root','Admin','Root','root@javier.com','123456789', MD5('root'),2,'2024-04-02 18:49:13'),
 (7,'usu','usu','usu','usu','1234567',MD5('root'),2,'2024-03-29 00:00:00'),
-(8,'adminuser','adminuser','user','user@usuer-com','12345453', MD5('root'),1,'2024-04-01 00:00:00');
+(8,'adminuser','adminuser','user','user@usuer-com','12345453', MD5('root'),1,'2024-04-01 00:00:00'),
+(9,'admin','admin','admin','admin@usuer-com','12345453', MD5('admin'),1,'2024-04-01 00:00:00');
 
 
 -- Table: Impresoras
@@ -149,8 +163,6 @@ CREATE TABLE `Impresoras` (
   `f_creacion` datetime DEFAULT current_timestamp(),
   `ubicacion` varchar(255) DEFAULT NULL,
   `ult_mant` date DEFAULT NULL,
-  `p_color` Int DEFAULT 0,
-  `p_bn` Int DEFAULT 0,
   `color` tinyint(1) DEFAULT NULL,
   `observaciones` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_impresora`),
@@ -159,63 +171,64 @@ CREATE TABLE `Impresoras` (
 );
 
 INSERT INTO `Impresoras` VALUES 
-(1,1,'HP LaserJet Pro M402dn','LJ5M2948','2024-03-29','Pasillo',NULL,0,0,-1,'Exposicion'),
-(2,1,'Epson EcoTank L3150','EPL315021','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),
-(3,1,'Canon imageCLASS MF644Cdw','CCMF644154','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),
-(4,1,'Brother HL-L2370DW','BHLL237026','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),
-(5,1,'Samsung Xpress M2020W','SXMPR202003','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),
-(6,1,'Lexmark B2236dw','LXBM223601','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),
-(7,1,'Dell Color Multifunction Printer C1765nfw','DCMPC176501','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),
-(8,1,'Ricoh SP C261SFNw','RCSPC261004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),
-(9,1,'Xerox Phaser 6510','XRPH651002','2024-03-30','Sala de Profesores',NULL,0,0,-1,'Exposicion'),
-(10,1,'Kyocera ECOSYS P5021cdw','KYECP502105','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion'),
-(11,1,'Sharp MX-B450W','SHPMXB450008','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),
-(12,1,'Panasonic KX-MB2061ML','PNKXMB206105','2024-03-30','Sala de Profesores',NULL,0,0,1,'Exposicion'),
-(13,1,'Olivetti d-Color MF3301','OLDCMF330106','2024-03-30','Conserjeria',NULL,0,0,0,'Exposicion'),
-(14,1,'Toshiba e-STUDIO181','TBES181004','2024-03-30','Pasillo',NULL,0,0,-1,'Exposicion'),
-(15,1,'Konica Minolta bizhub C3100P','KMC310005','2024-03-30','Conserjeria',NULL,0,0,-1,'Exposicion');
+(1,1,'HP LaserJet Pro M402dn','LJ5M2948','2024-03-29','Pasillo',NULL,-1,'Exposicion'),
+(2,1,'Epson EcoTank L3150','EPL315021','2024-03-30','Conserjeria',NULL,-1,'Exposicion'),
+(3,1,'Canon imageCLASS MF644Cdw','CCMF644154','2024-03-30','Sala de Profesores',NULL,-1,'Exposicion'),
+(4,1,'Brother HL-L2370DW','BHLL237026','2024-03-30','Pasillo',NULL,-1,'Exposicion'),
+(5,1,'Samsung Xpress M2020W','SXMPR202003','2024-03-30','Conserjeria',NULL,-1,'Exposicion'),
+(6,1,'Lexmark B2236dw','LXBM223601','2024-03-30','Pasillo',NULL,-1,'Exposicion'),
+(7,1,'Dell Color Multifunction Printer C1765nfw','DCMPC176501','2024-03-30','Conserjeria',NULL,-1,'Exposicion'),
+(8,1,'Ricoh SP C261SFNw','RCSPC261004','2024-03-30','Pasillo',NULL,-1,'Exposicion'),
+(9,1,'Xerox Phaser 6510','XRPH651002','2024-03-30','Sala de Profesores',NULL,-1,'Exposicion'),
+(10,1,'Kyocera ECOSYS P5021cdw','KYECP502105','2024-03-30','Conserjeria',NULL,-1,'Exposicion'),
+(11,1,'Sharp MX-B450W','SHPMXB450008','2024-03-30','Pasillo',NULL,-1,'Exposicion'),
+(12,1,'Panasonic KX-MB2061ML','PNKXMB206105','2024-03-30','Sala de Profesores',NULL,1,'Exposicion'),
+(13,1,'Olivetti d-Color MF3301','OLDCMF330106','2024-03-30','Conserjeria',NULL,0,'Exposicion'),
+(14,1,'Toshiba e-STUDIO181','TBES181004','2024-03-30','Pasillo',NULL,-1,'Exposicion'),
+(15,1,'Konica Minolta bizhub C3100P','KMC310005','2024-03-30','Conserjeria',NULL,-1,'Exposicion');
 
-
--- Table: Incidencias
+-- Creación de la tabla Incidencias con la columna id_estado
 DROP TABLE IF EXISTS `Incidencias`;
 CREATE TABLE `Incidencias` (
-  `id_incidencia` Int NOT NULL AUTO_INCREMENT,
-  `id_impresora` Int DEFAULT NULL,
-  `id_cliente` Int DEFAULT NULL,
-  `id_usuario` Int DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
-  `f_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `estado` tinyint(1) DEFAULT 0,
-  `contacto` varchar(100) DEFAULT NULL,
-  `impreso` tinyint(1) DEFAULT 0,
+  `id_incidencia` INT NOT NULL AUTO_INCREMENT,
+  `id_impresora` INT DEFAULT NULL,
+  `id_cliente` INT DEFAULT NULL,
+  `id_usuario` INT DEFAULT NULL,
+  `descripcion` TEXT DEFAULT NULL,
+  `f_creacion` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `id_estado` INT DEFAULT 1,
+  `contacto` VARCHAR(100) DEFAULT NULL,
+  `impreso` TINYINT(1) DEFAULT 0,
   PRIMARY KEY (`id_incidencia`),
   KEY `id_impresora` (`id_impresora`),
   KEY `id_cliente` (`id_cliente`),
   KEY `id_usuario` (`id_usuario`),
+  KEY `id_estado` (`id_estado`),
   CONSTRAINT `Incidencias_ibfk_1` FOREIGN KEY (`id_impresora`) REFERENCES `Impresoras` (`id_impresora`),
   CONSTRAINT `Incidencias_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `Clientes` (`id_cliente`),
-  CONSTRAINT `Incidencias_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
+  CONSTRAINT `Incidencias_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`),
+  CONSTRAINT `Incidencias_ibfk_4` FOREIGN KEY (`id_estado`) REFERENCES `Estado` (`id_estado`)
 );
 
-INSERT INTO `Incidencias` VALUES 
-(6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 08:35:49',0,'Juan',0),
-(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 08:35:49',0,'Maria',0),
-(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 08:35:49',0,'Carlos',0),
-(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 08:35:49',0,'Laura',0),
-(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 08:35:49',0,'Ana',0),
-(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 08:57:52',0,'Juan',1),
-(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 08:58:09',0,'Manuel',0),
-(13,1,1,1,'Incidencia de prueba.','2024-03-31 10:12:47',0,'Antonio',0),
-(14,1,1,1,'Incidencia de prueba.','2024-03-31 10:13:58',0,'Antonio',0),
-(15,1,1,1,'Incidencia de prueba.','2024-03-31 10:15:17',0,'Antonio',0),
-(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 15:30:57',0,'Manuel',0),
-(20,1,1,1,'Incidencia de prueba.','2024-04-02 15:42:00',0,'Antonio',0),
-(21,1,1,1,'Juan se a caiddo','2024-04-02 16:50:31',0,'Juan',0),
-(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 17:02:31',0,'Pepita',1),
-(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 17:15:40',0,'Paquita',1),
-(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 17:19:02',0,'Ernesto',1),
-(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 17:30:54',0,'Pepito',1);
-
+-- Inserción de datos en la tabla Incidencias
+INSERT INTO `Incidencias` VALUES
+(6,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 08:35:49',1,'Juan',0),
+(7,2,2,3,'Fallo en la impresion de informes importantes.','2024-03-31 08:35:49',1,'Maria',0),
+(8,1,3,3,'Error de conexion con la impresora.','2024-03-31 08:35:49',1,'Carlos',0),
+(9,3,2,1,'Aparicion de mensaje de error en la pantalla de la impresora.','2024-03-31 08:35:49',1,'Laura',0),
+(10,2,1,3,'Impresion de documentos con calidad borrosa.','2024-03-31 08:35:49',1,'Ana',0),
+(11,1,1,1,'Atasco de papel en la bandeja de salida.','2024-03-31 08:57:52',1,'Juan',1),
+(12,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-03-31 08:58:09',1,'Manuel',0),
+(13,1,1,1,'Incidencia de prueba.','2024-03-31 10:12:47',1,'Antonio',0),
+(14,1,1,1,'Incidencia de prueba.','2024-03-31 10:13:58',1,'Antonio',0),
+(15,1,1,1,'Incidencia de prueba.','2024-03-31 10:15:17',1,'Antonio',0),
+(18,1,1,1,'Atasco de papel en la bandeja de entrada.','2024-04-02 15:30:57',1,'Manuel',0),
+(20,1,1,1,'Incidencia de prueba.','2024-04-02 15:42:00',1,'Antonio',0),
+(21,1,1,1,'Juan se a caiddo','2024-04-02 16:50:31',1,'Juan',0),
+(22,2,1,3,'Problemas con la interfaz de usuario.','2024-04-02 17:02:31',1,'Pepita',1),
+(23,13,1,3,'Error en la interfaz al realizar la impresion.','2024-04-02 17:15:40',1,'Paquita',1),
+(24,13,1,3,'Falla en la interfaz de usuario.','2024-04-02 17:19:02',1,'Ernesto',1),
+(25,13,1,3,'Problemas de comunicacion con la interfaz.','2024-04-02 17:30:54',1,'Pepito',1);
 
 
 -- Table: Intervenciones
@@ -227,8 +240,6 @@ CREATE TABLE `Intervenciones` (
   `id_usuario` Int DEFAULT NULL,
   `descripcion` text DEFAULT NULL,
   `f_intervencion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `copias_color` Int DEFAULT NULL,
-  `copias_bn` Int DEFAULT NULL,
   PRIMARY KEY (`id_intervencion`),
   KEY `id_incidencia` (`id_incidencia`),
   KEY `id_tecnico` (`id_tecnico`),
@@ -250,3 +261,32 @@ CREATE TABLE `Intervencion_Consumible` (
   CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
   CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
 );
+
+
+CREATE TABLE EstadoIncidencia (
+  id_estado_incidencia INT PRIMARY KEY AUTO_INCREMENT,
+  id_incidencia INT,
+  id_estado INT,
+  f_estado DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_estado) REFERENCES Estado(id_estado)
+);
+
+-- Ejemplo de inserción de datos
+INSERT INTO EstadoIncidencia (id_incidencia, id_estado) VALUES
+(1, 1), -- Abierta
+(1, 2), -- Asignada
+(1, 3), -- En Proceso
+(2, 1), -- Abierta
+(2, 4), -- Pendiente Respuesta
+(2, 7); -- Cerrada
+
+
+CREATE TABLE HistorialCopias (
+  id_historial INT PRIMARY KEY AUTO_INCREMENT,
+  id_impresora INT,
+  c_color INT DEFAULT 0,
+  c_blancoynegro INT DEFAULT 0,
+  fecha_copia DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_impresora) REFERENCES Impresoras(id_impresora)
+);
+
