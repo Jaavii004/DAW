@@ -218,19 +218,6 @@ INSERT INTO `Incidencias` VALUES
 
 
 
--- Table: Intervencion_Consumible
-DROP TABLE IF EXISTS `Intervencion_Consumible`;
-CREATE TABLE `Intervencion_Consumible` (
-  `id` Int NOT NULL AUTO_INCREMENT,
-  `id_intervencion` Int DEFAULT NULL,
-  `id_consumible` Int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_intervencion` (`id_intervencion`),
-  KEY `id_consumible` (`id_consumible`),
-  CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
-  CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
-);
-
 -- Table: Intervenciones
 DROP TABLE IF EXISTS `Intervenciones`;
 CREATE TABLE `Intervenciones` (
@@ -251,3 +238,15 @@ CREATE TABLE `Intervenciones` (
   CONSTRAINT `Intervenciones_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `Usuarios` (`id_usuario`)
 );
 
+-- Table: Intervencion_Consumible
+DROP TABLE IF EXISTS `Intervencion_Consumible`;
+CREATE TABLE `Intervencion_Consumible` (
+  `id` Int NOT NULL AUTO_INCREMENT,
+  `id_intervencion` Int DEFAULT NULL,
+  `id_consumible` Int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_intervencion` (`id_intervencion`),
+  KEY `id_consumible` (`id_consumible`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_1` FOREIGN KEY (`id_intervencion`) REFERENCES `Intervenciones` (`id_intervencion`),
+  CONSTRAINT `Intervencion_Consumible_ibfk_2` FOREIGN KEY (`id_consumible`) REFERENCES `Consumibles` (`id_consumible`)
+);
