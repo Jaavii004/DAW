@@ -47,7 +47,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="858.0" prefWidth="1124.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="698.0" prefWidth="1174.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -90,22 +90,22 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <TextField layoutX="131.0" layoutY="42.0" />
-            <TextArea layoutX="131.0" layoutY="180.0" prefHeight="178.0" prefWidth="452.0" />
+            <TextField fx:id="id_Incidencia" layoutX="131.0" layoutY="42.0" />
+            <TextArea fx:id="observaciones" layoutX="131.0" layoutY="180.0" prefHeight="150.0" prefWidth="452.0" />
             <Text layoutX="21.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id incidencia:" />
             <Text layoutX="21.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observaciones:" />
             <Text layoutX="21.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ref. Interna" />
             <Text layoutX="23.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacto:" />
             <Text layoutX="324.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha:" />
             <Text layoutX="326.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora:" />
-            <Text layoutX="27.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intervenciones">
+            <Text layoutX="27.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intervenciones">
                <font>
                   <Font size="19.0" />
                </font></Text>
-            <DatePicker layoutX="393.0" layoutY="40.0" />
-            <TextField layoutX="393.0" layoutY="81.0" prefHeight="24.0" prefWidth="198.0" />
-            <TextField layoutX="131.0" layoutY="81.0" />
-            <TextField layoutX="131.0" layoutY="124.0" />
+            <DatePicker fx:id="fecha" layoutX="393.0" layoutY="40.0" />
+            <TextField fx:id="hora" layoutX="393.0" layoutY="81.0" prefHeight="24.0" prefWidth="198.0" />
+            <TextField fx:id="ref_int" layoutX="131.0" layoutY="81.0" />
+            <TextField fx:id="contacto" layoutX="131.0" layoutY="124.0" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="974.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image-removebg-preview.png" />
@@ -121,7 +121,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Button layoutX="200.0" layoutY="404.0" mnemonicParsing="false" text="+" />
+            <Button fx:id="crearIntervencion" layoutX="200.0" layoutY="353.0" mnemonicParsing="false" text="+" />
          </children>
     </AnchorPane>
   </children>
