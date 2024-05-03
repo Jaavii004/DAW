@@ -27,8 +27,11 @@ network:
       routes:
         - to: default
           via: 192.168.4.254
+<<<<<<< HEAD
       nameservers:
           addresses: [8.8.8.8, 4.4.4.4]
+=======
+>>>>>>> 72517363c04f7b6bf71769868142ac89747c2a00
 ```
 
 cuando lo tengamos tendremos que ejecutar para que se aplique la configuracion **sudo netplan apply**
@@ -37,7 +40,12 @@ cuando lo tengamos tendremos que ejecutar para que se aplique la configuracion *
 ### Empezamos a instalar 
 Vamos a empezar a instalar apache2.
 
+<<<<<<< HEAD
 Lo primero que hacemos es traernos los cambios 
+=======
+Lo primero que hacemos es traernos el 
+
+>>>>>>> 72517363c04f7b6bf71769868142ac89747c2a00
 
 ```bash
 sudo apt update
