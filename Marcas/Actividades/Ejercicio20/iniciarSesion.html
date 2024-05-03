@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Registro de Usuario</h1>
+    <form method="post">
+        <label for="usuario">Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required><br>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="pass" name="pass" required><br>
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br>
+        
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br>
+        
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required><br>
+        <input type="file" id="foto" name="foto" accept="image/*" required><br>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" required><br>
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]{1}" required><br>
+        
+        <input type="submit" value="Registrarse">
+    </form>
+</body>
+</html>
