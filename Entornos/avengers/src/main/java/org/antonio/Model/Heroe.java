@@ -4,11 +4,13 @@ public class Heroe {
     private String nombre;
     private String superpoderes;
     private String biografia;
+    private String descripcion;
 
-    public Heroe(String nombre, String superpoderes, String biografia) {
+    public Heroe(String nombre, String superpoderes, String biografia, String descripcion) {
         this.nombre = nombre;
         this.superpoderes = superpoderes;
         this.biografia = biografia;
+        this.descripcion = descripcion;
     }
 
     public String getNombre() {
@@ -25,6 +27,14 @@ public class Heroe {
 
     public void setNombre(String nombre){
         this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public void setSuperpoderes (String superpoderes){

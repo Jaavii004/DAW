@@ -10,17 +10,17 @@ import org.junit.Before;
 
 public class TestHeroes {
 
-    Heroe ironman = new Heroe(null, null, null);
-    Heroe spiderman = new Heroe(null, null, null);
-    Heroe capitanAmerica = new Heroe(null, null, null);
+    Heroe ironman = new Heroe(null, null, null, null);
+    Heroe spiderman = new Heroe(null, null, null, null);
+    Heroe capitanAmerica = new Heroe(null, null, null, null);
 
     GestorHeroes gh = null;
 
     @Before
     public void setUp(){
-        ironman = new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo");
-        spiderman = new Heroe("Spider-Man", "Sentido arácnido, trepador", "Tímido estudiante de secundaria");
-        capitanAmerica = new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial");
+        ironman = new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo", "descripcion");
+        spiderman = new Heroe("Spider-Man", "Sentido arácnido, trepador", "Tímido estudiante de secundaria", "descripcion");
+        capitanAmerica = new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial", "descripcion");
 
         gh = new GestorHeroes();
         gh.agregarHeroe(ironman);
@@ -46,7 +46,7 @@ public class TestHeroes {
 
     @Test
     public void testSettersHeroe(){
-        Heroe catWoman = new Heroe(null, null, null);
+        Heroe catWoman = new Heroe(null, null, null, null);
         catWoman.setNombre("Cat Woman");
         catWoman.setSuperpoderes("Trepar y arañar");
         catWoman.setBiografia("Es la amiga de Batman");

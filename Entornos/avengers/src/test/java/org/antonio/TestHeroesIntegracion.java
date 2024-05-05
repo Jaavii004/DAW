@@ -2,22 +2,27 @@ package org.antonio;
 
 import static org.junit.Assert.*;
 
+import org.antonio.Exception.HeroeNoEncontradoException;
+import org.antonio.Model.GestorHeroes;
 import org.antonio.Model.Heroe;
 import org.junit.Test;
 
 public class TestHeroesIntegracion {
 
     @Test
-    public void testSettersHeroe(){
-        Heroe catWoman = new Heroe(null, null, null);
-        catWoman.setNombre("Cat Woman");
-        catWoman.setSuperpoderes("Trepar y arañar");
-        catWoman.setBiografia("Es la amiga de Batman");
+    public void testGestorHeroes() throws HeroeNoEncontradoException {
+        GestorHeroes gh = new GestorHeroes();
+        Heroe heroe1 = new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo", "descripcion");
+        Heroe heroe2 = new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial", "descripcion");
 
-        assertEquals("Cat Woman", catWoman.getNombre());
-        assertEquals("Trepar y arañar", catWoman.getSuperpoderes());
-        assertEquals("Es la amiga de Batman", catWoman.getBiografia());
+        gh.agregarHeroe(heroe1);
+        gh.agregarHeroe(heroe2);
 
-        assertNotEquals("Capitan América", catWoman.getNombre());
+        assertTrue(false == gh.getHeroes().isEmpty());
+        assertEquals(2, gh.getHeroes().size());
+        assertEquals(heroe1, gh.buscarHeroe("Iron Man"));
+        assertEquals(heroe2, gh.buscarHeroe("Captain America"));
+        assertNotEquals(heroe1, gh.buscarHeroe("Capitán América"));
+        assertNotEquals(heroe2, gh.buscarHeroe(""));
     }
 }
