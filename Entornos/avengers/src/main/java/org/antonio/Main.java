@@ -11,9 +11,9 @@ public class Main {
         GestorHeroes gestorHeroes = new GestorHeroes();
 
         // Agregamos algunos héroes
-        gestorHeroes.agregarHeroe(new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo"));
-        gestorHeroes.agregarHeroe(new Heroe("Spider-Man", "Sentido arácnido, trepador", "Tímido estudiante de secundaria"));
-        gestorHeroes.agregarHeroe(new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial"));
+        gestorHeroes.agregarHeroe(new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo", null));
+        gestorHeroes.agregarHeroe(new Heroe("Spider-Man", "Sentido arácnido, trepador", "Tímido estudiante de secundaria", null));
+        gestorHeroes.agregarHeroe(new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial", null));
 
         // Pedimos al usuario que seleccione un héroe
         Scanner scanner = new Scanner(System.in);

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class TestActualizarHeroe {
     @Test
-    public void TestActualizarHeroes() throws HeroeNoEncontradoException{
+    public void testActualizarHeroe() throws HeroeNoEncontradoException{
         GestorHeroes gh = new GestorHeroes();
         Heroe ironman = new Heroe("Iron Man", "Traje de alta tecnología", "Millonario y filántropo", "descripcion");
         Heroe spiderman = new Heroe("Spider-Man", "Sentido arácnido, trepador", "Tímido estudiante de secundaria", "descripcion");

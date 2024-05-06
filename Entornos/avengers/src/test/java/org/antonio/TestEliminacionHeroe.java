@@ -23,6 +23,9 @@ public class TestEliminacionHeroe {
         gh.eliminarHeroe(capitanAmerica.getNombre());
         gh.eliminarHeroe(spiderman.getNombre());
 
+        gh.eliminarHeroe(capitanAmerica.getNombre());
+        gh.buscarHeroe("Spider-Man");
+
         assertEquals(1, gh.getHeroes().size());
         assertEquals(ironman.getNombre(), gh.buscarHeroe("Iron Man").getNombre());
         assertEquals(null,  gh.buscarHeroe("Spider-Man"));

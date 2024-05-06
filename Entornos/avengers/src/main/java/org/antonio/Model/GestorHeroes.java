@@ -4,6 +4,7 @@ import org.antonio.Exception.HeroeNoEncontradoException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class GestorHeroes {
     private List<Heroe> heroes;
@@ -51,21 +52,19 @@ public class GestorHeroes {
     }
 
     public String listarHeroes() {
-        String Nombres = "";
+        List<String> nombres = new ArrayList<>();
         for (Heroe heroe : this.heroes) {
-            Nombres += heroe.getNombre();
-            if (heroe != this.heroes.get(this.heroes.size() - 1)) {
-                Nombres += ", ";
-            }
+            nombres.add(heroe.getNombre());
         }
-        return Nombres;
+        //Para separar por comas en string el ArrayList
+        return String.join(", ", nombres);
     }
 
-    public List<Heroe> buscarHeroesPorSuperpoder(String superpoderes) {
+    public List<Heroe> ListaHeroesPorSuperpoder(String superpoderes) {
         List<Heroe> ListHeroes = new ArrayList<>();
         for (Heroe heroe : this.heroes) {
             String superpoderesHeroe = heroe.getSuperpoderes();
-            if (superpoderesHeroe.contains(superpoderes)) {
+            if (superpoderesHeroe.toLowerCase().contains(superpoderes.toLowerCase())) {
                 ListHeroes.add(heroe);
             }
         }

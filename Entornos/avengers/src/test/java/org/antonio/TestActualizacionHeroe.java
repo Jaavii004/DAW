@@ -3,7 +3,6 @@ package org.antonio;
 import static org.junit.Assert.*;
 
 import org.antonio.Exception.HeroeNoEncontradoException;
-import org.antonio.Model.GestorHeroes;
 import org.antonio.Model.Heroe;
 import org.junit.Test;
 
@@ -11,9 +10,8 @@ public class TestActualizacionHeroe {
     
     @Test
     public void testActualizarHeroe() throws HeroeNoEncontradoException {
-        GestorHeroes gh = new GestorHeroes();
         Heroe capitanAmerica = new Heroe("Capitán América", "Superfuerza, agilidad, resistencia", "Soldado de la Segunda Guerra Mundial", "descripcion");
-        gh.agregarHeroe(capitanAmerica);
+
         
         capitanAmerica.setNombre("Capitan America");
         capitanAmerica.setSuperpoderes("ninguno");
