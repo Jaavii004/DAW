@@ -1,5 +1,3 @@
-package pruebasFicheros;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,7 +5,7 @@ import java.sql.SQLException;
 public class Conexion {
     // javac -cp :mysql-connector-j-8.3.0.jar *.java
     // java -cp :mysql-connector-j-8.3.0.jar nombre
-    private static final String DB_URL = "jdbc:mysql://192.168.0.20:33006/";
+    private static final String DB_URL = "jdbc:mysql://localhost:33006/";
     private static final String USER = "root";
     private static final String PASSWORD = "dbrootpass";
     

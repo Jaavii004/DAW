@@ -1,17 +1,15 @@
-package pruebasFicheros;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import pruebasFicheros.Conexion;
 
 public class Main {
     public static void main(String[] args) {
         Statement st = null;
         try {
+            Connection con = Conexion.getConnection("pruebas");
+            st = con.createStatement();
             BufferedReader br = new BufferedReader(new FileReader("users.csv"));
             String line;
             while ((line = br.readLine()) != null) {
@@ -23,13 +21,11 @@ public class Main {
                         String grado = str[3];
                         int edad = Integer.parseInt(str[4]);
                         try {
-                            Connection con = Conexion.getConnection("pruebas");
-                            String query = "INSERT INTO users (name, apellido, grado, edad) VALUES ('"
+                            String query = "INSERT INTO Usuarios (nombre, apellido, grado, edad) VALUES ('"
                                             + name + "', '" + apellido + "', '" + grado + "', " + edad + ")";
-                            st = con.createStatement();
                             st.executeUpdate(query);
                         } catch (Exception e) {
-                            // TODO: handle exception
+                            e.printStackTrace();
                         }
                     }
                 } catch (NumberFormatException e) {
