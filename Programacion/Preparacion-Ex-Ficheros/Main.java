@@ -2,26 +2,37 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Main {
-    public void MostrarCli(Statement st) {
+    public static void MostrarCli(Statement st) {
         try {
-            String query = "SELECT * FROM Clientes;";
+            String query = "SELECT CodigoCliente, NombreCliente, NombreContacto, ApellidoContacto, Telefono, Fax, LineaDireccion1, LineaDireccion2, Ciudad, Region, Pais, CodigoPostal, LimiteCredito FROM clientes;";
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
-                System.out.println(rs.getInt("CodigoCliente"));
+                System.out.println("CodigoCliente: " + rs.getInt("CodigoCliente"));
+                System.out.println("NombreCliente: " + rs.getString("NombreCliente"));
+                System.out.println("NombreContacto: " + rs.getString("NombreContacto"));
+                System.out.println("ApellidoContacto: " + rs.getString("ApellidoContacto"));
+                System.out.println("Telefono: " + rs.getString("Telefono"));
+                System.out.println("Fax: " + rs.getString("Fax"));
+                System.out.println("LineaDireccion1: " + rs.getString("LineaDireccion1"));
+                System.out.println("LineaDireccion2: " + rs.getString("LineaDireccion2"));
+                System.out.println("Ciudad: " + rs.getString("Ciudad"));
+                System.out.println("Region: " + rs.getString("Region"));
+                System.out.println("Pais: " + rs.getString("Pais"));
+                System.out.println("CodigoPostal: " + rs.getString("CodigoPostal"));
+                System.out.println("LimiteCredito: " + rs.getDouble("LimiteCredito"));
+                System.out.println("-----------------------------------------------------------");
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
         // javac -cp :mysql-connector-j-8.3.0.jar *.java
-        // java -cp :mysql-connector-j-8.3.0.jar Interfaz
+        // java -cp :mysql-connector-j-8.3.0.jar Main
         String NombreBaseDatos = "exdaw";
         int opcion;
 
@@ -31,7 +42,7 @@ public class Main {
             Statement st = con.createStatement();
             MostrarCli(st);
 
-            sc.close();
+            //sc.close();
             Conexion.closeConnection();
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
