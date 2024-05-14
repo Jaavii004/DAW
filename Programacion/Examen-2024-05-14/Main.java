@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.InputMismatchException;
 
 public class Main {
-    public static void MostrarCli(Statement st) throws IOException {
+    public static void MostrarCli(Statement st) {
         try {
             FileWriter fw = new FileWriter("./Clientes.csv");
             fw.write("CodigoCliente,NombreCliente,NombreContacto,ApellidoContacto,Telefono,Fax,LineaDireccion1,LineaDireccion2,Ciudad,Region,Pais,CodigoPostal,LimiteCredito\n");
@@ -45,6 +45,8 @@ public class Main {
             fw.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch ( IOException o) {
+            o.printStackTrace();
         }
     }
 
@@ -58,11 +60,7 @@ public class Main {
             Connection con = Conexion.getConnection(NombreBaseDatos);
             // Creamos un objeto para enviar sentencias SQL a la BD
             Statement st = con.createStatement();
-            try {
-                MostrarCli(st);
-            } catch (Exception e) {
-                // TODO: handle exception
-            }
+            MostrarCli(st);
 
             switch (opcion) {
                 case 1:

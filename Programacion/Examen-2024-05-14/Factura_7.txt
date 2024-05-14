@@ -1,0 +1,46 @@
+Beragua C/pintor segundo Madrid 28942 España 654987321
+------------------------------------------------------------------
+13 	2009-01-12 	entregado 	
+
+11679 Sierra de Poda 400MM 5 14.0 70.0 
+21636 Pala 12 14.0 168.0 
+FR-11 Limonero 30/40 5 100.0 500.0 
+
+Subtotal: 738.0
+------------------------------------------------------------------
+14 	2009-01-02 	rechazado 	mal pago
+
+FR-13 Kunquat  EXTRA con FRUTA 13 57.0 741.0 
+FR-100 Nectarina 8 11.0 88.0 
+
+Subtotal: 829.0
+------------------------------------------------------------------
+15 	2009-01-09 	entregado 	
+
+OR-156 Acer platanoides   6 10.0 60.0 
+OR-101 Expositor Mimosa Semilla Mix 2 6.0 12.0 
+FR-84 Kaki 4 13.0 52.0 
+OR-203 Pinus Canariensis 9 10.0 90.0 
+
+Subtotal: 214.0
+------------------------------------------------------------------
+16 	2009-01-06 	entregado 	
+
+30310 Azadón 12 12.0 144.0 
+FR-36 Granado Mollar de Elche 10 9.0 90.0 
+
+Subtotal: 234.0
+------------------------------------------------------------------
+17 	2009-01-08 	entregado 	mal estado
+
+11679 Sierra de Poda 400MM 5 14.0 70.0 
+FR-37 Higuera Napolitana 5 9.0 45.0 
+22225 Rastrillo de Jardín 5 12.0 60.0 
+FR-64 Cerezo 5 22.0 110.0 
+OR-136 Nerium oleander ARBOL Calibre 8/10 5 18.0 90.0 
+
+Subtotal: 375.0
+------------------------------------------------------------------
+Total: 2390.0
+IVA: 501.9
+Importe a Pagar: 2891.9
