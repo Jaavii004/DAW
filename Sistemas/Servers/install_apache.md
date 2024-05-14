@@ -55,6 +55,10 @@ Crear las dos carpetas en /WEB
 mkdir docs
 mkdir personal
 
+Le damos permisos al usuario Webcontent y al mi grupo
+```bash
+sudo chown webcontent:javier -R /WEB
+```
 Ahora vamos a crear los virtualHosts
 
 en este archivo **/etc/apache2/sites-available/personal.conf** creamos el archivo y ponemos este comando **sudo a2ensite personal.conf**
@@ -78,12 +82,7 @@ en este archivo **/etc/apache2/sites-available/personal.conf** creamos el archiv
 
     ErrorLog ${APACHE_LOG_DIR}/error-personal.log
     CustomLog ${APACHE_LOG_DIR}/access-personal.log combined
-
-    <Directory "/WEB/personal">
-        Allow from all
-        Order allow,deny
-        Require all granted
-    </Directory>
+  
     # For most configuration files from conf-available/, which are
     # enabled or disabled at a global level, it is possible to
     # include a line for only one particular virtual host. For example the
@@ -118,11 +117,6 @@ en este archivo /etc/apache2/sites-available/docs.conf creamos el archivo y pone
 
     ErrorLog ${APACHE_LOG_DIR}/error-docs.log
     CustomLog ${APACHE_LOG_DIR}/access-docs.log combined
-    <Directory "/WEB/docs/">
-        Order allow,deny
-        Allow from all
-        Require all granted
-    </Directory>
 
     # For most configuration files from conf-available/, which are
     # enabled or disabled at a global level, it is possible to
@@ -131,10 +125,86 @@ en este archivo /etc/apache2/sites-available/docs.conf creamos el archivo y pone
     # after it has been globally disabled with "a2disconf".
     #Include conf-available/serve-cgi-bin.conf
 </VirtualHost>
-
 ```
 
-
+Añadiremos esto al **/etc/apache2/apache2.conf** para darle permisos a el apache
+```bash
+<Directory /WEB/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+```
 
 Reiniciaremos el server de apache con 
 sudo service apache2 restart
+
+
+# Ahora vamos a configurar el DNS en el server 2
+
+## Instalar bind9
+```bash
+sudo apt-get install bind9
+```
+
+## Configurar la zonas
+
+crearemos el fichero el archivo **named.conf.local** en la ruta **/etc/bind/** y pondremos esto en el archivo
+```bash
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "javier.test" {
+    type master;
+    file "/etc/bind/db.javier.test";
+};
+```
+
+y ahora creamos en el mismo directorio el fichero db.javier.test que haremos una copia de **db.local**
+
+```bash
+sudo cp db.local db.javier.test
+```
+
+y podremos en el archivo db.javier.test esto 
+```bash
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     javier.test. root.javier.test. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      www.javier.test.
+@       IN      A       192.168.5.58
+@       IN      AAAA    ::1
+ns      IN      A       192.168.5.58
+www     IN      A       192.168.5.58
+docs     IN      A       192.168.5.58
+```
+
+reiniciamos el servidor bind9
+```bash
+sudo service bind9 restart
+```
+
+
+# Ahora configuramos la maquina cliente
+
+vamos a cambiar el dns que nos responde 
+
+```bash
+sudo nano /etc/resolv.conf
+```
+y cambiamos el nameservers y ponemos la ip del servidor 2(el del server dns)
+
+

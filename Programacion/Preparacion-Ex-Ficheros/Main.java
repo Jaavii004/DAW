@@ -34,13 +34,25 @@ public class Main {
         // javac -cp :mysql-connector-j-8.3.0.jar *.java
         // java -cp :mysql-connector-j-8.3.0.jar Main
         String NombreBaseDatos = "exdaw";
-        int opcion;
+        int opcion = 1;
 
         try {
             Connection con = Conexion.getConnection(NombreBaseDatos);
             // Creamos un objeto para enviar sentencias SQL a la BD
             Statement st = con.createStatement();
             MostrarCli(st);
+
+            switch (opcion) {
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                default:
+                    System.out.println("Opcion no valida");
+                    break;
+            }
 
             //sc.close();
             Conexion.closeConnection();
