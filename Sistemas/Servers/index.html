@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentacion Javier Puertas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+        }
+
+        code {
+            display: block;
+            background-color: #f5f5f5;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Documentacion Javier Puertas</h1></center>
+    <h1>Instalar Apache2 en Ubuntu 24.04</h1>
+    <h2>Contenido</h2>
+    <ul>
+        <li><a href="#cambiar-la-direccion-ip">Cambiar la dirección IP</a></li>
+        <li><a href="#instalar-apache2">Instalar Apache2</a></li>
+        <li><a href="#crear-los-virtualhosts">Crear los VirtualHosts</a></li>
+        <li><a href="#configurar-el-dns-en-el-servidor-2">Configurar el DNS en el servidor 2</a></li>
+        <li><a href="#configurar-la-maquina-cliente">Configurar la máquina cliente</a></li>
+    </ul>
+
+    <h2 id="cambiar-la-direccion-ip">Cambiar la dirección IP</h2>
+    <p>Lo primero que haremos será cambiar la dirección IP de nuestra máquina. Para ello, utilizaremos <strong>netplan</strong>.</p>
+
+    <ol>
+        <li>
+            Abre el archivo de configuración:
+            <pre><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></pre>
+        </li>
+        <li>
+            Modifica el archivo con la siguiente configuración:
+            <pre><code>
+            # This file is generated from information provided by the datasource.  Changes
+# to it will not persist across an instance reboot.  To disable cloud-init's
+# network configuration capabilities, write a file
+# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+# network: {config: disabled}
+#network:
+#    ethernets:
+#        enp0s3:
+#            dhcp4: true
+#    version: 2
+network:
+    version: 2
+    ethernets:
+    enp0s3:
+        addresses:
+        - 192.168.5.58/23
+        routes:
+        - to: default
+            via: 192.168.4.254
+        nameservers:
+            addresses: [8.8.8.8, 4.4.4.4]</code></pre>
+        </li>
+        <li>
+            Aplica los cambios:
+            <pre><code>sudo netplan apply</code></pre>
+        </li>
+    </ol>
+
+    <h2 id="instalar-apache2">Instalar Apache2</h2>
+    <p>Ahora, vamos a instalar Apache2. Para ello, ejecuta los siguientes comandos:</p>
+
+    <pre><code>sudo apt update
+sudo apt install apache2</code></pre>
+
+    <h2 id="crear-los-virtualhosts">Crear los VirtualHosts</h2>
+    <p>A continuación, vamos a crear los VirtualHosts para cada una de las máquinas.</p>
+
+    <ol>
+        <li>
+            Crea un archivo de configuración para cada máquina. Por ejemplo, para la máquina 1, crea un archivo llamado <strong>000-default.conf</strong>:
+            <pre><code>sudo nano /etc/apache2/sites-available/000-default.conf</code></pre>
+        </li>
+        <li>
+            Modifica el archivo de configuración con la siguiente configuración:
+            <pre><code>&lt;VirtualHost *:80&gt;
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+    ServerName servidor1.com
+    ServerAlias www.servidor1.com
+    DocumentRoot /var/www/servidor1
+
+    ErrorLog ${APACHE_LOG_DIR}/servidor1_error.log
+    CustomLog ${APACHE_LOG_DIR}/servidor1_access.log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+    ServerName servidor2.com
+    ServerAlias www.servidor2.com
+    DocumentRoot /var/www/servidor2
+
+    ErrorLog ${APACHE_LOG_DIR}/servidor2_error.log
+    CustomLog ${APACHE_LOG_DIR}/servidor2_access.log combined
+&lt;/VirtualHost&gt;</code></pre>
+        </li>
+        <li>
+            Activa los VirtualHosts:
+            <pre><code>sudo a2ensite 000-default.conf
+sudo a2ensite servidor1.com.conf
+sudo a2ensite servidor2.com.conf</code></pre>
+        </li>
+        <li>
+            Desactiva el VirtualHost predeterminado:
+            <pre><code>sudo a2dissite 000-default</code></pre>
+        </li>
+        <li>
+            Reinicia Apache2 para aplicar los cambios:
+            <pre><code>sudo systemctl restart apache2</code></pre>
+        </li>
+    </ol>
+
+    <h2 id="configurar-el-dns-en-el-servidor-2">Configurar el DNS en el servidor 2</h2>
+    <p>Para que las máquinas cliente puedan acceder a los VirtualHosts, necesitamos configurar el DNS en el servidor 2.</p>
+
+    <ol>
+        <li>
+            Instala el paquete <strong>bind9</strong>:
+            <pre><code>sudo apt install bind9</code></pre>
+        </li>
+        <li>
+            Modifica el archivo de configuración de <strong>bind9</strong>:
+            <pre><code>sudo nano /etc/bind/named.conf.options</code></pre>
+        </li>
+        <li>
+            Agrega las siguientes configuraciones:
+            <pre><code>options {
+    directory "/var/cache/bind";
+
+    recursion yes;
+
+    allow-query { any; };
+
+    forwarders {
+        8.8.8.8;
+        4.4.4.4;
+    };
+
+    dnssec-validation auto;
+
+    auth-nxdomain no;    # conform to RFC1035
+    listen-on-v6 { any; };
+};
+
+acl "trusted" {
+    192.168.5.0/24;
+    127.0.0.1;
+};</code></pre>
+        </li>
+        <li>
+            Crea un archivo de configuración para cada dominio:
+            <pre><code>sudo nano /etc/bind/named.conf.local</code></pre>
+        </li>
+        <li>
+            Agrega las siguientes configuraciones:
+            <pre><code>zone "servidor1.com" {
+    type master;
+    file "/etc/bind/db.servidor1.com";
+};
+
+zone "servidor2.com" {
+    type master;
+    file "/etc/bind/db.servidor2.com";
+};</code></pre>
+        </li>
+        <li>
+            Crea un archivo de zona para cada dominio:
+            <pre><code>sudo nano /etc/bind/db.servidor1.com
+sudo nano /etc/bind/db.servidor2.com</code></pre>
+        </li>
+        <li>
+            Agrega las siguientes configuraciones:
+            <pre><code>$TTL    604800
+@       IN      SOA     ns.servidor1.com. root.servidor1.com. (
+                          1         ; Serial
+                     604800         ; Refresh
+                      86400         ; Retry
+                    2419200         ; Expire
+                     604800 )       ; Negative Cache TTL
+
+;
+@       IN      NS      ns.servidor1.com.
+@       IN      A       192.168.5.58
+
+ns      IN      A       192.168.5.58</code></pre>
+        </li>
+        <li>
+            Reinicia <strong>bind9</strong> para aplicar los cambios:
+            <pre><code>sudo systemctl restart bind9</code></pre>
+        </li>
+    </ol>
+
+    <h2 id="configurar-la-maquina-cliente">Configurar la máquina cliente</h2>
+    <p>Por último, configuraremos la máquina cliente para que utilice el servidor DNS recién creado.</p>
+
+    <ol>
+        <li>
+            Modifica el archivo de configuración de la red:
+            <pre><code>sudo nano /etc/netplan/50-cloud-init.yaml</code></pre>
+        </li>
+        <li>
+            Agrega la siguiente configuración:
+            <pre><code>network:
+  version: 2
+  ethernets:
+    enp0s8:
+      dhcp4: yes
+      nameservers:
+        addresses: [192.168.5.58]</code></pre>
+        </li>
+        <li>
+            Reinicia la red para aplicar los cambios:
+            <pre><code>sudo netplan apply</code></pre>
+        </li>
+    </ol>
+</body>
+</html>

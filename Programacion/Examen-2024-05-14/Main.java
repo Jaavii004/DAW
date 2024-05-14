@@ -9,9 +9,8 @@ import java.util.InputMismatchException;
 public class Main {
     public static void MostrarCli(Statement st) throws IOException {
         try {
-            FileWriter fw = new FileWriter("./file.csv");
+            FileWriter fw = new FileWriter("./Clientes.csv");
             fw.write("CodigoCliente,NombreCliente,NombreContacto,ApellidoContacto,Telefono,Fax,LineaDireccion1,LineaDireccion2,Ciudad,Region,Pais,CodigoPostal,LimiteCredito\n");
-
             String query = "SELECT CodigoCliente, NombreCliente, NombreContacto, ApellidoContacto, Telefono, Fax, LineaDireccion1, LineaDireccion2, Ciudad, Region, Pais, CodigoPostal, LimiteCredito FROM clientes;";
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
