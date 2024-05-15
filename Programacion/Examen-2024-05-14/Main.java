@@ -75,7 +75,6 @@ public class Main {
             }
 
             //sc.close();
-            Conexion.closeConnection();
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
         } catch (InputMismatchException e) {

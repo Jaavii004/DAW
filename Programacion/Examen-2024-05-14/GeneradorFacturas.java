@@ -105,7 +105,6 @@ public class GeneradorFacturas {
                 System.out.println("Debes insertar un numero.");
             }
             sc.close();
-            Conexion.closeConnection();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());

@@ -73,7 +73,6 @@ public class ImportarEmpleados {
             Statement st = con.createStatement();
             CrearTablaEmpleados(st);
             ImportarEmpleadosABD(st);
-            Conexion.closeConnection();
             System.out.println("Importacion Completada");
         } catch (SQLException e) {
             System.out.println("Error en la bd: " + e.getErrorCode() + " - " + e.getMessage());
