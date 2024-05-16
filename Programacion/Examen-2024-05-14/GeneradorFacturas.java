@@ -83,6 +83,7 @@ public class GeneradorFacturas {
                 while (rs.next()) {
                     String sali = rs.getInt("CodigoPedido")+" "+rs.getString("FechaPedido")+" "+rs.getString("Estado")+" "+rs.getString("Comentarios");
                     sali = sali.replaceAll("null", "");
+                    Productos(st, idCliente);
                     // Voy a guardar el Valor por el que ten
                     map.put(rs.getInt("CodigoPedido"), sali+"\n\n");
                 }
