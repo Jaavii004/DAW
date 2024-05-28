@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javier.RpNController">
+   <children>
+      <Button fx:id="button8" layoutX="366.0" layoutY="186.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="8" />
+      <Button fx:id="button9" layoutX="436.0" layoutY="186.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="9" />
+      <Button fx:id="button7" layoutX="296.0" layoutY="186.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="7" />
+      <Button fx:id="button5" layoutX="366.0" layoutY="260.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="5" />
+      <Button fx:id="button6" layoutX="436.0" layoutY="260.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="6" />
+      <Button fx:id="button4" layoutX="296.0" layoutY="260.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="4" />
+      <Button layoutX="506.0" layoutY="186.0" mnemonicParsing="false" onAction="#sum" prefHeight="148.0" prefWidth="70.0" text="+" />
+      <Button fx:id="button2" layoutX="366.0" layoutY="334.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="2" />
+      <Button fx:id="button3" layoutX="436.0" layoutY="334.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="3" />
+      <Button fx:id="button1" layoutX="296.0" layoutY="334.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="70.0" text="1" />
+      <Button layoutX="506.0" layoutY="334.0" mnemonicParsing="false" onAction="#pulsEnter" prefHeight="148.0" prefWidth="70.0" text="Enter" />
+      <Button layoutX="436.0" layoutY="408.0" mnemonicParsing="false" onAction="#buttonpun" prefHeight="74.0" prefWidth="70.0" text="." />
+      <Button fx:id="button0" layoutX="296.0" layoutY="408.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="140.0" text="0" />
+      <Button layoutX="366.0" layoutY="112.0" mnemonicParsing="false" onAction="#div" prefHeight="74.0" prefWidth="70.0" text="/" />
+      <Button layoutX="436.0" layoutY="112.0" mnemonicParsing="false" onAction="#mul" prefHeight="74.0" prefWidth="70.0" text="*" />
+      <Button layoutX="296.0" layoutY="112.0" mnemonicParsing="false" onAction="#cambSig" prefHeight="74.0" prefWidth="70.0" text="+/-" />
+      <Button layoutX="506.0" layoutY="112.0" mnemonicParsing="false" onAction="#res" prefHeight="74.0" prefWidth="70.0" text="-" />
+      <Label layoutX="87.0" layoutY="23.0" text="RPN Strikes back">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ffbff" height="298.0" layoutX="24.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ffffe" height="65.0" layoutX="24.0" layoutY="416.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
+      <VBox alignment="BOTTOM_LEFT" layoutX="32.0" layoutY="120.0" prefHeight="275.0" prefWidth="221.0">
+         <children>
+            <Label fx:id="label8" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label7" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label6" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label5" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label4" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label3" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label2" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label1" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label0" alignment="TOP_RIGHT" contentDisplay="BOTTOM" prefHeight="16.0" prefWidth="228.0" text="0.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label fx:id="numvol" alignment="CENTER_RIGHT" layoutX="32.0" layoutY="434.0" prefHeight="30.0" prefWidth="221.0" text="">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="506.0" layoutY="38.0" mnemonicParsing="false" onAction="#Limpiar" prefHeight="74.0" prefWidth="70.0" text="C" />
+      <Button layoutX="436.0" layoutY="38.0" mnemonicParsing="false" onAction="#elimpri" prefHeight="74.0" prefWidth="70.0" text="&lt;-" />
+      <Button layoutX="366.0" layoutY="38.0" mnemonicParsing="false" onAction="#cambiarundos" prefHeight="74.0" prefWidth="70.0" text="&lt;&gt;" />
+   </children>
+</Pane>
