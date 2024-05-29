@@ -199,6 +199,16 @@ WHERE idAsignatura IN (
 );
 ```
 
+20.1.  **Calcular el promedio de cada alumno en todas las asignaturas del primer cuatrimestre:**
+```sql
+SELECT a.idAlumno, a.nombre, AVG(m.nota) AS promedio_notas
+FROM alumno a
+JOIN matricula m ON a.idAlumno = m.idAlumno
+JOIN asignatura s ON m.idAsignatura = s.idAsignatura
+WHERE s.cuatrimestre = 1
+GROUP BY a.idAlumno, a.nombre;
+```
+
 
 21. **Encontrar los cursos en los que todos los profesores sean catedráticos:**
 ```sql
