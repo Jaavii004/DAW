@@ -1,7 +1,3 @@
-¡Claro! Aquí tienes un README detallado sobre la gestión de usuarios y la creación de tablas en una base de datos MySQL:
-
----
-
 # Gestión de Usuarios y Creación de Tablas en MySQL
 
 Este documento detalla los pasos necesarios para gestionar usuarios y crear tablas en una base de datos MySQL. Cubriremos desde la instalación de MySQL, la creación y gestión de usuarios, hasta la creación y manipulación de tablas.

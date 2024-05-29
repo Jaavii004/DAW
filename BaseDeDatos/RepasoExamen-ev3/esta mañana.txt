@@ -1,0 +1,84 @@
+dni acaban s
+SELECT nombre , a.NIF , idAsignatura
+FROM matricula
+JOIN alumno AS a USING(idAlumno)
+WHERE idAsignatura = 'AS010'
+AND a.NIF LIKE '%S';
+---------------------------------
+n asig obli por curso
+SELECT curso, COUNT(*) AS num_obligatorias
+FROM asignatura
+WHERE caracter = 'obligatoria'
+GROUP BY curso;
+---------------------------
+Listar los alumnos que han obtenido una beca y están matriculados en asignaturas del primer cuatrimestre:
+select idAlumno
+from alumno
+where idAlumno in (
+select idAlumno
+    from matricula
+    join alumno using(idAlumno)
+    where idAlumno in (
+select idAlumno
+from alumno
+where beca like 'si'
+        and idAsignatura in (
+select idAsignatura
+            from asignatura
+            where cuatrimestre like '1'
+        )
+    )
+);
+------------------------
+Contar cuántos profesores imparten asignaturas en cada provincia:
+select count(idProfesor)
+from profesor
+where idProfesor in (
+select idProfesor
+    from impartir i
+    join asignatura a
+    on a.idAsignatura = i.idAsignatura
+    where coordinador in (
+select idProfesor
+        from profesor
+        where provincia like 'Madrid'
+    )
+);
+---------------------
+Encontrar las asignaturas que tienen más de 5 profesores impartiendo:
+SELECT idAsignatura, nombre
+From asignatura
+where idAsignatura in (SELECT idAsignatura
+                    FROM impartir
+                    GROUP BY idAsignatura
+                    HAVING count(*) > 2);
+---------------------
+Calcular la suma de créditos de todas las asignaturas optativas:
+select sum(creditos) as SumaCréditos
+from asignatura
+where caracter like '%opta%';
+-------------------
+Listar los alumnos que han obtenido una beca y están matriculados en asignaturas con más de 4 créditos y coordinadas por un profesor con un determinado NIF:
+select *
+from alumno
+where idAlumno in (
+select idAlumno
+    from matricula
+    join alumno using(idAlumno)
+    where idAlumno in (
+select idAlumno
+from alumno
+where beca like 'si'
+        and idAsignatura in (
+select idAsignatura
+            from asignatura
+            where creditos > 4
+            and coordinador in (
+select idProfesor
+                from profesor
+                where NIF like '52479077P'
+            )
+        )
+    )
+);
+

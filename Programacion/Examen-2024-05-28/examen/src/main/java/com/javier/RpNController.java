@@ -139,6 +139,9 @@ public class RpNController {
 
     @FXML
     private void cambSig() {
+        if (numvol.getText().equals("")) {
+            return;
+        }
         double num = Double.parseDouble(numvol.getText());
         numvol.setText(""+-num);
     }
