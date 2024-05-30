@@ -1,0 +1,95 @@
+A continuación, te proporciono las respuestas a cada una de las preguntas:
+
+Teoría (3 puntos)
+
+    Una subconsulta escalar Respuesta: 1. Devuelve un único valor
+
+    Un campo generado puede ser útil para: Respuesta: 3. Todas las anteriores
+
+    Para implementar una relación muchos a muchos entre dos entidades Respuesta: 4. Añadiremos una única tabla relacionando las dos entidades, junto con restricciones de clave ajena
+
+    En MySQL, ¿cómo podemos mostrar todas las bases de datos que tenemos en el sistema? Respuesta: 4. a y b son correctas, siempre que tengamos los permisos suficientes
+
+    La sintaxis de la definición de los atributos de una tabla sigue el orden Respuesta: 1. TIPO nombreAtributo RESTRICCIONES
+
+    Una clave foránea Respuesta: 3. Todas las anteriores
+
+    ¿Qué tipo de JOIN combina cada fila de la primera tabla con todas las filas de la segunda tabla? Respuesta: 5. CROSS JOIN
+
+    El uso de HAVING Respuesta: 3. Filtra los resultados después de aplicar la función de agregación
+
+    Para mostrar los permisos que tiene el usuario actual en MySQL, podemos ejecutar Respuesta: 3. SHOW GRANTS;
+
+    El último SELECT mostrará Respuesta: 2. 10 filas
+
+Test práctico (4 puntos)
+
+    El rol por defecto del usuario “Manuel” es Respuesta: 2. “Alumno”
+
+    Redes desde las que puede conectarse el usuario Andy: Respuesta: 3. Puede conectarse desde cualquiera de las anteriores, incluso desde otras redes
+
+    Alumnos con los dos apellidos iguales: Respuesta: 1. Ninguno
+
+    Cardinalidad de la relación entre profesor y tlfContactoProf: Respuesta: 2. 1:1
+
+    Municipio con más alumnos aprobados Respuesta: 2. Madrid
+
+    ¿A cuántos alumnos les da clase el profesor Carlos De Las Heras Orrego? Respuesta: 4. 66
+
+    Número de profesores que son clientes de Chinook Respuesta: 2. 6
+
+    Duración media, en segundos y redondeando a las unidades, de la segunda playlist con más canciones Respuesta: 2. 270 s
+
+Prácticas elaboradas (3 puntos)
+
+    Detalla la consulta necesaria para obtener una tabla con todas las asignaturas, el número de alumnos matriculado en cada una y la nota media de estos alumnos.
+
+Consulta:
+
+sql
+
+SELECT 
+
+  a.nombre_asignatura, 
+
+  COUNT(alumno_id) AS num_alumnos, 
+
+  AVG(nota) AS nota_media
+
+FROM 
+
+  asignaturas a 
+
+  JOIN matriculas m ON a.id_asignatura = m.id_asignatura 
+
+  JOIN alumnos al ON m.alumno_id = al.id_alumno 
+
+GROUP BY 
+
+  a.nombre_asignatura;
+
+
+CREATE TABLE asociaciones (
+  id_asociacion INT PRIMARY KEY,
+  nombre_asociacion VARCHAR(44) NOT NULL,
+  fecha_fundacion DATE NOT NULL
+);
+
+CREATE TABLE cargos_asociacion (
+  id_cargo INT PRIMARY KEY,
+  id_asociacion INT NOT NULL,
+  cargo VARCHAR(20) NOT NULL,
+  alumno_id INT NOT NULL,
+  FOREIGN KEY (id_asociacion) REFERENCES asociaciones(id_asociacion),
+  FOREIGN KEY (alumno_id) REFERENCES alumnos(id_alumno),
+  UNIQUE (id_asociacion, cargo)
+);
+
+CREATE TABLE socios (
+  id_socio INT PRIMARY KEY,
+  id_asociacion INT NOT NULL,
+  alumno_id INT NOT NULL,
+  FOREIGN KEY (id_asociacion) REFERENCES asociaciones(id_asociacion),
+  FOREIGN KEY (alumno_id) REFERENCES alumnos(id_alumno)
+);
+
